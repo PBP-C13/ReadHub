@@ -7,5 +7,4 @@ app_name = 'main'
 urlpatterns = [
     path('', show_main, name='show_main'),
     path('api/books/', get_json, name='book-list'),
-    
 ]
