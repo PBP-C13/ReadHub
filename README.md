@@ -21,26 +21,25 @@ Dalam era digital yang terus berkembang, literasi masyarakat terkait membaca buk
 
 Sementara itu, layar gadget menjadi teman setia kita sepanjang hari, tak jarang kurang lebih **9 jam sehari**, sementara aktivitas kicauan di media sosial kita sebagai salah satu yang tercerewet di dunia maya. Sebuah kenyataan yang mencengangkan: Jakarta menjadi kota paling cerewet di dunia, dengan lebih dari 10 juta tweet setiap harinya. Dalam laporan Semiocast, kota-kota lain seperti Tokyo, London, New York, dan Sao Paulo juga mengikuti jejak kita yang gemar berbagi cerita.
 
-Namun, kesenangan ini membawa tantangan serius. Informasi yang kita konsumsi kadang-kadang lebih menggantungkan pada opini dan emosi daripada fakta yang benar. Di era Post-Truth, kebenaran tidak lagi menjadi prioritas, dan masyarakat kita lebih terbuka terhadap informasi palsu dan berita yang tidak diverifikasi. Masyarakat cenderung **menelan mentah mentah** informasi yang didapatkan karena **kurangnya literasi** .
+Namun, kesenangan ini membawa tantangan serius. Informasi yang kita konsumsi kadang-kadang lebih menggantungkan pada opini dan emosi daripada fakta yang benar. Di era Post-Truth, kebenaran tidak lagi menjadi prioritas, dan masyarakat kita lebih terbuka terhadap informasi palsu dan berita yang tidak diverifikasi. Masyarakat cenderung `menelan mentah mentah` informasi yang didapatkan karena `kurangnya literasi` .
 
 Namun, dari sini muncul peluang menarik: bagaimana jika kita memanfaatkan kecintaan kita pada teknologi untuk merangsang minat membaca yang terlupakan? Bagaimana jika kita menciptakan alat yang menggabungkan kemudahan teknologi dengan gairah membaca?
 
-Oleh karena itu kami membuat aplikasi **ReadHub** yang mengubah cara kita mendekati buku, memberikan kemudahan dalam meminjam dan membaca, sementara juga mendidik kita dalam literasi media. Selamat datang di era di mana teknologi menjadi jembatan menuju minat baca yang baru. 
+Oleh karena itu kami membuat aplikasi `ReadHub` yang mengubah cara kita mendekati buku, memberikan kemudahan dalam meminjam dan membaca, sementara juga mendidik kita dalam literasi media. Selamat datang di era di mana teknologi menjadi jembatan menuju minat baca yang baru. 
 
-Aplikasi **ReadHub** tidak hanya dirancang untuk memfasilitasi akses mudah ke berbagai jenis buku dan sumber bacaan, tetapi juga untuk mendorong literasi digital. Dengan menggunakan aplikasi ini, kami berharap masyarakat dapat semakin terbiasa dengan penggunaan teknologi dan literasi digital, membuka pintu bagi pemahaman dan keterampilan yang lebih baik dalam mengakses informasi melalui platform digital.
+Aplikasi `ReadHub` tidak hanya dirancang untuk memfasilitasi akses mudah ke berbagai jenis buku dan sumber bacaan, tetapi juga untuk mendorong literasi digital. Dengan menggunakan aplikasi ini, kami berharap masyarakat dapat semakin terbiasa dengan penggunaan teknologi dan literasi digital, membuka pintu bagi pemahaman dan keterampilan yang lebih baik dalam mengakses informasi melalui platform digital.
 
 <br>
 
 
 # 💫 Manfaat 💫
-Aplikasi ReadHub memiliki sejumlah harapan positif terhadap masyarakat. Kami berharap aplikasi ini  dapat **meningkatkan tingkat literasi di masyarakat** dengan memberikan akses yang lebih mudah ke berbagai jenis buku dan sumber bacaan. Selain itu, terdapat fitur favorit buku dan forum diskusi buku yang dapat **menciptakan komunitas membaca** serta dapat menghubungkan orang-orang dengan minat membaca yang sama.
+Aplikasi ReadHub memiliki sejumlah harapan positif terhadap masyarakat. Kami berharap aplikasi ini dapat `meningkatkan tingkat literasi di masyarakat` dengan memberikan akses yang lebih mudah ke berbagai jenis buku dan sumber bacaan. Selain itu, terdapat fitur favorit buku dan forum diskusi buku yang dapat `menciptakan komunitas membaca` serta dapat menghubungkan orang-orang dengan minat membaca yang sama.
 
 Kami juga berharap penggunaan ReadHub akan membantu pengembangan keterampilan dan pengetahuan di masyarakat. Dengan berbagai jenis buku dan informasi yang tersedia, masyarakat dapat memanfaatkan aplikasi ini untuk tujuan pendidikan, pengembangan keterampilan, atau bahkan hobi mereka.
 
 Dengan beragamnya fitur-fitur yang ada, harapannya masyarakat menjadi lebih terdorong untuk meningkatkan minat membaca mereka yang pada akhirnya dapat  membantu masyarakat untuk menjadi lebih terampil dalam penggunaan teknologi dan literasi digital.
 
-
-Melalui **ReadHub**, kami juga berharap dapat membantu pengembangan keterampilan dan pengetahuan di masyarakat. Dengan berbagai jenis buku dan informasi yang tersedia, masyarakat dapat memanfaatkan aplikasi ini untuk tujuan pendidikan, pengembangan keterampilan, atau bahkan hobi mereka. Dengan fitur-fitur yang menarik, kami berharap masyarakat akan lebih terdorong untuk meningkatkan minat membaca mereka, yang pada akhirnya dapat membantu mereka menjadi lebih terampil dalam penggunaan teknologi dan literasi digital.
+Melalui `ReadHub`, kami juga berharap dapat membantu pengembangan keterampilan dan pengetahuan di masyarakat. Dengan berbagai jenis buku dan informasi yang tersedia, masyarakat dapat memanfaatkan aplikasi ini untuk tujuan pendidikan, pengembangan keterampilan, atau bahkan hobi mereka. Dengan fitur-fitur yang menarik, kami berharap masyarakat akan lebih terdorong untuk meningkatkan minat membaca mereka, yang pada akhirnya dapat membantu mereka menjadi lebih terampil dalam penggunaan teknologi dan literasi digital.
 
 <br>
 
