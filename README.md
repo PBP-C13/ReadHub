@@ -81,3 +81,8 @@ Modul ini memungkinkan pengguna untuk menandai atau menyimpan buku-buku favorit 
   
   Registered user dapat mengakses semua page dan mengakses semua fitur yang ada dalam web {nama aplikasi}.
 
+<br>
+
+# 🔗 Sumber Dataset	🔗
+
+https://www.kaggle.com/datasets/meetnaren/goodreads-best-books/data
