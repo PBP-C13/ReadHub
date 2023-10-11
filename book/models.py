@@ -3,17 +3,16 @@ from django.utils.translation import gettext as _
 
 # Create your models here.
 
-class Product(models.Model):
-    name = models.CharField(max_length=255)
-    date_added = models.DateField(auto_now_add=True)
-    price = models.IntegerField()
-    description = models.TextField()
-    title = models.CharField (_("title"), max_length=255)
-    author = models.CharField (_("author"), max_length=255)
-    desc = models.TextField (_("description"))
-    format = models.CharField (_("format"), max_length=100)
-    isbn = models.IntegerField (_("isbn"))
-    pages = models.IntegerField (_("pages"))
-    rating = models.IntegerField (_("rating"))
-    genre = models.IntegerField(_("genre"))
-    image = models.TextField (_("image"),  max_length=255)
+class Book(models.Model):
+    book_authors = models.TextField(null=True, blank=True)
+    book_desc = models.TextField(null=True, blank=True)
+    book_edition = models.TextField(null=True, blank=True)
+    book_format = models.TextField(null=True, blank=True)
+    book_isbn = models.TextField(null=True, blank=True)
+    book_pages = models.TextField(null=True, blank=True)
+    book_rating = models.FloatField(null=True, blank=True)
+    book_rating_count = models.IntegerField(null=True, blank=True)
+    book_review_count = models.IntegerField(null=True, blank=True)
+    book_title = models.TextField(null=True, blank=True)
+    genres = models.TextField(null=True, blank=True)
+    image_url = models.TextField(null=True, blank=True)
