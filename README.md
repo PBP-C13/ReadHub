@@ -7,13 +7,13 @@ Nama Aplikasi : ReadHub
 Link Aplikasi : 	
 
 Anggota Kelompok	
-Aiza Derisyana - 2206082436
-Arya Wijaya Kusuma -2206030306
-Aryan Primasatya Putra Hidayat - 2206081181
-Reyhan Zada Virgiwibowo - 2206081723
-Syifa Kaffa Billah - 2206816430
+* Aiza Derisyana - 2206082436
+* Arya Wijaya Kusuma -2206030306
+* Aryan Primasatya Putra Hidayat - 2206081181
+* Reyhan Zada Virgiwibowo - 2206081723
+* Syifa Kaffa Billah - 2206816430
 
-Cerita Latar Belakang & Manfaatnya
+# **Cerita Latar Belakang & Manfaatnya**
 
 Dalam era digital yang terus berkembang, literasi masyarakat terkait membaca buku dan sumber bacaan masih menjadi tantangan. Untuk mengatasi hal ini, kami mengembangkan aplikasi ReadHub dengan tujuan memberikan kontribusi positif terhadap peningkatan tingkat literasi dan pengembangan pengetahuan masyarakat.
 
@@ -32,21 +32,26 @@ Aplikasi ReadHub memiliki sejumlah harapan positif terhadap masyarakat. Kami ber
 Kami juga berharap penggunaan ReadHub akan membantu pengembangan keterampilan dan pengetahuan di masyarakat. Dengan berbagai jenis buku dan informasi yang tersedia, masyarakat dapat memanfaatkan aplikasi ini untuk tujuan pendidikan, pengembangan keterampilan, atau bahkan hobi mereka.
 Dengan beragamnya fitur-fitur yang ada, harapannya masyarakat menjadi lebih terdorong untuk meningkatkan minat membaca mereka yang pada akhirnya dapat  membantu masyarakat untuk menjadi lebih terampil dalam penggunaan teknologi dan literasi digital.
 
-Daftar Modul	(Penjelasan soon)
-Landing Page 
-Login, Register, Logout 
-List Category Buku 
-Detail & Review Buku
-Meminjam Buku
-Forum Diskusi Buku 
-Favorit Buku (Arya) 
+# **Daftar Modul	(Penjelasan soon)**
+- Landing Page 
+- Login, Register, Logout 
+- List Category Buku 
+- Detail & Review Buku
+- Meminjam Buku
+- Forum Diskusi Buku 
+- Favorit Buku (Arya) 
 
 
-Role Pengguna Aplikasi (User, Admin)
-Super admin 
-Super admin dapat mengakses semua fitur aplikasi dalam segi administrasi tanpa memandang hak akses.
-Non Registered User
-Non registered user atau visitor hanya dapat melihat homepage list semua buku namun tidak dapat mengakses fitur lainnya seperti detail buku, wishlist/favorit buku dan pinjam buku
-Registered User
-Registered user dapat mengakses semua page dan mengakses semua fitur yang ada dalam web {nama aplikasi}.
+# **Role Pengguna Aplikasi (User, Admin)**
+- Super admin 
+
+  Super admin dapat mengakses semua fitur aplikasi dalam segi administrasi tanpa memandang hak akses.
+
+- Non Registered User
+
+  Non registered user atau visitor hanya dapat melihat homepage list semua buku namun tidak dapat mengakses fitur lainnya seperti detail buku, wishlist/favorit buku dan pinjam buku
+
+- Registered User
+  
+  Registered user dapat mengakses semua page dan mengakses semua fitur yang ada dalam web {nama aplikasi}.
 
