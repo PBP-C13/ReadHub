@@ -17,7 +17,7 @@ Link Aplikasi : 	[TBA]
 
 # ✨ Cerita Latar Belakang & Manfaatnya ✨
 
-Dalam era digital yang terus berkembang, literasi masyarakat terkait membaca buku dan sumber bacaan masih menjadi tantangan.  Di tengah lautan informasi yang tak kenal batas, Indonesia mendapati diri dalam sebuah dilema menarik. Dalam satu sisi, kita adalah bangsa dengan minat baca yang terpinggirkan, yang hanya **0,001%** dari populasi yang masih menjadikan buku sebagai sahabat setia. Di sisi lain, menurut *kominfo.id* kita adalah salah satu negara dengan jumlah pemilik gadget yang fantastis, dengan lebih dari **60 juta penduduk yang memiliki perangkat pintar**, menempati peringkat kelima di dunia.
+Dalam era digital yang terus berkembang, literasi masyarakat terkait membaca buku dan sumber bacaan masih menjadi tantangan.  Di tengah lautan informasi yang tak kenal batas, Indonesia mendapati diri dalam sebuah dilema menarik. Dalam satu sisi, kita adalah bangsa dengan minat baca yang terpinggirkan, yang hanya `0,001%` dari populasi yang masih menjadikan buku sebagai sahabat setia. Di sisi lain, menurut *kominfo.id* kita adalah salah satu negara dengan jumlah pemilik gadget yang fantastis, dengan lebih dari `60 juta penduduk yang memiliki perangkat pintar`, menempati peringkat kelima di dunia.
 
 Sementara itu, layar gadget menjadi teman setia kita sepanjang hari, tak jarang kurang lebih **9 jam sehari**, sementara aktivitas kicauan di media sosial kita sebagai salah satu yang tercerewet di dunia maya. Sebuah kenyataan yang mencengangkan: Jakarta menjadi kota paling cerewet di dunia, dengan lebih dari 10 juta tweet setiap harinya. Dalam laporan Semiocast, kota-kota lain seperti Tokyo, London, New York, dan Sao Paulo juga mengikuti jejak kita yang gemar berbagi cerita.
 
