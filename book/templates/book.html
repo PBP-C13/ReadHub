@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  body {
+    background-color: #161832; /* Background color for the entire page */
+    color: #fff; /* Text color */
+  }
+  .card {
+    background-color: #13142A; /* Background color for cards */
+    color: #fff; /* Text color for cards */
+    margin:8px;
+    padding:8px;
+    border-radius: 20px;
+    
+  }
+  .card-container {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    flex-wrap: nowrap; 
+    justify-content: flex-start; 
+    gap: 5px;
+    overflow-x: auto; 
+    justify-items: center; 
+    align-items: center;
+    justify-content: center;
+    margin: 28px;
+    padding-bottom: 20px;
+    }
+
+  img {
+    height: 400px;
+    border-radius: 14px 14px;
+    width: 300px;
+  }
+
+</style>
+
+<h1>book ni bos</h1>
+
+<h5>Name:</h5>
+<p>{{name}}</p>
+
+<h5>Classs:</h5>
+<p>{{class}}</p>
+
+<h1>Daftar Buku</h1>
+
+<div class="card-container">
+  {% for book in book %}
+  <div class="card text-white" style="width: 18rem;">
+      <img class="card-img-top" src="{{book.image_url}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{book.book_title}}</h5>
+        <p class="card-text">Author: {{book.book_authors}} </p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock content %}
