@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Favorit ni bos</h1>
+
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Classs:</h5>
+    <p>{{class}}</p>
+
+    <h1>Daftar Buku</h1>
+
+    {% for favorit in favorit %}
+    <div class="card text-white" style="width: 18rem;">
+        <img class="card-img-top" src="{{favorit.image_url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{favorit.book_title}}</h5>
+          <p class="card-text">Author: {{favorit.book_author}} </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock content %}

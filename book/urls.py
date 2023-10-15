@@ -1,10 +1,11 @@
 from django.urls import path
 from .views import get_json
-from main.views import show_main
+from .views import show_book
 
-app_name = 'main'
+
+app_name = 'book'
 
 urlpatterns = [
-    path('', show_main, name='show_main'),
+    path('', show_book, name='show_book'),
     path('api/books/', get_json, name='book-list'),
 ]
