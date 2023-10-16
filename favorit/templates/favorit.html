@@ -1,6 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<style>
+  body {
+    background-color: #161832; /* Background color for the entire page */
+    color: #fff; /* Text color */
+  }
+  .card {
+    background-color: #13142A; /* Background color for cards */
+    color: #fff; /* Text color for cards */
+    margin:8px;
+    padding:8px;
+    border-radius: 20px;
+    
+  }
+  .card-container {
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    flex-wrap: nowrap; 
+    justify-content: flex-start; 
+    gap: 5px;
+    overflow-x: auto; 
+    justify-items: center; 
+    align-items: center;
+    justify-content: center;
+    margin: 28px;
+    padding-bottom: 20px;
+    }
+
+  img {
+    height: 400px;
+    border-radius: 14px 14px;
+    width: 300px;
+  }
+
+</style>
+
     <h1>Favorit ni bos</h1>
 
     <h5>Name:</h5>
