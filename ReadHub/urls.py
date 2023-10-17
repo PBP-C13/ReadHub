@@ -24,4 +24,5 @@ urlpatterns = [
     path('book/', include('book.urls')),
     path('favorit/', include('favorit.urls')),  
     path('community/', include('discussion_forum.urls')),  
+    path('category/', include('category.urls')),
 ]
