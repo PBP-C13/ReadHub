@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>CATEGORY</h1>
+
+    {% for book in books %}
+        <img src="{{ book.image_url }}" alt="book" width="100">
+    {% endfor %}
+
+{% endblock content %}
