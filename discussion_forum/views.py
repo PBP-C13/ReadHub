@@ -5,18 +5,15 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.core import serializers
 from .models import bookform
-
-
+from book.models import Book
 
 # Create your views here.
 
 def show_forum(request):
-    book = bookform.objects.all()
+    book = Book.objects.all()
 
     context = {
-        'name': 'Pak Bepe', # Nama kamu
-        'class': 'PBP C', # Kelas PBP kamu
-        'favorit': book
+        'community': book
     }
 
     return render(request, "forum.html", context)

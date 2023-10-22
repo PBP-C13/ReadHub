@@ -5,13 +5,14 @@ from django.urls import reverse
 from django.http import HttpResponse
 from django.core import serializers
 from .models import favorit
+from book.models import Book
 
 
 
 # Create your views here.
 
 def show_favorit(request):
-    favorits = favorit.objects.all()
+    favorits = Book.objects.all()
 
     context = {
         'name': 'Pak Bepe', # Nama kamu
@@ -22,5 +23,5 @@ def show_favorit(request):
     return render(request, "favorit.html", context)
 
 def get_json(self):
-    data = favorit.objects.all()
+    data = Book.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
