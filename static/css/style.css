@@ -46,3 +46,287 @@ body {
     border-radius: 14px;
     width: 300px;
 }
+
+.sign-in {
+    background-color: #161832;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .sign-in .div {
+    background-color: #161832;
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+  }
+  
+  .sign-in .overlap {
+    height: 976px;
+    top: 24px;
+    left: 24px;
+    border-radius: 40px;
+    position: absolute;
+    width: 688px;
+  }
+  
+  .sign-in .vector {
+    position: absolute;
+    width: 578px;
+    height: 612px;
+    top: 359px;
+    left: 73px;
+  }
+  
+  .sign-in .start-your-journey {
+    position: absolute;
+    width: 468px;
+    top: 197px;
+    left: 73px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .text-wrapper {
+    color: #ffffff;
+  }
+  
+  .sign-in .span {
+    color: #3fbcfc;
+  }
+  
+  .sign-in .group {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 67px;
+    left: 73px;
+    background-image: url(./img/mask-group.png);
+    background-size: 100% 100%;
+  }
+  
+  .sign-in .mask-group {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+  }
+  
+  .sign-in .frame {
+    position: absolute;
+    width: 688px;
+    height: 976px;
+    top: 0;
+    left: 0;
+    background-color: #2a4cf1;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+  
+  .sign-in .overlap-group {
+    height: 617px;
+    top: 359px;
+    left: 0;
+    position: absolute;
+    width: 688px;
+  }
+  
+  .sign-in .img {
+    position: absolute;
+    width: 578px;
+    height: 612px;
+    top: 0;
+    left: 73px;
+  }
+  
+  .sign-in .element {
+    position: absolute;
+    width: 688px;
+    height: 617px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .sign-in .p {
+    position: absolute;
+    width: 468px;
+    top: 186px;
+    left: 73px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: transparent;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .group-2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 56px;
+    left: 73px;
+  }
+  
+  .sign-in .text-wrapper-2 {
+    position: absolute;
+    top: 219px;
+    left: 829px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .frame-2 {
+    display: flex;
+    flex-direction: column;
+    width: 491px;
+    align-items: center;
+    gap: 24px;
+    position: absolute;
+    top: 310px;
+    left: 829px;
+  }
+  
+  .sign-in .frame-3 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+  }
+  
+  .sign-in .label {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .input {
+    padding: 24px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    background-color: #2b2e53;
+    border-radius: 16px;
+    border: 1px solid;
+    border-color: #2a4cf1;
+    flex: 0 0 auto;
+    margin-top: -1px;
+    font-family: "Poppins-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff80;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .frame-4 {
+    background-color: #2b2e53;
+    border: 1px solid;
+    border-color: #2a4cf1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    border-radius: 16px;
+  }
+  
+  .sign-in .text-input {
+    position: relative;
+    flex: 0 0 auto;
+    background-color: transparent;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff80;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+  }
+  
+  .sign-in .iconsax-linear {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .sign-in .frame-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 491px;
+    align-items: flex-start;
+    gap: 16px;
+    position: absolute;
+    top: 588px;
+    left: 829px;
+  }
+  
+  .sign-in .frame-5 {
+    background-color: #2a4cf1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+    position: relative;
+    align-self: stretch;
+    width: 100%;
+    flex: 0 0 auto;
+    border-radius: 16px;
+  }
+  
+  .sign-in .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .sign-in .already-member-sign {
+    position: absolute;
+    top: 686px;
+    left: 961px;
+    font-family: "Inter-Medium", Helvetica;
+    font-weight: 500;
+    color: transparent;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .sign-in .text-wrapper-4 {
+    color: #ffffffbf;
+  }
+  
+  
