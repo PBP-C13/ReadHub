@@ -1,10 +1,63 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>CATEGORY</h1>
+    <style>
+        h1{
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .navbar {
+            background-color: #12132A; /* Ganti dengan warna yang Anda inginkan */
+        }
+        .navbar-brand{
+            color: #FFFFFF;
+        }
+        .card-img-top{
+            justify-content: center;
+            max-width: 140px; /* Sesuaikan lebar maksimal sesuai kebutuhan */
+            max-height: 120px;
+            border-radius: 10px; /* Atur radius sesuai kebutuhan */
+            margin-top: 5px;
+        }
+        .judul{
+            font-size: 12px;
+        }
+        .author{
+            font-size: 10px;
+        }
+        .card{
+            margin: 2px;
+            height: 220px; /* Atur tinggi sesuai kebutuhan */
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
+            grid-gap: 1px; /* Jarak antara card */
+        }
 
-    {% for book in books %}
-        <img src="{{ book.image_url }}" alt="book" width="100">
-    {% endfor %}
+    </style>
+
+    <nav class="navbar">
+        <span class="navbar-brand mb-0 h1">Navbar</span>
+    </nav>
+
+    <div class="container">
+
+        <h1>More Books in ReadHub</h1>
+        <br/>
+
+        <div class="card-container">
+            {% for book in books %}
+              <div class="card" >
+                <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                <div class="card-body">
+                  <h5 class="judul">{{ book.book_title }}</h5>
+                  <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+   
+    </div>
 
 {% endblock content %}
