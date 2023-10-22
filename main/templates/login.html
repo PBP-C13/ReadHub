@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block meta %}
+    <title>Login V18</title>
+{% endblock meta %}
+
+{% block content %}
+<html>
+  <body>
+    <div class="sign-in">
+      <div class="div">
+        <div class="overlap">
+          <img class="vector" src="img/image.svg" />
+          <p class="start-your-journey">
+            <span class="text-wrapper">Start your </span>
+            <span class="span">Journey </span>
+            <span class="text-wrapper">in ReadHub</span>
+          </p>
+          <div class="group"><img class="mask-group" src="img/image.png" /></div>
+          <div class="frame">
+            <div class="overlap-group">
+              <img class="img" src="../../static/img/vector.svg" /> <img class="element" src="../../static/img/Char.svg" />
+            </div>
+            <p class="p">
+              <span class="text-wrapper">Start your </span>
+              <span class="span">Journey </span>
+              <span class="text-wrapper">in ReadHub</span>
+            </p>
+            <img class="group-2" src="../../static/img/logo.svg" />
+          </div>
+        </div>
+        <p class="text-wrapper-2">Sign In for an account</p>
+        <div class="frame-2">
+          <div class="frame-3">
+            <label class="label" for="input-1">Full name</label> <input class="input" id="input-1" />
+          </div>
+          <div class="frame-3">
+            <label class="label" for="input-2">Password</label>
+            <div class="frame-4">
+              <input class="text-input" id="input-2" /> <img class="iconsax-linear" src="../../static/img/icon/mata.svg" />
+            </div>
+          </div>
+        </div>
+        <div class="frame-wrapper">
+          <div class="frame-5">
+            <div class="text-wrapper-3">Sign up</div>
+            <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
+          </div>
+        </div>
+        <p class="already-member-sign">
+          <span class="text-wrapper-4">Already member?</span>
+          <span class="text-wrapper">&nbsp;</span>
+          <a class="span" href="{% url 'main:register' %}">Register Now</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}     
+
+{% endblock content %}
