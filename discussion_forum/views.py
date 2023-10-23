@@ -34,7 +34,7 @@ def create_forum(request):
         forum = Forum(author=request.user, book=book, text=text)
         forum.save()
 
-        # Kirim respons JSON dengan data forum yang baru saja dibuat
+        
         data = {
             "author": forum.author.username,
             "text": forum.text,

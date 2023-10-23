@@ -11,5 +11,5 @@ urlpatterns = [
     path('unlike_forum/', unlike_forum, name='unlike_forum'),
     path('like_comment/', like_comment, name='like_comment'),
     path('unlike_comment/', unlike_comment, name='unlike_comment'),
-    path('api/books/', get_json, name='book-list'),  # Untuk endpoint JSON daftar buku
+    path('api/books/', get_json, name='book-list'), 
 ]

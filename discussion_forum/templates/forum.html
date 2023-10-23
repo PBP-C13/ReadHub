@@ -353,45 +353,45 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
-        // Tampilkan modal pop-up ketika tombol "Make a Post" diklik
+        
         $("#make-forum-button").click(function () {
             $("#forumModal").modal("show");
         });
 
-        // Tangani pengiriman form forum melalui AJAX
+        
         $("#submitForum").click(function () {
             var formData = new FormData($("#forumForm")[0]);
 
             $.ajax({
                 type: "POST",
-                url: "/create_forum/",  // Ganti dengan URL yang sesuai
+                url: "/create_forum/", 
                 data: formData,
                 processData: false,
                 contentType: false,
                 success: function (data) {
-                    // Forum berhasil dibuat, tambahkan respons sesuai dengan kebutuhan Anda
+                    
                 },
                 error: function (xhr, textStatus, errorThrown) {
-                    // Tangani kesalahan
+                    
                 }
             });
         });
 
-        // Handler untuk tombol "Make a Post"
+        
         $("#make-forum-button").click(function () {
-            var text = "Contoh pesan forum";  // Gantilah dengan teks pesan yang ingin Anda buat
-            var bookId = 1;  // Gantilah dengan ID buku yang sesuai
+            var text = "Contoh pesan forum";  
+            var bookId = 1;  i
 
-            // Kirim permintaan AJAX untuk membuat forum
+            
             $.ajax({
                 type: "POST",
-                url: "/create_forum/",  // Ganti dengan URL yang sesuai
+                url: "/create_forum/",  
                 data: {
                     text: text,
                     book_id: bookId
                 },
                 success: function (data) {
-                    // Forum berhasil dibuat, tambahkan pesan forum ke dalam forum-container
+                    
                     var forumHtml = `
                     <div class="forum-person">
                       <div class="person-section">
@@ -431,10 +431,10 @@
                     </svg>
                     `;
 
-                    // Tambahkan pesan forum ke dalam forum-container
+                    
                     $("#forum-container").prepend(forumHtml);
                 },
-                // ... Penanganan kesalahan
+                
             });
         });
     });
