@@ -1,6 +1,6 @@
 from django.db import models
 
-class bookform(models.Model):
+class Bookform(models.Model):
     book_authors = models.TextField(null=True, blank=True)
     book_desc = models.TextField(null=True, blank=True)
     book_edition = models.TextField(null=True, blank=True)
@@ -14,6 +14,6 @@ class bookform(models.Model):
     genres = models.TextField(null=True, blank=True)
     image_url = models.TextField(null=True, blank=True)
 
-class forum(models.Model):
+class Forum(models.Model):
     pesan = models.TextField()
-    gambar = models.FileField()
+    

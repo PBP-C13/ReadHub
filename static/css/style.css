@@ -412,7 +412,6 @@ body {
   position: relative;
 }
 
-
 .community .filter {
   padding-top: 30px;
   display: inline-flex;
@@ -545,13 +544,12 @@ body {
   display: flex;
   width: 308px;
   height: 66px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   padding: 10px 20px;
-  position: relative;
-  background-color: var(--variable-collection-primary);
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
   border-radius: 24px;
+  background: var(--Primary, #2A4CF1);
 }
 
 .community .edit-wrapper {
@@ -803,12 +801,11 @@ body {
   color:#fff
 }
 
-.community .button .iconly-bold {
+.community button .iconly-bold {
   position: relative;
   width: 24px;
   height: 24px;
 }
-
 
 .line {
   height: 0px;
@@ -816,5 +813,3 @@ body {
   stroke-width: 4px;
   stroke: #282C5B;
 }
-
-/* ----------------------- */

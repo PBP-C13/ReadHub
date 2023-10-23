@@ -30,10 +30,10 @@
         </div>
       </div>
     </div>
-    <div class="make-a-post">
-      <div class="edit-wrapper"><div class="edit"></div></div>
+    <a class="btn make-a-post" id="make-forum-button">
+      <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
-    </div>
+    </a>
   </div>
 
 
@@ -65,7 +65,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -108,7 +108,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -149,7 +149,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -190,7 +190,7 @@
                 </div>
               </div>
             </div>
-            <button>
+            <button class="btn">
               <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
             </button>   
             
@@ -231,7 +231,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -272,7 +272,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -313,7 +313,7 @@
                 </div>
               </div>
             </div>
-            <button>
+            <button class="btn">
               <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
             </button>   
             
@@ -326,4 +326,118 @@
 
   </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="forumModal" tabindex="-1" aria-labelledby="forumModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="forumModalLabel">Create New Forum</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="forumForm" method="post" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="submitForum" data-bs-dismiss="modal">Create Forum</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Tampilkan modal pop-up ketika tombol "Make a Post" diklik
+        $("#make-forum-button").click(function () {
+            $("#forumModal").modal("show");
+        });
+
+        // Tangani pengiriman form forum melalui AJAX
+        $("#submitForum").click(function () {
+            var formData = new FormData($("#forumForm")[0]);
+
+            $.ajax({
+                type: "POST",
+                url: "/create_forum/",  // Ganti dengan URL yang sesuai
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    // Forum berhasil dibuat, tambahkan respons sesuai dengan kebutuhan Anda
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // Tangani kesalahan
+                }
+            });
+        });
+
+        // Handler untuk tombol "Make a Post"
+        $("#make-forum-button").click(function () {
+            var text = "Contoh pesan forum";  // Gantilah dengan teks pesan yang ingin Anda buat
+            var bookId = 1;  // Gantilah dengan ID buku yang sesuai
+
+            // Kirim permintaan AJAX untuk membuat forum
+            $.ajax({
+                type: "POST",
+                url: "/create_forum/",  // Ganti dengan URL yang sesuai
+                data: {
+                    text: text,
+                    book_id: bookId
+                },
+                success: function (data) {
+                    // Forum berhasil dibuat, tambahkan pesan forum ke dalam forum-container
+                    var forumHtml = `
+                    <div class="forum-person">
+                      <div class="person-section">
+                        <div class="section">
+                          <div class="profil">
+                            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
+                            <div class="text-wrapper-7">${data.author}</div>
+                          </div>
+                          <p class="p">
+                            ${data.text}
+                          </p>
+                        </div>
+                        <div class="book-section">
+                          <div class="text-wrapper-8">Book</div>
+                          <div class="book-card">
+                            <div class="book-card-2">
+                              <div class="book-status">
+                                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
+                                <div class="book-detail">
+                                  <div class="book-title">
+                                    <div class="text-wrapper-9">${data.book_title}</div>
+                                    <div class="book-author">by: ${data.book_author}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="btn">
+                                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
+                              </button>   
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
+                      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    `;
+
+                    // Tambahkan pesan forum ke dalam forum-container
+                    $("#forum-container").prepend(forumHtml);
+                },
+                // ... Penanganan kesalahan
+            });
+        });
+    });
+</script>
+
 {% endblock content %}

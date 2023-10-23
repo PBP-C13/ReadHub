@@ -13,7 +13,7 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def show_main(request):
-    products = Book.objects.all()
+    products = Book.objects.filter(pk=2)
 
     context = {
         'name': 'Pak Bepe', # Nama kamu
