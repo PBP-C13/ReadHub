@@ -21,7 +21,7 @@ def show_category(request):
 
 def add_books_to_category(request):
     category = Category.objects.get(name_category='Fiksi')  # Ganti 'Fiksi' dengan nama kategori yang sesuai
-    books_to_add = Book.objects.filter(genre='Fiksi')  # Ganti 'Fiksi' dengan genre yang sesuai
+    books_to_add = Book.objects.filter(genre='Fiksi')  
 
     for book in books_to_add:
         category.books.add(book)

@@ -3,6 +3,8 @@
 {% block content %}
 <title>community</title>
 
+
+
 <!-- Navbar ------------------>
 <div class="navbar navbar-expand-lg ">
   <div class="container-fluid">
@@ -72,15 +74,59 @@
         </div>
       </div>
     </div>
-    <a class="btn make-a-post" id="make-forum-button">
+    <a class="btn make-a-post" href="{% url 'discussion_forum:create_forum' %}">
       <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
     </a>
   </div>
 
+  
+
 
   <!-- Post Forum ------------------>
   <div class="forum-section">
+    <!-- Forum Looping ------------------>
+    {% for forum in forum %}
+      <div class="forum-person">
+        <div class="person-section">
+          <div class="section">
+            <div class="profil">
+              <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
+              <div class="text-wrapper-7"> {{name}}</div>
+            </div>
+            <p class="p">
+              {{ forum.text }}
+            </p>
+          </div>
+          <div class="book-section">
+            <div class="text-wrapper-8">Book</div>
+            <div class="book-card">
+              <div class="book-card-2">
+                <div class="book-status">
+                  <div class="book-image"><img class="image" src="{{ forum.book.image_url}}" /></div>
+                  <div class="book-detail">
+                    <div class="book-title">
+                      <div class="text-wrapper-9">{{ forum.book.book_title}}</div>
+                      <div class="book-author">{{ forum.book.book_authors}}</div>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn">
+                  <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
+                </button>   
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
+        <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    {% endfor %}
+
     <!-- Forum Pertama Temoat masukin form.py ------------------>
     <div class="forum-person">
       <div class="person-section">

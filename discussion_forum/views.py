@@ -14,7 +14,7 @@ from .forms import ForumForm
 
 # Create your views here.
 def show_forum(request):
-    book = Book.objects.all()
+    book = Book.objects.filter(pk__in=range(1, 101))
     forum = Forum.objects.all()
 
     context = {
@@ -26,28 +26,20 @@ def show_forum(request):
 
     return render(request, "forum.html", context)
 
-@login_required
+
 def create_forum(request):
-    if request.method == 'POST':
-        form = ForumForm(request.POST)
-        if form.is_valid():
-            forum = form.save(commit=False)
-            forum.author = request.user
-            forum.save()
+    form =  ForumForm(request.POST or None)
 
-            
-            data = {
-                "author": forum.author.username,
-                "text": forum.text,
-                "book_title": forum.book.title,
-                "book_author": forum.book.author,
-            }
+    if form.is_valid() and request.method == "POST":
+        product = form.save(commit=False)
+        product.user = request.user
+        product.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+    
+    forums = Forum.objects.order_by('-timestamp')
 
-            return JsonResponse(data)
-        else:
-            return JsonResponse({"error": "Invalid form data"}, status=400)
-    else:
-        return JsonResponse({"error": "Invalid request method"})
+    context = {'form': form, 'forum': forums }
+    return render(request, "create_forum.html", context)
 
 @csrf_exempt
 def like_forum(request):
