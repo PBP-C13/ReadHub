@@ -1,17 +1,59 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<title>community</title>
+
+<!-- Navbar ------------------>
+<div class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+      <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="margin-left: 23%;">
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+              </li>
+              <li class="nav-item-active">
+                  <a class="nav-link" style="color: #4162FF;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+          </li>
+          </ul>
+      </div>
+
+      <div class="ml-auto"> 
+          <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Hello, {{ name }},
+              </a>
+              <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                  <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
 <div class="forum">
 <!-- header ------------------>
 <div class="header">
   <div class="overlap-group">
-    
   <div class="text-wrapper">Community</div>
   <img class="element" src="../../static/img/ComChar.svg" />
-    
+  </div>
 </div>
-</div>
-
 
 <!-- Forum ------------------>
 <div class="community">
@@ -30,10 +72,10 @@
         </div>
       </div>
     </div>
-    <div class="make-a-post">
-      <div class="edit-wrapper"><div class="edit"></div></div>
+    <a class="btn make-a-post" id="make-forum-button">
+      <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
-    </div>
+    </a>
   </div>
 
 
@@ -65,7 +107,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -108,7 +150,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -149,7 +191,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -190,7 +232,7 @@
                 </div>
               </div>
             </div>
-            <button>
+            <button class="btn">
               <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
             </button>   
             
@@ -231,7 +273,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -272,7 +314,7 @@
                   </div>
                 </div>
               </div>
-              <button>
+              <button class="btn">
                 <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
               </button>   
               
@@ -313,7 +355,7 @@
                 </div>
               </div>
             </div>
-            <button>
+            <button class="btn">
               <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
             </button>   
             
@@ -326,4 +368,117 @@
 
   </div>
 </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="forumModal" tabindex="-1" aria-labelledby="forumModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="forumModalLabel">Create New Forum</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ form.as_p }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="submitForum" data-bs-dismiss="modal">Create Forum</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        
+        $("#make-forum-button").click(function () {
+            $("#forumModal").modal("show");
+        });
+
+        
+        $("#submitForum").click(function () {
+            var formData = new FormData($("#forumForm")[0]);
+
+            $.ajax({
+                type: "POST",
+                url: "/create_forum/", 
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    
+                }
+            });
+        });
+
+        
+        $("#make-forum-button").click(function () {
+            var text = "Contoh pesan forum";  // Gantilah dengan teks pesan yang ingin Anda buat
+            var bookId = 1;  // Gantilah dengan ID buku yang sesuai
+
+            // Kirim permintaan AJAX untuk membuat forum
+            $.ajax({
+                type: "POST",
+                url: "/create_forum/",  // Ganti dengan URL yang sesuai
+                data: {
+                    text: text,
+                    book_id: bookId
+                },
+                success: function (data) {
+                    // Forum berhasil dibuat, tambahkan pesan forum ke dalam forum-container
+                    var forumHtml = `
+                    <div class="forum-person">
+                      <div class="person-section">
+                        <div class="section">
+                          <div class="profil">
+                            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
+                            <div class="text-wrapper-7">${data.author}</div>
+                          </div>
+                          <p class="p">
+                            ${data.text}
+                          </p>
+                        </div>
+                        <div class="book-section">
+                          <div class="text-wrapper-8">Book</div>
+                          <div class="book-card">
+                            <div class="book-card-2">
+                              <div class="book-status">
+                                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
+                                <div class="book-detail">
+                                  <div class="book-title">
+                                    <div class="text-wrapper-9">${data.book_title}</div>
+                                    <div class="book-author">by: ${data.book_author}</div>
+                                  </div>
+                                </div>
+                              </div>
+                              <button class="btn">
+                                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
+                              </button>   
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
+                      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    `;
+
+                    // Tambahkan pesan forum ke dalam forum-container
+                    $("#forum-container").prepend(forumHtml);
+                },
+                // ... Penanganan kesalahan
+            });
+        });
+    });
+</script>
+
 {% endblock content %}

@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('book/', include('book.urls')),
     path('favorit/', include('favorit.urls')),  
-    path('community/', include('discussion_forum.urls')),  
+    path('community/', include('discussion_forum.urls', namespace='discussion_forum')), 
     path('category/', include('category.urls')),
 ]
