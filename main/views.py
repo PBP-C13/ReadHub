@@ -16,8 +16,7 @@ def show_main(request):
     products = Book.objects.filter(pk=2)
 
     context = {
-        'name': 'Pak Bepe', # Nama kamu
-        'class': 'PBP A', # Kelas PBP kamu
+        'name': request.user.username,
         'products': products
     }
 

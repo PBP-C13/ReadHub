@@ -2,61 +2,63 @@
 
 {% block content %}
 
-<style>
-  body {
-    background-color: #161832; /* Background color for the entire page */
-    color: #fff; /* Text color */
-  }
-  .card {
-    background-color: #13142A; /* Background color for cards */
-    color: #fff; /* Text color for cards */
-    margin:8px;
-    padding:8px;
-    border-radius: 20px;
-    
-  }
-  .card-container {
-    margin-top: 8px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    flex-wrap: nowrap; 
-    justify-content: flex-start; 
-    gap: 5px;
-    overflow-x: auto; 
-    justify-items: center; 
-    align-items: center;
-    justify-content: center;
-    margin: 28px;
-    padding-bottom: 20px;
-    }
-
-  img {
-    height: 400px;
-    border-radius: 14px 14px;
-    width: 300px;
-  }
-
 </style>
+<!-- Navbar ------------------>
+<div class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+      <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="margin-left: 23%;">
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+            </li>
+            <li class="nav-item-active">
+              <a class="nav-link" style="color: #4162FF;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+          </li>
+          </ul>
+      </div>
 
-    <h1>Favorit ni bos</h1>
+      <div class="ml-auto"> 
+          <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Hello, {{ name }},
+              </a>
+              <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                  <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
 
-    <h5>Classs:</h5>
-    <p>{{class}}</p>
+    <h1>Favorite</h1>
 
-    <h1>Daftar Buku</h1>
-
-    {% for favorit in favorit %}
-    <div class="card text-white" style="width: 18rem;">
-        <img class="card-img-top" src="{{favorit.image_url}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{favorit.book_title}}</h5>
-          <p class="card-text">Author: {{favorit.book_author}} </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
+    <div class="book-card-container">
+      {% for favorit in favorit %}
+      <div class="book-card" style="width: 18rem;">
+          <img class="book-img card-img-top" src="{{favorit.image_url}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{favorit.book_title}}</h5>
+            <p class="card-text">Author: {{favorit.book_authors}} </p>
+            <a href="#" class="btn btn-primary">Detail Buku</a>
+          </div>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
+    
 
 {% endblock content %}

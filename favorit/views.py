@@ -12,10 +12,10 @@ from book.models import Book
 # Create your views here.
 
 def show_favorit(request):
-    favorits = Book.objects.all()
+    favorits = Book.objects.filter(pk__in=range(1, 101))
 
     context = {
-        'name': 'Pak Bepe', # Nama kamu
+        'name': request.user.username,
         'class': 'PBP C', # Kelas PBP kamu
         'favorit': favorits
     }

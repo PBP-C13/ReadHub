@@ -1,8 +1,82 @@
+/* CSS Keseluruhan ----------------------- */
+
 body {
     background-color: #161832 !important; 
     color: #fff !important;
   }
-  
+
+/* CSS Navbar ----------------------- */
+
+.navbar{
+position: sticky!important ;
+top: 0;
+padding: 8px 112px !important;;
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 100;
+background-color: #12132A !important;
+height: 100%;
+}
+
+.navbar img {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  top: 9px;
+  left: 112px;
+}
+
+.navbar-brand {
+    color:  #12132A;
+    font-weight: 500;
+    font-size: 16x;
+}
+
+.navbar .navbar-nav {
+  display: flex !important;
+  justify-content: center ; 
+  align-items: center;
+}
+
+.navbar .container-fluid .btn-white {
+    background-color: #3FBCFC; /* Warna latar belakang tombol */
+    color: #ffffff; /* Warna teks tombol */
+    border: 1px solid #000; /* Warna border tombol */
+    margin-top :8px;
+    margin-bottom:8px;
+}
+.navbar .navbar-nav .nav-item {
+  border-radius: 99px; 
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top :5px;
+  margin-bottom:5px;
+  color: #4162FF;
+  font-weight: 500;
+}
+
+.navbar .navbar-nav .nav-item-active{
+    background: #4161ff20; ;
+    border-radius: 99px; 
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top :5px;
+    margin-bottom:5px;
+    color: #4162FF;
+    font-weight: 700;
+}
+
+
+/* CSS Book ----------------------- */
 .book-card {
     background-color: #13142A; 
     color: #fff; 
@@ -47,6 +121,8 @@ body {
     width: 300px;
 }
 
+
+/* CSS Main Page ----------------------- */
 .sign-in {
     background-color: #161832;
     display: flex;
@@ -403,7 +479,7 @@ body {
 }
 
 .community {
-  margin-top: 60px;
+  margin-top: 0px;
   margin-right: 112px;
   margin-left: 112px;
   display: inline-flex;
@@ -413,7 +489,7 @@ body {
 }
 
 .community .filter {
-  padding-top: 30px;
+  padding-top: 110px;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
@@ -421,9 +497,9 @@ body {
   position: relative;
   flex: 0 0 auto;
   overflow-x: scroll;
-    position: sticky;
-  top: 0; /* Atur jarak dari atas sesuai kebutuhan */
-  z-index: 100; /* Atur z-index sesuai kebutuhan, untuk menentukan tumpukan elemen */
+  position: sticky;
+  top: 0; 
+  z-index: 100; 
 }
 
 .community .filter-wrapper {
@@ -581,6 +657,7 @@ body {
 }
 
 .community .forum-section {
+  padding-top: 80px;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;

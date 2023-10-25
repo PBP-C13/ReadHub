@@ -1,7 +1,7 @@
 from django.forms import ModelForm
-from main.models import Forum
+from .models import Forum
 
-class ProductForm(ModelForm):
+class ForumForm(ModelForm):
     class Meta:
         model = Forum
-        fields = ["pesan"]
+        fields = ['text']

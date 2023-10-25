@@ -12,6 +12,7 @@ def show_category(request):
     all_books = Book.objects.all()[:100]
 
     context = {
+        'name': request.user.username,
         'categories': categories,
         'books': all_books
     }

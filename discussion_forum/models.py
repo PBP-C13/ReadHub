@@ -1,4 +1,5 @@
 from django.db import models
+from book.models import Book
 
 class Bookform(models.Model):
     book_authors = models.TextField(null=True, blank=True)
@@ -15,5 +16,5 @@ class Bookform(models.Model):
     image_url = models.TextField(null=True, blank=True)
 
 class Forum(models.Model):
-    pesan = models.TextField()
-    
+    book = models.ForeignKey(Book, on_delete=models.CASCADE)
+    text = models.TextField()

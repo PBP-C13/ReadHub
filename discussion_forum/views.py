@@ -9,10 +9,10 @@ from book.models import Book
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from .forms import ForumForm
 
 
 # Create your views here.
-@login_required
 def show_forum(request):
     book = Book.objects.all()
     forum = Forum.objects.all()
@@ -21,28 +21,31 @@ def show_forum(request):
         'name': request.user.username,
         'forum':forum,
         'pilihan': book,
+        'form': ForumForm()
     }
 
     return render(request, "forum.html", context)
 
-@csrf_exempt
+@login_required
 def create_forum(request):
     if request.method == 'POST':
-        text = request.POST.get("text")
-        book_id = request.POST.get("book_id")
-        book = Book.objects.get(id=book_id)
-        forum = Forum(author=request.user, book=book, text=text)
-        forum.save()
+        form = ForumForm(request.POST)
+        if form.is_valid():
+            forum = form.save(commit=False)
+            forum.author = request.user
+            forum.save()
 
-        
-        data = {
-            "author": forum.author.username,
-            "text": forum.text,
-            "book_title": forum.book.title,
-            "book_author": forum.book.author,
-        }
+            
+            data = {
+                "author": forum.author.username,
+                "text": forum.text,
+                "book_title": forum.book.title,
+                "book_author": forum.book.author,
+            }
 
-        return JsonResponse(data)
+            return JsonResponse(data)
+        else:
+            return JsonResponse({"error": "Invalid form data"}, status=400)
     else:
         return JsonResponse({"error": "Invalid request method"})
 
@@ -63,26 +66,6 @@ def unlike_forum(request):
         forum = get_object_or_404(Forum, id=forum_id)
         forum.likes.remove(request.user)
         return JsonResponse({"message": "Forum unliked successfully!"})
-
-    return JsonResponse({"error": "Invalid request method"})
-
-@csrf_exempt
-def like_comment(request):
-    if request.method == 'POST':
-        comment_id = request.POST.get("comment_id")
-        comment = get_object_or_404(ForumComment, id=comment_id)
-        comment.likes.add(request.user)
-        return JsonResponse({"message": "Comment liked successfully!"})
-
-    return JsonResponse({"error": "Invalid request method"})
-
-@csrf_exempt
-def unlike_comment(request):
-    if request.method == 'POST':
-        comment_id = request.POST.get("comment_id")
-        comment = get_object_or_404(ForumComment, id=comment_id)
-        comment.likes.remove(request.user)
-        return JsonResponse({"message": "Comment unliked successfully!"})
 
     return JsonResponse({"error": "Invalid request method"})
 
