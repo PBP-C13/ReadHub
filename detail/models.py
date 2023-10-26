@@ -10,7 +10,7 @@ class Detail(models.Model):
     book_pages = models.TextField(null=True, blank=True)
     book_rating = models.FloatField(null=True, blank=True)
     book_rating_count = models.IntegerField(null=True, blank=True)
-    book_review_count = models.IntegerField(null=True, blank=True)
+    book_review = models.TextField(null=True, blank=True)
     book_title = models.TextField(null=True, blank=True)
     genres = models.TextField(null=True, blank=True)
     image_url = models.TextField(null=True, blank=True)

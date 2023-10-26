@@ -655,6 +655,32 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title fs-5" id="exampleModalLabel">Add Review</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="book_review" class="col-form-label">Review:</label>
+                            <textarea class="form-control" id="book_review" name="book_review"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add">Add Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
     {% for book in books %}
     <div class="detail-book">
       <div class="div">
@@ -693,7 +719,7 @@
         </div>
         <button class="button-2">
           <div class="iconly-bold-bag"><div class="bag-2"></div></div>
-          <div class="button-CTA">Create Review</div>
+          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Review</div>
         </button>
         <div class="text-wrapper-9">Book Page: {{book.book_pages}}</div>
         <div class="text-wrapper-10">ISBN: {{book.book_isbn}}}</div>
@@ -784,7 +810,26 @@
     {% endfor %}
   </body>
 
- 
+  
+<script>
+    function addReview() {
+        fetch("{% url 'detail:create_review' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshItems);
 
+        document.getElementById("form").reset();
+        return false;
+    }
+
+    async function refreshItems() {
+        const products = await getItems();
+    }
+
+    document.getElementById("button_add").onclick = addReview;
+
+    refreshItems();
+</script>
 
 {% endblock %}
+ 
