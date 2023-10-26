@@ -38,13 +38,11 @@
               <label class="label" for="username">Full Name</label>
               <input class="input" type="text" name="username" id="username" />
             </div>
-            <div class="frame-3 password-input">
+            <div class="frame-3">
               <label class="label" for="password">Password</label>
-              <div class="password-field">
+              <div class="password-input">
                 <input class="input" type="password" name="password" id="password" />
-                <div class="password-toggle" onclick="togglePasswordVisibility()">
-                  <img class="iconsax-linear" src="../../static/img/icon/matabuka.svg" id="togglePassword" />
-                </div>
+                <img class="iconsax-linear" src="../../static/img/icon/mata.svg" id="togglePassword" onclick="togglePasswordVisibility()" />
               </div>
             </div>
           </div>
@@ -72,10 +70,10 @@ function togglePasswordVisibility() {
 
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
-    togglePassword.src = '../../static/img/icon/mata.svg'; // Mengganti ke mata terbuka
+    togglePassword.src = '../../static/img/icon/matabuka.svg'; // Mengganti ke mata terbuka
   } else {
     passwordInput.type = 'password';
-    togglePassword.src = '../../static/img/icon/matabuka.svg'; // Mengganti ke mata tertutup
+    togglePassword.src = '../../static/img/icon/mata.svg'; // Mengganti ke mata tertutup
   }
 }
 
@@ -84,4 +82,4 @@ function submitForm() {
   document.querySelector('form').submit();
 }
 </script>
-{% endblock content %} 
+{% endblock content %}
