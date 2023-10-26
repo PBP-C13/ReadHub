@@ -1045,3 +1045,14 @@ height: 100%;
   white-space: nowrap;
 }
   
+
+.category .container .label .text-wrapper {
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 76.8px;
+  text-align: center;
+  white-space: nowrap;
+}
