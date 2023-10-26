@@ -2,11 +2,6 @@
 
 {% block content %}
     <style>
-        h1{
-            text-align: center;
-            font-family: "Poppins-Bold", Helvetica;
-        }
-
         .card-img-top{
             justify-content: center;
             max-width: 140px; /* Sesuaikan lebar maksimal sesuai kebutuhan */
@@ -91,11 +86,27 @@
                 <div class="text-wrapper">Search Book</div>
             </div>
 
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search-input" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-search">
+                    <img class="iconly-light-search" src="../../static/img/icon/Search.svg" />
+                  </button>
+                </div>
+            </div>
+
         </div>
 
         <div class="container">
-    
-            <h1>More Books in ReadHub</h1>
+            <div class="label">
+                <div class="text-wrapper">Fantasy Books</div>
+            </div>
+
+            <div class="book-fantasy"></div>
+            
+            <div class="label">
+                <div class="text-wrapper">More Books in ReadHub</div>
+            </div>
             <br/>
     
             <div class="card-container">
@@ -112,5 +123,21 @@
        
         </div>
     </div>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var cards = document.querySelectorAll('.card');
+
+            cards.forEach(function(card) {
+                var cardText = card.textContent.toLowerCase();
+                if (cardText.includes(input)) {
+                    card.style.display = 'block'; // Tampilkan kartu jika cocok
+                } else {
+                    card.style.display = 'none'; // Sembunyikan kartu jika tidak cocok
+                }
+            });
+        });
+    </script>
 
 {% endblock content %}
