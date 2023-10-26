@@ -160,7 +160,7 @@ height: 100%;
     width: 468px;
     top: 197px;
     left: 73px;
-    font-family: "Poppins-SemiBold", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 600;
     color: transparent;
     font-size: 48px;
@@ -235,7 +235,7 @@ height: 100%;
     width: 468px;
     top: 186px;
     left: 73px;
-    font-family: "Poppins-SemiBold", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 600;
     color: transparent;
     font-size: 48px;
@@ -255,7 +255,7 @@ height: 100%;
     position: absolute;
     top: 219px;
     left: 829px;
-    font-family: "Poppins-SemiBold", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 600;
     color: #ffffff;
     font-size: 36px;
@@ -289,7 +289,7 @@ height: 100%;
     position: relative;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Poppins-Bold", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 700;
     color: #ffffff;
     font-size: 14px;
@@ -308,7 +308,7 @@ height: 100%;
     border-color: #2a4cf1;
     flex: 0 0 auto;
     margin-top: -1px;
-    font-family: "Poppins-Regular", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 400;
     color: #ffffff80;
     font-size: 16px;
@@ -380,7 +380,7 @@ height: 100%;
     position: relative;
     width: fit-content;
     margin-top: -1px;
-    font-family: "Poppins-SemiBold", Helvetica;
+    font-family: "Poppins", Helvetica;
     font-weight: 600;
     color: #ffffff;
     font-size: 18px;
@@ -528,7 +528,7 @@ height: 100%;
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
   font-size: 28px;
@@ -559,7 +559,7 @@ height: 100%;
   position: absolute;
   top: 15px;
   left: 113px;
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: var(--variable-collection-secondary);
   font-size: 20px;
@@ -581,7 +581,7 @@ height: 100%;
   left: 92px;
   position: absolute;
   top: 16px;
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 600;
   color: #ffffff;
   font-size: 18px;
@@ -594,7 +594,7 @@ height: 100%;
   left: 91px;
   position: absolute;
   top: 16px;
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 600;
   color: #ffffff;
   font-size: 18px;
@@ -607,7 +607,7 @@ height: 100%;
   left: 90px;
   position: absolute;
   top: 16px;
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 600;
   color: #ffffff;
   font-size: 18px;
@@ -647,7 +647,7 @@ height: 100%;
 .community .text-wrapper-6 {
   position: relative;
   width: fit-content;
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 600;
   color: #ffffff;
   font-size: 20px;
@@ -661,7 +661,7 @@ height: 100%;
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 22px;
+  gap: 4px;
   position: relative;
   flex: 0 0 auto;
 }
@@ -700,12 +700,27 @@ height: 100%;
   flex: 0 0 auto;
 }
 
+.community .profile-upper {
+  display: flex;
+  width: 840px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 28px 0px 0px;
+  position: relative;
+  flex: 0 0 auto;
+}
+
 .community .profil {
   display: inline-flex;
   align-items: center;
   gap: 26px;
   position: relative;
   flex: 0 0 auto;
+}
+
+.community .detail {
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
 }
 
 .community .profil-wrapper {
@@ -729,7 +744,7 @@ height: 100%;
 .community .text-wrapper-7 {
   position: relative;
   width: fit-content;
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
   font-size: 24px;
@@ -738,11 +753,28 @@ height: 100%;
   white-space: nowrap;
 }
 
+.community .delete {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  background-color: #e221211a;
+  border-radius: 8853.23px;
+  overflow: hidden;
+}
+
+.community .iconly-bold-delete {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  top: 16px;
+  left: 16px;
+}
+
 .community .p {
   position: relative;
   align-self: stretch;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500;
   color: #ffffff;
   font-size: 24px;
   letter-spacing: 0;
@@ -764,7 +796,7 @@ height: 100%;
   position: relative;
   width: fit-content;
   margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 500;
   color: #ffffff;
   font-size: 24px;
@@ -847,7 +879,7 @@ height: 100%;
   position: relative;
   width: 271px;
   margin-top: -1px;
-  font-family: "Poppins-SemiBold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 600;
   color: #ffffff;
   font-size: 24px;
@@ -858,7 +890,7 @@ height: 100%;
 .community .book-author{
   position: relative;
   width: fit-content;
-  font-family: "Poppins-Medium", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 500;
   color: #ffffff;
   font-size: 18px;
@@ -891,9 +923,53 @@ height: 100%;
   stroke: #282C5B;
 }
 
+.action {
+  align-items: flex-start;
+  gap: 86px;
+  padding: 0px 0px 0px 20px;
+  display: inline-flex;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.action .bottom-section {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+.action .icon{
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.action .text-wrapper {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 500 !important;
+  color: #ffffff;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 38.4px;
+  white-space: nowrap;
+}
+
+
 /* ================CSS CATEGORY=============== */
 /* ================CSS CATEGORY=============== */
 /* ================CSS CATEGORY=============== */
+.category .action {
+  align-items: flex-start;
+  gap: 81px;
+  padding: 0px 0px 0px 40px;
+  display: inline-flex;
+  position: relative;
+  flex: 0 0 auto;
+}
+
 .category .frame {
   display:flex;
   width: 100%;
@@ -929,7 +1005,7 @@ height: 100%;
   width: 1215px;
   top: 48px;
   left: auto;
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
   font-size: 40px;
@@ -945,7 +1021,7 @@ height: 100%;
   width: 1215px;
   top: 48px;
   left: auto;
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
   font-size: 30px;
@@ -959,18 +1035,7 @@ height: 100%;
 
 
 .category .search .label .text-wrapper {
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 30px;
-  letter-spacing: 0;
-  line-height: 76.8px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.category .container .label .text-wrapper {
-  font-family: "Poppins-Bold", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
   font-size: 30px;
