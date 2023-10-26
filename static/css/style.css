@@ -890,3 +890,82 @@ height: 100%;
   stroke-width: 4px;
   stroke: #282C5B;
 }
+
+/* ================CSS CATEGORY=============== */
+/* ================CSS CATEGORY=============== */
+/* ================CSS CATEGORY=============== */
+.category .frame {
+  display:flex;
+  width: 100%;
+  align-items: center;
+  height: 445px;
+  background-color: #2a4cf1;
+  align-items: center;
+  justify-content: center;
+}
+
+.category  .frame .overlap-group {
+  position: relative;
+  height: 445px;
+  left: 29px;
+}
+
+.category .frame .text-wrapper {
+  position: absolute;
+  top: 48px;
+  left: auto;
+  font-weight: 900;
+  color: #2444e0;
+  font-size: 350px;
+  letter-spacing: 0;
+  line-height: 347.2px;
+  white-space: nowrap;
+  top: 50%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); 
+}
+.category .frame .div {
+  position: absolute;
+  width: 1215px;
+  top: 48px;
+  left: auto;
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: 60px;
+  top: 40%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); 
+  padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
+}
+.category .frame .p {
+  position: absolute;
+  width: 1215px;
+  top: 48px;
+  left: auto;
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 40px;
+  top: 80%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); 
+  padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
+}
+
+
+.category .search .label .text-wrapper {
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 76.8px;
+  text-align: center;
+  white-space: nowrap;
+}
+  

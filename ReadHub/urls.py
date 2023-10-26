@@ -25,4 +25,5 @@ urlpatterns = [
     path('favorit/', include('favorit.urls')),  
     path('community/', include('discussion_forum.urls', namespace='discussion_forum')), 
     path('category/', include('category.urls')),
+    path('detail/', include('detail.urls'))
 ]
