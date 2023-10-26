@@ -27,3 +27,4 @@ def add_books_to_category(request):
         category.books.add(book)
 
     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
+
