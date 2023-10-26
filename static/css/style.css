@@ -283,10 +283,11 @@ height: 100%;
     align-self: stretch;
     width: 100%;
     flex: 0 0 auto;
+    padding: 100px;
   }
   
   .sign-in .label {
-    position: relative;
+    position: top;
     width: fit-content;
     margin-top: -1px;
     font-family: "Poppins-Bold", Helvetica;
@@ -298,7 +299,7 @@ height: 100%;
   }
   
   .sign-in .input {
-    padding: 24px;
+    padding: 48px;
     position: relative;
     align-self: stretch;
     width: 100%;
@@ -315,6 +316,15 @@ height: 100%;
     letter-spacing: 0;
     line-height: normal;
   }
+
+  .sign-in .frame-3.password-input .input {
+    width: 100%;
+  }
+  
+  .sign-in .frame-3.password-input .input {
+    width: 100%; 
+  }
+  
   
   .sign-in .frame-4 {
     background-color: #2b2e53;
@@ -890,3 +900,69 @@ height: 100%;
   stroke-width: 4px;
   stroke: #282C5B;
 }
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #999;
+}
+
+.password-toggle.active {
+  color: #0073e6; /* Ganti warna sesuai preferensi Anda */
+}
+
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+  }
+
+  .password-toggle.active {
+    color: #0073e6; /* Ganti warna sesuai preferensi Anda */
+  }
+
+  .password-input {
+    position: relative;
+  }
+
+  .password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+  }
+  
+  .password-toggle.active {
+    color: #0073e6; /* Ganti warna sesuai preferensi Anda */
+  }
+
+  /* ... (CSS lainnya) ... */
+
+.sign-in .frame-3.password-input {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Jarak antara label dan input field */
+}
+
+.sign-in .frame-3.password-input .password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%; /* Lebar input field, disesuaikan dengan kebutuhan */
+}
+
+.sign-in .frame-3.password-input .input {
+  width: 100%; /* Lebar input field, disesuaikan dengan kebutuhan */
+  /* Sesuaikan atribut lainnya sesuai kebutuhan */
+}
+
+/* ... (CSS lainnya) ... */
