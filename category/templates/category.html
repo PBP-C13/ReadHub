@@ -100,7 +100,7 @@
     
             <div class="card-container">
                 {% for book in books %}
-                  <a class="card" href="{{book.pk}}/">
+                  <a class="card" href="detail/{{book.pk}}/">
                     <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
                     <div class="card-body">
                       <h5 class="judul">{{ book.book_title }}</h5>
