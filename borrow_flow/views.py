@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from borrow_flow.models import Book, BorrowedBook
+from datetime import datetime, timedelta
 from borrow_flow.forms import *
 
 # Create your views here.
@@ -19,6 +20,8 @@ def borrow_book(request, id):
             borrowed_book = form.save(commit=False)
             borrowed_book.book = book
             borrowed_book.user = request.user
+            borrowed_book.borrow_duration = form.cleaned_data['borrow_duration']
+            borrowed_book.return_date = datetime.now() + timedelta(days=borrowed_book.borrow_duration)
             borrowed_book.save()
             return redirect()
     
