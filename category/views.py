@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.forms import ModelForm
 from category.models import Category
@@ -10,11 +10,13 @@ def show_category(request):
     categories = Category.objects.all()
     # Ambil semua buku dalam basis data
     all_books = Book.objects.all()[:100]
+    fantasy_books = Book.objects.filter(genres__icontains="fantasy")[:15]
 
     context = {
         'name': request.user.username,
         'categories': categories,
-        'books': all_books
+        'books': all_books,
+        'fantasyBooks':fantasy_books,
     }
 
     return render(request, "category.html", context)
@@ -27,4 +29,3 @@ def add_books_to_category(request):
         category.books.add(book)
 
     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
-

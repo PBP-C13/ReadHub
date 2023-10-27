@@ -6,5 +6,5 @@ app_name = 'category'
 
 urlpatterns = [
     path('', show_category, name='show_category'),
-    path('detail/<int:id>/', show_detail, name='show_detail')
+    path('detail/<int:id>/', show_detail, name='show_detail'),
 ]
