@@ -3,7 +3,6 @@ from django.shortcuts import render
 from django.forms import ModelForm
 from category.models import Category
 from book.models import Book
-import random
 
 # Create your views here.
 def show_category(request):
