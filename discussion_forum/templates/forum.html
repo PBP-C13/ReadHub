@@ -58,8 +58,8 @@
 </div>
 
 <!-- Forum ------------------>
-<div class="community">
-
+<div style="display: flex; justify-content: center;">
+  <div class="community">
   <!-- Filter ------------------>
   <div class="filter">
     <div class="filter-wrapper">
@@ -79,9 +79,6 @@
       <div class="text-wrapper-6">Make a Post</div>
     </a>
   </div>
-
-  
-
 
   <!-- Post Forum ------------------>
   <div class="forum-section" id ="product_Forum">
@@ -144,6 +141,8 @@
     {% endfor %}
   </div>
 </div>
+</div>
+
 
 
     <!-- Modal -->
@@ -175,7 +174,7 @@
       return fetch("{% url 'forum:get_product_json' %}").then((res) => res.json())
   }
 
-  //CARD -------------------------------------------------------------------------
+  //Forum -------------------------------------------------------------------------
   async function refreshForum() {
     const productCard = document.getElementById("product_Forum");
     productCard.innerHTML = ""; 
@@ -232,7 +231,9 @@
                 <div class="text-wrapper">15</div>
               </div>
           </div>
-          <div class="delete"><img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /></div>
+          <button onClick="deleteForum(${item.forum_id})" class="btn delete" style="background-color: #e221211a"> 
+            <img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /> 
+          </button>
         </div>
       </div>
       </div>
@@ -251,12 +252,20 @@
     refreshForum();
   });
 
-  // //Delete -------------------------------------------------------------------------
-  // function delete_product_ajax(ID) {
-  //     fetch(`/remove_forum_ajax/${ID}`, {
-  //         method: 'DELETE',
-  //     }).then(refreshProducts).then(refreshCard)
-  //     }  
+  function deleteForum(ID) {
+      fetch(`/delete_forum/${ID}`, {
+          method: 'DELETE',
+      })
+      .then(function (response) {
+          if (response.status === 200) {
+              // Forum berhasil dihapus, lakukan sesuatu jika diperlukan
+              refreshForum(); // Misalnya, refresh daftar forum
+          } else {
+              // Forum tidak ditemukan atau gagal dihapus, lakukan sesuatu jika diperlukan
+              console.error('Failed to delete forum');
+          }
+      });
+  }
 
 </script>
 
