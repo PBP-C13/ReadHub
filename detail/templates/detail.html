@@ -2,6 +2,653 @@
 
 {% block content %}
 
+<style>
+    .detail-book {
+      background-color: #161732;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .detail-book .div {
+      background-color: #161732;
+      width: 1440px;
+      height: 3124px;
+      position: relative;
+    }
+    
+    .detail-book .frame {
+      position: absolute;
+      width: 1440px;
+      height: 380px;
+      top: 2736px;
+      left: 0;
+      background-color: #12132a;
+    }
+    
+    .detail-book .text-wrapper {
+      position: absolute;
+      top: 787px;
+      left: 112px;
+      font-family: "Poppins-Bold", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 36px;
+      letter-spacing: 0.45px;
+      line-height: normal;
+      white-space: nowrap;
+    }
+    
+    .detail-book .text-wrapper-2 {
+      position: absolute;
+      top: 1592px;
+      left: 112px;
+      font-family: "Poppins-Bold", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 36px;
+      letter-spacing: 0.45px;
+      line-height: normal;
+      white-space: nowrap;
+    }
+    
+    .detail-book .text-wrapper-3 {
+      position: absolute;
+      top: 1052px;
+      left: 112px;
+      font-family: "Poppins-Bold", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 36px;
+      letter-spacing: 0.45px;
+      line-height: normal;
+      white-space: nowrap;
+    }
+    
+    .detail-book .div-2 {
+      position: absolute;
+      width: 1440px;
+      height: 588px;
+      top: 100px;
+      left: 0;
+      background-color: #12142d;
+    }
+    
+    .detail-book .image-wrapper {
+      position: absolute;
+      width: 392px;
+      height: 460px;
+      top: 64px;
+      left: 112px;
+      background-color: #13142a;
+      border-radius: 28.17px;
+      overflow: hidden;
+    }
+    
+    .detail-book .image {
+      position: absolute;
+      width: 392px;
+      height: 460px;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+    
+    .detail-book .frame-2 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 56px;
+      position: absolute;
+      top: 92px;
+      left: 560px;
+    }
+    
+    .detail-book .frame-3 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 32px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .detail-book .text-wrapper-4 {
+      position: relative;
+      width: 766px;
+      margin-top: -1px;
+      font-family: "Poppins-Bold", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 48px;
+      letter-spacing: 0;
+      line-height: 60px;
+    }
+    
+    .detail-book .text-wrapper-5 {
+      position: relative;
+      width: fit-content;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: 25px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .frame-4 {
+      display: inline-flex;
+      align-items: center;
+      gap: 20px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .detail-book .group {
+      position: relative;
+      width: 125px;
+      height: 48px;
+    }
+    
+    .detail-book .overlap-group {
+      position: relative;
+      width: 123px;
+      height: 48px;
+      background-color: #ff961b1a;
+      border-radius: 999px;
+    }
+    
+    .detail-book .text-wrapper-6 {
+      position: absolute;
+      top: 9px;
+      left: 56px;
+      font-family: "Poppins-SemiBold", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 30px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .iconly-bold-star {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 8px;
+      left: 16px;
+    }
+    
+    .detail-book .text-wrapper-7 {
+      position: relative;
+      width: fit-content;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 30px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .frame-5 {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 40px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .detail-book .frame-6 {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    
+    .detail-book .div-wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 8px 29px;
+      position: relative;
+      flex: 0 0 auto;
+      background-color: #3FBCFC;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    
+    .detail-book .text-wrapper-8 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 20px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .detail-book .button {
+      display: flex;
+      width: 423px;
+      height: 64px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 20px;
+      position: relative;
+      background-color: #2A4CF1;
+      border-radius: 24px;
+      
+    }
+    
+    .detail-book .iconly-bold-bag {
+      position: relative;
+      width: 24px;
+      height: 24px;
+    }
+    
+    .detail-book .bag {
+      position: relative;
+      width: 18px;
+      height: 20px;
+      top: 2px;
+      left: 3px;
+      background-image: url(./img/image.svg);
+      background-size: 100% 100%;
+    }
+    
+    .detail-book .button-CTA {
+      position: relative;
+      width: fit-content;
+      color: #ffffff;
+      white-space: nowrap;
+    }
+    
+    .detail-book .button-2 {
+      display: flex;
+      width: 242px;
+      height: 64px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px 20px;
+      position: absolute;
+      top: 1574px;
+      left: 1086px;
+      background-color: #2A4CF1;
+      border-radius: 24px;
+    
+    }
+    
+    .detail-book .bag-2 {
+      position: relative;
+      width: 18px;
+      height: 20px;
+      top: 2px;
+      left: 3px;
+      background-image: url(./img/combined-shape.svg);
+      background-size: 100% 100%;
+    }
+    
+    .detail-book .text-wrapper-9 {
+      position: absolute;
+      top: 854px;
+      left: 413px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: 0;
+      line-height: 35px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .text-wrapper-10 {
+      position: absolute;
+      top: 854px;
+      left: 112px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: 0;
+      line-height: 35px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .lyra-is-rushing-to {
+      position: absolute;
+      width: 1216px;
+      top: 1111px;
+      left: 112px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: 0;
+      line-height: 42px;
+    }
+    
+    .detail-book .text-wrapper-11 {
+      position: absolute;
+      top: 917px;
+      left: 112px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 28px;
+      letter-spacing: 0;
+      line-height: 35px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .rectangle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 866px;
+      left: 381px;
+      background-color: #ffffff;
+      border-radius: 999px;
+    }
+    
+    .detail-book .overlap {
+      position: absolute;
+      width: 392px;
+      height: 296px;
+      top: 1678px;
+      left: 112px;
+      background-color: #23264f;
+      border-radius: 30px;
+    }
+    
+    .detail-book .lorem-ipsum-dolor {
+      position: absolute;
+      width: 338px;
+      top: 39px;
+      left: 25px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: transparent;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 36px;
+    }
+    
+    .detail-book .span {
+      color: #ffffff;
+    }
+    
+    .detail-book .text-wrapper-12 {
+      color: #3fbcfc;
+    }
+    
+    .detail-book .text-wrapper-13 {
+      position: absolute;
+      width: 338px;
+      top: 215px;
+      left: 25px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 36px;
+    }
+    
+    .detail-book .frame-7 {
+      position: absolute;
+      width: 392px;
+      height: 296px;
+      top: 1678px;
+      left: 524px;
+      background-color: #23264f;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    
+    .detail-book .p {
+      position: absolute;
+      width: 338px;
+      top: 39px;
+      left: 27px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: transparent;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 36px;
+    }
+    
+    .detail-book .text-wrapper-14 {
+      position: absolute;
+      width: 338px;
+      top: 215px;
+      left: 27px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: 36px;
+    }
+    
+    .detail-book .frame-8 {
+      position: absolute;
+      width: 392px;
+      height: 296px;
+      top: 1678px;
+      left: 936px;
+      background-color: #23264f;
+      border-radius: 30px;
+      overflow: hidden;
+    }
+    
+    .detail-book .text-wrapper-15 {
+      position: absolute;
+      top: 2073px;
+      left: 540px;
+      font-family: "Poppins-Bold", Helvetica;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 48px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .detail-book .frame-9 {
+      display: flex;
+      flex-wrap: wrap;
+      width: 1216px;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px 20px;
+      position: absolute;
+      top: 2186px;
+      left: 112px;
+    }
+    
+    .detail-book .frame-10 {
+      position: relative;
+      width: 186px;
+      height: 328px;
+      background-color: var(--variable-collection-secondary-bg);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    
+    .detail-book .img-wrapper {
+      position: absolute;
+      width: 167px;
+      height: 202px;
+      top: 8px;
+      left: 10px;
+      background-color: #13142a;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .detail-book .img {
+      position: absolute;
+      width: 167px;
+      height: 202px;
+      top: 0;
+      left: 0;
+      object-fit: cover;
+    }
+    
+    .detail-book .text-wrapper-16 {
+      position: absolute;
+      width: 167px;
+      top: 222px;
+      left: 10px;
+      font-family: "Poppins-SemiBold", Helvetica;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 18px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .detail-book .text-wrapper-17 {
+      position: absolute;
+      top: 284px;
+      left: 10px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 14px;
+      letter-spacing: 0;
+      line-height: normal;
+    }
+    
+    .detail-book .frame-11 {
+      position: absolute;
+      width: 136px;
+      height: 136px;
+      top: 96px;
+      left: 1120px;
+    }
+    
+    .detail-book .frame-12 {
+      position: absolute;
+      width: 136px;
+      height: 136px;
+      top: 96px;
+      left: -40px;
+    }
+    
+    .detail-book .frame-13 {
+      position: fixed;
+      width: 1440px;
+      height: 100px;
+      top: 0;
+      left: 0;
+      background-color: #111329;
+    }
+    
+    .detail-book .group-wrapper {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      top: 15px;
+      left: 112px;
+      background-color: var(--variable-collection-primary);
+      border-radius: 87.41px;
+      overflow: hidden;
+    }
+    
+    .detail-book .mask-group-wrapper {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      top: 15px;
+      left: 15px;
+      background-image: url(./img/mask-group.png);
+      background-size: 100% 100%;
+    }
+    
+    .detail-book .mask-group {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      top: 0;
+      left: 0;
+    }
+    
+    .detail-book .frame-14 {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: absolute;
+      top: 25px;
+      left: 303px;
+    }
+    
+    .detail-book .component {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 32px;
+      position: relative;
+      flex: 0 0 auto;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    
+    .detail-book .text-wrapper-18 {
+      position: relative;
+      width: fit-content;
+      margin-top: -1px;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 25.6px;
+      white-space: nowrap;
+    }
+    
+    .detail-book .group-2 {
+      position: absolute;
+      width: 232px;
+      height: 32px;
+      top: 34px;
+      left: 1098px;
+    }
+    
+    .detail-book .iconly-bold-profile {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 0;
+      left: 198px;
+    }
+    
+    .detail-book .text-wrapper-19 {
+      position: absolute;
+      top: 2px;
+      left: 0;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      color: #ffffff;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 25.6px;
+      white-space: nowrap;
+    }
+    
+    </style>
+
     <!-- Navbar ------------------>
     <div class="navbar navbar-expand-lg ">
         <div class="container-fluid">
@@ -28,7 +675,6 @@
                 </li>
                 </ul>
             </div>
-    
             <div class="ml-auto"> 
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,4 +689,233 @@
         </div>
     </div>
 
-{% endblock content %}
+
+    <head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="styleguide.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="exampleModalLabel">Add Review</h2>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <form id="form" action="#" onsubmit="return false;">
+                      {% csrf_token %}
+                      <div class="mb-3">
+                          <label for="book_review" class="col-form-label">Review:</label>
+                          <textarea class="form-control" id="book_review" name="book_review"></textarea>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Review</button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+    
+    
+    <div class="detail-book"> 
+      <div class="div">
+        <div class="frame"></div>
+        <div class="text-wrapper">About Book</div>
+        <div class="text-wrapper-2">Review Book</div>
+        <div class="text-wrapper-3">Description</div>
+        <div class="div-2">
+          <div class="image-wrapper"><img class="image" src="{{ book.image_url }}" /></div>
+          <div class="frame-2">
+            <div class="frame-3">
+              <div class="text-wrapper-4">{{book.book_title}}</div>
+              <div class="text-wrapper-5">Author: {{book.book_authors}}</div>
+              <div class="frame-4">
+                <div class="group">
+                  <div class="overlap-group">
+                    <div class="text-wrapper-6">{{book.book_rating}}</div>
+                    <img class="iconly-bold-star" src="img/star.svg" />
+                  </div>
+                </div>
+                <div class="text-wrapper-7">({{book.book_rating_count}} Rating)</div>
+              </div>
+            </div>
+            <div class="frame-5">
+              <div class="frame-6">
+                <div class="div-3">
+                  <div class="div-4">
+                    {% for genre in genres %}
+                      <div class="div-wrapper">
+                        <div class="text-wrapper-5">{{ genre }}</div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <button class="button">
+                <div class="iconly-bold-bag"><div class="bag"></div></div>
+                <div class="button-CTA">Borrow This Book</div>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <button class="button-2">
+          <div class="iconly-bold-bag"><div class="bag-2"></div></div>
+          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Review</div>
+        </button>
+
+        <div class="text-wrapper-9">Book Page: {{book.book_pages}}</div>
+        <div class="text-wrapper-10">ISBN: {{book.book_isbn}}}</div>
+        <div class="text-wrapper-11">Format : {{book.book_format}}</div>
+        <p class="lyra-is-rushing-to">{{book.book_desc}}</p>
+
+        
+
+        <div class="frame-8"> ini juga ubah ke cards // similar book
+          <p class="p">
+            <span class="span">{{book.book_review}}</span>
+            <span class="text-wrapper-12">More</span>
+          </p>
+          <div class="text-wrapper-14">-Arya Wijaya</div>
+        </div>
+
+        
+        <div class="text-wrapper-15">Similar Books</div>
+        <div class="frame-9">
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">{{similarbook.book_format}}</div>
+            <div class="text-wrapper-17">by: {{similarbook.book_authors}}</div>
+          </div>
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">{{similarbook.book_title}}</div>
+            <div class="text-wrapper-17">by: {{similarbook.book_authors}}</div>
+          </div>
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">The Golden Compass</div>
+            <div class="text-wrapper-17">by: Arya Wijaya</div>
+          </div>
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">The Golden Compass</div>
+            <div class="text-wrapper-17">by: Arya Wijaya</div>
+          </div>
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">The Golden Compass</div>
+            <div class="text-wrapper-17">by: Arya Wijaya</div>
+          </div>
+          <div class="frame-10">
+            <div class="img-wrapper"><img class="img"src="{{ similarbook.image_url }}" /></div>
+            <div class="text-wrapper-16">The Golden Compass</div>
+            <div class="text-wrapper-17">by: Arya Wijaya</div>
+          
+          <div class="group-2">
+            <img class="iconly-bold-profile" src="../../static/img/profile.svg" />
+            <div class="text-wrapper-19">Welcome, {{name}} </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  <div class="card-item" id="product-cards">
+</div>
+
+<script>
+    async function addReview() {
+        const response = await fetch("{% url 'detail:create_review' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        });
+        if (response.status === 201) {
+            refreshItems();
+        }
+        document.getElementById("form").reset();
+        return false;
+    }
+
+    async function getDetails() {
+        return fetch("{% url 'detail:get_item_json' %}")
+            .then((res) => res.json());
+    }
+
+    async function refreshItems() {
+        const det = await getDetails();
+        const cardContainer = document.getElementById("product-cards");
+        cardContainer.innerHTML = "";
+
+        const card = document.createElement("div");
+        card.className = "card mx-auto p-3";
+        card.style.width = "18rem";
+
+        const cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+        const cardText = document.createElement("p");
+        cardText.className = "card-text";
+        cardText.textContent = book.fields.book_review;
+
+        cardContainer.appendChild(card);
+        card.appendChild(cardBody);
+        cardBody.appendChild(cardText);
+
+    }
+
+    function displaySimilarBooks(similar_books) {
+        const cardContainer = document.getElementById("product-cards");
+        cardContainer.innerHTML = "";
+
+            const card = document.createElement("div");
+            card.className = "card mx-auto p-3";
+            card.style.width = "18rem";
+
+            const cardBody = document.createElement("div");
+            cardBody.className = "card-body";
+
+            const cardTitle = document.createElement("h5");
+            cardTitle.className = "card-title";
+            cardTitle.textContent = similar_books.book_title;
+
+            const cardText = document.createElement("p");
+            cardText.className = "card-text";
+            cardText.textContent = similar_books.book_authors;
+
+            cardContainer.appendChild(card);
+            card.appendChild(cardBody);
+            cardBody.appendChild(cardTitle);
+            cardBody.appendChild(cardText);
+        
+    }
+
+      // Fetch similar books and display them
+      async function loadSimilarBooks() {
+          const response = await fetch("{% url 'detail:get_item_json' %}");
+          if (response.status === 200) {
+              const similarBooks = await response.json();
+              displaySimilarBooks(similarBooks);
+          }
+      }
+
+    // Call the function to load and display similar books
+    loadSimilarBooks();
+
+    document.getElementById("button_add").onclick = addReview;
+
+    refreshItems();
+</script>
+
+
+
+{% endblock %}
+ 
