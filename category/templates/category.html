@@ -1,32 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <style>
-        .card-img-top{
-            justify-content: center;
-            max-width: 140px; /* Sesuaikan lebar maksimal sesuai kebutuhan */
-            max-height: 120px;
-            border-radius: 10px; /* Atur radius sesuai kebutuhan */
-            margin-top: 5px;
-        }
-        .judul{
-            font-size: 12px;
-        }
-        .author{
-            font-size: 10px;
-        }
-        .card{
-            margin: 2px;
-            height: 220px; /* Atur tinggi sesuai kebutuhan */
-        }
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
-            grid-gap: 1px; /* Jarak antara card */
-        }
-
-    </style>
-
     <!-- Navbar ------------------>
     <div class="navbar navbar-expand-lg ">
         <div class="container-fluid">
@@ -101,15 +75,28 @@
             <div class="label">
                 <div class="text-wrapper">Fantasy Books</div>
             </div>
-
-            <div class="book-fantasy"></div>
             
+            <div class="scrollmenu">
+                <div class="card-container" id="fantasy-books">
+                    {% for book in fantasyBooks %}
+                      <a class="card" href="detail/{{book.pk}}/">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
             <div class="label">
                 <div class="text-wrapper">More Books in ReadHub</div>
             </div>
-            <br/>
     
-            <div class="card-container">
+            <div class="card-container" id="all-books">
                 {% for book in books %}
                   <a class="card" href="detail/{{book.pk}}/">
                     <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
@@ -132,12 +119,13 @@
             cards.forEach(function(card) {
                 var cardText = card.textContent.toLowerCase();
                 if (cardText.includes(input)) {
-                    card.style.display = 'block'; // Tampilkan kartu jika cocok
+                    card.style.display = 'inline-block'; // Tampilkan kartu jika cocok
                 } else {
                     card.style.display = 'none'; // Sembunyikan kartu jika tidak cocok
                 }
             });
         });
+
     </script>
 
 {% endblock content %}
