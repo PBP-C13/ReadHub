@@ -76,7 +76,6 @@ def get_product_json(request):
 
     return JsonResponse(product_items, safe=False)
 
-
 def split_genre(genre_string):
     if genre_string:
         return genre_string.split('|')
@@ -87,8 +86,7 @@ def split_genre(genre_string):
 @csrf_exempt
 def remove_forum_ajax(request, id):
     Forum.objects.filter(pk=id).delete()
-    return HttpResponseRedirect(reverse("main:show_main"))
-
+    return HttpResponseRedirect(reverse("community:show_forum"))
 
 
 @csrf_exempt

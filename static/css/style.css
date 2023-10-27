@@ -1,6 +1,7 @@
 /* CSS Keseluruhan ----------------------- */
 
 body {
+
     background-color: #161832 !important; 
     color: #fff !important;
   }
@@ -1054,4 +1055,5 @@ height: 100%;
   line-height: 76.8px;
   text-align: center;
   white-space: nowrap;
+
 }
