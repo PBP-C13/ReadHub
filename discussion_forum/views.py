@@ -27,6 +27,7 @@ def show_forum(request):
     return render(request, "forum.html", context)
 
 
+#Create Forum
 def create_forum(request):
     form =  ForumForm(request.POST or None)
 
@@ -36,10 +37,39 @@ def create_forum(request):
         product.save()
         return HttpResponseRedirect(reverse('main:show_main'))
     
-    forums = Forum.objects.order_by('-timestamp')
 
-    context = {'form': form, 'forum': forums }
+    context = {'form': form}
     return render(request, "create_forum.html", context)
+
+#Get Product
+#Get Product
+def get_product_json(request):
+    product_items = []
+    forums = Forum.objects.all()
+
+    for forum in forums:
+        book = Book.objects.get(id=forum.book_id)  # Gantilah 'book_id' sesuai dengan nama field yang menghubungkan Forum dan Book
+
+        # Buat dictionary baru dengan data forum dan buku
+        product_item = {
+            'forum_id': forum.text,
+            'book_image':book.image_url,
+            'book_title': book.book_title,
+            'book_author': book.book_authors,
+            'book_genre': book.genres,
+        }
+
+        product_items.append(product_item)
+
+    return JsonResponse(product_items, safe=False)
+
+#Remove Forum
+@csrf_exempt
+def remove_forum_ajax(request, id):
+    Forum.objects.filter(pk=id).delete()
+    return HttpResponseRedirect(reverse("main:show_main"))
+
+
 
 @csrf_exempt
 def like_forum(request):

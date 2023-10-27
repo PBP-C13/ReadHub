@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-    <title>Login V18</title>
+    <title>Welcome To ReadHub</title>
 {% endblock meta %}
 
 {% block content %}
@@ -19,7 +19,8 @@
           <div class="group"><img class="mask-group" src="img/image.png" /></div>
           <div class="frame">
             <div class="overlap-group">
-              <img class="img" src="../../static/img/vector.svg" /> <img class="element" src="../../static/img/Char.svg" />
+              <img class="img" src="../../static/img/vector.svg" />
+              <img class="element" src="../../static/img/Char.svg" />
             </div>
             <p class="p">
               <span class="text-wrapper">Start your </span>
@@ -31,63 +32,54 @@
         </div>
         <p class="text-wrapper-2">Sign In for an account</p>
         <div class="frame-2">
-          <div class="frame-3">
-            <label class="label" for="input-1">Full name</label> <input class="input" id="input-1" />
-          </div>
-          <div class="frame-3">
-            <label class="label" for="input-2">Password</label>
-            <div class="frame-4">
-              <input class="text-input" id="input-2" /> <img class="iconsax-linear" src="../../static/img/icon/mata.svg" />
+          <form method="POST" action="{% url 'main:login' %}">
+            {% csrf_token %}
+            <div class="frame-3">
+              <label class="label" for="username">Full Name</label>
+              <input class="input" type="text" name="username" id="username" />
+            </div>
+            <div class="frame-3">
+              <label class="label" for="password">Password</label>
+              <div class="password-input">
+                <input class="input" type="password" name="password" id="password" />
+                <img class="iconsax-linear" src="../../static/img/icon/mata.svg" id="togglePassword" onclick="togglePasswordVisibility()" />
+              </div>
             </div>
           </div>
-        </div>
-        <div class="frame-wrapper">
-          <div class="frame-5">
-            <div class="text-wrapper-3">Sign up</div>
-            <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
+          <p class="already-member-sign">
+            <span class="text-wrapper-4">Already a member?</span>
+            <span class="text-wrapper">&nbsp;</span>
+            <a class="span" href="{% url 'main:register' %}">Register Now</a>
+          </p>
+          <div class="frame-wrapper">
+            <div class="frame-5" onclick="submitForm()">
+              <div class="text-wrapper-3">Sign up</div>
+              <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
+            </div>
           </div>
-        </div>
-        <p class="already-member-sign">
-          <span class="text-wrapper-4">Already member?</span>
-          <span class="text-wrapper">&nbsp;</span>
-          <a class="span" href="{% url 'main:register' %}">Register Now</a>
-        </p>
+        </form>
       </div>
     </div>
   </body>
 </html>
 
+<script>
+function togglePasswordVisibility() {
+  const passwordInput = document.getElementById("password");
+  const togglePassword = document.getElementById("togglePassword");
 
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    togglePassword.src = '../../static/img/icon/matabuka.svg'; // Mengganti ke mata terbuka
+  } else {
+    passwordInput.type = 'password';
+    togglePassword.src = '../../static/img/icon/mata.svg'; // Mengganti ke mata tertutup
+  }
+}
 
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-<form method="POST" action="">
-  {% csrf_token %}
-  <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" placeholder="Username" class="form-control">
-  </div>
-  <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-  </div>
-  <div class="form-group">
-      <input class="add-product-button" type="submit" value="Login">
-  </div>
-</form>
-
-{% if messages %}
-  <ul>
-      {% for message in messages %}
-          <li>{{ message }}</li>
-      {% endfor %}
-  </ul>
-{% endif %}
-
+function submitForm() {
+  // Mengirim formulir dengan menggunakan JavaScript
+  document.querySelector('form').submit();
+}
+</script>
 {% endblock content %}
