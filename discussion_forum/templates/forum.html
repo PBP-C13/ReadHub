@@ -46,8 +46,6 @@
   </div>
 </div>
 
-
-
 <div class="forum">
 <!-- header ------------------>
 <div class="header">
@@ -81,89 +79,7 @@
   </div>
 
   <!-- Post Forum ------------------>
-  <div class="forum-section" id ="product_Forum">
-    <!-- Forum Looping ------------------>
-    {% for forum in forum %}
-      <div class="forum-person">
-        <div class="person-section">
-          <div class="section">
-            <div class="profile-upper">
-              <div class="profil">
-                <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-                <div class="text-wrapper-7"> {{name}}</div>
-              </div>
-              <div class="delete"><img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /></div>
-            </div>
-            <p class="p">
-              {{ forum.text }}
-            </p>
-          </div>
-          <div class="book-section">
-            <div class="text-wrapper-8">Book</div>
-            <div class="book-card">
-              <div class="book-card-2">
-                <div class="book-status">
-                  <div class="book-image"><img class="image" src="{{ forum.book.image_url}}" /></div>
-                  <div class="book-detail">
-                    <div class="book-title">
-                      <div class="text-wrapper-9">{{ forum.book.book_title}}</div>
-                      <div class="book-author">{{ forum.book.book_authors}}</div>
-                    </div>
-                  </div>
-                </div>
-                <button class="btn">
-                  <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> 
-                  <div class="detail">
-                    See Detail 
-                  </div>
-                </button>   
-              </div>
-            </div>
-          </div>
-  
-
-      <div class="action">
-          <div class="bottom-section">
-            <img class="icon" src="../../static/img/icon/Heart.svg" />
-            <div class="text-wrapper">15</div>
-          </div>
-
-          <div class="bottom-section">
-            <img class="icon" src="../../static/img/icon/Comment.svg" />
-            <div class="text-wrapper">15</div>
-          </div>
-      </div>
-    </div>
-  </div>
-      <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-        <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-      </svg>
-    {% endfor %}
-  </div>
-</div>
-</div>
-
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="forumModal" tabindex="-1" aria-labelledby="forumModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="forumModalLabel">Create New Forum</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {{ form.as_p }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submitForum" data-bs-dismiss="modal">Create Forum</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+  <div class="forum-section" id ="product_Forum"> </div>
 </div>
 
 

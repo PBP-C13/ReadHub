@@ -2,20 +2,83 @@
 
 {% block content %}
 
+<style>
+
+    .form-container {
+        width: 707px;
+        padding: 20px;
+    }
+
+    .form-title {
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: 38.4px;
+    }
+
+    .form-table {
+        width: 100%;
+    }
+
+    .form-table td {
+        padding: 10px 0;
+    }
+
+    .form-table input[type="text"] {
+        width: 100%;
+        height: 32px;
+        background-color: transparent;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-weight: 600;
+        color: #ffffff;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: 32px;
+        border: none;
+        border-bottom: 1px solid #ffffff;
+        padding: 5px;
+    }
+
+    .add-product-button {
+        background-color: var(--variable-collection-primary);
+        color: #ffffff;
+        font-family: "Poppins-SemiBold", Helvetica;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    
+</style>
 
 <h1>Add New Product</h1>
-
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input  type="submit" value="Add Product" class="add-product-button"/>
-            </td>
-        </tr>
-    </table>
-</form>
+<div class="ajax-modal">
+    <div class="overlap-group">
+        <div class="text">
+            <div class="profile"><img class="element" src="img/7-3.png" /></div>
+            <div class="form-container">
+                <h1 class="form-title">Add New Product</h1>
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="form-table">
+                        {{ form.as_table }}
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input type="submit" value="Add Product" class="add-product-button"/>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div class="title-seach">Choose Book</div>
+    </div>
+    <!-- Add the rest of your HTML structure here -->
+</div>
 
 {% endblock content %}
