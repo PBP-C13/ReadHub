@@ -72,16 +72,47 @@
         </div>
       </div>
     </div>
-    <a class="btn make-a-post" href="{% url 'discussion_forum:create_forum' %}">
+
+    <a href="#" class="btn btn-lg btn-primary make-a-post" data-toggle="modal" data-target="#largeModal"> <img src="../../static/img/icon/Make a Post.svg"> Make a Post Modal</a>
+
+    <a class="btn btn-lg make-a-post" href="{% url 'discussion_forum:create_forum' %}">
       <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
     </a>
+    <button class="delete-button btn" data-itemid="1">Delete</button>
+
+
   </div>
 
   <!-- Post Forum ------------------>
   <div class="forum-section" id ="product_Forum"> </div>
 </div>
 
+
+<!-- large modal -->
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Large Modal</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Modal Body</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/popper.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
 
 <script>
 
@@ -96,6 +127,7 @@
     productCard.innerHTML = ""; 
     const products = await getProducts();
     let htmlString = "";
+    console.log(products);
 
     products.forEach((item) => {
         htmlString += `
@@ -109,7 +141,7 @@
               </div>
             
             <p class="p">
-              ${item.forum_id}
+              ${item.forum_text}
             </p>
           </div>
           <div class="book-section">
@@ -147,7 +179,7 @@
                 <div class="text-wrapper">15</div>
               </div>
           </div>
-          <button onClick="deleteForum(${item.forum_id})" class="btn delete" style="background-color: #e221211a"> 
+          <button onclick="return coba(${item.forum_id})" data-itemid="${item.forum_id}" class="btn delete" style="background-color: #e221211a"> 
             <img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /> 
           </button>
         </div>
@@ -168,19 +200,28 @@
     refreshForum();
   });
 
-  function deleteForum(ID) {
-      fetch(`/delete_forum/${ID}`, {
-          method: 'DELETE',
-      })
-      .then(function (response) {
-          if (response.status === 200) {
-              // Forum berhasil dihapus, lakukan sesuatu jika diperlukan
-              refreshForum(); // Misalnya, refresh daftar forum
+  
+  function coba(ID) {
+    $.ajax({
+      type: 'POST',
+      url: 'delete_item/' +  ID  + '/',
+      data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}'
+      },
+      success: function (data) {
+          if (data.message) {
+              alert(data.message);
+              refreshForum();
           } else {
-              // Forum tidak ditemukan atau gagal dihapus, lakukan sesuatu jika diperlukan
-              console.error('Failed to delete forum');
+              alert(data.error);
           }
-      });
+      }
+  });
+  }
+  
+  function filter() {
+
+
   }
 
 </script>
