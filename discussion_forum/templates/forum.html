@@ -13,7 +13,7 @@
       </button>
       <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <ul class="navbar-nav" style="margin-left: 23%;">
+        <ul class="navbar-nav" id="bookCategory"  style="margin-left: 23%;" >
               <li class="nav-item">
                   <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
               </li>
@@ -50,7 +50,7 @@
 <!-- header ------------------>
 <div class="header">
   <div class="overlap-group">
-  <div class="text-wrapper">Community</div>
+  <div id="header-text" class="text-wrapper"></div>
   <img class="element" src="../../static/img/ComChar.svg" />
   </div>
 </div>
@@ -63,24 +63,44 @@
     <div class="filter-wrapper">
       <div class="div">
         <div class="text-wrapper">Filter Post</div>
-        <div class="filter-2">
-          <div class="filter-true"><div class="text-wrapper-2">All</div></div>
-          <div class="filter-false"><div class="text-wrapper-3">Genre 1</div></div>
-          <div class="filter-false"><div class="text-wrapper-4">Genre 2</div></div>
-          <div class="filter-false"><div class="text-wrapper-5">Genre 3</div></div>
-          <div class="filter-false"><div class="text-wrapper-5">Genre 4</div></div>
+        <div>
+          <!-- <ul class="filter-2">
+            <li class="filter-true">
+              <input type="radio" id="all" name="filter" value="all" checked onchange="filterForum()" >
+              <label for="all">All</label>
+            </li>
+            <li class="filter-false">
+              <input type="radio" id="Fantasy" name="filter" value="Fantasy" onchange="filterForum()">
+              <label for="Fantasy">Fantasy</label>
+            </li>
+            <li class="filter-false">
+              <input type="radio" id="Romance" name="filter" value="Romance" onchange="filterForum()">
+              <label for="Romance">Romance</label>
+            </li>
+            <li class="filter-false">
+              <input type="radio" id="Young Adult" name="filter" value="Young Adulr" onchange="filterForum()">
+              <label for="Young Adult">Young Adult</label>
+            </li>
+          </ul> -->
+          <div class="filter-2">
+            <div class="filter-true"><div class="text-wrapper-2">All</div></div>
+            <div class="filter-false"><div class="text-wrapper-3">Genre 1</div></div>
+            <div class="filter-false"><div class="text-wrapper-4">Genre 2</div></div>
+            <div class="filter-false"><div class="text-wrapper-5">Genre 3</div></div>
+            <div class="filter-false"><div class="text-wrapper-5">Genre 4</div></div>
+          </div>
         </div>
+
       </div>
     </div>
 
-    <a href="#" class="btn btn-lg btn-primary make-a-post" data-toggle="modal" data-target="#largeModal"> <img src="../../static/img/icon/Make a Post.svg"> Make a Post Modal</a>
+    <!-- <a href="#" class="btn btn-lg make-a-post" data-toggle="modal" data-target="#largeModal"> <img src="../../static/img/icon/Make a Post.svg"> <div class="text-wrapper-6">Modal a Post</div> </a> -->
 
     <a class="btn btn-lg make-a-post" href="{% url 'discussion_forum:create_forum' %}">
       <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
     </a>
-    <button class="delete-button btn" data-itemid="1">Delete</button>
-
+    
 
   </div>
 
@@ -89,30 +109,11 @@
 </div>
 
 
-<!-- large modal -->
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Large Modal</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <h3>Modal Body</h3>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://unpkg.com/popper.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/typeit@@{TYPEIT_VERSION}/dist/index.umd.js"></script>
+
 
 <script>
 
@@ -169,17 +170,14 @@
 
           <div class="profile-upper">
             <div class="action">
-              <div class="bottom-section">
-                <img class="icon" src="../../static/img/icon/Heart.svg" />
-                <div class="text-wrapper">15</div>
+              <div class="bottom-section" onclick="return likePost(${item.forum_id})">
+                <img id="like-button-${item.forum_id}" class="icon" src="../../static/img/icon/Heart1.svg" />
+                <div class="text-wrapper">${item.likes}</div>
               </div>
 
-              <div class="bottom-section">
-                <img class="icon" src="../../static/img/icon/Comment.svg" />
-                <div class="text-wrapper">15</div>
-              </div>
+
           </div>
-          <button onclick="return coba(${item.forum_id})" data-itemid="${item.forum_id}" class="btn delete" style="background-color: #e221211a"> 
+          <button style="background-color: #e221211a"  onclick="return Delete(${item.forum_id})" data-itemid="${item.forum_id}" class="btn delete" > 
             <img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /> 
           </button>
         </div>
@@ -201,7 +199,8 @@
   });
 
   
-  function coba(ID) {
+  function Delete(ID) {
+    
     $.ajax({
       type: 'POST',
       url: 'delete_item/' +  ID  + '/',
@@ -220,10 +219,131 @@
   }
   
   function filter() {
-
-
   }
 
+  function likePost(ID) {
+  $.ajax({
+    type: 'POST',
+    url: 'like/' + ID + '/',
+    data: {
+      csrfmiddlewaretoken: '{{ csrf_token }}'
+    },
+    success: function (data) {
+      var imgSrc = data.liked ? '../../static/img/icon/Heart.svg' : '../../static/img/icon/Heart1.svg';
+      $('#like-button-' + ID).attr('src', imgSrc);
+      refreshForum();
+    }
+  });
+}
+
+
+  function clicklove(element) {
+            // Mengambil nilai ID buku dari atribut data-bookid
+            var bookId = element.getAttribute('data-bookid');
+
+            if (element.src.endsWith("Heart1.svg")) {
+                element.src = "../../static/img/icon/Heart.svg";
+                
+                // Melakukan permintaan AJAX untuk menambahkan buku ke favorit
+                fetch(`favorit/api/books/${bookId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken'),  // Mengambil token CSRF dari cookie
+                    }
+                })
+                .then(response => {
+                    if (response.status === 201) {
+                        // Buku berhasil ditambahkan ke favorit, Anda dapat memperbarui tampilan halaman di sini
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            } else {
+                element.src = "../../static/img/icon/Heart1.svg";
+            }
+
+        }
+
+  function filterForum() {
+          const forumItems = document.querySelectorAll(".forum-person"); // Ambil semua elemen forum
+          
+          const selectedGenre = document.querySelector('input[name="filter"]:checked').value;
+          // Sembunyikan semua forum terlebih dahulu
+          forumItems.forEach(forum => {
+              forum.style.display = "none";
+          });
+
+          // Tampilkan hanya forum yang sesuai dengan genre yang dipilih
+          forumItems.forEach(forum => {
+              const forumGenre = forum.getAttribute("data-forum-genre"); // Ambil genre forum dari atribut data
+              if (forumGenre.includes(selectedGenre) || selectedGenre === "all") {
+                  forum.style.display = "block";
+              }
+          });
+      }
+
+      
+  function like(productId) {
+    fetch(`/toggle-like/${productId}`, {  // Ganti URL dengan URL yang sesuai
+        method: "POST",
+        headers: {
+            "X-CSRFToken": getCookie("csrftoken"),
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.liked) {
+            // Produk disukai oleh pengguna, lakukan tindakan yang sesuai (misalnya, perbarui tampilan tombol)
+            productId.src = "../../static/img/icon/Heart1.svg"
+            refreshForum();  // Perbarui daftar produk jika diperlukan
+        } else {
+            // Produk tidak lagi disukai oleh pengguna, lakukan tindakan yang sesuai (misalnya, perbarui tampilan tombol)
+            productId.src = "../../static/img/icon/Heart1.svg"
+            refreshForum();  // Perbarui daftar produk jika diperlukan
+            
+        }
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+  function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== "") {
+                var cookies = document.cookie.split(";");
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === name + "=") {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+  const headerText = document.getElementById("header-text");
+  const messages = ["Community"];
+  let currentMessageIndex = 0;
+  let currentCharacterIndex = 0;
+
+  function typeCharacter() {
+    if (currentMessageIndex < messages.length) {
+      const currentMessage = messages[currentMessageIndex];
+      const currentCharacter = currentMessage.charAt(currentCharacterIndex);
+      
+      headerText.textContent += currentCharacter;
+      currentCharacterIndex++;
+      
+      if (currentCharacterIndex < currentMessage.length) {
+        setTimeout(typeCharacter, 400); // Waktu tunda antar karakter (ms)
+      } else {
+        currentMessageIndex++;
+      }
+    }
+  }
+  typeCharacter(); 
+      
 </script>
 
 {% endblock content %}

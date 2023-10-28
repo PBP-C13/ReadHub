@@ -807,20 +807,20 @@ left: 29px;
 }
 
 .forum .header .text-wrapper {
-position: absolute;
-top: 48px;
-left: auto;
-font-weight: 900;
-color: #2444e0;
-font-size: 217px;
-letter-spacing: 0;
-line-height: 347.2px;
-white-space: nowrap;
-top: 50%; /* Tengah secara vertikal */
-left: 50%; /* Tengah secara horizontal */
-transform: translate(-50%, -50%); /
-
+  position: absolute;
+  top: 48px;
+  left: auto;
+  font-weight: 900;
+  color: #2444e0;
+  font-size: 217px;
+  letter-spacing: 0;
+  line-height: 347.2px;
+  white-space: nowrap;
+  top: 50%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); 
 }
+
 
 .forum .element {
 position: absolute;
@@ -875,7 +875,7 @@ align-items: flex-start;
 gap: 17px;
 position: relative;
 flex: 0 0 auto;
-overflow-x: scroll;
+overflow-x: auto;
 position: sticky;
 top: 0; 
 z-index: 100; 
@@ -1136,7 +1136,7 @@ white-space: nowrap;
 position: relative;
 width: 64px;
 height: 64px;
-background-color: #e221211a;
+background-color: #e221211a !important;
 border-radius: 8853.23px;
 overflow: hidden;
 }
@@ -1285,7 +1285,7 @@ justify-content: flex-end !important;
 align-items: center !important;
 gap: 10px !important;
 border-radius: 24px !important;
-background: var(--Primary, #2A4CF1) !important;
+background: var(--Primary,#2A4CF1) ;
 color:#fff
 }
 
@@ -1559,11 +1559,11 @@ background-color: #23264F;
   position: relative;
 }
 
-/* Mengatur tampilan gambar mata */
+
 .iconsax-linears {
   position: absolute;
   top: 50%;
-  right: -220px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  right: -220px; 
   transform: translateY(-300%);
 }
 
@@ -1596,7 +1596,7 @@ background-color: #23264F;
 .iconsax-linearss {
   position: absolute;
   top: 50%;
-  right: 30px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  right: 30px; 
   transform: translateY(10%);
 
 }

@@ -5,8 +5,6 @@
 <style>
 
     body {
-        font-family: "Poppins", Helvetica;
-        color: #ffffff;
         margin: 0;
         padding: 0;
         min-height: 100vh;
@@ -27,7 +25,7 @@
     .add-product h1 {
         font-family: "Poppins", Helvetica;
         margin-bottom: 5px; 
-        color: #3b5d81;
+        color: #ffffff;
         margin-top: 20px;
         margin-bottom: 20px;
         margin-bottom: 20px;
@@ -48,7 +46,7 @@
         padding: 10px;
         font-family: "Poppins", Helvetica;
         margin-bottom: 5px; 
-        color: #3b5d81;
+        color: #ffffff;
         margin-top: 20px;
         margin-bottom: 20px;
     }
@@ -64,12 +62,19 @@
     .add-product form input[type="submit"] {
         font-family: "Poppins", Helvetica;
         margin-bottom: 5px; 
-        color: #3b5d81;
         margin-top: 20px;
         margin-bottom: 20px;
         margin-left: 80px;
-        border-radius: 5px;
         cursor: pointer;
+        height: 64px !important;
+        padding: 10px 20px !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 10px !important;
+        border-radius: 24px !important;
+        background: var(--Primary, #2A4CF1) !important;
+        color:#fff
+
     }
 
     h5 {
@@ -81,14 +86,16 @@
     }
 
     .add-product form input[type="submit"]:hover {
-        background-color: #074486;
-        color: #eff3f7;
+        background: var(--Primary, #102fc7) !important;
+        color:#fff
+
     }
+
     
 </style>
 
 <div class="add-product">
-    <h1>Add New Product</h1>
+    <h1>Make a Forum</h1>
     <form method="POST">
         {% csrf_token %}
         <table>
@@ -96,7 +103,7 @@
             <tr>
                 <td></td>
                 <td>
-                    <input type="submit" value="Add Product">
+                    <input class="btn btn-primary" type="submit" value="Add Product">
                 </td>
             </tr>
         </table>
