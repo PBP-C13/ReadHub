@@ -2,7 +2,8 @@ from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.core import serializers
-from borrow_flow.models import Book, BorrowedBook
+from book.models import Book
+from borrow_flow.models import BorrowedBook
 from datetime import datetime, timedelta
 from borrow_flow.forms import *
 from django.views.decorators.csrf import csrf_exempt
@@ -33,6 +34,10 @@ def return_book(request, id):
     borrowed_book = get_object_or_404(BorrowedBook, pk=id)
     borrowed_book.delete()
     return HttpResponse(b"RETURNED", status=201)
+
+def get_book_by_id_json(request, id):
+    book = Book.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize('json', book), content_type="application/json")
 
 def get_borrowed_book_json(request):
     borrowed_books = BorrowedBook.objects.filter(user=request.user)
