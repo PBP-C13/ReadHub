@@ -428,20 +428,20 @@ left: 29px;
 }
 
 .forum .header .text-wrapper {
-position: absolute;
-top: 48px;
-left: auto;
-font-weight: 900;
-color: #2444e0;
-font-size: 217px;
-letter-spacing: 0;
-line-height: 347.2px;
-white-space: nowrap;
-top: 50%; /* Tengah secara vertikal */
-left: 50%; /* Tengah secara horizontal */
-transform: translate(-50%, -50%); /
-
+  position: absolute;
+  top: 48px;
+  left: auto;
+  font-weight: 900;
+  color: #2444e0;
+  font-size: 217px;
+  letter-spacing: 0;
+  line-height: 347.2px;
+  white-space: nowrap;
+  top: 50%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); 
 }
+
 
 .forum .element {
 position: absolute;
@@ -496,7 +496,7 @@ align-items: flex-start;
 gap: 17px;
 position: relative;
 flex: 0 0 auto;
-overflow-x: scroll;
+overflow-x: auto;
 position: sticky;
 top: 0; 
 z-index: 100; 
@@ -757,7 +757,7 @@ white-space: nowrap;
 position: relative;
 width: 64px;
 height: 64px;
-background-color: #e221211a;
+background-color: #e221211a !important;
 border-radius: 8853.23px;
 overflow: hidden;
 }
@@ -906,7 +906,7 @@ justify-content: flex-end !important;
 align-items: center !important;
 gap: 10px !important;
 border-radius: 24px !important;
-background: var(--Primary, #2A4CF1) !important;
+background: var(--Primary,#2A4CF1) ;
 color:#fff
 }
 
@@ -1424,24 +1424,17 @@ background-color: #23264F;
   align-items: flex-start;
   gap: 32px;
   position: absolute;
-  top: 442px;
-  left: 40px;
+  top: 50%;
+  right: -220px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(-300%);
 }
 
-.detail-book .text-wrapper-7 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 28px;
-  letter-spacing: 0;
-  line-height: 35px;
-  white-space: nowrap;
-}
-
-.detail-book .frame-9 {
+#id_username,
+#id_password1,
+#id_password2 {
+  background-color: #2b2e53;
+  border: 1px solid;
+  border-color: #2a4cf1;
   display: flex;
   flex-direction: column;
   width: 1147px;
@@ -1541,153 +1534,8 @@ background-color: #23264F;
 
 .detail-book .group-wrapper {
   position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 15px;
-  left: 112px;
-  background-color: var(--variable-collection-primary);
-  border-radius: 87.41px;
-  overflow: hidden;
-}
+  top: 50%;
+  right: 30px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(10%);
 
-.detail-book .group {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  top: 15px;
-  left: 15px;
-  background-image: url(./img/mask-group.png);
-  background-size: 100% 100%;
-}
-
-.detail-book .mask-group {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  top: 0;
-  left: 0;
-}
-
-.detail-book .frame-12 {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 12px;
-  position: absolute;
-  top: 25px;
-  left: 303px;
-}
-
-.detail-book .component {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 32px;
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.detail-book .text-wrapper-10 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 25.6px;
-  white-space: nowrap;
-}
-
-.detail-book .group-2 {
-  position: absolute;
-  width: 232px;
-  height: 32px;
-  top: 34px;
-  left: 1098px;
-}
-
-.detail-book .iconly-bold-profile {
-  position: absolute;
-  top: 0;
-  left: 198px;
-  width: 32px;
-  height: 32px;
-}
-
-.detail-book .text-wrapper-11 {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 25.6px;
-  white-space: nowrap;
-}
-
-.detail-book .checkbox {
-  display: flex;
-  width: 32px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 6px;
-  position: relative;
-  background-color: #0d6efd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.detail-book .checkbox .vector {
-  position: relative;
-  width: 20.01px;
-  height: 15.96px;
-}
-
-.detail-book .borrow-button {
-  display: flex;
-  width: 932px;
-  height: 76px;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 20px;
-  position: relative;
-  background-color: var(--variable-collection-primary);
-  border-radius: 24px;
-  box-sizing: border-box;
-}
-
-.detail-book .borrow-button .iconly-bold-bag {
-  position: relative;
-  width: 32px;
-  height: 32px;
-}
-
-.detail-book .borrow-button .bag {
-  position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 3px;
-  left: 4px;
-}
-
-.detail-book .borrow-button .button-text-wrapper {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0.3px;
-  line-height: normal;
-  white-space: nowrap;
 }
