@@ -1,97 +1,70 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-    <title>Login V18</title>
+    <title>Register</title>
 {% endblock meta %}
 
 {% block content %}
-<html>
-  <body>
-    <div class="sign-in">
-      <div class="div">
-        <div class="overlap">
-          <img class="vector" src="img/image.svg" />
-          <p class="start-your-journey">
-            <span class="text-wrapper">Start your </span>
-            <span class="span">Journey </span>
-            <span class="text-wrapper">in ReadHub</span>
-          </p>
-          <div class="group"><img class="mask-group" src="img/image.png" /></div>
-          <div class="frame">
-            <div class="overlap-group">
-              <img class="img" src="../../static/img/vector.svg" /> <img class="element" src="../../static/img/Char.svg" />
+    <div class="sign-up">
+        <div class="div">
+            <div class="overlap">
+                <img class="vector" src="img/vector-2.svg" />
+                <p class="start-your-journey">
+                    <span class="text-wrapper">Start your </span>
+                    <span class="span">Journey </span>
+                    <span class="text-wrapper">in ReadHub</span>
+                </p>
+                <div class="group"><img class="mask-group" src="img/image.png" /></div>
+                <div class="frame">
+                    <div class="overlap-group">
+                        <img class="img" src="../../static/img/Vector.svg"/> <img class="element" src="../../static/img/Char.svg" />
+                    </div>
+                    <p class="p">
+                        <span class="text-wrapper">Start your </span>
+                        <span class="span">Journey </span>
+                        <span class="text-wrapper">in ReadHub</span>
+                    </p>
+                    <div class="mask-group-wrapper"><img class="mask-group" src="../../static/img/logo.svg" /></div>
+                </div>
             </div>
-            <p class="p">
-              <span class="text-wrapper">Start your </span>
-              <span class="span">Journey </span>
-              <span class="text-wrapper">in ReadHub</span>
-            </p>
-            <img class="group-2" src="../../static/img/logo.svg" />
-          </div>
-        </div>
-        <p class="text-wrapper-2">Sign In for an account</p>
-        <div class="frame-2">
-          <div class="frame-3">
-            <label class="label" for="input-1">Full name</label> <input class="input" id="input-1" />
-          </div>
-          <div class="frame-3">
-            <label class="label" for="input-2">Password</label>
-            <div class="frame-4">
-              <input class="text-input" id="input-2" /> <img class="iconsax-linear" src="../../static/img/icon/mata.svg" />
+
+            <p class="text-wrapper-2">Sign up for an account</p>
+            <div class="frame-2">
+                <form method="POST" action="{% url 'main:register' %}">
+                    {% csrf_token %}
+                    <div class="frame-3">
+                        <label class="label" for="input-1">Full name</label> 
+                        <input class="input" type="text" name="input-1" id="input-1" />
+                    </div>
+                    <div class="frame-3">
+                        <label class="label" for="input-2">Password</label>
+                        <div class="frame-4">
+                            <input class="text-input" type="password" name="input-2" id="input-2" /> 
+                            <img class="iconsax-linear" src="../../static/img/icon/mata.svg" />
+                        </div>
+                    </div>
+                    <div class="frame-3">
+                        <label class="label" for="input-3">Confirm password</label>
+                        <div class="frame-4">
+                            <input class="text-input" type="password" name="input-3" id="input-3" /> 
+                            <img class="iconsax-linear" src="../../static/img/icon/mata.svg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-wrapper">
+                    <div class="frame-5" onclick=input type="submit" name="submit" value="Daftar">
+                        <div class="text-wrapper-3">Sign up</div>
+                        <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
+                    </div>
+                </div>
+            </form>
+                <p class="already-member-sign">
+                    <span class="text-wrapper-4">Already member?</span>
+                    <span class="text-wrapper">&nbsp;</span>
+                    <span class="span"></span>
+                    <a class="span" href="{% url 'main:login' %}">Sign in Now</a>
+                </p>
             </div>
-          </div>
         </div>
-        <div class="frame-wrapper">
-          <div class="frame-5">
-            <div class="text-wrapper-3">Sign up</div>
-            <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
-          </div>
-        </div>
-        <p class="already-member-sign">
-          <span class="text-wrapper-4">Already member?</span>
-          <span class="text-wrapper">&nbsp;</span>
-          <a class="span" href="{% url 'main:register' %}">Register Now</a>
-        </p>
-      </div>
-    </div>
-  </body>
-</html>
 
-
-
-{% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-{% endif %}
-
-<form method="POST" action="">
-  {% csrf_token %}
-  <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" placeholder="Username" class="form-control">
-  </div>
-  <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" placeholder="Password" class="form-control">
-  </div>
-  <div class="form-group">
-      <input class="add-product-button" type="submit" value="Login">
-  </div>
-</form>
-
-{% if messages %}
-  <ul>
-      {% for message in messages %}
-          <li>{{ message }}</li>
-      {% endfor %}
-  </ul>
-{% endif %}
-
-<<<<<<< HEAD
 {% endblock content %}
-=======
-{% endblock content %}
->>>>>>> 8524d0ed7888ce8a3f4fc196e76f8db9df0e9a77
