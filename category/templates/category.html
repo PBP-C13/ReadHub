@@ -67,6 +67,13 @@
                     <img class="iconly-light-search" src="../../static/img/icon/Search.svg" />
                   </button>
                 </div>
+                <select id="bookCategory" name="bookCategory" onchange="filterBooks()">
+                    <option value="fantasy">Fantasy</option>
+                    <option value="romance">Romance</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="nonfiction">Nonfiction</option>
+                    <option value="science fiction">Science Fiction</option>
+                </select>
             </div>
 
         </div>
@@ -79,7 +86,7 @@
             <div class="scrollmenu">
                 <div class="card-container" id="fantasy-books">
                     {% for book in fantasyBooks %}
-                      <div class="card">
+                      <div class="card" data-genre="{{ book.genres }}">
                         <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
                         <div class="card-body">
                           <h5 class="judul">{{ book.book_title }}</h5>
@@ -94,34 +101,54 @@
                     {% endfor %}
                 </div>
             </div>
-
-            <br/>
-
-            <div class="label">
-                <div class="text-wrapper">More Books in ReadHub</div>
-            </div>
     
-            <div class="card-container" id="all-books">
-                {% for book in books %}
-                  <div class="card">
-                    <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
-                    <div class="card-body">
-                      <h5 class="judul">{{ book.book_title }}</h5>
-                      <p class="author">by {{ book.book_authors |slice:":25"}}</p>
-                    </div>
-                    {% if user.is_authenticated %}
-                        <form method="POST">
-                            <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="{{ book.pk }}" onclick="clicklove(this)">
-                        </form>
-                    {% endif %}
-                    </div>
-                {% endfor %}
+            <br/>
+                <div class="label">
+                    <div class="text-wrapper">More Books in ReadHub</div>
+                </div>
+        
+                <div class="card-container" id="all-books">
+                </div>
             </div>
-       
         </div>
+
     </div>
 
     <script>
+        async function getProducts() {
+            let url = "{% url 'category:get_product_json' %}"
+            return fetch(url).then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+            document.getElementById("all-books").innerHTML = ""
+            const book = await getProducts()
+            let htmlString =``
+
+            book.forEach((item) => {
+                // Membuat elemen kartu untuk produk
+                const cardElement = document.createElement('div')
+
+                // Mengisi elemen kartu dengan data produk
+                htmlString += `\n
+                <div class="card" data-genre="${item.fields.genres}">
+                    <img class="card-img-top mx-auto" src="${item.fields.image_url}" alt="book">
+                    <div class="card-body">
+                      <h5 class="judul">${item.fields.book_title}</h5>
+                      <p class="author">by ${item.fields.book_authors}</p>
+                    </div>
+                        <form method="POST">
+                            <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="${item.fields.pk}" onclick="clicklove(this)">
+                        </form>
+                </div>
+                `;
+                
+                // Menambahkan elemen kartu ke dalam elemen kartu utama
+                document.getElementById("all-books").innerHTML = htmlString
+            });
+        }
+
+        refreshProducts()
         document.getElementById('search-input').addEventListener('input', function() {
             var input = this.value.toLowerCase();
             var cards = document.querySelectorAll('.card');
@@ -178,6 +205,25 @@
                 }
             }
             return cookieValue;
+        }
+
+        function filterBooks() {
+            const bookCategorySelect = document.getElementById("bookCategory");
+            const books = document.querySelectorAll(".card"); // Ambil semua elemen buku
+            const selectedGenre = bookCategorySelect.value;
+            
+            // Sembunyikan semua buku terlebih dahulu
+            books.forEach(book => {
+                book.style.display = "none";
+            });
+
+            // Tampilkan hanya buku yang sesuai dengan genre yang dipilih
+            books.forEach(book => {
+                const bookGenres = book.getAttribute("data-genre").toLowerCase().split("|"); // Membagi genre menjadi array
+                if (bookGenres.includes(selectedGenre) || selectedGenre === "all") {
+                    book.style.display = "block";
+                }
+            });
         }
 
     </script>
