@@ -8,5 +8,6 @@ urlpatterns = [
     path('borrow_flow/', borrow_flow, name='borrow_flow'),
     path('get-item-json/', get_item_json, name='get_item_json'),
     path('create-review/', create_review, name='create_review'),
+    path('detail/<int:id>/', show_detail, name='show_detail'),
     
 ]

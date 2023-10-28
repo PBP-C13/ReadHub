@@ -285,16 +285,6 @@ font-weight: 500;
   flex: 0 0 auto;
 }
 
-.sign-in form {
-
-  display: flex;
-  flex-direction: column;
-  width: 491px;
-  align-items: center;
-  gap: 24px;
-  position: absolute;
-}
-
 .sign-in .label {
   position: relative;
   width: fit-content;
@@ -318,7 +308,7 @@ font-weight: 500;
   border-color: #2a4cf1;
   flex: 0 0 auto;
   margin-top: -1px;
-  font-family: "Poppins-Regular", Helvetica;
+  font-family: "Poppins", Helvetica;
   font-weight: 400;
   color: #ffffff80;
   font-size: 16px;
@@ -413,375 +403,6 @@ font-weight: 500;
 
 .sign-in .text-wrapper-4 {
   color: #ffffffbf;
-}
-
-
-.sign-up {
-  background-color: #161832;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-
-.sign-up .div {
-  background-color: #161832;
-  overflow: hidden;
-  width: 1440px;
-  height: 1024px;
-  position: relative;
-}
-
-.sign-up .overlap {
-  height: 976px;
-  top: 24px;
-  left: 24px;
-  border-radius: 40px;
-  position: absolute;
-  width: 688px;
-}
-
-.sign-up .vector {
-  position: absolute;
-  width: 578px;
-  height: 612px;
-  top: 359px;
-  left: 73px;
-}
-
-.sign-up .start-your-journey {
-  position: absolute;
-  width: 468px;
-  top: 197px;
-  left: 73px;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: transparent;
-  font-size: 48px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .text-wrapper {
-  color: #ffffff;
-}
-
-.sign-up .span {
-  color: #3fbcfc;
-}
-
-.sign-up .group {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 67px;
-  left: 73px;
-  background-image: url(./img/mask-group.png);
-  background-size: 100% 100%;
-}
-
-.sign-up .mask-group {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 0;
-  left: 0;
-}
-
-.sign-up .frame {
-  position: absolute;
-  width: 688px;
-  height: 976px;
-  top: 0;
-  left: 0;
-  background-color: var(--variable-collection-primary);
-  border-radius: 40px;
-  overflow: hidden;
-}
-
-.sign-up .overlap-group {
-  height: 617px;
-  top: 359px;
-  left: 0;
-  position: absolute;
-  width: 688px;
-}
-
-.sign-up .img {
-  position: absolute;
-  width: 578px;
-  height: 612px;
-  top: 0;
-  left: 73px;
-}
-
-.sign-up .element {
-  position: absolute;
-  width: 688px;
-  height: 617px;
-  top: 0;
-  left: 0;
-}
-
-.sign-up .p {
-  position: absolute;
-  width: 468px;
-  top: 186px;
-  left: 73px;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: transparent;
-  font-size: 48px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .mask-group-wrapper {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  top: 56px;
-  left: 73px;
-  background-image: url(./img/mask-group-2.png);
-  background-size: 100% 100%;
-}
-
-.sign-up .text-wrapper-2 {
-  position: absolute;
-  top: 219px;
-  left: 829px;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 36px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .frame-2 {
-  display: flex;
-  flex-direction: column;
-  width: 491px;
-  align-items: center;
-  gap: 24px;
-  position: absolute;
-  top: 310px;
-  left: 829px;
-}
-
-.sign-up .frame-3 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-}
-
-.sign-up .label {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up input {
-  padding: 24px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  background-color: #2b2e53;
-  border-radius: 16px;
-  border: 1px solid;
-  border-color: #2a4cf1;
-  flex: 0 0 auto;
-  margin-top: -1px;
-  font-family: "Poppins-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff80;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .frame-4 {
-  background-color: #2b2e53;
-  border: 1px solid;
-  border-color: #2a4cf1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  border-radius: 16px;
-}
-
-.sign-up .text-input {
-  position: relative;
-  flex: 0 0 auto;
-  background-color: transparent;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  color: #ffffff80;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-  border: 0;
-  padding: 0;
-}
-
-.sign-up .iconsax-linear {
-  position: relative;
-  width: 24px;
-  height: 24px;
-}
-
-.sign-up .frame-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 491px;
-  align-items: flex-start;
-  gap: 16px;
-  position: absolute;
-  top: 721px;
-  left: 829px;
-}
-
-.sign-up .frame-5 {
-  background-color: #2a4cf1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px;
-  position: relative;
-  align-self: stretch;
-  width: 100%;
-  flex: 0 0 auto;
-  border-radius: 16px;
-}
-
-.sign-up .text-wrapper-3 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 18px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .already-member-sign {
-  position: absolute;
-  top: 819px;
-  left: 961px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: transparent;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.sign-up .text-wrapper-4 {
-  color: #ffffffbf;
-}
-
-.sign-up .group-2 {
-  position: absolute;
-  width: 342px;
-  height: 539px;
-  top: 105px;
-  left: -681px;
-}
-
-.sign-up .text-wrapper-5 {
-  position: absolute;
-  width: 282px;
-  top: 0;
-  left: 26px;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 36px;
-  text-align: center;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.sign-up .frame-6 {
-  display: flex;
-  flex-direction: column;
-  width: 336px;
-  align-items: flex-start;
-  gap: 16px;
-  position: absolute;
-  top: 143px;
-  left: 2px;
-}
-
-.sign-up .frame-7 {
-  display: flex;
-  flex-direction: column;
-  width: 323px;
-  align-items: flex-start;
-  gap: 16px;
-  position: absolute;
-  top: 276px;
-  left: 6px;
-}
-
-.sign-up .iconsax-linear-2 {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  margin-bottom: -1706px;
-  margin-right: -499px;
-}
-
-.sign-up .div-wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 329px;
-  align-items: flex-start;
-  gap: 16px;
-  position: absolute;
-  top: 421px;
-  left: 0;
-}
-
-.sign-up .iconsax-linear-3 {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  margin-bottom: -1596.5px;
-  margin-right: -505px;
-}
-
-.sign-up .already-member-sign-2 {
-  position: absolute;
-  top: 520px;
-  left: 54px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: transparent;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
 }
 
 /* Community -------------------------------------------------*/
@@ -1441,10 +1062,10 @@ text-align: center;
 white-space: nowrap;
 }
 
-.category .container #all-books {
-display: grid;
-grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
-grid-gap: 1px; /* Jarak antara card */
+.category .container #all-books{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
+  grid-gap: 1px; /* Jarak antara card */
 }
 
 .category .container #all-books .card{
@@ -1495,12 +1116,20 @@ display: flex; /* Menggunakan display flex untuk satu baris horizontal */
 align-items: center; /* Menengahkan card jika tidak cukup lebar */
 }
 
-.category .container .scrollmenu #fantasy-books {
+.category .container .scrollmenu #fantasy-books,
+.category .container .scrollmenu #mystery-books,
+.category .container .scrollmenu #sciencefiction-books,
+.category .container .scrollmenu #nonfiction-books,
+.category .container .scrollmenu #romance-books {
 display: flex; /* Menggunakan display flex untuk satu baris horizontal */
 white-space: nowrap; /* Menghindari pemisahan baris */
 }
 
-.category .container .scrollmenu #fantasy-books .card{
+.category .container .scrollmenu #fantasy-books .card,
+.category .container .scrollmenu #mystery-books .card,
+.category .container .scrollmenu #sciencefiction-books .card,
+.category .container .scrollmenu #nonfiction-books .card,
+.category .container .scrollmenu #romance-books .card{
 margin: 2px;
 display: flex;
 flex-direction: column; /* Mengubah arah flex ke kolom */
@@ -1509,7 +1138,11 @@ height: 400px; /* Atur tinggi card sesuai kebutuhan */
 background-color: #23264F;
 }
 
-.category .container .scrollmenu #fantasy-books .card .card-img-top{
+.category .container .scrollmenu #fantasy-books .card .card-img-top,
+.category .container .scrollmenu #sciencefiction-books .card .card-img-top,
+.category .container .scrollmenu #nonfiction-books .card .card-img-top,
+.category .container .scrollmenu #romance-books .card .card-img-top,
+.category .container .scrollmenu #mystery-books .card .card-img-top{
   display: flex;
   align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
   justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
@@ -1520,14 +1153,26 @@ background-color: #23264F;
 }
 
 .category .container .scrollmenu #fantasy-books .card .card-body .judul,
-.category .container .scrollmenu #fantasy-books .card .card-body .author {
+.category .container .scrollmenu #fantasy-books .card .card-body .author,
+.category .container .scrollmenu #sciencefiction-books .card .card-body .judul,
+.category .container .scrollmenu #sciencefiction-books .card .card-body .author,
+.category .container .scrollmenu #nonfiction-books .card .card-body .judul,
+.category .container .scrollmenu #nonfiction-books .card .card-body .author,
+.category .container .scrollmenu #romance-books .card .card-body .judul,
+.category .container .scrollmenu #romance-books .card .card-body .author,
+.category .container .scrollmenu #mystery-books .card .card-body .judul,
+.category .container .scrollmenu #mystery-books .card .card-body .author {
   overflow: hidden;
   text-overflow: ellipsis;
   font-size: 15px;
   color: #fff;
 }
 
-.category .container .scrollmenu #fantasy-books .card .love{
+.category .container .scrollmenu #fantasy-books .card .love,
+.category .container .scrollmenu #sciencefiction-books .card .love,
+.category .container .scrollmenu #nonfiction-books .card .love,
+.category .container .scrollmenu #romance-books .card .love,
+.category .container .scrollmenu #mystery-books .card .love{
   width: 50px;
   height: 50px;
   position: absolute;
@@ -1535,7 +1180,11 @@ background-color: #23264F;
   right: 15px;
 }
 
-.category .container .scrollmenu #fantasy-books .card .love:hover{
+.category .container .scrollmenu #fantasy-books .card .love:hover,
+.category .container .scrollmenu #sciencefiction-books .card .love:hover,
+.category .container .scrollmenu #nonfiction-books .card .love:hover,
+.category .container .scrollmenu #romance-books .card .love:hover,
+.category .container .scrollmenu #mystery-books .card .love:hover{
   filter: brightness(0.7);
   cursor: pointer;
 
@@ -1551,11 +1200,6 @@ background-color: #23264F;
 
 /* Mengatur tampilan input password */
 .password-input {
-  display: flex;
-  flex-direction: column;
-  width: 491px;
-  align-items: center;
-  gap: 24px;
   position: relative;
 }
 
@@ -1563,524 +1207,7 @@ background-color: #23264F;
 .iconsax-linears {
   position: absolute;
   top: 50%;
-  right: -220px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
-  transform: translateY(-300%);
+  right: -235px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(-290%);
 }
-
-#id_username,
-#id_password1,
-#id_password2 {
-  background-color: #2b2e53;
-  border: 1px solid;
-  border-color: #2a4cf1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px;
-  position: relative;
-  align-self: stretch;
-  width: 491px;
-  flex: 0 0 auto;
-  border-radius: 16px;
-}
-
-.iconsax-linearpanah {
-  position: relative;
-  width: 24px;
-  height: 24px;
-  top: 50%;
-  right: -440px;
-  transform: translateY(-260%)
-}
-
-.iconsax-linearss {
-  position: absolute;
-  top: 50%;
-  right: 30px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
-  transform: translateY(10%);
-}
-
-/* CSS Borrow.html */
-.detail-book {
-  background-color: #161732;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-}
-
-.detail-book .div {
-  background-color: #161732;
-  width: 1440px;
-  height: 1280px;
-  position: relative;
-}
-
-.detail-book .text-wrapper {
-  position: absolute;
-  top: 155px;
-  left: 540px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 56px;
-  letter-spacing: 0;
-  line-height: 70px;
-  white-space: nowrap;
-}
-
-.detail-book .frame {
-  position: absolute;
-  width: 1211px;
-  height: 888px;
-  top: 274px;
-  left: 112px;
-  background-color: #23264f;
-  border-radius: 40px;
-  overflow: hidden;
-}
-
-.detail-book .image-wrapper {
-  position: absolute;
-  width: 308px;
-  height: 362px;
-  top: 40px;
-  left: 40px;
-  background-color: #13142a;
-  border-radius: 22.19px;
-  overflow: hidden;
-}
-
-.detail-book .image {
-  position: absolute;
-  width: 308px;
-  height: 362px;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-}
-
-.detail-book .frame-2 {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 32px;
-  position: absolute;
-  top: 47px;
-  left: 397px;
-}
-
-.detail-book .frame-3 {
-  display: flex;
-  flex-direction: column;
-  width: 767px;
-  align-items: flex-start;
-  gap: 24px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.detail-book .text-wrapper-2 {
-  position: relative;
-  width: 766px;
-  margin-top: -1px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 48px;
-  letter-spacing: 0;
-  line-height: 60px;
-}
-
-.detail-book .text-wrapper-3 {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 28px;
-  letter-spacing: 0;
-  line-height: 35px;
-  white-space: nowrap;
-}
-
-.detail-book .frame-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  height: 44px;
-  align-items: flex-start;
-  gap: 56px;
-  position: relative;
-}
-
-.detail-book .div-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 40px;
-  position: relative;
-  flex: 0 0 auto;
-  margin-bottom: -2px;
-}
-
-.detail-book .frame-4 {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 16px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.detail-book .frame-5 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 8px 29px;
-  position: relative;
-  flex: 0 0 auto;
-  background-color: var(--variable-collection-secondary);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.detail-book .text-wrapper-4 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 20px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.detail-book .frame-6 {
-  display: inline-flex;
-  flex-direction: column;
-  height: 121px;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 24px;
-  position: relative;
-}
-
-.detail-book .text-wrapper-5 {
-  position: relative;
-  width: fit-content;
-  margin-top: -2px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 28px;
-  letter-spacing: 0;
-  line-height: 35px;
-  white-space: nowrap;
-}
-
-.detail-book .frame-7 {
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  position: relative;
-  flex: 0 0 auto;
-  margin-bottom: -1px;
-}
-
-.detail-book .img {
-  position: relative;
-  width: 64px;
-  height: 64px;
-}
-
-.detail-book .text-wrapper-6 {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 28px;
-  letter-spacing: 0;
-  line-height: 35px;
-  white-space: nowrap;
-}
-
-.detail-book .frame-8 {
-  display: flex;
-  flex-direction: column;
-  width: 1123px;
-  align-items: flex-start;
-  gap: 32px;
-  position: absolute;
-  top: 442px;
-  left: 40px;
-}
-
-.detail-book .text-wrapper-7 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Bold", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 28px;
-  letter-spacing: 0;
-  line-height: 35px;
-  white-space: nowrap;
-}
-
-.detail-book .frame-9 {
-  display: flex;
-  flex-direction: column;
-  width: 1147px;
-  align-items: flex-start;
-  gap: 32px;
-  position: relative;
-  flex: 0 0 auto;
-  margin-right: -24px;
-}
-
-.detail-book .frame-10 {
-  display: inline-flex;
-  align-items: center;
-  gap: 20px;
-  position: relative;
-  flex: 0 0 auto;
-}
-
-.detail-book .checkbox {
-  position: relative;
-  width: 32px;
-  height: 32px;
-}
-
-.detail-book .p {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 30px;
-  white-space: nowrap;
-}
-
-.detail-book .text-wrapper-8 {
-  position: relative;
-  width: 1021px;
-  margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: 30px;
-}
-
-.detail-book .button {
-  display: flex;
-  width: 932px;
-  height: 76px;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 20px;
-  position: absolute;
-  top: 752px;
-  left: 140px;
-  background-color: var(--variable-collection-primary);
-  border-radius: 24px;
-  all: unset;
-  box-sizing: border-box;
-}
-
-.detail-book .bag {
-  position: relative;
-  width: 24px;
-  height: 27px;
-  top: 3px;
-  left: 4px;
-  background-image: url(./img/combined-shape.svg);
-  background-size: 100% 100%;
-}
-
-.detail-book .text-wrapper-9 {
-  position:relative;
-  width: fit-content;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0.3px;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.detail-book .frame-11 {
-  position: fixed;
-  width: 1440px;
-  height: 100px;
-  top: 0;
-  left: 0;
-  background-image: url(./img/rectangle-39291.png);
-  background-size: 100% 100%;
-}
-
-.detail-book .group-wrapper {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  top: 15px;
-  left: 112px;
-  background-color: var(--variable-collection-primary);
-  border-radius: 87.41px;
-  overflow: hidden;
-}
-
-.detail-book .group {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  top: 15px;
-  left: 15px;
-  background-image: url(./img/mask-group.png);
-  background-size: 100% 100%;
-}
-
-.detail-book .mask-group {
-  position: absolute;
-  width: 44px;
-  height: 44px;
-  top: 0;
-  left: 0;
-}
-
-.detail-book .frame-12 {
-  display: inline-flex;
-  align-items: flex-start;
-  gap: 12px;
-  position: absolute;
-  top: 25px;
-  left: 303px;
-}
-
-.detail-book .component {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 12px 32px;
-  position: relative;
-  flex: 0 0 auto;
-  border-radius: 99px;
-  overflow: hidden;
-}
-
-.detail-book .text-wrapper-10 {
-  position: relative;
-  width: fit-content;
-  margin-top: -1px;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 25.6px;
-  white-space: nowrap;
-}
-
-.detail-book .group-2 {
-  position: absolute;
-  width: 232px;
-  height: 32px;
-  top: 34px;
-  left: 1098px;
-}
-
-.detail-book .iconly-bold-profile {
-  position: absolute;
-  top: 0;
-  left: 198px;
-  width: 32px;
-  height: 32px;
-}
-
-.detail-book .text-wrapper-11 {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  font-family: "Poppins-Medium", Helvetica;
-  font-weight: 500;
-  color: #ffffff;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: 25.6px;
-  white-space: nowrap;
-}
-
-.detail-book .checkbox {
-  display: flex;
-  width: 32px;
-  height: 32px;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 6px;
-  position: relative;
-  background-color: #0d6efd;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.detail-book .checkbox .vector {
-  position: relative;
-  width: 20.01px;
-  height: 15.96px;
-}
-
-.detail-book .borrow-button {
-  display: flex;
-  width: 932px;
-  height: 76px;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px 20px;
-  position: relative;
-  background-color: var(--variable-collection-primary);
-  border-radius: 24px;
-  box-sizing: border-box;
-}
-
-.detail-book .borrow-button .iconly-bold-bag {
-  position: relative;
-  width: 32px;
-  height: 32px;
-}
-
-.detail-book .borrow-button .bag {
-  position: absolute;
-  width: 24px;
-  height: 27px;
-  top: 3px;
-  left: 4px;
-}
-
-.detail-book .borrow-button .button-text-wrapper {
-  position: relative;
-  width: fit-content;
-  font-family: "Poppins-SemiBold", Helvetica;
-  font-weight: 600;
-  color: #ffffff;
-  font-size: 24px;
-  letter-spacing: 0.3px;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-
-
 
