@@ -50,10 +50,10 @@
     <div class="book-card-container">
       {% for favorit in favorit %}
       <div class="book-card" style="width: 18rem;">
-          <img class="book-img card-img-top" src="{{favorit.image_url}}" alt="Card image cap">
+          <img class="book-img card-img-top" src="{{favorit.books.image_url}}" alt="Card image cap">
           <div class="card-body">
-            <h5 class="card-title">{{favorit.book_title}}</h5>
-            <p class="card-text">Author: {{favorit.book_authors}} </p>
+            <h5 class="card-title">{{favorit.books.book_title}}</h5>
+            <p class="card-text">Author: {{favorit.books.book_authors}} </p>
             <a href="#" class="btn btn-primary">Detail Buku</a>
           </div>
       </div>

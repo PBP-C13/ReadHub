@@ -1064,24 +1064,38 @@ white-space: nowrap;
 
 .category .container #all-books {
 display: grid;
-grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
+grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
 grid-gap: 1px; /* Jarak antara card */
 }
 
 .category .container #all-books .card{
-margin: 2px;
-height: 220px; /* Atur tinggi sesuai kebutuhan */
-background-color: #23264F;
+  margin: 2px;
+  height: 400px; /* Atur tinggi sesuai kebutuhan */
+  background-color: #23264F;
 }
 
 .category .container #all-books .card .card-img-top{
-display: flex;
-align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
-justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
-max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
-max-height: 120px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
-border-radius: 10px; /* Atur radius sesuai kebutuhan */
-margin-top: 7px;
+  display: flex;
+  align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
+  justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
+  max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
+  max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+  border-radius: 10px; /* Atur radius sesuai kebutuhan */
+  margin-top: 7px;
+}
+
+.category .container #all-books .card .love{
+  width: 50px;
+  height: 50px;
+  position: absolute; /* Mengatur posisi absolut untuk love */
+  bottom: 10px; /* Atur jarak dari atas card */
+  right: 15px; /* Atur jarak dari kanan card */
+}
+
+.category .container #all-books .card .love:hover{
+  filter: brightness(0.7);
+  cursor: pointer;
+
 }
 
 .category .container  #all-books .card .card-body .judul,
@@ -1111,25 +1125,39 @@ white-space: nowrap; /* Menghindari pemisahan baris */
 margin: 2px;
 display: flex;
 flex-direction: column; /* Mengubah arah flex ke kolom */
-width: 150px; /* Atur lebar card sesuai kebutuhan */
-height: 220px; /* Atur tinggi card sesuai kebutuhan */
+width: 250px; /* Atur lebar card sesuai kebutuhan */
+height: 400px; /* Atur tinggi card sesuai kebutuhan */
 background-color: #23264F;
 }
 
 .category .container .scrollmenu #fantasy-books .card .card-img-top{
-display: flex;
-align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
-justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
-max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
-max-height: 120px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
-border-radius: 10px; /* Atur radius sesuai kebutuhan */
-margin-top: 7px;
+  display: flex;
+  align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
+  justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
+  max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
+  max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+  border-radius: 10px; /* Atur radius sesuai kebutuhan */
+  margin-top: 7px;
 }
 
 .category .container .scrollmenu #fantasy-books .card .card-body .judul,
 .category .container .scrollmenu #fantasy-books .card .card-body .author {
-overflow: hidden;
-text-overflow: ellipsis;
-font-size: 15px;
-color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  color: #fff;
+}
+
+.category .container .scrollmenu #fantasy-books .card .love{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.category .container .scrollmenu #fantasy-books .card .love:hover{
+  filter: brightness(0.7);
+  cursor: pointer;
+
 }
