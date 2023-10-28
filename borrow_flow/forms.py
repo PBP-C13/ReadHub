@@ -6,7 +6,7 @@ class BorrowForm(ModelForm):
         model = BorrowedBook
         fields = ['borrow_duration', 'terms_accepted']
 
-class ReturnForm(ModelForm):
-    class Meta:
-        model = BorrowedBook
-        fields = ['rating', 'review']
+# class ReturnForm(ModelForm):
+#     class Meta:
+#         model = BorrowedBook
+#         fields = ['rating', 'review']
