@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .favorit .container #all-books {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
+        grid-gap: 1px; /* Jarak antara card */
+    }
+    .favorit .container #all-books .card{
+        margin: 2px;
+        height: 400px; /* Atur tinggi sesuai kebutuhan */
+        background-color: #23264F;
+    }
+    .favorit .container #all-books .card .card-img-top{
+        display: flex;
+        align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
+        justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
+        max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
+        max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+        border-radius: 10px; /* Atur radius sesuai kebutuhan */
+        margin-top: 7px;
+    }
+    .favorit .container #all-books .card .love{
+        width: 50px;
+        height: 50px;
+        position: absolute; /* Mengatur posisi absolut untuk love */
+        bottom: 10px; /* Atur jarak dari atas card */
+        right: 15px; /* Atur jarak dari kanan card */
+    }
+    .favorit .container #all-books .card .love:hover{
+        filter: brightness(0.7);
+        cursor: pointer;
+
+    }
+    .favorit .container  #all-books .card .card-body .judul,
+    .favorit .container  #all-books .card .card-body .author  {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 15px;
+        color: #fff;
+    }
+</style>
+<!-- Navbar ------------------>
+    <div class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav" style="margin-left: 23%;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+                </li>
+                <li class="nav-item-active">
+                <a class="nav-link" style="color: #4162FF;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+            </li>
+            </ul>
+        </div>
+
+        <div class="ml-auto"> 
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> Hello, {{ name }},
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                    <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="favorit">
+        <div class="container">
+            <h1>Favorite</h1>
+
+            <div class="card-container" id="all-books"></div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        
+        async function getProducts() {
+            let url = "{% url 'category:get_book_favorit' %}"
+            return fetch(url).then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+            document.getElementById("all-books").innerHTML = ""
+            const book = await getProducts()
+            let htmlString =``
+
+            book.forEach((item) => {
+                console.log(item)
+                // Membuat elemen kartu untuk produk
+                const cardElement = document.createElement('div')
+
+                // Mengisi elemen kartu dengan data produk
+                htmlString += `\n
+                <div class="card">
+                    <img class="card-img-top mx-auto" src="${item.book_image}" alt="book">
+                    <div class="card-body">
+                      <h5 class="judul">${item.book_title}</h5>
+                      <p class="author">by ${item.book_author}</p>
+                    </div>
+                </div>
+                `;
+                
+                // Menambahkan elemen kartu ke dalam elemen kartu utama
+                document.getElementById("all-books").innerHTML = htmlString
+            });
+        }
+        refreshProducts()
+
+    </script>
+    
+
+{% endblock content %}

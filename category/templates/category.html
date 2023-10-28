@@ -23,7 +23,7 @@
                     <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
                 </li>
                 </ul>
             </div>
@@ -37,6 +37,35 @@
                         <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
                         <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 style="color: black;" class="modal-title fs-5" id="exampleModalLabel">Add Book to Favorite</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label style="color: black;" for="is_favorite" class="col-form-label">Anda yakin ingin menambahkan ke favorit?</label>
+                            <label style="color: black;">
+                                <input  type="radio" name="is_favorite" value="yes"> Yes
+                            </label>
+                            <label style="color: black;">
+                                <input  type="radio" name="is_favorite" value="no"> No
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
                 </div>
             </div>
         </div>
@@ -86,6 +115,27 @@
             <div class="scrollmenu">
                 <div class="card-container" id="fantasy-books">
                     {% for book in fantasyBooks %}
+                    <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Romance Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="romance-books">
+                    {% for book in romanceBooks %}
                       <div class="card" data-genre="{{ book.genres }}">
                         <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
                         <div class="card-body">
@@ -93,26 +143,96 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                            <form method="POST">
-                                <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="{{ book.pk }}" onclick="clicklove(this)">
-                            </form>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
                         {% endif %}
                     </div>
                     {% endfor %}
                 </div>
             </div>
-    
+
             <br/>
-                <div class="label">
-                    <div class="text-wrapper">More Books in ReadHub</div>
-                </div>
-        
-                <div class="card-container" id="all-books">
+
+            <div class="label">
+                <div class="text-wrapper">Mystery Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="mystery-books">
+                    {% for book in mysteryBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Nonfiction Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="nonfiction-books">
+                    {% for book in nonfictionBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Science Fiction Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="sciencefiction-books">
+                    {% for book in sciencefictionBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">More Books in ReadHub</div>
+            </div>
+
+            <div class="card-container" id="all-books"></div>
         </div>
 
+
     </div>
+
+    <!-- Pastikan ini ditempatkan sebelum Anda memuat skrip JavaScript yang menggunakannya -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
         async function getProducts() {
@@ -127,6 +247,7 @@
 
             book.forEach((item) => {
                 // Membuat elemen kartu untuk produk
+                console.log(item)
                 const cardElement = document.createElement('div')
 
                 // Mengisi elemen kartu dengan data produk
@@ -137,9 +258,7 @@
                       <h5 class="judul">${item.fields.book_title}</h5>
                       <p class="author">by ${item.fields.book_authors}</p>
                     </div>
-                        <form method="POST">
-                            <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="${item.fields.pk}" onclick="clicklove(this)">
-                        </form>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit(${item.pk})">LIKE</button>
                 </div>
                 `;
                 
@@ -167,28 +286,36 @@
             // Mengambil nilai ID buku dari atribut data-bookid
             var bookId = element.getAttribute('data-bookid');
 
-            if (element.src.endsWith("Heart1.svg")) {
-                element.src = "../../static/img/icon/Heart.svg";
-                
-                // Melakukan permintaan AJAX untuk menambahkan buku ke favorit
-                fetch(`favorit/api/books/${bookId}/`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': getCookie('csrftoken'),  // Mengambil token CSRF dari cookie
-                    }
-                })
-                .then(response => {
-                    if (response.status === 201) {
-                        // Buku berhasil ditambahkan ke favorit, Anda dapat memperbarui tampilan halaman di sini
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            } else {
-                element.src = "../../static/img/icon/Heart1.svg";
-            }
+            // Tampilkan modal konfirmasi
+            $('#confirmationModal').modal('show');
 
+            // Tangani klik pada tombol "Ya" dalam modal konfirmasi
+            $('#confirmAddToFavorite').on('click', function () {
+                // Sembunyikan modal konfirmasi
+                $('#confirmationModal').modal('hide');
+
+                    if (element.src.endsWith("Heart1.svg")) {
+                        element.src = "../../static/img/icon/Heart.svg";
+                        
+                        // Melakukan permintaan AJAX untuk menambahkan buku ke favorit
+                        fetch(`api/books/${bookId}/`, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRFToken': getCookie('csrftoken'),  // Mengambil token CSRF dari cookie
+                            }
+                        })
+                        .then(response => {
+                            if (response.status === 201) {
+                                // Buku berhasil ditambahkan ke favorit, Anda dapat memperbarui tampilan halaman di sini
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    } else {
+                        element.src = "../../static/img/icon/Heart1.svg";
+                    }
+                });
         }
 
         // Fungsi untuk mendapatkan token CSRF dari cookie
@@ -224,6 +351,17 @@
                     book.style.display = "block";
                 }
             });
+        }
+
+        function add_favorit(book_id){
+            console.log("test2")
+            fetch(`add_favorit/${book_id}/`,{
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
         }
 
     </script>
