@@ -19,7 +19,7 @@
           <div class="group"><img class="mask-group" src="img/image.png" /></div>
           <div class="frame">
             <div class="overlap-group">
-              <img class="img" src="../../static/img/vector.svg" />
+              <img class "img" src="../../static/img/vector.svg" />
               <img class="element" src="../../static/img/Char.svg" />
             </div>
             <p class="p">
@@ -30,6 +30,15 @@
             <img class="group-2" src="../../static/img/logo.svg" />
           </div>
         </div>
+
+        <div class="error-message">
+          {% if messages %}
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          {% endif %}
+        </div>
+
         <p class="text-wrapper-2">Sign In for an account</p>
         <div class="frame-2">
           <form method="POST" action="{% url 'main:login' %}">
@@ -43,19 +52,19 @@
               <div class="password-input">
                 <input class="input" type="password" name="password" id="password" />
                 <span id="togglePassword" class="password-toggle" onclick="togglePasswordVisibility()">
-                  <img class="iconsax-linears" src="../../static/img/icon/mata.svg" id="toggleImage" />
+                  <img class="iconsax-linears" src="../../static/img/icon/matabuka.svg" id="toggleImage" />
                 </span>
               </div>
-            </div>                      
+            </div>            
           </div>
           <p class="already-member-sign">
-            <span class="text-wrapper-4">Already a member?</span>
+            <span class="text-wrapper-4">Don't have an account?</span>
             <span class="text-wrapper">&nbsp;</span>
             <a class="span" href="{% url 'main:register' %}">Register Now</a>
           </p>
           <div class="frame-wrapper">
             <div class="frame-5" onclick="submitForm()">
-              <div class="text-wrapper-3">Sign up</div>
+              <div class="text-wrapper-3">Sign in</div>
               <img class="iconsax-linear" src="../../static/img/icon/panah.svg" />
             </div>
           </div>
@@ -68,7 +77,7 @@
 <script>
 function togglePasswordVisibility() {
   const passwordInput = document.getElementById("password");
-  const togglePassword = document.getElementById("togglePassword");
+  const toggleImage = document.getElementById("toggleImage");
 
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
@@ -86,4 +95,3 @@ function submitForm() {
 </script>
 
 {% endblock content %}
-
