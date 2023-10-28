@@ -1161,3 +1161,25 @@ background-color: #23264F;
   cursor: pointer;
 
 }
+
+/* Menentukan tata letak elemen password-toggle */
+.password-toggle {
+  display: inline-block;
+  position: relative;
+  top: 2px; /* Sesuaikan dengan pergeseran vertikal sesuai keinginan Anda */
+  cursor: pointer; /* Ubah kursor saat digunakan untuk mengklik */
+}
+
+/* Mengatur tampilan input password */
+.password-input {
+  position: relative;
+}
+
+/* Mengatur tampilan gambar mata */
+.iconsax-linears {
+  position: absolute;
+  top: 50%;
+  right: -235px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(-290%);
+}
+
