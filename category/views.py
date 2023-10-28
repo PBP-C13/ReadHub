@@ -11,19 +11,38 @@ import favorit
 
 # Create your views here.
 def show_category(request):
-    categories = Category.objects.all()
+    categories = Category.objects.all().values("books")
     # Ambil semua buku dalam basis data
     all_books = Book.objects.all()[:100]
     fantasy_books = Book.objects.filter(genres__icontains="fantasy")[:15]
+    mystery_books = Book.objects.filter(genres__icontains="mystery")[:15]
+    romance_books = Book.objects.filter(genres__icontains="romance")[:15]
+    nonfiction_books = Book.objects.filter(genres__icontains="nonfiction")[:15]
+    sciencefiction_books = Book.objects.filter(genres__icontains="science fiction")[:15]
 
     context = {
         'name': request.user.username,
         'categories': categories,
         'books': all_books,
         'fantasyBooks':fantasy_books,
+        'mysteryBooks':mystery_books,
+        'romanceBooks':romance_books,
+        'nonfictionBooks': nonfiction_books,
+        'sciencefictionBooks': sciencefiction_books,
     }
 
     return render(request, "category.html", context)
+
+def show_favorit(request):
+    categories = Category.objects.all()
+    # Ambil semua buku dalam basis data
+
+    context = {
+        'name': request.user.username,
+        'categories': categories,
+    }
+
+    return render(request, "favoritpage.html", context)
 
 def add_books_to_category(request):
     category = Category.objects.get(name_category='Fiksi')  # Ganti 'Fiksi' dengan nama kategori yang sesuai
@@ -38,3 +57,48 @@ def add_books_to_category(request):
 def get_product_json(request):
     all_books = Book.objects.all()[:100]
     return HttpResponse(serializers.serialize('json', all_books))
+
+def get_book_favorit(request):
+    product_items = []
+    favorit_books = Category.objects.all()
+    for favorit in favorit_books:
+        book = Book.objects.get(id=favorit.books.pk)  
+        # Buat dictionary baru dengan data forum dan buku
+        product_item = {
+            'book_image':book.image_url,
+            'book_title': book.book_title,
+            'book_author': book.book_authors,
+            'book_id': book.id,
+        }
+        product_items.append(product_item)
+
+    return JsonResponse(product_items, safe=False)
+    # return HttpResponse(serializers.serialize('json', favorit_books))
+
+def add_book_favorit_ajax(request, book_id):
+    if request.method == 'POST':
+        book = Book.objects.get(pk=book_id)
+        user = request.user
+        existing_favorit = Category.objects.filter(user=request.user, books__id=book_id).first()
+
+        if existing_favorit:
+            return HttpResponse("Book is already in favorit list", status=201)
+
+        new_product = Category(books = book, is_favorite = True, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+def delete_favorit(request, book_id):
+    user = request.user
+    existing_favorit = Category.objects.filter(user=user, books__id=book_id).first()
+
+    if existing_favorit:
+        existing_favorit.delete()  # Menghapus item favorit
+        return HttpResponse("Book removed from favorit list", status=200)
+    else:
+        print("ih")
+        return HttpResponse("Book is not in favorit list", status=404)
+
