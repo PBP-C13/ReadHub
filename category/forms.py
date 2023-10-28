@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-from favorit.models import favorit
+from category.models import Category
 
 
 class FavoritForm(ModelForm):
     class Meta:
-        model = favorit
-        fields = ["books"]
+        model = Category
+        fields = ["books", "is_favorite"]
