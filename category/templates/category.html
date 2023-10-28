@@ -121,7 +121,9 @@
                           <h5 class="judul">{{ book.book_title }}</h5>
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
+                        {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        {% endif %}
                     </div>
                     {% endfor %}
                 </div>

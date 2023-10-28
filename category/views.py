@@ -68,7 +68,7 @@ def get_book_favorit(request):
             'book_image':book.image_url,
             'book_title': book.book_title,
             'book_author': book.book_authors,
-            'book_id': favorit.id,
+            'book_id': book.id,
         }
         product_items.append(product_item)
 
@@ -90,3 +90,15 @@ def add_book_favorit_ajax(request, book_id):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+def delete_favorit(request, book_id):
+    user = request.user
+    existing_favorit = Category.objects.filter(user=user, books__id=book_id).first()
+
+    if existing_favorit:
+        existing_favorit.delete()  # Menghapus item favorit
+        return HttpResponse("Book removed from favorit list", status=200)
+    else:
+        print("ih")
+        return HttpResponse("Book is not in favorit list", status=404)
+
