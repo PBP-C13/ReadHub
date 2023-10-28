@@ -118,6 +118,7 @@
                       <h5 class="judul">${item.book_title}</h5>
                       <p class="author">by ${item.book_author}</p>
                     </div>
+                    <button type="button" class="btn btn-primary" onclick="delete_favorit(${item.book_id})">DELETE</button>
                 </div>
                 `;
                 
@@ -126,6 +127,15 @@
             });
         }
         refreshProducts()
+
+        function delete_favorit(book_id){
+            console.log("test2")
+            fetch(`delete_favorit/${book_id}/`,{
+            }).then(refreshProducts)
+
+            return false
+        }
+
 
     </script>
     
