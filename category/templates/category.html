@@ -1,98 +1,185 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <style>
-        h1{
-            text-align: center;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .navbar-brand{
-            color: #FFFFFF;
-        }
-        .card-img-top{
-            justify-content: center;
-            max-width: 140px; /* Sesuaikan lebar maksimal sesuai kebutuhan */
-            max-height: 120px;
-            border-radius: 10px; /* Atur radius sesuai kebutuhan */
-            margin-top: 5px;
-        }
-        .judul{
-            font-size: 12px;
-        }
-        .author{
-            font-size: 10px;
-        }
-        .card{
-            margin: 2px;
-            height: 220px; /* Atur tinggi sesuai kebutuhan */
-        }
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
-            grid-gap: 1px; /* Jarak antara card */
-        }
-
-    </style>
-
-<!-- Navbar ------------------>
-<div class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-        <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <ul class="navbar-nav" style="margin-left: 23%;">
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
-                </li>
-                <li class="nav-item-active">
-                    <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
+    <!-- Navbar ------------------>
+    <div class="navbar navbar-expand-lg ">
+        <div class="container-fluid">
+            <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav" style="margin-left: 23%;">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+                    </li>
+                    <li class="nav-item-active">
+                        <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
                 </li>
-                <li class="nav-item">
-                  <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
-            </li>
-            </ul>
-        </div>
-  
-        <div class="ml-auto"> 
-            <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="bi bi-person-circle"></i> Hello, {{ name }},
-                </a>
-                <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                    <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
-                    <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                </ul>
+            </div>
+    
+            <div class="ml-auto"> 
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="bi bi-person-circle"></i> Hello, {{ name }},
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                        <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                        <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  
 
-    <div class="container">
-
-        <h1>More Books in ReadHub</h1>
-        <br/>
-
-        <div class="card-container">
-            {% for book in books %}
-              <div class="card" >
-                <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
-                <div class="card-body">
-                  <h5 class="judul">{{ book.book_title }}</h5>
-                  <p class="author">by {{ book.book_authors |slice:":25"}}</p>
-                </div>
-              </div>
-            {% endfor %}
+    <div class="category">
+        <div class="frame">
+            <div class="overlap-group">
+            <div class="text-wrapper">BOOK</div>
+            <p class="div">Enhance Education Literacy in Indonesia with Our Collection of Books</p>
+            <p class="p">
+                Dive into a world of knowledge and exploration with our outstanding book collection, fueling the flames of
+                education across Indonesia.
+            </p>
+            </div>
         </div>
-   
+
+        
+        <div class="search">
+            <div class="label">
+                <div class="text-wrapper">Search Book</div>
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search-input" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-search">
+                    <img class="iconly-light-search" src="../../static/img/icon/Search.svg" />
+                  </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="label">
+                <div class="text-wrapper">Fantasy Books</div>
+            </div>
+            
+            <div class="scrollmenu">
+                <div class="card-container" id="fantasy-books">
+                    {% for book in fantasyBooks %}
+                      <div class="card">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <form method="POST">
+                                <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="{{ book.pk }}" onclick="clicklove(this)">
+                            </form>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">More Books in ReadHub</div>
+            </div>
+    
+            <div class="card-container" id="all-books">
+                {% for book in books %}
+                  <div class="card">
+                    <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                    <div class="card-body">
+                      <h5 class="judul">{{ book.book_title }}</h5>
+                      <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <form method="POST">
+                            <img class="love" src="../../static/img/icon/Heart1.svg" alt="love" data-bookid="{{ book.pk }}" onclick="clicklove(this)">
+                        </form>
+                    {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+       
+        </div>
     </div>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var cards = document.querySelectorAll('.card');
+
+            cards.forEach(function(card) {
+                var cardText = card.textContent.toLowerCase();
+                if (cardText.includes(input)) {
+                    card.style.display = 'inline-block'; // Tampilkan kartu jika cocok
+                } else {
+                    card.style.display = 'none'; // Sembunyikan kartu jika tidak cocok
+                }
+            });
+        });
+
+        function clicklove(element) {
+            // Mengambil nilai ID buku dari atribut data-bookid
+            var bookId = element.getAttribute('data-bookid');
+
+            if (element.src.endsWith("Heart1.svg")) {
+                element.src = "../../static/img/icon/Heart.svg";
+                
+                // Melakukan permintaan AJAX untuk menambahkan buku ke favorit
+                fetch(`favorit/api/books/${bookId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken'),  // Mengambil token CSRF dari cookie
+                    }
+                })
+                .then(response => {
+                    if (response.status === 201) {
+                        // Buku berhasil ditambahkan ke favorit, Anda dapat memperbarui tampilan halaman di sini
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            } else {
+                element.src = "../../static/img/icon/Heart1.svg";
+            }
+
+        }
+
+        // Fungsi untuk mendapatkan token CSRF dari cookie
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+    </script>
 
 {% endblock content %}

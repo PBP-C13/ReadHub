@@ -15,7 +15,15 @@ from .forms import ForumForm
 # Create your views here.
 def show_forum(request):
     book = Book.objects.filter(pk__in=range(1, 101))
-    forum = Forum.objects.all()
+
+    # Dapatkan genre yang sedang aktif dari parameter URL
+    active_genre = request.GET.get('genre', None)
+
+    # Filter forum berdasarkan genre yang sedang aktif
+    if active_genre:
+        forum = Forum.objects.filter(book__genres__icontains=active_genre)
+    else:
+        forum = Forum.objects.all()
 
     context = {
         'name': request.user.username,
@@ -27,6 +35,7 @@ def show_forum(request):
     return render(request, "forum.html", context)
 
 
+#Create Forum
 def create_forum(request):
     form =  ForumForm(request.POST or None)
 
@@ -36,10 +45,49 @@ def create_forum(request):
         product.save()
         return HttpResponseRedirect(reverse('main:show_main'))
     
-    forums = Forum.objects.order_by('-timestamp')
 
-    context = {'form': form, 'forum': forums }
+    context = {'form': form}
     return render(request, "create_forum.html", context)
+
+#Get Product
+
+def get_product_json(request):
+    selected_genre = request.GET.get('selected_genre') 
+
+    product_items = []
+    forums = Forum.objects.all()
+
+    if selected_genre:
+        forums = forums.filter(book__genres=selected_genre)
+    
+    for forum in forums:
+        book = Book.objects.get(id=forum.book_id)  # Gantilah 'book_id' sesuai dengan nama field yang menghubungkan Forum dan Book
+
+        # Buat dictionary baru dengan data forum dan buku
+        product_item = {
+            'forum_id': forum.text,
+            'book_image':book.image_url,
+            'book_title': book.book_title,
+            'book_author': book.book_authors,
+            'book_genre': split_genre(book.genres),
+        }
+
+        product_items.append(product_item)
+
+    return JsonResponse(product_items, safe=False)
+
+def split_genre(genre_string):
+    if genre_string:
+        return genre_string.split('|')
+    else:
+        return []
+
+#Remove Forum
+@csrf_exempt
+def remove_forum_ajax(request, id):
+    Forum.objects.filter(pk=id).delete()
+    return HttpResponseRedirect(reverse("community:show_forum"))
+
 
 @csrf_exempt
 def like_forum(request):

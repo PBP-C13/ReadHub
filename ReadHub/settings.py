@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'favorit',
     'discussion_forum',
     'category',
+    'borrow_flow',
+    'detail'
 ]
 
 MIDDLEWARE = [

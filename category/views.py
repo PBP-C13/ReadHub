@@ -1,20 +1,26 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
 from django.forms import ModelForm
 from category.models import Category
 from book.models import Book
-import random
+from django.http import HttpResponseRedirect
+from category.forms import FavoritForm
+from django.urls import reverse
+
+import favorit
 
 # Create your views here.
 def show_category(request):
     categories = Category.objects.all()
     # Ambil semua buku dalam basis data
     all_books = Book.objects.all()[:100]
+    fantasy_books = Book.objects.filter(genres__icontains="fantasy")[:15]
 
     context = {
         'name': request.user.username,
         'categories': categories,
-        'books': all_books
+        'books': all_books,
+        'fantasyBooks':fantasy_books,
     }
 
     return render(request, "category.html", context)

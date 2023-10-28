@@ -46,8 +46,6 @@
   </div>
 </div>
 
-
-
 <div class="forum">
 <!-- header ------------------>
 <div class="header">
@@ -58,8 +56,8 @@
 </div>
 
 <!-- Forum ------------------>
-<div class="community">
-
+<div style="display: flex; justify-content: center;">
+  <div class="community">
   <!-- Filter ------------------>
   <div class="filter">
     <div class="filter-wrapper">
@@ -80,22 +78,38 @@
     </a>
   </div>
 
-  
-
-
   <!-- Post Forum ------------------>
-  <div class="forum-section">
-    <!-- Forum Looping ------------------>
-    {% for forum in forum %}
-      <div class="forum-person">
+  <div class="forum-section" id ="product_Forum"> </div>
+</div>
+
+
+<script>
+
+  // Get product pakai JSON ----------------------------------------------------
+    async function getProducts() {
+      return fetch("{% url 'forum:get_product_json' %}").then((res) => res.json())
+  }
+
+  //Forum -------------------------------------------------------------------------
+  async function refreshForum() {
+    const productCard = document.getElementById("product_Forum");
+    productCard.innerHTML = ""; 
+    const products = await getProducts();
+    let htmlString = "";
+
+    products.forEach((item) => {
+        htmlString += `
+        <div class="forum-person">
         <div class="person-section">
           <div class="section">
-            <div class="profil">
-              <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-              <div class="text-wrapper-7"> {{name}}</div>
-            </div>
+            
+              <div class="profil">
+                <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
+                <div class="text-wrapper-7"> Arya Wijaya </div>
+              </div>
+            
             <p class="p">
-              {{ forum.text }}
+              ${item.forum_id}
             </p>
           </div>
           <div class="book-section">
@@ -103,428 +117,72 @@
             <div class="book-card">
               <div class="book-card-2">
                 <div class="book-status">
-                  <div class="book-image"><img class="image" src="{{ forum.book.image_url}}" /></div>
+                  <div class="book-image"><img class="image" src="${item.book_image}" /></div>
                   <div class="book-detail">
                     <div class="book-title">
-                      <div class="text-wrapper-9">{{ forum.book.book_title}}</div>
-                      <div class="book-author">{{ forum.book.book_authors}}</div>
+                      <div class="text-wrapper-9">${item.book_title}</div>
+                      <div class="book-author">${item.book_author}</div>
                     </div>
                   </div>
                 </div>
                 <button class="btn">
-                  <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
+                  <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> 
+                  <div class="detail">
+                    See Detail 
+                  </div>
                 </button>   
-                
               </div>
             </div>
           </div>
+
+          <div class="profile-upper">
+            <div class="action">
+              <div class="bottom-section">
+                <img class="icon" src="../../static/img/icon/Heart.svg" />
+                <div class="text-wrapper">15</div>
+              </div>
+
+              <div class="bottom-section">
+                <img class="icon" src="../../static/img/icon/Comment.svg" />
+                <div class="text-wrapper">15</div>
+              </div>
+          </div>
+          <button onClick="deleteForum(${item.forum_id})" class="btn delete" style="background-color: #e221211a"> 
+            <img class="iconly-bold-delete" src="../../static/img/icon/Delete.svg" /> 
+          </button>
         </div>
       </div>
-
-
+      </div>
       <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
         <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-      </svg>
-    {% endfor %}
-
-    <!-- Forum Pertama Temoat masukin form.py ------------------>
-    <div class="forum-person">
-      <div class="person-section">
-        <div class="section">
-          <div class="profil">
-            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-            <div class="text-wrapper-7">Arya Wijaya</div>
-          </div>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-            pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-          </p>
-        </div>
-        <div class="book-section">
-          <div class="text-wrapper-8">Book</div>
-          <div class="book-card">
-            <div class="book-card-2">
-              <div class="book-status">
-                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                <div class="book-detail">
-                  <div class="book-title">
-                    <div class="text-wrapper-9">The Golden Compass</div>
-                    <div class="book-author">by: Arya Wijaya</div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn">
-                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-              </button>   
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-
-
-
-    <!-- Forum kedua ------------------>
-    <div class="forum-person">
-      <div class="person-section">
-        <div class="section">
-          <div class="profil">
-            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-            <div class="text-wrapper-7">Arya Wijaya</div>
-          </div>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-            pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-          </p>
-        </div>
-        <div class="book-section">
-          <div class="text-wrapper-8">Book</div>
-          <div class="book-card">
-            <div class="book-card-2">
-              <div class="book-status">
-                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                <div class="book-detail">
-                  <div class="book-title">
-                    <div class="text-wrapper-9">The Golden Compass</div>
-                    <div class="book-author">by: Arya Wijaya</div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn">
-                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-              </button>   
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-    
-    <!-- Forum ketiga ------------------>
-    <div class="forum-person">
-      <div class="person-section">
-        <div class="section">
-          <div class="profil">
-            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-            <div class="text-wrapper-7">Arya Wijaya</div>
-          </div>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-            pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-          </p>
-        </div>
-        <div class="book-section">
-          <div class="text-wrapper-8">Book</div>
-          <div class="book-card">
-            <div class="book-card-2">
-              <div class="book-status">
-                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                <div class="book-detail">
-                  <div class="book-title">
-                    <div class="text-wrapper-9">The Golden Compass</div>
-                    <div class="book-author">by: Arya Wijaya</div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn">
-                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-              </button>   
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-
-  <!-- Forum keempat ------------------>
-  <div class="forum-person">
-    <div class="person-section">
-      <div class="section">
-        <div class="profil">
-          <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-          <div class="text-wrapper-7">Arya Wijaya</div>
-        </div>
-        <p class="p">
-          Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-          pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-        </p>
-      </div>
-      <div class="book-section">
-        <div class="text-wrapper-8">Book</div>
-        <div class="book-card">
-          <div class="book-card-2">
-            <div class="book-status">
-              <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-              <div class="book-detail">
-                <div class="book-title">
-                  <div class="text-wrapper-9">The Golden Compass</div>
-                  <div class="book-author">by: Arya Wijaya</div>
-                </div>
-              </div>
-            </div>
-            <button class="btn">
-              <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-            </button>   
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-    <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-  </svg>
-
-    <!-- Forum kelima ------------------>
-    <div class="forum-person">
-      <div class="person-section">
-        <div class="section">
-          <div class="profil">
-            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-            <div class="text-wrapper-7">Arya Wijaya</div>
-          </div>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-            pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-          </p>
-        </div>
-        <div class="book-section">
-          <div class="text-wrapper-8">Book</div>
-          <div class="book-card">
-            <div class="book-card-2">
-              <div class="book-status">
-                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                <div class="book-detail">
-                  <div class="book-title">
-                    <div class="text-wrapper-9">The Golden Compass</div>
-                    <div class="book-author">by: Arya Wijaya</div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn">
-                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-              </button>   
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-    
-    <!-- Forum keenam ------------------>
-    <div class="forum-person">
-      <div class="person-section">
-        <div class="section">
-          <div class="profil">
-            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-            <div class="text-wrapper-7">Arya Wijaya</div>
-          </div>
-          <p class="p">
-            Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-            pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-          </p>
-        </div>
-        <div class="book-section">
-          <div class="text-wrapper-8">Book</div>
-          <div class="book-card">
-            <div class="book-card-2">
-              <div class="book-status">
-                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                <div class="book-detail">
-                  <div class="book-title">
-                    <div class="text-wrapper-9">The Golden Compass</div>
-                    <div class="book-author">by: Arya Wijaya</div>
-                  </div>
-                </div>
-              </div>
-              <button class="btn">
-                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-              </button>   
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-    </svg>
-
-  <!-- Forum ketujuh ------------------>
-  <div class="forum-person">
-    <div class="person-section">
-      <div class="section">
-        <div class="profil">
-          <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-          <div class="text-wrapper-7">Arya Wijaya</div>
-        </div>
-        <p class="p">
-          Lorem ipsum dolor sit amet consectetur. Sapien nunc dolor dolor vitae velit risus. Suscipit aliquam
-          pellentesque vehicula nec interdum. Ac hac ut ullamcorper sollicitudin cursus.
-        </p>
-      </div>
-      <div class="book-section">
-        <div class="text-wrapper-8">Book</div>
-        <div class="book-card">
-          <div class="book-card-2">
-            <div class="book-status">
-              <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-              <div class="book-detail">
-                <div class="book-title">
-                  <div class="text-wrapper-9">The Golden Compass</div>
-                  <div class="book-author">by: Arya Wijaya</div>
-                </div>
-              </div>
-            </div>
-            <button class="btn">
-              <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-            </button>   
-            
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  </div>
-</div>
-
-
-    <!-- Modal -->
-    <div class="modal fade" id="forumModal" tabindex="-1" aria-labelledby="forumModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="forumModalLabel">Create New Forum</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    {{ form.as_p }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="submitForum" data-bs-dismiss="modal">Create Forum</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    $(document).ready(function () {
-        
-        $("#make-forum-button").click(function () {
-            $("#forumModal").modal("show");
-        });
-
-        
-        $("#submitForum").click(function () {
-            var formData = new FormData($("#forumForm")[0]);
-
-            $.ajax({
-                type: "POST",
-                url: "/create_forum/", 
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    
-                },
-                error: function (xhr, textStatus, errorThrown) {
-                    
-                }
-            });
-        });
-
-        
-        $("#make-forum-button").click(function () {
-            var text = "Contoh pesan forum";  // Gantilah dengan teks pesan yang ingin Anda buat
-            var bookId = 1;  // Gantilah dengan ID buku yang sesuai
-
-            // Kirim permintaan AJAX untuk membuat forum
-            $.ajax({
-                type: "POST",
-                url: "/create_forum/",  // Ganti dengan URL yang sesuai
-                data: {
-                    text: text,
-                    book_id: bookId
-                },
-                success: function (data) {
-                    // Forum berhasil dibuat, tambahkan pesan forum ke dalam forum-container
-                    var forumHtml = `
-                    <div class="forum-person">
-                      <div class="person-section">
-                        <div class="section">
-                          <div class="profil">
-                            <div class="profil-wrapper"><img class="img" src="../../static/img/Profil.svg" /></div>
-                            <div class="text-wrapper-7">${data.author}</div>
-                          </div>
-                          <p class="p">
-                            ${data.text}
-                          </p>
-                        </div>
-                        <div class="book-section">
-                          <div class="text-wrapper-8">Book</div>
-                          <div class="book-card">
-                            <div class="book-card-2">
-                              <div class="book-status">
-                                <div class="book-image"><img class="image" src="../../static/img/bookdummy.png" /></div>
-                                <div class="book-detail">
-                                  <div class="book-title">
-                                    <div class="text-wrapper-9">${data.book_title}</div>
-                                    <div class="book-author">by: ${data.book_author}</div>
-                                  </div>
-                                </div>
-                              </div>
-                              <button class="btn">
-                                <img src="../../static/img/icon/Discovery.svg" class="iconly-bold"> See Detail 
-                              </button>   
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
-                      <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-                    </svg>
-                    `;
-
-                    // Tambahkan pesan forum ke dalam forum-container
-                    $("#forum-container").prepend(forumHtml);
-                },
-                // ... Penanganan kesalahan
-            });
-        });
+      </svg> `;
     });
+
+      document.getElementById("product_Forum").innerHTML = htmlString;
+  }
+
+  refreshForum();
+
+  // Memanggil `refreshForum` saat halaman dimuat
+  document.addEventListener("DOMContentLoaded", function () {
+    refreshForum();
+  });
+
+  function deleteForum(ID) {
+      fetch(`/delete_forum/${ID}`, {
+          method: 'DELETE',
+      })
+      .then(function (response) {
+          if (response.status === 200) {
+              // Forum berhasil dihapus, lakukan sesuatu jika diperlukan
+              refreshForum(); // Misalnya, refresh daftar forum
+          } else {
+              // Forum tidak ditemukan atau gagal dihapus, lakukan sesuatu jika diperlukan
+              console.error('Failed to delete forum');
+          }
+      });
+  }
+
 </script>
 
 {% endblock content %}

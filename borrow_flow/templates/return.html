@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="margin-left: 23%;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+                </li>
+                <li class="nav-item-active">
+                    <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+            </li>
+            </ul>
+        </div>
+
+        <div class="ml-auto"> 
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> Hello, {{ name }},
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                    <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
