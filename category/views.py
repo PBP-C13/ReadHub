@@ -1,8 +1,13 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
 from django.forms import ModelForm
 from category.models import Category
 from book.models import Book
+from django.http import HttpResponseRedirect
+from category.forms import FavoritForm
+from django.urls import reverse
+
+import favorit
 
 # Create your views here.
 def show_category(request):
