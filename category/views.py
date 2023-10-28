@@ -6,7 +6,7 @@ from book.models import Book
 from django.http import HttpResponseRedirect
 from category.forms import FavoritForm
 from django.urls import reverse
-
+from django.core import serializers
 import favorit
 
 # Create your views here.
@@ -33,3 +33,8 @@ def add_books_to_category(request):
         category.books.add(book)
 
     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
+
+#fungsi untuk mengembalikan data jason:
+def get_product_json(request):
+    all_books = Book.objects.all()[:100]
+    return HttpResponse(serializers.serialize('json', all_books))
