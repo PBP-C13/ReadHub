@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.core import serializers
@@ -25,25 +25,32 @@ def show_yourbook_page(request):
     context = {
         'user' : request.user.username,
         # 'borrowed_book' : borrowed_book
-        'borrowed_book' : borrow_book
+        'borrowed_book' : borrowed_book
     }
     return render(request, 'yourbook.html', context)
 
 @csrf_exempt
 def borrow_book(request, id):
-    if request.method == 'POST' and request.POST.get('terms_accepted'):
-        book = get_object_or_404(Book, pk=id)
-        user = request.user
-        borrow_duration = request.POST.get('borrow_duration')
-        return_date = datetime.now() + timedelta(days=borrow_duration)
-        borrowed_book = BorrowedBook(user=user, book=book, borrow_duration=borrow_duration, return_date=return_date)
-        borrowed_book.save()
-        return HttpResponse(b"BORROWED", status=201)
+    if request.method == 'POST':
+        terms_accepted_1 = request.POST.get('terms_accepted_1')
+        terms_accepted_2 = request.POST.get('terms_accepted_2')
+        terms_accepted_3 = request.POST.get('terms_accepted_3')
+
+        if terms_accepted_1 and terms_accepted_2 and terms_accepted_3:
+            book_to_be_borrowed = Book.objects.get(pk = id)
+            user = request.user
+            borrow_duration = request.POST.get('borrow_duration')
+            return_date = datetime.now() + timedelta(days=int(borrow_duration))
+            borrowed_book = BorrowedBook(user=user, book=book_to_be_borrowed, borrow_duration=borrow_duration, return_date=return_date)
+            print(borrowed_book)
+            borrowed_book.save()
+            return redirect('borrow_flow:show_yourbook_page')
     return HttpResponseNotFound()
+    
         
 @csrf_exempt
 def return_book(request, id):
-    borrowed_book = get_object_or_404(BorrowedBook, pk=id)
+    borrowed_book = BorrowedBook.objects.get(pk = id)
     borrowed_book.delete()
     return HttpResponse(b"RETURNED", status=201)
 
@@ -54,5 +61,31 @@ def get_book_by_id_json(request, id):
 @login_required
 def get_borrowed_book_json(request):
     borrowed_books = BorrowedBook.objects.filter(user=request.user)
-    return HttpResponse(serializers.serialize('json', borrowed_books))
+    borrowed_books_data = []
+    for borrowed_book in borrowed_books:
+        book = {
+            'id': borrowed_book.book.id,
+            'book_authors': borrowed_book.book.book_authors,
+            'book_desc': borrowed_book.book.book_desc,
+            'book_edition': borrowed_book.book.book_edition,
+            'book_format': borrowed_book.book.book_format,
+            'book_isbn': borrowed_book.book.book_isbn,
+            'book_pages': borrowed_book.book.book_pages,
+            'book_rating': borrowed_book.book.book_rating,
+            'book_rating_count': borrowed_book.book.book_rating_count,
+            'book_review_count': borrowed_book.book.book_review_count,
+            'book_title': borrowed_book.book.book_title,
+            'genres': borrowed_book.book.genres,
+            'image_url': borrowed_book.book.image_url,
+        }
+        data = {
+            'user': borrowed_book.user.id,
+            'book': book,
+            'borrow_duration': borrowed_book.borrow_duration,
+            'borrow_date': borrowed_book.borrow_date.strftime('%Y-%m-%d') if borrowed_book.borrow_date else None,
+            'return_date': borrowed_book.return_date.strftime('%Y-%m-%d') if borrowed_book.return_date else None,
+        }
+        borrowed_books_data.append(data)
+    return JsonResponse(borrowed_books_data, safe=False)
+        
 

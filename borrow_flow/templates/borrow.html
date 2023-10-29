@@ -23,7 +23,7 @@
                   <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
+                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
             </li>
             </ul>
         </div>
@@ -82,15 +82,15 @@
                     <div class="text-wrapper-7">Syarat dan Ketentuan</div>
                         <div class="frame-9">
                             <div class="frame-10">
-                                <input class="checkbox" type="checkbox"></input>
+                                <input class="checkbox" type="checkbox" name="terms_accepted_1"></input>
                                 <p class="p">Kembalikan buku dalam kondisi baik untuk pemustaka berikutnya.</p>
                             </div>
                             <div class="frame-10">
-                                <input class="checkbox" type="checkbox"></input>
+                                <input class="checkbox" type="checkbox" name="terms_accepted_2"></input>
                                 <p class="p">Patuhi batas waktu peminjaman dan terlambat akan terkena denda</p>
                             </div>
                             <div class="frame-10">
-                                <input class="checkbox" type="checkbox"></input>
+                                <input class="checkbox" type="checkbox" name="terms_accepted_3"></input>
                                 <p class="text-wrapper-8">
                                 Jangan ubah atau tambahkan catatan pribadi di dalam buku yang dipinjam untuk mempertahankan keaslian
                                 buku.
@@ -137,13 +137,44 @@
     }
 
     function borrowBook(id){
+        const borrowDuration = document.getElementById('borrow-duration').innerText.split(" ")[0];
+        console.log(borrowDuration)
+
+        // Get the state of each checkbox
+        const checkboxes = document.querySelectorAll('.frame-10 input[type="checkbox"]');
+        const checkboxValues = Array.from(checkboxes).map(checkbox => checkbox.checked);
+
+        // Create a FormData object to send the form data
+        const formData = new FormData();
+
+        // Append borrow duration to form data
+        formData.append('borrow_duration', borrowDuration);
+
+        // Append checkbox values to form data using field names
+        formData.append('terms_accepted_1', checkboxValues[0]);
+        formData.append('terms_accepted_2', checkboxValues[1]);
+        formData.append('terms_accepted_3', checkboxValues[2]);
+
         fetch("/borrow_flow/borrow_book/" + id + "/", {
             method: 'POST',
-            method: new FormData(document.querySelector('#form'))
-        }).then(showBook)
-
-        document.getElementById('form').reset()
-        return false
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        })
+        .then(data => {
+        console.log('Book borrowed:', data);
+        fetch("/borrow_flow/show_yourbook_page", {
+            method: 'GET'
+        })
+    })
+        .catch(error => {
+            console.error('Error borrowing the book:', error);
+        });
     }
 
     function addDuration(){

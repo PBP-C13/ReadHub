@@ -22,7 +22,7 @@
                   <a class="nav-link" style="color:  #4162FF;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
+                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
             </li>
             </ul>
         </div>
@@ -30,7 +30,7 @@
         <div class="ml-auto"> 
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="bi bi-person-circle"></i> Hello, {{ name }},
+                    <i class="bi bi-person-circle"></i> Hello, {{ user }},
                 </a>
                 <div class="dropdown-menu" aria-labelledby="profileDropdown">
                     <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
@@ -63,40 +63,53 @@
 
 <script>
     async function getBorrowedBooks(){
-        return fetch("{% url 'borrow_flow:get_borrowed_book_json' %}").then((res) => res.json())
+        return fetch("{% url 'borrow_flow:get_borrowed_book_json' %}").then(res => res.json())
     }
 
     async function showYourBooks(){
+        borrowedBooks = await getBorrowedBooks()
+        console.log(borrowedBooks)
         let yourBookHTML = ``
-        for(let i = 0; i < 10; i++){
-        yourBookHTML += `
-        <div class="frame-book">
-            <div class="image-wrapper"><img class="image" src="img/image-62.png" /></div>
-            <div class="text-wrapper-3">The Golden Compass</div>
-            <div class="frame-4">
-                <div class="div-wrapper"><div class="text-wrapper-4">Fantasy</div></div>
-                <div class="div-wrapper"><div class="text-wrapper-4">Young Adult</div></div>
-                <div class="div-wrapper"><div class="text-wrapper-4">Fiction</div></div>
+        borrowedBooks.forEach((book) => {
+            let genresHTML = '';
+            book.book.genres.split('|').forEach(genre => {
+                genresHTML += `<div class="div-wrapper"><div class="text-wrapper-4">${genre}</div></div>`;
+            });
+
+            yourBookHTML += `
+            <div class="frame-book">
+                <div class="image-wrapper"><img class="image" src="${book.book.image_url}" /></div>
+                <div class="text-wrapper-3">${book.book.book_title}</div>
+                <div class="frame-4">${genresHTML}</div>
+                <button class="return-button" onclick="returnBook()">
+                    <div class="iconly-bold-tick"></div>
+                    <div class="text-wrapper">Kembalikan Buku</div>
+                </button>
+                <div class="text-wrapper-6">Tanggal Peminjaman</div>
+                <div class="text-wrapper-7">Tanggal Pengembalian</div>
+                <div class="text-wrapper-8">Pengembalian Buku</div>
+                <div class="text-wrapper-9">${book.borrow_date}</div>
+                <div class="text-wrapper-10">${book.return_date}</div>
+                <p class="buku-ini-harus">
+                    Buku ini harus dikembalikan&nbsp;&nbsp;dengan keadaan&nbsp;&nbsp;Sama seperti semula
+                </p>
+                <div class="text-wrapper-11">Author: ${book.book.book_authors.split("|").join(", ")}</div>
             </div>
-            <button class="return-button" onclick="">
-                <div class="iconly-bold-tick"></div>
-                <div class="text-wrapper">Kembalikan Buku</div>
-            </button>
-            <div class="text-wrapper-6">Tanggal Peminjaman</div>
-            <div class="text-wrapper-7">Tanggal Pengembalian</div>
-            <div class="text-wrapper-8">Pengembalian Buku</div>
-            <div class="text-wrapper-9">24-8-2023</div>
-            <div class="text-wrapper-10">28-8-2023</div>
-            <p class="buku-ini-harus">
-                Buku ini harus dikembalikan&nbsp;&nbsp;dengan keadaan&nbsp;&nbsp;Sama seperti semula
-            </p>
-            <div class="text-wrapper-11">Author: Philip Pullman</div>
-        </div>
-        `
-        }
+            `
+        })
+
         document.getElementById("book-container").innerHTML = yourBookHTML
     }
 
+    function returnBook(id){
+        fetch("borrow_flow/return_book/" + id + "/", {
+            method: 'POST'
+        }).then(showYourBooks)
+
+        return false
+    }
+
+   
     showYourBooks()
 </script>
 
