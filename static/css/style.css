@@ -493,10 +493,10 @@ body {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 17px;
+  gap: 12px;
   position: relative;
   flex: 0 0 auto;
-  overflow-x: scroll;
+  overflow-x: hidden !important;
   position: sticky;
   top: 0; 
   z-index: 100; 
@@ -506,7 +506,7 @@ body {
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 32px 28px;
+  padding: 32px 16px;
   position: relative;
   flex: 0 0 auto;
   background-color: #12132a;
@@ -724,10 +724,6 @@ body {
   position: relative;
   flex: 0 0 auto;
   }
-  
-  .community .forum-person {
-
-}
 
 .sign-in .text-wrapper-4 {
   color: #ffffffbf;
@@ -1155,28 +1151,28 @@ body {
 
 
 /* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-.forum .header {
-display:flex;
-width: 100%;
-align-items: center;
-height: 445px;
-background-color: #2a4cf1;
-align-items: center;
-justify-content: center;
-
-}
-
-.forum .header .overlap-group {
-position: relative;
-height: 445px;
-left: 29px;
-}
-
-.forum .header .text-wrapper {
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  .forum .header {
+  display:flex;
+  width: 100%;
+  align-items: center;
+  height: 445px;
+  background-color: #2a4cf1;
+  align-items: center;
+  justify-content: center;
+  
+  }
+  
+  .forum .header .overlap-group {
+  position: relative;
+  height: 445px;
+  left: 29px;
+  }
+  
+  .forum .header .text-wrapper {
   position: absolute;
   top: 48px;
   left: auto;
@@ -1188,642 +1184,321 @@ left: 29px;
   white-space: nowrap;
   top: 50%; /* Tengah secara vertikal */
   left: 50%; /* Tengah secara horizontal */
-  transform: translate(-50%, -50%); 
-}
-
-
-.forum .element {
-position: absolute;
-width: 967px;
-height: auto;
-top: 0;
-left: 207px;
-object-fit: cover;
-left: 50%;
-transform: translateX(-50%);
-}
-
-/* CSS untuk tampilan mobile (lebar layar <= 375px) */
-@media (max-width: 375px) {
-.forum .header .text-wrapper {
-  font-size: 64px; /* Atur ukuran font untuk teks "Community" */
-}
-
-.forum .element {
-  width: 495px; /* Atur lebar gambar sesuai kebutuhan */
-  height: 270px; /* Atur tinggi gambar sesuai kebutuhan */
-}
-
-.forum .header {
-  min-height: 270px; /* Atur tinggi header sesuai kebutuhan */
-}
-
-.forum .header .overlap-group {
-  height: 270px; /* Atur tinggi frame sesuai kebutuhan */
-}
-
-.forum .header {
-  background-color: #2a4cf1; /* Atur warna latar belakang */
-}
-}
-
-.community {
-margin-top: 0px;
-margin-right: 112px;
-margin-left: 112px;
-display: inline-flex;
-align-items: flex-start;
-gap: 36px;
-position: relative;
-}
-
-.community .filter {
-padding-top: 110px;
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 17px;
-position: relative;
-flex: 0 0 auto;
-overflow-x: auto;
-position: sticky;
-top: 0; 
-z-index: 100; 
-}
-
-.community .filter-wrapper {
-display: inline-flex;
-align-items: flex-start;
-gap: 10px;
-padding: 32px 28px;
-position: relative;
-flex: 0 0 auto;
-background-color: #12132a;
-border-radius: 30px;
-overflow: hidden;
-transition: all 0.2s ease;
-}
-
-.community .div {
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 24px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .text-wrapper {
-position: relative;
-width: fit-content;
-margin-top: -1px;
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 28px;
-letter-spacing: 0;
-line-height: 44.8px;
-white-space: nowrap;
-}
-
-.community .filter-2 {
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 20px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .filter-true {
-position: relative;
-width: 251px;
-height: 61px;
-background-color: #3fbcfc1a;
-border-radius: 9999px;
-overflow: hidden;
-}
-
-.community .text-wrapper-2 {
-position: absolute;
-top: 15px;
-left: 113px;
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: var(--variable-collection-secondary);
-font-size: 20px;
-text-align: center;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community .filter-false {
-position: relative;
-width: 251px;
-height: 61px;
-background-color: #161832;
-border-radius: 9999px;
-overflow: hidden;
-}
-
-.community .text-wrapper-3 {
-left: 92px;
-position: absolute;
-top: 16px;
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-color: #ffffff;
-font-size: 18px;
-text-align: center;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community .text-wrapper-4 {
-left: 91px;
-position: absolute;
-top: 16px;
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-color: #ffffff;
-font-size: 18px;
-text-align: center;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community .text-wrapper-5 {
-left: 90px;
-position: absolute;
-top: 16px;
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-color: #ffffff;
-font-size: 18px;
-text-align: center;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community .make-a-post {
-display: flex;
-width: 300px;
-height: 66px;
-padding: 10px 20px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 24px;
-background: var(--Primary, #2A4CF1);
-}
-
-.community .edit-wrapper {
-position: relative;
-width: 32px;
-height: 32px;
-}
-
-.community .edit {
-position: relative;
-width: 24px;
-height: 24px;
-top: 4px;
-left: 4px;
-background-image: url(./img/edit.svg);
-background-size: 100% 100%;
-}
-
-.community .text-wrapper-6 {
-position: relative;
-width: fit-content;
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-color: #ffffff;
-font-size: 20px;
-letter-spacing: 0.25px;
-line-height: normal;
-white-space: nowrap;
-}
-
-.community .forum-section {
-padding-top: 80px;
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 4px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .forum-person {
-display: flex;
-flex-direction: column;
-width: 880px;
-align-items: flex-start;
-gap: 10px;
-padding: 28px 20px;
-position: relative;
-flex: 0 0 auto;
-transition: all 0.2s ease;
-}
-
-.community .person-section {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 20px;
-position: relative;
-align-self: stretch;
-width: 100%;
-flex: 0 0 auto;
-}
-
-.community .section {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 28px;
-position: relative;
-align-self: stretch;
-width: 100%;
-flex: 0 0 auto;
-}
-
-.community .profile-upper {
-display: flex;
-width: 840px;
-align-items: center;
-justify-content: space-between;
-padding: 0px 28px 0px 0px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .profil {
-display: inline-flex;
-align-items: center;
-gap: 26px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .detail {
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-}
-
-.community .profil-wrapper {
-position: relative;
-width: 77px;
-height: 77px;
-background-color: #2a4cf1;
-border-radius: 9999px;
-overflow: hidden;
-}
-
-.community .img {
-position: absolute;
-width: 77px;
-height: 77px;
-top: 0;
-left: 0;
-object-fit: cover;
-}
-
-.community .text-wrapper-7 {
-position: relative;
-width: fit-content;
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 24px;
-letter-spacing: 0;
-line-height: 38.4px;
-white-space: nowrap;
-}
-
-.community .delete {
-position: relative;
-width: 64px;
-height: 64px;
-background-color: #e221211a !important;
-border-radius: 8853.23px;
-overflow: hidden;
-}
-
-.community .iconly-bold-delete {
-position: absolute;
-width: 32px;
-height: 32px;
-top: 16px;
-left: 16px;
-}
-
-.community .p {
-position: relative;
-align-self: stretch;
-font-family: "Poppins", Helvetica;
-font-weight: 500;
-color: #ffffff;
-font-size: 24px;
-letter-spacing: 0;
-line-height: 38.4px;
-}
-
-.community .book-section {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-position: relative;
-align-self: stretch;
-width: 100%;
-flex: 0 0 auto;
-}
-
-.community .text-wrapper-8 {
-position: relative;
-width: fit-content;
-margin-top: -1px;
-font-family: "Poppins", Helvetica;
-font-weight: 500;
-color: #ffffff;
-font-size: 24px;
-letter-spacing: 0;
-line-height: 38.4px;
-white-space: nowrap;
-}
-
-.community .book-card {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-gap: 0px 0px;
-padding: 12px;
-position: relative;
-align-self: stretch;
-width: 100%;
-flex: 0 0 auto;
-background-color: #23264f;
-border-radius: 20px;
-overflow: hidden;
-}
-
-.community .book-card-2 {
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: space-between;
-gap: 184px 20px;
-position: relative;
-flex: 1;
-flex-grow: 1;
-}
-
-.community .book-status {
-display: inline-flex;
-align-items: center;
-gap: 24px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .book-image {
-position: relative;
-width: 128px;
-height: 150px;
-background-color: #13142a;
-border-radius: 9.2px;
-overflow: hidden;
-}
-
-.community .image {
-position: absolute;
-width: 128px;
-height: 150px;
-top: 0;
-left: 0;
-object-fit: cover;
-}
-
-.community .book-detail {
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 18px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .book-title {
-display: inline-flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 10px;
-position: relative;
-flex: 0 0 auto;
-}
-
-.community .text-wrapper-9 {
-position: relative;
-width: 271px;
-margin-top: -1px;
-font-family: "Poppins", Helvetica;
-font-weight: 600;
-color: #ffffff;
-font-size: 24px;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community .book-author{
-position: relative;
-width: fit-content;
-font-family: "Poppins", Helvetica;
-font-weight: 500;
-color: #ffffff;
-font-size: 18px;
-letter-spacing: 0;
-line-height: normal;
-}
-
-.community button {
-display: flex !important;
-height: 64px !important;
-padding: 10px 20px !important;
-justify-content: flex-end !important;
-align-items: center !important;
-gap: 10px !important;
-border-radius: 24px !important;
-background: var(--Primary,#2A4CF1) ;
-color:#fff
-}
-
-.community button .iconly-bold {
-position: relative;
-width: 24px;
-height: 24px;
-}
-
-.line {
-height: 0px;
-align-self: stretch;
-stroke-width: 4px;
-stroke: #282C5B;
-}
-
-.action {
-align-items: flex-start;
-gap: 86px;
-padding: 0px 0px 0px 20px;
-display: inline-flex;
-position: relative;
-flex: 0 0 auto;
-}
-
-.action .bottom-section {
-display: inline-flex;
-align-items: center;
-gap: 16px;
-position: relative;
-}
-
-.action .icon{
-position: relative;
-width: 40px;
-height: 40px;
-}
-
-.action .text-wrapper {
-position: relative;
-width: fit-content;
-font-family: "Poppins", Helvetica;
-font-weight: 500 !important;
-color: #ffffff;
-font-size: 22px;
-letter-spacing: 0;
-line-height: 38.4px;
-white-space: nowrap;
-}
-
-
-/* ================CSS CATEGORY=============== */
-/* ================CSS CATEGORY=============== */
-/* ================CSS CATEGORY=============== */
-.category .action {
-align-items: flex-start;
-gap: 81px;
-padding: 0px 0px 0px 40px;
-display: inline-flex;
-position: relative;
-flex: 0 0 auto;
-}
-
-.category .frame {
-display:flex;
-width: 100%;
-align-items: center;
-height: 445px;
-background-color: #2a4cf1;
-align-items: center;
-justify-content: center;
-}
-
-.category  .frame .overlap-group {
-position: relative;
-height: 445px;
-left: 29px;
-}
-
-.category .frame .text-wrapper {
-position: absolute;
-top: 48px;
-left: auto;
-font-weight: 900;
-color: #2444e0;
-font-size: 350px;
-letter-spacing: 0;
-line-height: 347.2px;
-white-space: nowrap;
-top: 50%; /* Tengah secara vertikal */
-left: 50%; /* Tengah secara horizontal */
-transform: translate(-50%, -50%); 
-}
-.category .frame .div {
-position: absolute;
-width: 1215px;
-top: 48px;
-left: auto;
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 40px;
-letter-spacing: 0;
-line-height: 60px;
-top: 40%; /* Tengah secara vertikal */
-left: 50%; /* Tengah secara horizontal */
-transform: translate(-50%, -50%); 
-padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
-}
-
-.category .frame .p {
-position: absolute;
-width: 1215px;
-top: 48px;
-left: auto;
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 30px;
-letter-spacing: 0;
-line-height: 40px;
-top: 80%; /* Tengah secara vertikal */
-left: 50%; /* Tengah secara horizontal */
-transform: translate(-50%, -50%); 
-padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
-}
-
-
-.category .search .label .text-wrapper {
-font-family: "Poppins", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 30px;
-letter-spacing: 0;
-line-height: 76.8px;
-text-align: center;
-white-space: nowrap;
-}
-
-.category .search .input-group {
-width: 33%; /* Atur lebar sesuai kebutuhan (1/3 dari lebar layar) */
-margin: 0 auto; /* Agar input-group berada di tengah-tengah layar */
-}
-
-.category .container .label .text-wrapper {
-font-family: "Poppins-Bold", Helvetica;
-font-weight: 700;
-color: #ffffff;
-font-size: 30px;
-letter-spacing: 0;
-line-height: 76.8px;
-text-align: center;
-white-space: nowrap;
-}
-
-.category .container #all-books{
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
-  grid-gap: 1px; /* Jarak antara card */
-}
-
-.category .container #all-books .card{
-  margin: 2px;
-  height: 400px; /* Atur tinggi sesuai kebutuhan */
-  background-color: #23264F;
-}
-
-.category .container #all-books .card .card-img-top{
+  transform: translate(-50%, -50%); /
+  
+  }
+  
+  .forum .element {
+  position: absolute;
+  width: 967px;
+  height: auto;
+  top: 0;
+  left: 207px;
+  object-fit: cover;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+  
+  /* CSS untuk tampilan mobile (lebar layar <= 375px) */
+  @media (max-width: 375px) {
+  .forum .header .text-wrapper {
+    font-size: 64px; /* Atur ukuran font untuk teks "Community" */
+  }
+  
+  .forum .element {
+    width: 495px; /* Atur lebar gambar sesuai kebutuhan */
+    height: 270px; /* Atur tinggi gambar sesuai kebutuhan */
+  }
+  
+  .forum .header {
+    min-height: 270px; /* Atur tinggi header sesuai kebutuhan */
+  }
+  
+  .forum .header .overlap-group {
+    height: 270px; /* Atur tinggi frame sesuai kebutuhan */
+  }
+  
+  .forum .header {
+    background-color: #2a4cf1; /* Atur warna latar belakang */
+  }
+  }
+  
+  .community {
+  margin-top: 0px;
+  margin-right: 112px;
+  margin-left: 112px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 36px;
+  position: relative;
+  }
+  
+  .community .filter {
+  padding-top: 110px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 17px;
+  position: relative;
+  flex: 0 0 auto;
+  overflow-x: scroll;
+  position: sticky;
+  top: 0; 
+  z-index: 100; 
+  }
+  
+  .community .filter-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 32px 28px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #12132a;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  }
+  
+  .community .div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .community .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 44.8px;
+  white-space: nowrap;
+  }
+  
+  .community .filter-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .community .filter-true {
+  position: relative;
+  width: 251px;
+  height: 61px;
+  background-color: #3fbcfc1a;
+  border-radius: 9999px;
+  overflow: hidden;
+  }
+  
+  .community .text-wrapper-2 {
+  position: absolute;
+  top: 15px;
+  left: 113px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 700;
+  color: var(--variable-collection-secondary);
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .filter-false {
+  position: relative;
+  width: 251px;
+  height: 61px;
+  background-color: #161832;
+  border-radius: 9999px;
+  overflow: hidden;
+  }
+  
+  .community .text-wrapper-3 {
+  left: 92px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .text-wrapper-4 {
+  left: 91px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .text-wrapper-5 {
+  left: 90px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+
+  .community input[type="radio"] {
+    display: none;
+  }
+
+  /* Gaya radio button yang dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"]:checked + label {
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    position: relative;
+    width: 251px;
+    height: 61px;
+    background-color: #3fbcfc1a;
+    border-radius: 9999px;
+    overflow: hidden;
+    color: #2A4CF1;
+    text-align: center;
+    line-height: 61px; 
+  }
+
+  /* Gaya radio button yang tidak dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"] + label {
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    position: relative;
+    width: 251px;
+    height: 61px;
+    background-color: #161832;
+    border-radius: 9999px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 61px; 
+  }
+
+  /* Gaya label (teks) untuk radio button yang dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"]:checked + label::before {
+    content: "";
+    top: 15px;
+    left: 2900px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #2A4CF1;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  /* Gaya label (teks) untuk radio button yang tidak dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"] + label::before {
+    content: "";
+    top: 16px;
+    left: 90px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  
+
+  /* Gaya label yang berada di dalam li di dalam elemen dengan kelas .community */
+  .community li label {
+    cursor: pointer; /* Tambahkan tanda kursor tangan saat mengarahkan ke label */
+  }
+
+  /* Hilangkan dot yang muncul saat radio button ditekan */
+.community input[type="radio"]::before {
+  content: none;
+}
+
+.community li {
+  list-style: none;
+}
+
+.community .filter-2 ul {
+  display: none;
+  padding-inline-start: 0px !important;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px !important;
+}
+
+  .community .make-a-post {
+  display: flex;
+  width: 100%;
+  height: 66px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 24px;
+  background: var(--Primary, #2A4CF1);
+  }
+  
+  .community .edit-wrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  }
+  
+  .community .edit {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 4px;
+  left: 4px;
+  background-image: url(./img/edit.svg);
+  background-size: 100% 100%;
+  }
+  
+  .community .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  white-space: nowrap;
+  }
+  
+  .community .forum-section {
+  padding-top: 80px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .community .forum-person {
   display: flex;
   flex-direction: column;
   width: 880px;
@@ -2063,7 +1738,7 @@ white-space: nowrap;
   align-items: center !important;
   gap: 10px !important;
   border-radius: 24px !important;
-  background: var(--Primary, #2A4CF1) !important;
+  background: var(--Primary, #2A4CF1);
   color:#fff
   }
   
@@ -2079,6 +1754,7 @@ white-space: nowrap;
   stroke-width: 4px;
   stroke: #282C5B;
   }
+
   
   .action {
   align-items: flex-start;

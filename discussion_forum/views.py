@@ -47,7 +47,6 @@ def create_forum(request):
     context = {'form': form}
     return render(request, "create_forum.html", context)
 
-@login_required(login_url='/login')
 def get_product_json(request):
     selected_genre = request.GET.get('selected_genre') 
     product_items = []
@@ -75,7 +74,10 @@ def get_product_json(request):
 
 def split_genre(genre_string):
     if genre_string:
-        return genre_string.split('|')
+        genres = genre_string.split('|')
+        genres = [genre.replace(' ', '-') for genre in genres]
+        return genres
+
     else:
         return []
 
@@ -131,4 +133,3 @@ def like_forum_post(request, post_id):
 def get_json(self):
     data = Book.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
