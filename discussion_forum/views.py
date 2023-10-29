@@ -12,7 +12,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ForumForm
 from django.shortcuts import redirect
 
-
+@login_required(login_url='/login')
 def show_forum(request):
     book = Book.objects.filter(pk__in=range(1, 101))
     active_genre = request.GET.get('genre', None)
