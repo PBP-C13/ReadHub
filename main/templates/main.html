@@ -42,7 +42,91 @@
   </div>
 </div>
 
-<div class="book-card-container">
+
+
+<div class="landing">
+    <div class="div">
+        <div class="overlap">
+            <img src ="../../static/img/iluslan.svg">
+            <div class="frame"><img class="mask-group" src="../../static/img/icon/BookLan.svg" /></div>
+            <div class="frame-2">
+                <img class="iconly-bold-star" src="../../static/img/icon/BookLan.svg"  />
+                <div class="text-wrapper">Top Books</div>
+            </div>
+            <div class="iconly-bold-heart-wrapper"><img class="iconly-bold-heart" src="../../static/img/icon/heartlan.svg" /></div>
+        </div>
+        </div style ="top:20px;">
+        <p class="explore-your">
+            <span class="span">Explore Your Favorite Book in </span> <span class="text-wrapper-2">ReadHub</span>
+        </p>
+        <p style = "margin-top: 60px;" class="tempat-meminjam-buku">
+            <span class="text-wrapper-3">Tempat meminjam buku dengan lebih dari</span>
+            <span class="text-wrapper-4"> 53000+ </span>
+            <span class="text-wrapper-3">Books yang dapat dibaca dan dipelajari</span>
+            <button onclick="category()" style = "margin-top: 60px;" class="btn btn-primary btn-lg">Explore ReadHub</button>
+        </p>
+        
+        <div>
+
+        <div class="text-wrapper-5">ReadHub Feature</div>
+        <p class="explore-book-review">
+            <span class="span">Explore Book&nbsp;&nbsp;Review Recommendations from Fellow Users in the </span>
+            <span class="text-wrapper-2">Community </span>
+            <span class="span">Feature</span>
+            <button onclick="community()" style = "margin-top: 30px;" class="btn btn-primary btn-lg">Explore Community</button>
+        </p>
+        <div class="rectangle"></div>
+        <div class="rectangle-2"></div>
+        <div class="card">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 1.svg" /></div>
+            <div class="text-wrapper-8">Landing Page</div>
+            <p class="p">Pintu Gerbang Anda Menuju Dunia Pengetahuan, Imajinasi, dan Inspirasi Melalui Buku.</p>
+        </div>
+
+
+        <div class="card-2">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 2.svg" /></div>
+            <div class="text-wrapper-8">Detail Book</div>
+            <p class="p">Temukan Informasi Lengkap untuk Membantu Anda dalam Pemilihan Buku.</p>
+        </div>
+        <div class="card-3">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 3.svg" /></div>
+            <div class="text-wrapper-8">100 Best Seller Book</div>
+            <p class="p">Pengalaman Pembelajaran yang Engaging dan Terlibat dalam Setiap Halaman.</p>
+        </div>
+        <div class="card-4">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 4.svg" /></div>
+            <div class="text-wrapper-8">Community</div>
+            <p class="p"> Bergabung dengan Diskusi yang Memperdalam Pemahaman Literatur.</p>
+        </div>
+        <div class="card-5">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 5.svg" /></div>
+            <div class="text-wrapper-8">Borrow Book</div>
+            <p class="p">Nikmati Kemudahan Peminjaman Buku  dengan Sistem yang Aman dan Efektif</p>
+        </div>
+        <div class="card-6">
+            <div class="overlap-group"><img class="img" src="../../static/img/icon/Fitur 6.svg" /></div>
+            <div class="text-wrapper-8">Favorite Book</div>
+            <p class="p">impan, Pantau, dan Temukan Buku-buku yang Membentuk Minat dan Inspirasi Anda.</p>
+        </div>
+        <img class="ILLUS" src="../../static/img/IlusLanding2.svg" />
+    </div>
+</div>
+
+
+<script>
+    function category() {
+        window.location.href = "{% url 'category:show_category' %}";
+    }
+
+    function community() {
+        window.location.href = "{% url 'discussion_forum:show_forum' %}";
+    }
+
+</script>
+
+
+<!-- <div class="book-card-container">
     {% for products in products %}
     <div class="book-card" style="width: 18rem;">
         <img class="book-img card-img-top" src="{{products.image_url}}" alt="Card image cap">
@@ -53,6 +137,6 @@
         </div>
     </div>
     {% endfor %}
-  </div>
+  </div> -->
 
 {% endblock content %}
