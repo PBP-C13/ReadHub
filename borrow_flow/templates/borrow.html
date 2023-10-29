@@ -2,126 +2,131 @@
 
     
 {% block content %}
-    <div class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav" style="margin-left: 23%;">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
-                    </li>
-                    <li class="nav-item-active">
-                        <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+<div class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav" style="margin-left: 23%;">
+                <li class="nav-item-active">
+                    <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
                 </li>
-                </ul>
-            </div>
-
-            <div class="ml-auto"> 
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> Hello, {{ name }},
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
-                        <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
-                    </div>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a> 
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+            </li>
+            </ul>
+        </div>
+  
+        <div class="ml-auto"> 
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> Hello, {{ name }},
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                    <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
                 </div>
             </div>
         </div>
     </div>
+  </div>
 
-    <head>
-        <link rel="stylesheet" href="globals.css" />
-        <link rel="stylesheet" href="/static/css/style.css" />
-        <link rel="stylesheet" href="/static/css/styleguide.css" />
-    </head>
-    <body>
-        <div class="detail-book">
-            <div class="div">
-                <div class="text-wrapper">Borrow Book</div>
-                    <div class="frame">
-                        <div class="image-wrapper" id="book-image"></div>
-                        <form id="form" onsubmit="return false;">
-                            {% csrf_token %}
-                            <div class="frame-2">
-                                <div class="frame-3">
-                                    <div class="text-wrapper-2" id="book-title"></div>
-                                    <div class="text-wrapper-3" id="book-author"></div>
-                                </div>
-                                <div class="frame-wrapper">
-                                    <div class="div-wrapper"><div class="frame-4" id="book-category"></div></div>
-                                </div>
-                                <div class="frame-6">
-                                    <div class="text-wrapper-5">Lama Peminjaman</div>
-                                    <div class="frame-7">
-                                        <button onclick="decreaseDuration()" style="background-color: transparent; border: none;">
-                                            <img class="img" src="/static/img/button_min.png" />
-                                        </button>
-                                            <div class="text-wrapper-6" id="borrow-duration" name="borrow_duration">1 hari</div>
-                                            <button onclick="addDuration()" style="background-color: transparent; border: none;">
-                                            <img class="img" src="/static/img/button_plus.png" />
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="frame-8">
-                                <div class="text-wrapper-7">Syarat dan Ketentuan</div>
-                                    <div class="frame-9">
-                                        <div class="frame-10">
-                                            <input class="checkbox" type="checkbox"></input>
-                                            <p class="p">Kembalikan buku dalam kondisi baik untuk pemustaka berikutnya.</p>
-                                        </div>
-                                        <div class="frame-10">
-                                            <input class="checkbox" type="checkbox"></input>
-                                            <p class="p">Patuhi batas waktu peminjaman dan terlambat akan terkena denda</p>
-                                        </div>
-                                        <div class="frame-10">
-                                            <input class="checkbox" type="checkbox"></input>
-                                            <p class="text-wrapper-8">
-                                            Jangan ubah atau tambahkan catatan pribadi di dalam buku yang dipinjam untuk mempertahankan keaslian
-                                            buku.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </form>
-                                    <button class="borrow-button" onclick="borrowBook(1)">
-                                        <div class="iconly-bold-bag"><img src="/static/img/icon/Bag.svg"/></div>
-                                        <div class="button-text-wrapper">Pinjam Buku</div>
-                                    </button>
-                                </div>
-                            </div>
+<head>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/styleguide.css" />
+</head>
+<body>
+    <div class="detail-book">
+        <div class="div">
+            <div class="text-wrapper">Borrow Book</div>
+            <div class="frame">
+                <div class="image-wrapper" id="book-image"></div>
+                <form id="form" onsubmit="return false;">
+                {% csrf_token %}
+                <div class="frame-2">
+                    <div class="frame-3">
+                        <div class="text-wrapper-2" id="book-title"></div>
+                        <div class="text-wrapper-3" id="book-author"></div>
+                    </div>
+
+                    <div class="frame-wrapper">
+                        <div class="div-wrapper"><div class="frame-4" id="book-category"></div></div>
+                    </div>
+
+                    <div class="frame-6">
+                        <div class="text-wrapper-5">Lama Peminjaman</div>
+                        <div class="frame-7">
+                            <button onclick="decreaseDuration()" style="background-color: transparent; border: none;">
+                                <img class="img" src="/static/img/button_min.png" />
+                            </button>
+                                <div class="text-wrapper-6" id="borrow-duration" name="borrow_duration">1 hari</div>
+                                <button onclick="addDuration()" style="background-color: transparent; border: none;">
+                                <img class="img" src="/static/img/button_plus.png" />
+                            </button>
                         </div>
                     </div>
                 </div>
+               
+                <div class="frame-8">
+                    <div class="text-wrapper-7">Syarat dan Ketentuan</div>
+                        <div class="frame-9">
+                            <div class="frame-10">
+                                <input class="checkbox" type="checkbox"></input>
+                                <p class="p">Kembalikan buku dalam kondisi baik untuk pemustaka berikutnya.</p>
+                            </div>
+                            <div class="frame-10">
+                                <input class="checkbox" type="checkbox"></input>
+                                <p class="p">Patuhi batas waktu peminjaman dan terlambat akan terkena denda</p>
+                            </div>
+                            <div class="frame-10">
+                                <input class="checkbox" type="checkbox"></input>
+                                <p class="text-wrapper-8">
+                                Jangan ubah atau tambahkan catatan pribadi di dalam buku yang dipinjam untuk mempertahankan keaslian
+                                buku.
+                                </p>
+                            </div>
+                        </div>
+                   
+                    <button class="borrow-button" onclick="borrowBook(1)">
+                        <div class="iconly-bold-bag"><img src="/static/img/icon/Bag.svg"/></div>
+                        <div class="button-text-wrapper">Pinjam Buku</div>
+                    </button>
+                </form>
+                </div>
             </div>
         </div>
-    </body>
-
+    </div>
+</body>
 
 <script>
-    async function getBook(){
-        return fetch("/borrow_flow/get_book_by_id_json/1").then((res) => res.json())
+    async function getBook(id){
+        return fetch("/borrow_flow/get_book_by_id_json/" + id + "/").then((res) => res.json())
     }
 
     async function showBook(){
-        var book = await getBook()
+        var book_id = "{{book_id}}";
+        var book = await getBook(book_id)
         book = book[0]
         console.log(book)
         document.getElementById('book-image').innerHTML=`<img class="image" src=${book.fields.image_url} />`
         document.getElementById('book-title').innerHTML = `${book.fields.book_title}`
-        document.getElementById('book-author').innerHTML = `Author : ${book.fields.book_authors}`
+        let bookAuthorsHTML = ``
+        let authors = book.fields.book_authors.split("|").join(", ")
+        document.getElementById('book-author').innerHTML = `Author : ${authors}`
+
+
         let categoryHTML = ``
         let categories = book.fields.genres.split("|")
         categories.forEach((category) => {
@@ -158,9 +163,7 @@
         }
         document.getElementById('borrow-duration').innerHTML = `${days} hari`
     }
-
     showBook()
-
 </script>
 
 {% endblock content %}
