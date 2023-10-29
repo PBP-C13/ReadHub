@@ -1903,7 +1903,7 @@ ul {
   
   .category .container #all-books .card{
     margin: 2px;
-    height: 400px; /* Atur tinggi sesuai kebutuhan */
+    height: 450px; /* Atur tinggi sesuai kebutuhan */
     background-color: #23264F;
   }
   
@@ -1967,7 +1967,7 @@ ul {
   display: flex;
   flex-direction: column; /* Mengubah arah flex ke kolom */
   width: 250px; /* Atur lebar card sesuai kebutuhan */
-  height: 400px; /* Atur tinggi card sesuai kebutuhan */
+  height: 450px ; /* Atur tinggi card sesuai kebutuhan */
   background-color: #23264F;
   }
   
