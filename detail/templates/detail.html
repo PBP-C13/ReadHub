@@ -41,7 +41,7 @@
     }
     
     .detail-book .text-wrapper-2 {
-      position: absolute;
+      position: relative;
       top: 1592px;
       left: 112px;
       font-family: "Poppins-Bold", Helvetica;
@@ -51,6 +51,7 @@
       letter-spacing: 0.45px;
       line-height: normal;
       white-space: nowrap;
+      margin-top: 20px;
     }
     
     .detail-book .text-wrapper-3 {
@@ -309,6 +310,7 @@
       letter-spacing: 0;
       line-height: 35px;
       white-space: nowrap;
+      margin-left: 30px;
     }
     
     .detail-book .text-wrapper-10 {
@@ -335,6 +337,7 @@
       font-size: 28px;
       letter-spacing: 0;
       line-height: 42px;
+      margin-bottom: 10px;
     }
     
     .detail-book .text-wrapper-11 {
@@ -662,68 +665,73 @@
         transition: transform 0.2s;
     }
 
-    
+    .box {
+      width: 12px;
+      height: 12px;
+    }
+
+    .box .rectangle {
+      position: fixed;
+      width: 12px;
+      height: 12px;
+      top: 0;
+      left: 0;
+      background-color: #ffffff;
+      border-radius: 999px;
+    }
     </style>
 
     <!-- Navbar ------------------>
-    <div class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav" style="margin-left: 23%;">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
-                    </li>
-                    <li class="nav-item-active">
-                        <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
-                </li>
-                </ul>
-            </div>
-            <div class="ml-auto"> 
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> Hello, {{ name }},
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
-                        <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+      <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="../../static/img/logo.svg" class="navbar-brand d-none d-lg-block" href="#">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="margin-left: 23%;">
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #ffffff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+          </li>
+          </ul>
+      </div>
 
+      <div class="ml-auto"> 
+          <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Hello, {{ name }},
+              </a>
+              <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                  <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
 
-    <head>
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="styleguide.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-
-  <body>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h2 class="modal-title fs-5" id="exampleModalLabel">Add Review</h2>
+    {% csrf_token %}
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Review</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <form id="form" onsubmit="return false;"> 
-                      {% csrf_token %}
                       <div class="mb-3">
                           <label for="book_review" class="col-form-label">Review:</label>
                           <textarea class="form-control" id="book_review" name="book_review"></textarea>
@@ -737,6 +745,7 @@
           </div>
       </div>
   </div>  
+  
   
     <div class="detail-book"> 
       <div class="div">
@@ -775,7 +784,7 @@
               </div>
               <button class="button">
                 <div class="iconly-bold-bag"><div class="bag"></div></div>
-                <div class="button-CTA">Borrow This Book</div>
+                <div class="button-CTA" >Borrow This Book</div>
               </button>
             </div>
           </div>
@@ -783,11 +792,11 @@
         
         <button class="button-2">
           <div class="iconly-bold-bag"><div class="bag-2"></div></div>
-          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModal">Create Review</div>
+          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModalLong">Create Review</div>
         </button>
 
         <div class="text-wrapper-9">Book Page: {{book.book_pages}}</div>
-        <div class="text-wrapper-10">ISBN: {{book.book_isbn}}}</div>
+        <div class="text-wrapper-10">ISBN: {{book.book_isbn}}</div>
         <div class="text-wrapper-11">Format : {{book.book_format}}</div>
         <p class="lyra-is-rushing-to">{{book.book_desc}}</p>
 
@@ -805,7 +814,6 @@
             </div>
             {% endfor %}
         </div>
-  </body>
   <div class="container">
     <div class="row" id="product-cards">
      
@@ -814,75 +822,85 @@
 
 <script>
    async function addReview() {
-    const reviewInput = document.getElementById("book_review").value;
-    const det = await getDetails();
+    fetch("{% url 'detail:create_review' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#form'))
+        })
+        refreshItems()
+        document.getElementById("form").reset();
+        return false;     
+}
 
-    // Check if the review is not empty
+    async function getDetails() {
+        return fetch("{% url 'detail:get_item_json' %}").then((res) => res.json());
+    }
+
+    async function refreshItems() {
+      const reviewInput = document.getElementById("book_review").value;
+      const det = await getDetails();
+
     if (reviewInput.trim() !== "") {
         const csrftoken = getCookie("csrftoken"); 
         const cardContainer = document.getElementById("product-cards");
+        
 
-        // Create a new review card based on user input
         const card = document.createElement("div");
-        card.className = "frame-7"; // Apply the "frame-7" class
-        card.style.width = "392px"; // Apply the width
-        card.style.height = "296px"; // Apply the height
-        card.style.backgroundColor = "#23264f"; // Apply the background color
-        card.style.borderRadius = "30px"; // Apply the border-radius
-        card.style.overflow = "hidden"; // Apply overflow style
-        card.style.position = "relative"; // Apply the position
+        card.className = "frame-7";
+        card.style.width = "392px";
+        card.style.height = "296px";
+        card.style.backgroundColor = "#23264f";
+        card.style.borderRadius = "30px";
+        card.style.overflow = "hidden";
+        card.style.position = "relative";
 
         const cardParagraph = document.createElement("p");
-        cardParagraph.className = "p"; // Apply the "p" class
-        cardParagraph.style.width = "338px"; // Apply the width
-        cardParagraph.style.top = "39px"; // Apply the top position
-        cardParagraph.style.left = "27px"; // Apply the left position
-        cardParagraph.style.fontFamily = "Poppins-Medium, Helvetica"; // Apply font family
-        cardParagraph.style.fontWeight = "500"; // Apply font weight
-        cardParagraph.style.color = "transparent"; // Apply color
-        cardParagraph.style.fontSize = "24px"; // Apply font size
-        cardParagraph.style.letterSpacing = "0"; // Apply letter spacing
-        cardParagraph.style.lineHeight = "36px"; // Apply line height
+        cardParagraph.className = "p";
+        cardParagraph.style.width = "338px";
+        cardParagraph.style.top = "39px";
+        cardParagraph.style.left = "27px";
+        cardParagraph.style.fontFamily = "Poppins-Medium, Helvetica";
+        cardParagraph.style.fontWeight = "500";
+        cardParagraph.style.color = "transparent";
+        cardParagraph.style.fontSize = "24px";
+        cardParagraph.style.letterSpacing = "0";
+        cardParagraph.style.lineHeight = "36px";
 
         const cardSpan = document.createElement("span");
-        cardSpan.className = "span"; // Apply the "span" class
-        cardSpan.style.color = "#ffffff"; // Apply the color
+        cardSpan.className = "span"; 
+        cardSpan.style.color = "#ffffff"; 
         cardSpan.textContent = reviewInput ;
 
         const cardTextWrapper = document.createElement("span");
-        cardTextWrapper.className = "text-wrapper-12"; // Apply the "text-wrapper-12" class
-        cardTextWrapper.style.color = "#3fbcfc"; // Apply the color
+        cardTextWrapper.className = "text-wrapper-12"; 
+        cardTextWrapper.style.color = "#3fbcfc"; 
         cardTextWrapper.textContent =  "More";
 
         const cardByWrapper = document.createElement("span");
-        cardByWrapper.className = "text-wrapper-14"; // Apply the "text-wrapper-12" class
-        cardByWrapper.style.color = "#ffffff"; // Apply the color
+        cardByWrapper.className = "text-wrapper-14"; 
+        cardByWrapper.style.color = "#ffffff"; 
         cardByWrapper.textContent =  "- " + det.name ;
 
-        // Append the elements to create the card structure
         card.appendChild(cardParagraph);
         cardParagraph.appendChild(cardSpan);
         cardParagraph.appendChild(cardTextWrapper);
         cardParagraph.appendChild(cardByWrapper);
 
-        // Append the card to the card container
         cardContainer.appendChild(card);
 
-        // Clear the form input
         document.getElementById("form").reset();
+
         const data = {
             book_review: reviewInput,
-            csrfmiddlewaretoken: csrftoken,  // Include the CSRF token
+            csrfmiddlewaretoken: csrftoken,  
         };
 
-        // Send the POST request to the Django server
-        const response = await fetch("{% url 'detail:create_review' %}", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
+        fetch("{% url 'detail:create_review' %}", {
+              method: "POST",
+              body: new FormData(document.querySelector('#form'))
+            }).then(refreshItems);
+
+            document.getElementById("form").reset();
+            
         
         // Set spacing between cards
         cardContainer.style.display = "flex";
@@ -890,44 +908,19 @@
         cardContainer.style.transform = "translateY(-5px)";
         cardContainer.style.transition = "transform 0.2s";
         cardContainer.style.gap = "20px"; // Adjust the gap value to control the spacing
+        return false;
     } else {
-        // Handle empty review input or provide user feedback
-        // For example, you can show an error message.
+      //lalallala
+       
     }
+      
   }
-
-    async function getDetails() {
-        return fetch("{% url 'detail:get_item_json' %}").then((res) => res.json());
-    }
-
-    async function refreshItems() {
-      const det = await getDetails();
-      const cardContainer = document.getElementById("product-cards");
-      cardContainer.innerHTML = "";
-
-      // Loop through each review and create a card for it
-      det.book_review.forEach((book) => {
-          const card = document.createElement("div");
-          card.className = "card mx-auto mb-3"; // Added margin-bottom for spacing
-          card.style.width = "18rem";
-
-          const cardBody = document.createElement("div");
-          cardBody.className = "card-body";
-
-          const cardText = document.createElement("p");
-          cardText.className = "card-text";
-          cardText.textContent = book.fields.book_review;
-
-          cardContainer.appendChild(card);
-          card.appendChild(cardBody);
-          cardBody.appendChild(cardText);
-      });
-  }
+  
   function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
-}
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
 
 
 
