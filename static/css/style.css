@@ -1918,6 +1918,7 @@ ul {
   }
 
   .category .container #all-books .card .like-button{
+    background-color: #3FBCFC;
     width: 110px;
     height: 50px;
     position: absolute; /* Mengatur posisi absolut untuk love */
@@ -1926,6 +1927,7 @@ ul {
   }
 
   .category .container #all-books .card a .detail-button{
+    background-color: #2A4CF1;
       width: 110px;
       height: 50px;
       position: absolute; /* Mengatur posisi absolut untuk love */
