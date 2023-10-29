@@ -782,7 +782,7 @@
                   </div>
                 </div>
               </div>
-              <button class="button">
+              <button class="button" onclick="redirectBorrowPage('{{book_id}}')">
                 <div class="iconly-bold-bag"><div class="bag"></div></div>
                 <div class="button-CTA" >Borrow This Book</div>
               </button>
@@ -927,6 +927,10 @@
     document.getElementById("button_add").onclick = addReview;
 
     refreshItems();
+
+    function redirectBorrowPage(bookId) {
+        window.location.href = `/borrow_flow/${bookId}/`;
+    }
 </script>
 
 
