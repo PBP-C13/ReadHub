@@ -7,15 +7,27 @@ from borrow_flow.models import BorrowedBook
 from datetime import datetime, timedelta
 from borrow_flow.forms import *
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def show_borrow_page(request, id):
     book = Book.objects.get(pk = id)
     context = {
         'user' : request.user.username,
-        'book' : book
+        'book' : book,
+        'book_id' : id
     }
     return render(request, "borrow.html", context)
+
+def show_yourbook_page(request):
+    # borrowed_book = BorrowedBook.objects.filter(user = request.user)
+    borrowed_book = BorrowedBook.objects.all()
+    context = {
+        'user' : request.user.username,
+        # 'borrowed_book' : borrowed_book
+        'borrowed_book' : borrow_book
+    }
+    return render(request, 'yourbook.html', context)
 
 @csrf_exempt
 def borrow_book(request, id):
@@ -39,6 +51,7 @@ def get_book_by_id_json(request, id):
     book = Book.objects.filter(pk=id)
     return HttpResponse(serializers.serialize('json', book), content_type="application/json")
 
+@login_required
 def get_borrowed_book_json(request):
     borrowed_books = BorrowedBook.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize('json', borrowed_books))
