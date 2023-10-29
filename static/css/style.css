@@ -2045,7 +2045,7 @@ ul {
   }
   
   /* CSS Borrow.html */
-  .detail-book {
+  .borrow-book {
     background-color: #161732;
     display: flex;
     flex-direction: row;
@@ -2053,14 +2053,14 @@ ul {
     width: 100%;
   }
   
-  .detail-book .div {
+  .borrow-book .div {
     background-color: #161732;
     width: 1440px;
     height: 1280px;
     position: relative;
   }
   
-  .detail-book .text-wrapper {
+  .borrow-book .text-wrapper {
     position: absolute;
     top: 155px;
     left: 540px;
@@ -2073,7 +2073,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame {
+  .borrow-book .frame {
     position: absolute;
     width: 1211px;
     height: 888px;
@@ -2084,7 +2084,7 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .image-wrapper {
+  .borrow-book .image-wrapper {
     position: absolute;
     width: 308px;
     height: 362px;
@@ -2095,7 +2095,7 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .image {
+  .borrow-book .image {
     position: absolute;
     width: 308px;
     height: 362px;
@@ -2104,7 +2104,7 @@ ul {
     object-fit: cover;
   }
   
-  .detail-book .frame-2 {
+  .borrow-book .frame-2 {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2114,7 +2114,7 @@ ul {
     left: 397px;
   }
   
-  .detail-book .frame-3 {
+  .borrow-book .frame-3 {
     display: flex;
     flex-direction: column;
     width: 767px;
@@ -2124,7 +2124,7 @@ ul {
     flex: 0 0 auto;
   }
   
-  .detail-book .text-wrapper-2 {
+  .borrow-book .text-wrapper-2 {
     position: relative;
     width: 766px;
     margin-top: -1px;
@@ -2136,7 +2136,7 @@ ul {
     line-height: 60px;
   }
   
-  .detail-book .text-wrapper-3 {
+  .borrow-book .text-wrapper-3 {
     position: relative;
     width: fit-content;
     font-family: "Poppins-SemiBold", Helvetica;
@@ -2148,7 +2148,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame-wrapper {
+  .borrow-book .frame-wrapper {
     display: inline-flex;
     flex-direction: column;
     height: 44px;
@@ -2157,7 +2157,7 @@ ul {
     position: relative;
   }
   
-  .detail-book .div-wrapper {
+  .borrow-book .div-wrapper {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
@@ -2167,7 +2167,7 @@ ul {
     margin-bottom: -2px;
   }
   
-  .detail-book .frame-4 {
+  .borrow-book .frame-4 {
     display: inline-flex;
     align-items: flex-start;
     gap: 16px;
@@ -2175,7 +2175,7 @@ ul {
     flex: 0 0 auto;
   }
   
-  .detail-book .frame-5 {
+  .borrow-book .frame-5 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2188,7 +2188,7 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .text-wrapper-4 {
+  .borrow-book .text-wrapper-4 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -2200,7 +2200,7 @@ ul {
     line-height: normal;
   }
   
-  .detail-book .frame-6 {
+  .borrow-book .frame-6 {
     display: inline-flex;
     flex-direction: column;
     height: 121px;
@@ -2210,7 +2210,7 @@ ul {
     position: relative;
   }
   
-  .detail-book .text-wrapper-5 {
+  .borrow-book .text-wrapper-5 {
     position: relative;
     width: fit-content;
     margin-top: -2px;
@@ -2223,7 +2223,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame-7 {
+  .borrow-book .frame-7 {
     display: inline-flex;
     align-items: center;
     gap: 24px;
@@ -2232,13 +2232,13 @@ ul {
     margin-bottom: -1px;
   }
   
-  .detail-book .img {
+  .borrow-book .img {
     position: relative;
     width: 64px;
     height: 64px;
   }
   
-  .detail-book .text-wrapper-6 {
+  .borrow-book .text-wrapper-6 {
     position: relative;
     width: fit-content;
     font-family: "Poppins-Bold", Helvetica;
@@ -2250,7 +2250,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame-8 {
+  .borrow-book .frame-8 {
     display: flex;
     flex-direction: column;
     width: 1123px;
@@ -2261,7 +2261,7 @@ ul {
     left: 40px;
   }
   
-  .detail-book .text-wrapper-7 {
+  .borrow-book .text-wrapper-7 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -2274,7 +2274,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame-9 {
+  .borrow-book .frame-9 {
     display: flex;
     flex-direction: column;
     width: 1147px;
@@ -2285,7 +2285,7 @@ ul {
     margin-right: -24px;
   }
   
-  .detail-book .frame-10 {
+  .borrow-book .frame-10 {
     display: inline-flex;
     align-items: center;
     gap: 20px;
@@ -2293,13 +2293,13 @@ ul {
     flex: 0 0 auto;
   }
   
-  .detail-book .checkbox {
+  .borrow-book .checkbox {
     position: relative;
     width: 32px;
     height: 32px;
   }
   
-  .detail-book .p {
+  .borrow-book .p {
     position: relative;
     width: fit-content;
     font-family: "Poppins-Medium", Helvetica;
@@ -2311,7 +2311,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .text-wrapper-8 {
+  .borrow-book .text-wrapper-8 {
     position: relative;
     width: 1021px;
     margin-top: -1px;
@@ -2323,7 +2323,7 @@ ul {
     line-height: 30px;
   }
   
-  .detail-book .button {
+  .borrow-book .button {
     display: flex;
     width: 932px;
     height: 76px;
@@ -2340,7 +2340,7 @@ ul {
     box-sizing: border-box;
   }
   
-  .detail-book .bag {
+  .borrow-book .bag {
     position: relative;
     width: 24px;
     height: 27px;
@@ -2350,7 +2350,7 @@ ul {
     background-size: 100% 100%;
   }
   
-  .detail-book .text-wrapper-9 {
+  .borrow-book .text-wrapper-9 {
     position:relative;
     width: fit-content;
     font-family: "Poppins-SemiBold", Helvetica;
@@ -2362,7 +2362,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .frame-11 {
+  .borrow-book .frame-11 {
     position: fixed;
     width: 1440px;
     height: 100px;
@@ -2372,7 +2372,7 @@ ul {
     background-size: 100% 100%;
   }
   
-  .detail-book .group-wrapper {
+  .borrow-book .group-wrapper {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -2383,7 +2383,7 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .group {
+  .borrow-book .group {
     position: relative;
     width: 44px;
     height: 44px;
@@ -2393,7 +2393,7 @@ ul {
     background-size: 100% 100%;
   }
   
-  .detail-book .mask-group {
+  .borrow-book .mask-group {
     position: absolute;
     width: 44px;
     height: 44px;
@@ -2401,7 +2401,7 @@ ul {
     left: 0;
   }
   
-  .detail-book .frame-12 {
+  .borrow-book .frame-12 {
     display: inline-flex;
     align-items: flex-start;
     gap: 12px;
@@ -2410,7 +2410,7 @@ ul {
     left: 303px;
   }
   
-  .detail-book .component {
+  .borrow-book .component {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2422,7 +2422,7 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .text-wrapper-10 {
+  .borrow-book .text-wrapper-10 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -2435,7 +2435,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .group-2 {
+  .borrow-book .group-2 {
     position: absolute;
     width: 232px;
     height: 32px;
@@ -2443,7 +2443,7 @@ ul {
     left: 1098px;
   }
   
-  .detail-book .iconly-bold-profile {
+  .borrow-book .iconly-bold-profile {
     position: absolute;
     top: 0;
     left: 198px;
@@ -2451,7 +2451,7 @@ ul {
     height: 32px;
   }
   
-  .detail-book .text-wrapper-11 {
+  .borrow-book .text-wrapper-11 {
     position: absolute;
     top: 2px;
     left: 0;
@@ -2464,7 +2464,7 @@ ul {
     white-space: nowrap;
   }
   
-  .detail-book .checkbox {
+  .borrow-book .checkbox {
     display: flex;
     width: 32px;
     height: 32px;
@@ -2478,13 +2478,13 @@ ul {
     overflow: hidden;
   }
   
-  .detail-book .checkbox .vector {
+  .borrow-book .checkbox .vector {
     position: relative;
     width: 20.01px;
     height: 15.96px;
   }
   
-  .detail-book .borrow-button {
+  .borrow-book .borrow-button {
     display: flex;
     width: 932px;
     height: 76px;
@@ -2499,13 +2499,13 @@ ul {
     box-sizing: border-box;
   }
   
-  .detail-book .borrow-button .iconly-bold-bag {
+  .borrow-book .borrow-button .iconly-bold-bag {
     position: relative;
     width: 32px;
     height: 32px;
   }
   
-  .detail-book .borrow-button .bag {
+  .borrow-book .borrow-button .bag {
     position: absolute;
     width: 24px;
     height: 27px;
@@ -2513,7 +2513,7 @@ ul {
     left: 4px;
   }
   
-  .detail-book .borrow-button .button-text-wrapper {
+  .borrow-book .borrow-button .button-text-wrapper {
     position: relative;
     width: fit-content;
     font-family: "Poppins-SemiBold", Helvetica;
@@ -3053,7 +3053,7 @@ ul {
     white-space: nowrap;
   }
   
-  
+  /* detail buku */
 
   .detail-book {
     background-color: #161732;

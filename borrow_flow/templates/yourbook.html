@@ -81,7 +81,7 @@
                 <div class="image-wrapper"><img class="image" src="${book.book.image_url}" /></div>
                 <div class="text-wrapper-3">${book.book.book_title}</div>
                 <div class="frame-4">${genresHTML}</div>
-                <button class="return-button" onclick="returnBook()">
+                <button class="return-button" onclick="returnBook(${book.book.id})">
                     <div class="iconly-bold-tick"></div>
                     <div class="text-wrapper">Kembalikan Buku</div>
                 </button>
@@ -102,10 +102,9 @@
     }
 
     function returnBook(id){
-        fetch("borrow_flow/return_book/" + id + "/", {
+        fetch("/borrow_flow/return_book/" + id + "/", {
             method: 'POST'
         }).then(showYourBooks)
-
         return false
     }
 
