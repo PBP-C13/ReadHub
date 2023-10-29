@@ -22,7 +22,7 @@
                   <a class="nav-link" style="color:  #4162FF;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+                <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
             </li>
             </ul>
         </div>
@@ -43,20 +43,13 @@
 <body>
     <div class="your-book">
       <div class="div">
-     
-        <div class="book-container" id="book-container"></div>
         <div class="overlap-group-wrapper">
-          <div class="overlap-group">
-            <div class="text-wrapper-12">Your Book</div>
-            <img class="element" src="/static/img/6-4.png" />
-          </div>
+            <div class="overlap-group">
+                <div class="text-wrapper-12">Your Book</div>
+                <img class="element" src="/static/img/6-4.png" />
+            </div>
         </div>
-        <div class="frame"></div>
-        <div class="frame-7">
-          <div class="overlap"><div class="text-wrapper-13">Masih Dipinjam</div></div>
-          <div class="overlap-2"><div class="text-wrapper-14">Selesai Meminjam</div></div>
-        </div>
-        
+        <div class="book-container" id="book-container"></div>
       </div>
     </div>
   </body>
