@@ -27,7 +27,8 @@ def show_detail(request, id):
         'name': request.user.username if request.user.is_authenticated else "Guest",
         'similar_books': similar_books,
         'genres': genres,
-        'selected_genres' : selected_genres
+        'selected_genres' : selected_genres,
+        'book_id' : id 
         
     }
     return render(request, "detail.html", context)
