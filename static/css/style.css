@@ -2850,8 +2850,7 @@ white-space: nowrap;
   }
 
   /*Your Book Page*/
-
-  .detail-book {
+  .your-book {
     background-color: #161732;
     display: flex;
     flex-direction: row;
@@ -2859,14 +2858,14 @@ white-space: nowrap;
     width: 100%;
   }
   
-  .detail-book .div {
+  .your-book .div {
     background-color: #161732;
     width: 1440px;
     height: 2697px;
     position: relative;
   }
   
-  .detail-book .frame {
+  .your-book .frame {
     position: absolute;
     width: 1440px;
     height: 380px;
@@ -2875,7 +2874,7 @@ white-space: nowrap;
     background-color: #12132a;
   }
   
-  .detail-book .book {
+  .your-book .book {
     position: absolute;
     width: 1440px;
     height: 100px;
@@ -2884,7 +2883,7 @@ white-space: nowrap;
     background-color: #111329;
   }
   
-  .detail-book .group-wrapper {
+  .your-book .group-wrapper {
     position: absolute;
     width: 70px;
     height: 70px;
@@ -2895,7 +2894,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .group {
+  .your-book .group {
     position: relative;
     width: 44px;
     height: 44px;
@@ -2905,7 +2904,7 @@ white-space: nowrap;
     background-size: 100% 100%;
   }
   
-  .detail-book .mask-group {
+  .your-book .mask-group {
     position: absolute;
     width: 44px;
     height: 44px;
@@ -2913,7 +2912,7 @@ white-space: nowrap;
     left: 0;
   }
   
-  .detail-book .frame-2 {
+  .your-book .frame-2 {
     display: inline-flex;
     align-items: flex-start;
     gap: 12px;
@@ -2922,7 +2921,7 @@ white-space: nowrap;
     left: 302px;
   }
   
-  .detail-book .component {
+  .your-book .component {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2934,7 +2933,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .text-wrapper {
+  .your-book .text-wrapper {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -2947,7 +2946,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .home-wrapper {
+  .your-book .home-wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -2960,7 +2959,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .home {
+  .your-book .home {
     font-family: "Poppins-SemiBold", Helvetica;
     font-weight: 600;
     color: var(--variable-collection-secondary);
@@ -2973,7 +2972,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .group-2 {
+  .your-book .group-2 {
     position: absolute;
     width: 232px;
     height: 32px;
@@ -2981,7 +2980,7 @@ white-space: nowrap;
     left: 1098px;
   }
   
-  .detail-book .iconly-bold-profile {
+  .your-book .iconly-bold-profile {
     position: absolute;
     width: 32px;
     height: 32px;
@@ -2989,7 +2988,7 @@ white-space: nowrap;
     left: 198px;
   }
   
-  .detail-book .text-wrapper-2 {
+  .your-book .text-wrapper-2 {
     position: absolute;
     top: 2px;
     left: 0;
@@ -3002,7 +3001,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .frame-3 {
+  .your-book .frame-3 {
     position: absolute;
     width: 1216px;
     height: 408px;
@@ -3013,7 +3012,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .image-wrapper {
+  .your-book .image-wrapper {
     position: absolute;
     width: 178px;
     height: 210px;
@@ -3024,7 +3023,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .image {
+  .your-book .image {
     position: absolute;
     width: 178px;
     height: 210px;
@@ -3033,7 +3032,7 @@ white-space: nowrap;
     object-fit: cover;
   }
   
-  .detail-book .text-wrapper-3 {
+  .your-book .text-wrapper-3 {
     position: absolute;
     top: 64px;
     left: 236px;
@@ -3046,7 +3045,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .frame-4 {
+  .your-book .frame-4 {
     display: inline-flex;
     align-items: flex-start;
     gap: 16px;
@@ -3055,7 +3054,7 @@ white-space: nowrap;
     left: 236px;
   }
   
-  .detail-book .div-wrapper {
+  .your-book .div-wrapper {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -3068,7 +3067,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .text-wrapper-4 {
+  .your-book .text-wrapper-4 {
     position: relative;
     width: fit-content;
     margin-top: -1px;
@@ -3080,7 +3079,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .button {
+  .your-book .button {
     display: flex;
     width: 293px;
     height: 66px;
@@ -3097,7 +3096,7 @@ white-space: nowrap;
     box-sizing: border-box;
   }
   
-  .detail-book .iconly-bold-tick {
+  .your-book .iconly-bold-tick {
     position: relative;
     width: 32px;
     height: 32px;
@@ -3105,7 +3104,7 @@ white-space: nowrap;
     background-size: 100% 100%;
   }
   
-  .detail-book .text-wrapper-5 {
+  .your-book .text-wrapper-5 {
     position: relative;
     width: fit-content;
     font-family: "Poppins-SemiBold", Helvetica;
@@ -3117,7 +3116,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .text-wrapper-6 {
+  .your-book .text-wrapper-6 {
     left: 30px;
     position: absolute;
     top: 261px;
@@ -3129,7 +3128,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .text-wrapper-7 {
+  .your-book .text-wrapper-7 {
     left: 291px;
     position: absolute;
     top: 261px;
@@ -3141,7 +3140,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .text-wrapper-8 {
+  .your-book .text-wrapper-8 {
     position: absolute;
     top: 261px;
     left: 570px;
@@ -3153,7 +3152,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .text-wrapper-9 {
+  .your-book .text-wrapper-9 {
     position: absolute;
     top: 305px;
     left: 30px;
@@ -3165,7 +3164,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .text-wrapper-10 {
+  .your-book .text-wrapper-10 {
     position: absolute;
     top: 305px;
     left: 291px;
@@ -3177,7 +3176,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .buku-ini-harus {
+  .your-book .buku-ini-harus {
     position: absolute;
     width: 596px;
     top: 301px;
@@ -3190,7 +3189,7 @@ white-space: nowrap;
     line-height: normal;
   }
   
-  .detail-book .text-wrapper-11 {
+  .your-book .text-wrapper-11 {
     position: absolute;
     top: 122px;
     left: 236px;
@@ -3203,7 +3202,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .frame-5 {
+  .your-book .frame-5 {
     position: absolute;
     width: 1216px;
     height: 408px;
@@ -3214,7 +3213,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .iconly-bold-tick-2 {
+  .your-book .iconly-bold-tick-2 {
     position: relative;
     width: 32px;
     height: 32px;
@@ -3222,7 +3221,7 @@ white-space: nowrap;
     background-size: 100% 100%;
   }
   
-  .detail-book .frame-6 {
+  .your-book .frame-6 {
     position: absolute;
     width: 1216px;
     height: 408px;
@@ -3233,7 +3232,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .iconly-bold-tick-3 {
+  .your-book .iconly-bold-tick-3 {
     position: relative;
     width: 32px;
     height: 32px;
@@ -3241,7 +3240,7 @@ white-space: nowrap;
     background-size: 100% 100%;
   }
   
-  .detail-book .overlap-group-wrapper {
+  .your-book .overlap-group-wrapper {
     position: absolute;
     width: 1440px;
     height: 445px;
@@ -3250,14 +3249,14 @@ white-space: nowrap;
     background-color: #2a4cf1;
   }
   
-  .detail-book .overlap-group {
+  .your-book .overlap-group {
     position: relative;
     width: 1385px;
     height: 445px;
     left: 28px;
   }
   
-  .detail-book .text-wrapper-12 {
+  .your-book .text-wrapper-12 {
     position: absolute;
     top: 48px;
     left: 114px;
@@ -3270,7 +3269,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .element {
+  .your-book .element {
     position: absolute;
     width: 1385px;
     height: 445px;
@@ -3278,7 +3277,7 @@ white-space: nowrap;
     left: 0;
   }
   
-  .detail-book .frame-7 {
+  .your-book .frame-7 {
     position: absolute;
     width: 1216px;
     height: 108px;
@@ -3289,7 +3288,7 @@ white-space: nowrap;
     overflow: hidden;
   }
   
-  .detail-book .overlap {
+  .your-book .overlap {
     position: absolute;
     width: 586px;
     height: 84px;
@@ -3299,7 +3298,7 @@ white-space: nowrap;
     border-radius: 20px;
   }
   
-  .detail-book .text-wrapper-13 {
+  .your-book .text-wrapper-13 {
     position: absolute;
     top: 26px;
     left: 181px;
@@ -3312,7 +3311,7 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .detail-book .overlap-2 {
+  .your-book .overlap-2 {
     position: absolute;
     width: 586px;
     height: 84px;
@@ -3322,7 +3321,7 @@ white-space: nowrap;
     border-radius: 20px;
   }
   
-  .detail-book .text-wrapper-14 {
+  .your-book .text-wrapper-14 {
     position: absolute;
     top: 24px;
     left: 160px;
