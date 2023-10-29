@@ -99,6 +99,11 @@
       <img src="../../static/img/icon/Make a Post.svg">
       <div class="text-wrapper-6">Make a Post</div>
     </a>
+
+    <button style = "align-items: center;" class="btn btn-lg make-a-post"  onclick="openAddForumModal()">
+      <img src="../../static/img/icon/Make a Post.svg">
+      <div class="text-wrapper-6">Modal Post</div>
+    </button>
     
 
   </div>
@@ -106,6 +111,42 @@
   <!-- Post Forum ------------------>
   <div class="forum-section" id ="product_Forum"> </div>
 </div>
+
+<!-- Add Forum Modal -->
+<div class="modal fade" id="addForumModal" tabindex="-1" aria-labelledby="addForumModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addForumModalLabel">Create New Forum</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form id="addForumForm">
+                  {% csrf_token %}
+                  <div class="mb-4">
+                    <label for="description" class="col-form-label">Forum:</label>
+                    <textarea class="form-control" id="description" name="description" rows="4"></textarea>
+                </div>
+                  <div class="mb-3">
+                      <label for="book" class="col-form-label">Select Book:</label>
+                      <select class="form-control" id="book" name="book">
+                          <option value="" selected="selected">Select Book</option>
+                          <!-- Add options for books 1 to 100 using a loop in your template -->
+                          {% for pilihan in pilihan %}
+                              <option value="{{ pilihan.book_id }}"> {{ pilihan.book_title }}</option>
+                          {% endfor %}
+                      </select>
+                  </div>
+              </form>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" onclick="createForum()"> Create Forum </button>
+          </div>
+      </div>
+  </div>
+</div>
+
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -344,7 +385,54 @@
     }
   }
   typeCharacter(); 
-      
-</script>
+  
+  function openAddForumModal() {
+    $('#addForumModal').modal('show');
+  }
+
+  // Function to create a forum using AJAX
+  function createForum() {
+      fetch("{% url 'discussion_forum:create_forum_ajax' %}", {
+          method: 'POST',
+          body: new FormData(document.querySelector('#addForumForm'))
+      }).then (refreshForum)
+
+      document.getElementById("addForumForm").reset()
+      return false
+  }
+
+      // const text = $('#text').val();
+      // const book = $('#book').val();
+
+      // // Perform form validation here if needed
+
+      // // Send an AJAX request to create the forum
+      // $.ajax({
+      //     type: "POST",
+      //     url: "{% url 'discussion_forum:create_forum' %}",
+      //     data: {
+      //         csrfmiddlewaretoken: '{{ csrf_token }}',
+      //         text: text,
+      //         book: book,
+      //     },
+      //     success: function (data) {
+      //         // Handle the success response, e.g., refresh the forum list
+      //         refreshForumList();
+      //         $('#addForumModal').modal('hide');
+      //     },
+      //     error: function (error) {
+      //         // Handle any errors, e.g., display an error message
+      //         console.log('Error:', error);
+      //     }
+      // });
+  
+
+  // Bind the function to the "Create Forum" button
+  $('#addForumButton').click(createForum);
+
+  // You can trigger the modal with a button or event as needed
+  $('#openAddForumModalButton').click(openAddForumModal);
+
+  </script>
 
 {% endblock content %}
