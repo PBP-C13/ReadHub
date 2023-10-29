@@ -42,17 +42,18 @@
 </div>
 <body>
     <div class="your-book">
-      <div class="div">
-        <div class="overlap-group-wrapper">
-            <div class="overlap-group">
-                <div class="text-wrapper-12">Your Book</div>
-                <img class="element" src="/static/img/6-4.png" />
+        <div class="div">
+            <p class="p">Here Are Your Books, {{user}}</p>
+            <div class="overlap-group-wrapper">
+                <div class="overlap-group">
+                    <div class="text-wrapper-12">Your Book</div>
+                    <img class="element" src="/static/img/6-4.png" />
+                </div>
             </div>
+            <div class="book-container" id="book-container"></div>
         </div>
-        <div class="book-container" id="book-container"></div>
-      </div>
     </div>
-  </body>
+</body>
 
 <script>
     async function getBorrowedBooks(){
