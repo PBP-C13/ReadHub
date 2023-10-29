@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-    
 {% block content %}
 <div class="navbar navbar-expand-lg ">
     <div class="container-fluid">
@@ -47,7 +46,7 @@
     <link rel="stylesheet" href="/static/css/styleguide.css" />
 </head>
 <body>
-    <div class="detail-book">
+    <div class="borrow-book">
         <div class="div">
             <div class="text-wrapper">Borrow Book</div>
             <div class="frame">
@@ -161,17 +160,12 @@
         })
         .then(response => {
             if (response.ok) {
-                return response.json();
+                console.log('Book borrowed successfully!');
+                window.location.href = "/borrow_flow/show_yourbook_page/"; // Redirect after successful borrowing
             } else {
                 throw new Error('Network response was not ok.');
             }
         })
-        .then(data => {
-        console.log('Book borrowed:', data);
-        fetch("/borrow_flow/show_yourbook_page", {
-            method: 'GET'
-        })
-    })
         .catch(error => {
             console.error('Error borrowing the book:', error);
         });

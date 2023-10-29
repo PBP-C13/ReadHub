@@ -38,11 +38,9 @@ def borrow_book(request, id):
 
         if terms_accepted_1 and terms_accepted_2 and terms_accepted_3:
             book_to_be_borrowed = Book.objects.get(pk = id)
-            user = request.user
             borrow_duration = request.POST.get('borrow_duration')
             return_date = datetime.now() + timedelta(days=int(borrow_duration))
-            borrowed_book = BorrowedBook(user=user, book=book_to_be_borrowed, borrow_duration=borrow_duration, return_date=return_date)
-            print(borrowed_book)
+            borrowed_book = BorrowedBook(user=request.user, book=book_to_be_borrowed, borrow_duration=borrow_duration, return_date=return_date)
             borrowed_book.save()
             return redirect('borrow_flow:show_yourbook_page')
     return HttpResponseNotFound()
@@ -50,8 +48,10 @@ def borrow_book(request, id):
         
 @csrf_exempt
 def return_book(request, id):
-    borrowed_book = BorrowedBook.objects.get(pk = id)
-    borrowed_book.delete()
+    borrowed_book = BorrowedBook.objects.filter(user=request.user)
+    for book in borrowed_book:
+        if book.book.id == id:
+            book.delete()
     return HttpResponse(b"RETURNED", status=201)
 
 def get_book_by_id_json(request, id):
