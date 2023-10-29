@@ -50,17 +50,17 @@ def create_forum(request):
 
 @csrf_exempt
 def create_forum_ajax(request):
-    form = ForumForm(request.POST)
     if request.method == 'POST':
-        forum = form.save(commit=False)
-        forum.author = request.user  # Set author ke pengguna saat ini
-        forum.save()
+        text = request.POST.get("description")
+        book = Book.objects.get(pk=request.POST.get("book"))
+        author = request.user 
+        new_form = Forum (text = text, book=book, author=author)
+        new_form.save()
 
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
     
-
 
 @login_required(login_url='/login')
 def get_product_json(request):

@@ -81,19 +81,12 @@
             </li>
           </ul>
 
-          <!-- <div class="filter-2">
-            <div class="filter-true"><div class="text-wrapper-2">All</div></div>
-            <div class="filter-false"><div class="text-wrapper-3">Genre 1</div></div>
-            <div class="filter-false"><div class="text-wrapper-4">Genre 2</div></div>
-            <div class="filter-false"><div class="text-wrapper-5">Genre 3</div></div>
-            <div class="filter-false"><div class="text-wrapper-5">Genre 4</div></div>
-          </div> -->
+
         </div>
 
       </div>
     </div>
 
-    <!-- <a href="#" class="btn btn-lg make-a-post" data-toggle="modal" data-target="#largeModal"> <img src="../../static/img/icon/Make a Post.svg"> <div class="text-wrapper-6">Modal a Post</div> </a> -->
 
     <a class="btn btn-lg make-a-post" href="{% url 'discussion_forum:create_forum' %}">
       <img src="../../static/img/icon/Make a Post.svg">
@@ -141,7 +134,7 @@
           </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary" onclick="createForum()"> Create Forum </button>
+              <button type="button" id="button_add" class="btn btn-primary" onclick="createForum()"> Create Forum </button>
           </div>
       </div>
   </div>
@@ -401,37 +394,7 @@
       return false
   }
 
-      // const text = $('#text').val();
-      // const book = $('#book').val();
-
-      // // Perform form validation here if needed
-
-      // // Send an AJAX request to create the forum
-      // $.ajax({
-      //     type: "POST",
-      //     url: "{% url 'discussion_forum:create_forum' %}",
-      //     data: {
-      //         csrfmiddlewaretoken: '{{ csrf_token }}',
-      //         text: text,
-      //         book: book,
-      //     },
-      //     success: function (data) {
-      //         // Handle the success response, e.g., refresh the forum list
-      //         refreshForumList();
-      //         $('#addForumModal').modal('hide');
-      //     },
-      //     error: function (error) {
-      //         // Handle any errors, e.g., display an error message
-      //         console.log('Error:', error);
-      //     }
-      // });
-  
-
-  // Bind the function to the "Create Forum" button
-  $('#addForumButton').click(createForum);
-
-  // You can trigger the modal with a button or event as needed
-  $('#openAddForumModalButton').click(openAddForumModal);
+  document.getElementById("button_add").onclick = createForum
 
   </script>
 
