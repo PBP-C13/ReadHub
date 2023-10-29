@@ -2,6 +2,33 @@
 
 {% block content %}
 <style>
+    .favorit .container .label .text-wrapper {
+        font-family: "Poppins-Bold", Helvetica;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 30px;
+        letter-spacing: 0;
+        line-height: 76.8px;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+.favorit .search .label .text-wrapper {
+  font-family: "Poppins", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 30px;
+  letter-spacing: 0;
+  line-height: 76.8px;
+  text-align: center;
+  white-space: nowrap;
+}
+  
+.favorit .search .input-group {
+  width: 33%; /* Atur lebar sesuai kebutuhan (1/3 dari lebar layar) */
+  margin: 0 auto; /* Agar input-group berada di tengah-tengah layar */
+}
+
     .favorit .container #all-books {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
