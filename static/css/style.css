@@ -2532,6 +2532,7 @@ ul {
     flex-direction: row;
     justify-content: center;
     width: 100%;
+    padding: 0;
   }
   
   .your-book .div {
@@ -2681,6 +2682,8 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin: 0;
+    padding: 0;
   }
 
   .your-book .frame-book {
@@ -2688,11 +2691,12 @@ ul {
     width: 1216px;
     height: 408px;
     top: 781px;
+    margin-top: 0px;
     left: 0;
     background-color: #23264f;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     transition: transform 0.5s ease;
   }
 
@@ -2974,7 +2978,10 @@ ul {
     height: 445px;
     top: 0;
     left: 0;
+    margin: 0;
+    padding: 0;
   }
+  
   
   .your-book .frame-7 {
     position: absolute;

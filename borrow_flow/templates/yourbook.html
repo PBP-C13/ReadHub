@@ -60,7 +60,7 @@
     }
 
     async function showYourBooks(){
-        borrowedBooks = await getBorrowedBooks()
+        let borrowedBooks = await getBorrowedBooks()
         console.log(borrowedBooks)
         let yourBookHTML = ``
         borrowedBooks.forEach((book) => {
@@ -90,7 +90,6 @@
             </div>
             `
         })
-
         document.getElementById("book-container").innerHTML = yourBookHTML
     }
 
