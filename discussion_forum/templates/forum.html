@@ -3,8 +3,6 @@
 {% block content %}
 <title>community</title>
 
-
-
 <!-- Navbar ------------------>
 <div class="navbar navbar-expand-lg ">
   <div class="container-fluid">
@@ -27,7 +25,7 @@
                 <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
+              <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
           </li>
           </ul>
       </div>
@@ -64,31 +62,32 @@
       <div class="div">
         <div class="text-wrapper">Filter Post</div>
         <div>
-          <!-- <ul class="filter-2">
-            <li class="filter-true">
-              <input type="radio" id="all" name="filter" value="all" checked onchange="filterForum()" >
+          <ul class="filter-2">
+            <li>
+              <input type="radio" id="all" name="filter" value="all" checked onchange="filterForum()">
               <label for="all">All</label>
             </li>
-            <li class="filter-false">
+            <li>
               <input type="radio" id="Fantasy" name="filter" value="Fantasy" onchange="filterForum()">
               <label for="Fantasy">Fantasy</label>
             </li>
-            <li class="filter-false">
+            <li>
               <input type="radio" id="Romance" name="filter" value="Romance" onchange="filterForum()">
               <label for="Romance">Romance</label>
             </li>
-            <li class="filter-false">
-              <input type="radio" id="Young Adult" name="filter" value="Young Adulr" onchange="filterForum()">
-              <label for="Young Adult">Young Adult</label>
+            <li>
+              <input type="radio" id="Young-Adult" name="filter" value="Young-Adult" onchange="filterForum()">
+              <label for="Young-Adult">Young Adult</label>
             </li>
-          </ul> -->
-          <div class="filter-2">
+          </ul>
+
+          <!-- <div class="filter-2">
             <div class="filter-true"><div class="text-wrapper-2">All</div></div>
             <div class="filter-false"><div class="text-wrapper-3">Genre 1</div></div>
             <div class="filter-false"><div class="text-wrapper-4">Genre 2</div></div>
             <div class="filter-false"><div class="text-wrapper-5">Genre 3</div></div>
             <div class="filter-false"><div class="text-wrapper-5">Genre 4</div></div>
-          </div>
+          </div> -->
         </div>
 
       </div>
@@ -132,7 +131,7 @@
 
     products.forEach((item) => {
         htmlString += `
-        <div class="forum-person">
+        <div class="forum-person"  data-forum-genre=${item.book_genre}>
         <div class="person-section">
           <div class="section">
             
@@ -182,10 +181,12 @@
           </button>
         </div>
       </div>
-      </div>
       <svg xmlns="http://www.w3.org/2000/svg" width="884" height="4" viewBox="0 0 884 4" fill="none">
         <path d="M2 2L882 1.99992" stroke="#282C5B" stroke-width="4" stroke-linecap="round"/>
-      </svg> `;
+      </svg> 
+    </div>
+    </div>`
+      ;
     });
 
       document.getElementById("product_Forum").innerHTML = htmlString;
