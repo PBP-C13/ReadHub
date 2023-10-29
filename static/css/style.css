@@ -2866,7 +2866,7 @@ white-space: nowrap;
   }
   
   .your-book .frame {
-    position: absolute;
+    position: relative;
     width: 1440px;
     height: 380px;
     top: 2317px;
@@ -3001,8 +3001,13 @@ white-space: nowrap;
     white-space: nowrap;
   }
   
-  .your-book .frame-3 {
-    position: absolute;
+  .your-book .book-continer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .your-book .frame-book {
+    position: relative;
     width: 1216px;
     height: 408px;
     top: 781px;
@@ -3010,6 +3015,7 @@ white-space: nowrap;
     background-color: #23264f;
     border-radius: 20px;
     overflow: hidden;
+    margin-bottom: 50px;
   }
   
   .your-book .image-wrapper {
@@ -3333,4 +3339,43 @@ white-space: nowrap;
     line-height: 35px;
     white-space: nowrap;
   }
+
+  .your-book .return-button {
+    display: flex;
+    width: 293px;
+    height: 66px;
+    align-self: right;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 70px;
+    right: 55px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    box-sizing: border-box;
+  }
   
+  .your-book .return-button .iconly-bold-tick {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-image: url(/static/img/TickSquare.png);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .return-button .text-wrapper {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  
+ 
