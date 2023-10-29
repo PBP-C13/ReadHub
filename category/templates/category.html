@@ -20,7 +20,7 @@
                         <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
+                        <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
@@ -64,6 +64,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" id="bookIdInput" name="book_id" value="">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
                 </div>
@@ -122,8 +123,11 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                            <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>                                        
                         {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -145,7 +149,7 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -168,7 +172,7 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -191,7 +195,7 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -214,7 +218,7 @@
                           <p class="author">by {{ book.book_authors |slice:":25"}}</p>
                         </div>
                         {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit({{book.pk}})">LIKE</button>
+                        <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
                     </div>
                     {% endfor %}
@@ -242,6 +246,35 @@
             return fetch(url).then((res) => res.json())
         }
 
+        // Fungsi yang memasang event listener untuk tombol "LIKE"
+        function setupLikeButtonListeners() {
+            const likeButtons = document.querySelectorAll(".like-button");
+
+            likeButtons.forEach(function (likeButton) {
+                likeButton.addEventListener("click", function () {
+                    const bookId = this.getAttribute("data-book-id");
+                    const confirmationModal = document.getElementById("confirmationModal");
+                    const bookIdInput = confirmationModal.querySelector("#bookIdInput");
+                    bookIdInput.value = bookId;
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+
+            console.log("ihhhsaihdjadsa")
+            setupLikeButtonListeners();
+
+            document.getElementById("button_add").addEventListener("click", function() {
+                const confirmationModal = document.getElementById("confirmationModal");
+                const bookIdInput = confirmationModal.querySelector("#bookIdInput");
+                const bookId = bookIdInput.value; // Ambil nilai dari input dengan id "bookIdInput"
+                add_favorit(bookId);
+            });
+        });
+
+
         async function refreshProducts() {
             document.getElementById("all-books").innerHTML = ""
             const book = await getProducts()
@@ -260,16 +293,21 @@
                       <h5 class="judul">${item.fields.book_title}</h5>
                       <p class="author">by ${item.fields.book_authors}</p>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#confirmationModal" onclick="add_favorit(${item.pk})">LIKE</button>
+                    <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="${item.pk}">LIKE</button>    
                 </div>
                 `;
                 
                 // Menambahkan elemen kartu ke dalam elemen kartu utama
                 document.getElementById("all-books").innerHTML = htmlString
             });
+
+                // Setup ulang event listener untuk tombol "LIKE" setelah elemen-elemen buku selesai dimuat
+                setupLikeButtonListeners();
+
         }
 
         refreshProducts()
+
         document.getElementById('search-input').addEventListener('input', function() {
             var input = this.value.toLowerCase();
             var cards = document.querySelectorAll('.card');
@@ -356,14 +394,29 @@
         }
 
         function add_favorit(book_id){
+            console.log(book_id)
             console.log("test2")
-            fetch(`add_favorit/${book_id}/`,{
-                method: "POST",
-                body: new FormData(document.querySelector('#form'))
-            }).then(refreshProducts)
+            const isFavoriteInput = document.querySelector('input[name="is_favorite"]:checked');
 
-            document.getElementById("form").reset()
-            return false
+            if (isFavoriteInput) {
+                const isFavoriteValue = isFavoriteInput.value;
+                if (isFavoriteValue === "yes") {
+                    // Tambahkan buku ke favorit
+                    fetch(`add_favorit/${book_id}/`,{
+                        method: "POST",
+                        body: new FormData(document.querySelector('#form'))
+                    }).then(refreshProducts)
+
+                    document.getElementById("form").reset()
+                    return false
+                } else if (isFavoriteValue === "no") {
+                    // Batal menambahkan buku ke favorit
+                    console.log("Anda memilih untuk tidak menambahkan ke favorit");
+                    document.getElementById("form").reset()
+                    return false
+                }
+                    
+            }
         }
 
     </script>
