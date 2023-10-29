@@ -43,7 +43,6 @@
   </div>
 
 <head>
-    <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="/static/css/style.css" />
     <link rel="stylesheet" href="/static/css/styleguide.css" />
 </head>
@@ -98,8 +97,7 @@
                                 </p>
                             </div>
                         </div>
-                   
-                    <button class="borrow-button" onclick="borrowBook(1)">
+                    <button class="borrow-button" onclick="borrowBook('{{book_id}}')">
                         <div class="iconly-bold-bag"><img src="/static/img/icon/Bag.svg"/></div>
                         <div class="button-text-wrapper">Pinjam Buku</div>
                     </button>
