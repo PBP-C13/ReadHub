@@ -50,7 +50,13 @@
                     <img class="element" src="/static/img/6-4.png" />
                 </div>
             </div>
+            
             <div class="book-container" id="book-container"></div>
+            <div class="text-container">
+                <div class="text-no-book">
+                    <p id="text-no-book">You currently have no books, {{ user }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -62,7 +68,13 @@
 
     async function showYourBooks(){
         let borrowedBooks = await getBorrowedBooks()
-        console.log(borrowedBooks)
+
+        if(borrowedBooks.length > 0){
+            document.getElementById("text-no-book").innerHTML = ``
+        }
+        else{
+            document.getElementById("text-no-book").innerHTML = `You currently have no books, {{ user }}`
+        }
         let yourBookHTML = ``
         borrowedBooks.forEach((book) => {
             let genresHTML = '';
@@ -92,12 +104,13 @@
             `
         })
         document.getElementById("book-container").innerHTML = yourBookHTML
+        
     }
 
     function returnBook(id){
         fetch("/borrow_flow/return_book/" + id + "/", {
             method: 'POST'
-        }).then(showYourBooks)
+        }).then(showYourBooks())
         return false
     }
 
