@@ -84,9 +84,32 @@
     </div>
 
     <div class="favorit">
-        <div class="container">
-            <h1>Favorite</h1>
+        <div class="search">
+            <div class="label">
+                <div class="text-wrapper">Search Book</div>
+            </div>
 
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="search-input" placeholder="Search..." aria-label="Search" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-search">
+                    <img class="iconly-light-search" src="../../static/img/icon/Search.svg" />
+                  </button>
+                </div>
+                <select id="bookCategory" name="bookCategory" onchange="filterBooks()">
+                    <option value="fantasy">Fantasy</option>
+                    <option value="romance">Romance</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="nonfiction">Nonfiction</option>
+                    <option value="science fiction">Science Fiction</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="label">
+                <div class="text-wrapper">Favorite Books</div>
+            </div>
             <div class="card-container" id="all-books"></div>
         </div>
     </div>
@@ -106,19 +129,21 @@
             let htmlString =``
 
             book.forEach((item) => {
-                console.log(item)
                 // Membuat elemen kartu untuk produk
                 const cardElement = document.createElement('div')
 
                 // Mengisi elemen kartu dengan data produk
                 htmlString += `\n
-                <div class="card">
+                <div class="card" data-genre="${item.genre}">
                     <img class="card-img-top mx-auto" src="${item.book_image}" alt="book">
                     <div class="card-body">
                       <h5 class="judul">${item.book_title}</h5>
-                      <p class="author">by ${item.book_author}</p>
+                      <p class="author">by ${item.book_author} ${item.genre}</p>
                     </div>
                     <button type="button" class="btn btn-primary" onclick="delete_favorit(${item.book_id})">DELETE</button>
+                    <a href="detail/${item.book_id}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                    </a>  
                 </div>
                 `;
                 
@@ -128,6 +153,41 @@
         }
         refreshProducts()
 
+        document.getElementById('search-input').addEventListener('input', function() {
+            var input = this.value.toLowerCase();
+            var cards = document.querySelectorAll('.card');
+
+            cards.forEach(function(card) {
+                var cardText = card.textContent.toLowerCase();
+                if (cardText.includes(input)) {
+                    card.style.display = 'inline-block'; // Tampilkan kartu jika cocok
+                } else {
+                    card.style.display = 'none'; // Sembunyikan kartu jika tidak cocok
+                }
+            });
+        });
+
+        function filterBooks() {
+            const bookCategorySelect = document.getElementById("bookCategory");
+            const books = document.querySelectorAll(".card"); // Ambil semua elemen buku
+            const selectedGenre = bookCategorySelect.value;
+
+            // Sembunyikan semua buku terlebih dahulu
+            books.forEach(book => {
+                book.style.display = "none";
+            });
+
+            // Tampilkan hanya buku yang sesuai dengan genre yang dipilih
+            books.forEach(book => {
+                const bookGenres = book.getAttribute("data-genre").toLowerCase().split("|"); // Membagi genre menjadi array
+                console.log(bookGenres)
+                if (bookGenres.includes(selectedGenre) || selectedGenre === "all") {
+                    book.style.display = "block";
+                }
+            });
+        }
+
+
         function delete_favorit(book_id){
             console.log("test2")
             fetch(`delete_favorit/${book_id}/`,{
@@ -135,9 +195,5 @@
 
             return false
         }
-
-
     </script>
-    
-
 {% endblock content %}

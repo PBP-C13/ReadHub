@@ -105,7 +105,6 @@
                     <option value="science fiction">Science Fiction</option>
                 </select>
             </div>
-
         </div>
 
         <div class="container">
@@ -151,6 +150,9 @@
                         {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -174,6 +176,9 @@
                         {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -197,6 +202,9 @@
                         {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -220,6 +228,9 @@
                         {% if user.is_authenticated %}
                         <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">LIKE</button>    
                         {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>
@@ -293,7 +304,10 @@
                       <h5 class="judul">${item.fields.book_title}</h5>
                       <p class="author">by ${item.fields.book_authors}</p>
                     </div>
-                    <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="${item.pk}">LIKE</button>    
+                    <button type="button" class="btn btn-primary like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="${item.pk}">LIKE</button>
+                    <a href="detail/${item.pk}">
+                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                    </a>    
                 </div>
                 `;
                 
