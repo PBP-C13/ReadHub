@@ -8,4 +8,4 @@ class ReviewForm(forms.ModelForm):
         queryset=Book.objects.filter(pk__gte=0, pk__lte=100),
         label = "Review Book"
     )
-    fields = ('text')
+    fields = ['text']
