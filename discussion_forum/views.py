@@ -2,19 +2,21 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
-from .models import Forum
+from .models import Forum, Like
 from book.models import Book
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ForumForm
+from django.shortcuts import redirect
 
 
-# Create your views here.
+@login_required(login_url='/login')
 def show_forum(request):
     book = Book.objects.filter(pk__in=range(1, 101))
+    active_genre = request.GET.get('genre', None)
     forum = Forum.objects.all()
 
     context = {
@@ -27,69 +29,123 @@ def show_forum(request):
     return render(request, "forum.html", context)
 
 
-#Create Forum
+@login_required(login_url='/login')
 def create_forum(request):
-    form =  ForumForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        product = form.save(commit=False)
-        product.user = request.user
-        product.save()
-        return HttpResponseRedirect(reverse('main:show_main'))
-    
+    if request.method == "POST":
+        form = ForumForm(request.POST)
+        if form.is_valid():
+            forum = form.save(commit=False)
+            forum.author = request.user  # Set author ke pengguna saat ini
+            forum.save()
+            return HttpResponseRedirect(reverse('discussion_forum:show_forum'))
+        else:
+            # Handle error in form validation
+            # Misalnya, tampilkan pesan kesalahan atau log pesan kesalahan
+            print(form.errors)
+    else:
+        form = ForumForm()
 
     context = {'form': form}
     return render(request, "create_forum.html", context)
 
-#Get Product
-#Get Product
+@csrf_exempt
+def create_forum_ajax(request):
+    if request.method == 'POST':
+        text = request.POST.get("description")
+        book = Book.objects.get(pk=request.POST.get("book"))
+        author = request.user 
+        new_form = Forum (text = text, book=book, author=author)
+        new_form.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+    
+
+@login_required(login_url='/login')
 def get_product_json(request):
+    selected_genre = request.GET.get('selected_genre') 
     product_items = []
     forums = Forum.objects.all()
 
+    if selected_genre:
+        forums = forums.filter(book__genres=selected_genre)
+    
     for forum in forums:
-        book = Book.objects.get(id=forum.book_id)  # Gantilah 'book_id' sesuai dengan nama field yang menghubungkan Forum dan Book
-
+        book = Book.objects.get(id=forum.book_id)  
         # Buat dictionary baru dengan data forum dan buku
         product_item = {
-            'forum_id': forum.text,
+            'name': forum.author.username ,
+            'forum_id': forum.id,
+            'likes':forum.like,
+            'forum_text': forum.text,
             'book_image':book.image_url,
             'book_title': book.book_title,
             'book_author': book.book_authors,
-            'book_genre': book.genres,
+            'book_genre': split_genre(book.genres),
+            
         }
-
         product_items.append(product_item)
 
     return JsonResponse(product_items, safe=False)
 
-#Remove Forum
-@csrf_exempt
-def remove_forum_ajax(request, id):
-    Forum.objects.filter(pk=id).delete()
-    return HttpResponseRedirect(reverse("main:show_main"))
+def split_genre(genre_string):
+    if genre_string:
+        genres = genre_string.split('|')
+        genres = [genre.replace(' ', '-') for genre in genres]
+        return genres
+
+    else:
+        return []
+
+@login_required(login_url='/login')
+def toggle_like_forum(request, id):
+    forum = Forum.objects.get(id=id)
+    user = request.user 
+
+    if user in forum.liked_by.all():
+        forum.like -= 1
+        forum.liked_by.remove(user)
+    else:
+        forum.like += 1
+        forum.liked_by.add(user)
+    
+    forum.save()
+
+    response = HttpResponseRedirect(reverse("discussion_forum:show_forum", args=[id]))  # Ganti "forum:show_forum" dengan nama URL yang sesuai
+    return response
 
 
+@login_required(login_url='/login')
+def delete_item(request, item_id):
+    try:
+        item = Forum.objects.get(id=item_id)
+        item.delete()
+        return JsonResponse({'message': 'Item deleted successfully.'})
+    except Forum.DoesNotExist:
+        return JsonResponse({'error': 'Item does not exist.'})
 
-@csrf_exempt
-def like_forum(request):
-    if request.method == 'POST':
-        forum_id = request.POST.get("forum_id")
-        forum = get_object_or_404(Forum, id=forum_id)
-        forum.likes.add(request.user)
-        return JsonResponse({"message": "Forum liked successfully!"})
 
-    return JsonResponse({"error": "Invalid request method"})
+@login_required(login_url='/login')
+def like_forum_post(request, post_id):
+    post = get_object_or_404(Forum, pk=post_id)
+    user = request.user
 
-@csrf_exempt
-def unlike_forum(request):
-    if request.method == 'POST':
-        forum_id = request.POST.get("forum_id")
-        forum = get_object_or_404(Forum, id=forum_id)
-        forum.likes.remove(request.user)
-        return JsonResponse({"message": "Forum unliked successfully!"})
+    # Periksa apakah pengguna telah melakukan like pada posting ini
+    if Like.objects.filter(user=user, post=post).exists():
+        # Jika sudah dilike, kurangi jumlah like
+        post.like -= 1
+        post.liked_by.remove(user)
+        post.save()
+        Like.objects.filter(user=user, post=post).delete()
+    else:
+        # Jika belum dilike, tambahkan like
+        post.like += 1
+        post.liked_by.add(user)
+        post.save()
+        Like.objects.create(user=user, post=post)
+    return redirect('discussion_forum:show_forum')
 
-    return JsonResponse({"error": "Invalid request method"})
 
 def get_json(self):
     data = Book.objects.all()

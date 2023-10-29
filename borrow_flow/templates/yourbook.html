@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+        <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav" style="margin-left: 23%;">
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a> 
+                </li>
+                <li class="nav-item-active">
+                  <a class="nav-link" style="color:  #4162FF;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
+            </li>
+            </ul>
+        </div>
+  
+        <div class="ml-auto"> 
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> Hello, {{ user }},
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                    <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<body>
+    <div class="your-book">
+        <div class="div">
+            <p class="p">Here Are Your Books, {{user}}</p>
+            <div class="overlap-group-wrapper">
+                <div class="overlap-group">
+                    <div class="text-wrapper-12">Your Book</div>
+                    <img class="element" src="/static/img/6-4.png" />
+                </div>
+            </div>
+            
+            <div class="book-container" id="book-container"></div>
+            <div class="text-container">
+                <div class="text-no-book">
+                    <p id="text-no-book">You currently have no books, {{ user }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    async function getBorrowedBooks(){
+        return fetch("{% url 'borrow_flow:get_borrowed_book_json' %}").then(res => res.json())
+    }
+
+    async function showYourBooks(){
+        let borrowedBooks = await getBorrowedBooks()
+
+        if(borrowedBooks.length > 0){
+            document.getElementById("text-no-book").innerHTML = ``
+        }
+        else{
+            document.getElementById("text-no-book").innerHTML = `You currently have no books, {{ user }}`
+        }
+        let yourBookHTML = ``
+        borrowedBooks.forEach((book) => {
+            let genresHTML = '';
+            book.book.genres.split('|').forEach(genre => {
+                genresHTML += `<div class="div-wrapper"><div class="text-wrapper-4">${genre}</div></div>`;
+            });
+
+            yourBookHTML += `
+            <div class="frame-book">
+                <div class="image-wrapper"><img class="image" src="${book.book.image_url}" /></div>
+                <div class="text-wrapper-3">${book.book.book_title}</div>
+                <div class="frame-4">${genresHTML}</div>
+                <button class="return-button" onclick="returnBook(${book.book.id})">
+                    <div class="iconly-bold-tick"></div>
+                    <div class="text-wrapper">Kembalikan Buku</div>
+                </button>
+                <div class="text-wrapper-6">Tanggal Peminjaman</div>
+                <div class="text-wrapper-7">Tanggal Pengembalian</div>
+                <div class="text-wrapper-8">Pengembalian Buku</div>
+                <div class="text-wrapper-9">${book.borrow_date}</div>
+                <div class="text-wrapper-10">${book.return_date}</div>
+                <p class="buku-ini-harus">
+                    Buku ini harus dikembalikan&nbsp;&nbsp;dengan keadaan&nbsp;&nbsp;Sama seperti semula
+                </p>
+                <div class="text-wrapper-11">Author: ${book.book.book_authors.split("|").join(", ")}</div>
+            </div>
+            `
+        })
+        document.getElementById("book-container").innerHTML = yourBookHTML
+        
+    }
+
+    function returnBook(id){
+        fetch("/borrow_flow/return_book/" + id + "/", {
+            method: 'POST'
+        }).then(showYourBooks())
+        return false
+    }
+
+   
+    showYourBooks()
+</script>
+
+{% endblock content %}

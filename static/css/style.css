@@ -4,49 +4,49 @@ body {
     background-color: #161832 !important; 
     color: #fff !important;
   }
-
-/* CSS Navbar ----------------------- */
-
-.navbar{
-position: sticky!important ;
-top: 0;
-padding: 8px 112px !important;;
-display: flex;
-justify-content: space-between;
-align-items: center;
-z-index: 100;
-background-color: #12132A !important;
-height: 100%;
-}
-
-.navbar img {
+  
+  /* CSS Navbar ----------------------- */
+  
+  .navbar{
+  position: sticky!important ;
+  top: 0;
+  padding: 8px 112px !important;;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  background-color: #12132A !important;
+  height: 100%;
+  }
+  
+  .navbar img {
   position: absolute;
   width: 70px;
   height: 70px;
   top: 9px;
   left: 112px;
-}
-
-.navbar-brand {
+  }
+  
+  .navbar-brand {
     color:  #12132A;
     font-weight: 500;
     font-size: 16x;
-}
-
-.navbar .navbar-nav {
+  }
+  
+  .navbar .navbar-nav {
   display: flex !important;
   justify-content: center ; 
   align-items: center;
-}
-
-.navbar .container-fluid .btn-white {
+  }
+  
+  .navbar .container-fluid .btn-white {
     background-color: #3FBCFC; /* Warna latar belakang tombol */
     color: #ffffff; /* Warna teks tombol */
     border: 1px solid #000; /* Warna border tombol */
     margin-top :8px;
     margin-bottom:8px;
-}
-.navbar .navbar-nav .nav-item {
+  }
+  .navbar .navbar-nav .nav-item {
   border-radius: 99px; 
   padding-left: 20px;
   padding-right: 20px;
@@ -58,9 +58,9 @@ height: 100%;
   margin-bottom:5px;
   color: #4162FF;
   font-weight: 500;
-}
-
-.navbar .navbar-nav .nav-item-active{
+  }
+  
+  .navbar .navbar-nav .nav-item-active{
     background: #4161ff20; ;
     border-radius: 99px; 
     padding-left: 20px;
@@ -73,11 +73,11 @@ height: 100%;
     margin-bottom:5px;
     color: #4162FF;
     font-weight: 700;
-}
-
-
-/* CSS Book ----------------------- */
-.book-card {
+  }
+  
+  
+  /* CSS Book ----------------------- */
+  .book-card {
     background-color: #13142A; 
     color: #fff; 
     margin:8px;
@@ -85,22 +85,22 @@ height: 100%;
     padding-bottom: 15px;
   }
   
-.book-card .card-body {
+  .book-card .card-body {
     padding: 20px; 
-}
-
-.book-card .card-title {
+  }
+  
+  .book-card .card-title {
     margin-bottom: 10px; 
-}
-
-.book-card .card-text {
+  }
+  
+  .book-card .card-text {
     margin-bottom: 10px; 
-}
-
-.book-card .btn {
+  }
+  
+  .book-card .btn {
     margin-bottom: 10px; 
-}
-.book-card-container {
+  }
+  .book-card-container {
     margin-top: 8px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -114,16 +114,16 @@ height: 100%;
     margin: 28px;
     padding-bottom: 20px;
     }
-
-.book-img {
+  
+  .book-img {
     height: 400px;
     border-radius: 14px;
     width: 300px;
-}
-
-
-/* CSS Main Page ----------------------- */
-.sign-in {
+  }
+  
+  
+  /* CSS Main Page ----------------------- */
+  .sign-in {
     background-color: #161832;
     display: flex;
     flex-direction: row;
@@ -405,12 +405,12 @@ height: 100%;
     color: #ffffffbf;
   }
   
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-/* Community -------------------------------------------------*/
-.forum .header {
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  .forum .header {
   display:flex;
   width: 100%;
   align-items: center;
@@ -419,15 +419,15 @@ height: 100%;
   align-items: center;
   justify-content: center;
   
-}
-
-.forum .header .overlap-group {
+  }
+  
+  .forum .header .overlap-group {
   position: relative;
   height: 445px;
   left: 29px;
-}
-
-.forum .header .text-wrapper {
+  }
+  
+  .forum .header .text-wrapper {
   position: absolute;
   top: 48px;
   left: auto;
@@ -441,9 +441,9 @@ height: 100%;
   left: 50%; /* Tengah secara horizontal */
   transform: translate(-50%, -50%); /
   
-}
-
-.forum .element {
+  }
+  
+  .forum .element {
   position: absolute;
   width: 967px;
   height: auto;
@@ -452,33 +452,33 @@ height: 100%;
   object-fit: cover;
   left: 50%;
   transform: translateX(-50%);
-}
-
-/* CSS untuk tampilan mobile (lebar layar <= 375px) */
-@media (max-width: 375px) {
+  }
+  
+  /* CSS untuk tampilan mobile (lebar layar <= 375px) */
+  @media (max-width: 375px) {
   .forum .header .text-wrapper {
     font-size: 64px; /* Atur ukuran font untuk teks "Community" */
   }
-
+  
   .forum .element {
     width: 495px; /* Atur lebar gambar sesuai kebutuhan */
     height: 270px; /* Atur tinggi gambar sesuai kebutuhan */
   }
-
+  
   .forum .header {
     min-height: 270px; /* Atur tinggi header sesuai kebutuhan */
   }
-
+  
   .forum .header .overlap-group {
     height: 270px; /* Atur tinggi frame sesuai kebutuhan */
   }
-
+  
   .forum .header {
     background-color: #2a4cf1; /* Atur warna latar belakang */
   }
-}
-
-.community {
+  }
+  
+  .community {
   margin-top: 0px;
   margin-right: 112px;
   margin-left: 112px;
@@ -486,9 +486,754 @@ height: 100%;
   align-items: flex-start;
   gap: 36px;
   position: relative;
+  }
+  
+  .community .filter {
+  padding-top: 110px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  position: relative;
+  flex: 0 0 auto;
+  overflow-x: hidden !important;
+  position: sticky;
+  top: 0; 
+  z-index: 100; 
+  }
+  
+  .community .filter-wrapper {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 32px 16px;
+  position: relative;
+  flex: 0 0 auto;
+  background-color: #12132a;
+  border-radius: 30px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  }
+  
+  .community .div {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .community .text-wrapper {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 28px;
+  letter-spacing: 0;
+  line-height: 44.8px;
+  line-height: normal;
 }
 
-.community .filter {
+
+.sign-in form {
+
+  display: flex;
+  flex-direction: column;
+  width: 491px;
+  align-items: center;
+  gap: 24px;
+  position: absolute;
+}
+
+.sign-in .input {
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: #2b2e53;
+  border-radius: 16px;
+  border: 1px solid;
+  border-color: #2a4cf1;
+  flex: 0 0 auto;
+  margin-top: -1px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-in .frame-4 {
+  background-color: #2b2e53;
+  border: 1px solid;
+  border-color: #2a4cf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.sign-in .text-input {
+  position: relative;
+  flex: 0 0 auto;
+  background-color: transparent;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  }
+  
+  .community .filter-2 {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+  
+  .community .filter-true {
+  position: relative;
+  width: 251px;
+  height: 61px;
+  background-color: #3fbcfc1a;
+  border-radius: 9999px;
+  overflow: hidden;
+  }
+  
+  .community .text-wrapper-2 {
+  position: absolute;
+  top: 15px;
+  left: 113px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 700;
+  color: var(--variable-collection-secondary);
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .filter-false {
+  position: relative;
+  width: 251px;
+  height: 61px;
+  background-color: #161832;
+  border-radius: 9999px;
+  overflow: hidden;
+  }
+  
+  .community .text-wrapper-3 {
+  left: 92px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .text-wrapper-4 {
+  left: 91px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .text-wrapper-5 {
+  left: 90px;
+  position: absolute;
+  top: 16px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  }
+  
+  .community .make-a-post {
+  display: flex;
+  width: 300px;
+  height: 66px;
+  padding: 10px 20px;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px;
+  border-radius: 24px;
+  background: var(--Primary, #2A4CF1);
+  }
+  
+  .community .edit-wrapper {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  }
+  
+  .community .edit {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 4px;
+  left: 4px;
+  background-image: url(./img/edit.svg);
+  background-size: 100% 100%;
+  }
+  
+  .community .text-wrapper-6 {
+  position: relative;
+  width: fit-content;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 20px;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  white-space: nowrap;
+
+  }
+  
+  .community .forum-section {
+  padding-top: 80px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  position: relative;
+  flex: 0 0 auto;
+  }
+
+.sign-in .text-wrapper-4 {
+  color: #ffffffbf;
+}
+
+.sign-up {
+  background-color: #161832;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.sign-up .div {
+  background-color: #161832;
+  overflow: hidden;
+  width: 1440px;
+  height: 1024px;
+  position: relative;
+}
+
+.sign-up .overlap {
+  height: 976px;
+  top: 24px;
+  left: 24px;
+  border-radius: 40px;
+  position: absolute;
+  width: 688px;
+}
+
+.sign-up .vector {
+  position: absolute;
+  width: 578px;
+  height: 612px;
+  top: 359px;
+  left: 73px;
+}
+
+.sign-up .start-your-journey {
+  position: absolute;
+  width: 468px;
+  top: 197px;
+  left: 73px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: transparent;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .text-wrapper {
+  color: #ffffff;
+}
+
+.sign-up .span {
+  color: #3fbcfc;
+}
+
+.sign-up .group {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 67px;
+  left: 73px;
+  background-image: url(./img/mask-group.png);
+  background-size: 100% 100%;
+}
+
+.sign-up .mask-group {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+.sign-up .frame {
+  position: absolute;
+  width: 688px;
+  height: 976px;
+  top: 0;
+  left: 0;
+  background-color: var(--variable-collection-primary);
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+.sign-up .overlap-group {
+  height: 617px;
+  top: 359px;
+  left: 0;
+  position: absolute;
+  width: 688px;
+}
+
+.sign-up .img {
+  position: absolute;
+  width: 578px;
+  height: 612px;
+  top: 0;
+  left: 73px;
+}
+
+.sign-up .element {
+  position: absolute;
+  width: 688px;
+  height: 617px;
+  top: 0;
+  left: 0;
+}
+
+.sign-up .p {
+  position: absolute;
+  width: 468px;
+  top: 186px;
+  left: 73px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: transparent;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .mask-group-wrapper {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 56px;
+  left: 73px;
+  background-image: url(./img/mask-group-2.png);
+  background-size: 100% 100%;
+}
+
+.sign-up .text-wrapper-2 {
+  position: absolute;
+  top: 219px;
+  left: 829px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .frame-2 {
+  display: flex;
+  flex-direction: column;
+  width: 491px;
+  align-items: center;
+  gap: 24px;
+  position: absolute;
+  top: 310px;
+  left: 829px;
+}
+
+.sign-up .frame-3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.sign-up .label {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up input {
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  background-color: #2b2e53;
+  border-radius: 16px;
+  border: 1px solid;
+  border-color: #2a4cf1;
+  flex: 0 0 auto;
+  margin-top: -1px;
+  font-family: "Poppins-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .frame-4 {
+  background-color: #2b2e53;
+  border: 1px solid;
+  border-color: #2a4cf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.sign-up .text-input {
+  position: relative;
+  flex: 0 0 auto;
+  background-color: transparent;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #ffffff80;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  border: 0;
+  padding: 0;
+}
+
+.sign-up .iconsax-linear {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.sign-up .frame-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 491px;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 721px;
+  left: 829px;
+}
+
+.sign-up .frame-5 {
+  background-color: #2a4cf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.sign-up .text-wrapper-3 {
+  position: relative;
+  width: fit-content;
+  margin-top: -1px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 18px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .already-member-sign {
+  position: absolute;
+  top: 819px;
+  left: 961px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: transparent;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.sign-up .text-wrapper-4 {
+  color: #ffffffbf;
+}
+
+.sign-up .group-2 {
+  position: absolute;
+  width: 342px;
+  height: 539px;
+  top: 105px;
+  left: -681px;
+}
+
+.sign-up .text-wrapper-5 {
+  position: absolute;
+  width: 282px;
+  top: 0;
+  left: 26px;
+  font-family: "Poppins-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #ffffff;
+  font-size: 36px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.sign-up .frame-6 {
+  display: flex;
+  flex-direction: column;
+  width: 336px;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 143px;
+  left: 2px;
+}
+
+.sign-up .frame-7 {
+  display: flex;
+  flex-direction: column;
+  width: 323px;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 276px;
+  left: 6px;
+}
+
+.sign-up .iconsax-linear-2 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-bottom: -1706px;
+  margin-right: -499px;
+}
+
+.sign-up .div-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 329px;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 421px;
+  left: 0;
+}
+
+.sign-up .iconsax-linear-3 {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin-bottom: -1596.5px;
+  margin-right: -505px;
+}
+
+.sign-up .already-member-sign-2 {
+  position: absolute;
+  top: 520px;
+  left: 54px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: transparent;
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+/* Mengatur tampilan input password */
+.password-input {
+  display: flex;
+  flex-direction: column;
+  width: 491px;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+}
+
+/* Mengatur tampilan gambar mata */
+.iconsax-linears {
+  position: absolute;
+  top: 50%;
+  right: -220px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(-300%);
+}
+
+#id_username,
+#id_password1,
+#id_password2 {
+  background-color: #2b2e53;
+  border: 1px solid;
+  border-color: #2a4cf1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  position: relative;
+  align-self: stretch;
+  width: 491px;
+  flex: 0 0 auto;
+  border-radius: 16px;
+}
+
+.iconsax-linearpanah {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  right: -440px;
+  transform: translateY(-260%)
+}
+
+.iconsax-linearss {
+  position: absolute;
+  top: 50%;
+  right: 30px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+  transform: translateY(10%);
+
+}
+
+
+/* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  /* Community -------------------------------------------------*/
+  .forum .header {
+  display:flex;
+  width: 100%;
+  align-items: center;
+  height: 445px;
+  background-color: #2a4cf1;
+  align-items: center;
+  justify-content: center;
+  
+  }
+  
+  .forum .header .overlap-group {
+  position: relative;
+  height: 445px;
+  left: 29px;
+  }
+  
+  .forum .header .text-wrapper {
+  position: absolute;
+  top: 48px;
+  left: auto;
+  font-weight: 900;
+  color: #2444e0;
+  font-size: 217px;
+  letter-spacing: 0;
+  line-height: 347.2px;
+  white-space: nowrap;
+  top: 50%; /* Tengah secara vertikal */
+  left: 50%; /* Tengah secara horizontal */
+  transform: translate(-50%, -50%); /
+  
+  }
+  
+  .forum .element {
+  position: absolute;
+  width: 967px;
+  height: auto;
+  top: 0;
+  left: 207px;
+  object-fit: cover;
+  left: 50%;
+  transform: translateX(-50%);
+  }
+  
+  /* CSS untuk tampilan mobile (lebar layar <= 375px) */
+  @media (max-width: 375px) {
+  .forum .header .text-wrapper {
+    font-size: 64px; /* Atur ukuran font untuk teks "Community" */
+  }
+  
+  .forum .element {
+    width: 495px; /* Atur lebar gambar sesuai kebutuhan */
+    height: 270px; /* Atur tinggi gambar sesuai kebutuhan */
+  }
+  
+  .forum .header {
+    min-height: 270px; /* Atur tinggi header sesuai kebutuhan */
+  }
+  
+  .forum .header .overlap-group {
+    height: 270px; /* Atur tinggi frame sesuai kebutuhan */
+  }
+  
+  .forum .header {
+    background-color: #2a4cf1; /* Atur warna latar belakang */
+  }
+  }
+  
+  .community {
+  margin-top: 0px;
+  margin-right: 112px;
+  margin-left: 112px;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 36px;
+  position: relative;
+  }
+  
+  .community .filter {
   padding-top: 110px;
   display: inline-flex;
   flex-direction: column;
@@ -500,9 +1245,9 @@ height: 100%;
   position: sticky;
   top: 0; 
   z-index: 100; 
-}
-
-.community .filter-wrapper {
+  }
+  
+  .community .filter-wrapper {
   display: inline-flex;
   align-items: flex-start;
   gap: 10px;
@@ -513,18 +1258,18 @@ height: 100%;
   border-radius: 30px;
   overflow: hidden;
   transition: all 0.2s ease;
-}
-
-.community .div {
+  }
+  
+  .community .div {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .text-wrapper {
+  }
+  
+  .community .text-wrapper {
   position: relative;
   width: fit-content;
   margin-top: -1px;
@@ -535,27 +1280,27 @@ height: 100%;
   letter-spacing: 0;
   line-height: 44.8px;
   white-space: nowrap;
-}
-
-.community .filter-2 {
+  }
+  
+  .community .filter-2 {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .filter-true {
+  }
+  
+  .community .filter-true {
   position: relative;
   width: 251px;
   height: 61px;
   background-color: #3fbcfc1a;
   border-radius: 9999px;
   overflow: hidden;
-}
-
-.community .text-wrapper-2 {
+  }
+  
+  .community .text-wrapper-2 {
   position: absolute;
   top: 15px;
   left: 113px;
@@ -566,18 +1311,18 @@ height: 100%;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.community .filter-false {
+  }
+  
+  .community .filter-false {
   position: relative;
   width: 251px;
   height: 61px;
   background-color: #161832;
   border-radius: 9999px;
   overflow: hidden;
-}
-
-.community .text-wrapper-3 {
+  }
+  
+  .community .text-wrapper-3 {
   left: 92px;
   position: absolute;
   top: 16px;
@@ -588,9 +1333,9 @@ height: 100%;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.community .text-wrapper-4 {
+  }
+  
+  .community .text-wrapper-4 {
   left: 91px;
   position: absolute;
   top: 16px;
@@ -601,9 +1346,9 @@ height: 100%;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.community .text-wrapper-5 {
+  }
+  
+  .community .text-wrapper-5 {
   left: 90px;
   position: absolute;
   top: 16px;
@@ -614,11 +1359,98 @@ height: 100%;
   text-align: center;
   letter-spacing: 0;
   line-height: normal;
+  }
+
+  .community input[type="radio"] {
+    display: none;
+  }
+
+  /* Gaya radio button yang dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"]:checked + label {
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    position: relative;
+    width: 251px;
+    height: 61px;
+    background-color: #3fbcfc1a;
+    border-radius: 9999px;
+    overflow: hidden;
+    color: #2A4CF1;
+    text-align: center;
+    line-height: 61px; 
+  }
+
+  /* Gaya radio button yang tidak dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"] + label {
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    position: relative;
+    width: 251px;
+    height: 61px;
+    background-color: #161832;
+    border-radius: 9999px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 61px; 
+  }
+
+  /* Gaya label (teks) untuk radio button yang dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"]:checked + label::before {
+    content: "";
+    top: 15px;
+    left: 2900px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #2A4CF1;
+    font-size: 20px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  /* Gaya label (teks) untuk radio button yang tidak dipilih di dalam elemen dengan kelas .community */
+  .community input[type="radio"] + label::before {
+    content: "";
+    top: 16px;
+    left: 90px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+
+  
+
+  /* Gaya label yang berada di dalam li di dalam elemen dengan kelas .community */
+  .community li label {
+    cursor: pointer; /* Tambahkan tanda kursor tangan saat mengarahkan ke label */
+  }
+
+  /* Hilangkan dot yang muncul saat radio button ditekan */
+.community input[type="radio"]::before {
+  content: none;
 }
 
-.community .make-a-post {
+.community li {
+  list-style: none;
+}
+
+.community .filter-2 ul {
+  display: none;
+  padding-inline-start: 0px !important;
+}
+
+ul {
+  list-style-type: none;
+  padding-inline-start: 0px !important;
+}
+
+  .community .make-a-post {
   display: flex;
-  width: 308px;
+  width: 100%;
   height: 66px;
   padding: 10px 20px;
   justify-content: center;
@@ -626,15 +1458,15 @@ height: 100%;
   gap: 10px;
   border-radius: 24px;
   background: var(--Primary, #2A4CF1);
-}
-
-.community .edit-wrapper {
+  }
+  
+  .community .edit-wrapper {
   position: relative;
   width: 32px;
   height: 32px;
-}
-
-.community .edit {
+  }
+  
+  .community .edit {
   position: relative;
   width: 24px;
   height: 24px;
@@ -642,9 +1474,9 @@ height: 100%;
   left: 4px;
   background-image: url(./img/edit.svg);
   background-size: 100% 100%;
-}
-
-.community .text-wrapper-6 {
+  }
+  
+  .community .text-wrapper-6 {
   position: relative;
   width: fit-content;
   font-family: "Poppins", Helvetica;
@@ -654,9 +1486,9 @@ height: 100%;
   letter-spacing: 0.25px;
   line-height: normal;
   white-space: nowrap;
-}
-
-.community .forum-section {
+  }
+  
+  .community .forum-section {
   padding-top: 80px;
   display: inline-flex;
   flex-direction: column;
@@ -664,9 +1496,9 @@ height: 100%;
   gap: 4px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .forum-person {
+  }
+  
+  .community .forum-person {
   display: flex;
   flex-direction: column;
   width: 880px;
@@ -676,9 +1508,9 @@ height: 100%;
   position: relative;
   flex: 0 0 auto;
   transition: all 0.2s ease;
-}
-
-.community .person-section {
+  }
+  
+  .community .person-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -687,9 +1519,9 @@ height: 100%;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
-}
-
-.community .section {
+  }
+  
+  .community .section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -698,9 +1530,9 @@ height: 100%;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
-}
-
-.community .profile-upper {
+  }
+  
+  .community .profile-upper {
   display: flex;
   width: 840px;
   align-items: center;
@@ -708,40 +1540,40 @@ height: 100%;
   padding: 0px 28px 0px 0px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .profil {
+  }
+  
+  .community .profil {
   display: inline-flex;
   align-items: center;
   gap: 26px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .detail {
+  }
+  
+  .community .detail {
   font-family: "Poppins", Helvetica;
   font-weight: 600;
-}
-
-.community .profil-wrapper {
+  }
+  
+  .community .profil-wrapper {
   position: relative;
   width: 77px;
   height: 77px;
   background-color: #2a4cf1;
   border-radius: 9999px;
   overflow: hidden;
-}
-
-.community .img {
+  }
+  
+  .community .img {
   position: absolute;
   width: 77px;
   height: 77px;
   top: 0;
   left: 0;
   object-fit: cover;
-}
-
-.community .text-wrapper-7 {
+  }
+  
+  .community .text-wrapper-7 {
   position: relative;
   width: fit-content;
   font-family: "Poppins", Helvetica;
@@ -751,26 +1583,26 @@ height: 100%;
   letter-spacing: 0;
   line-height: 38.4px;
   white-space: nowrap;
-}
-
-.community .delete {
+  }
+  
+  .community .delete {
   position: relative;
   width: 64px;
   height: 64px;
   background-color: #e221211a;
   border-radius: 8853.23px;
   overflow: hidden;
-}
-
-.community .iconly-bold-delete {
+  }
+  
+  .community .iconly-bold-delete {
   position: absolute;
   width: 32px;
   height: 32px;
   top: 16px;
   left: 16px;
-}
-
-.community .p {
+  }
+  
+  .community .p {
   position: relative;
   align-self: stretch;
   font-family: "Poppins", Helvetica;
@@ -779,9 +1611,9 @@ height: 100%;
   font-size: 24px;
   letter-spacing: 0;
   line-height: 38.4px;
-}
-
-.community .book-section {
+  }
+  
+  .community .book-section {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -790,9 +1622,9 @@ height: 100%;
   align-self: stretch;
   width: 100%;
   flex: 0 0 auto;
-}
-
-.community .text-wrapper-8 {
+  }
+  
+  .community .text-wrapper-8 {
   position: relative;
   width: fit-content;
   margin-top: -1px;
@@ -803,9 +1635,9 @@ height: 100%;
   letter-spacing: 0;
   line-height: 38.4px;
   white-space: nowrap;
-}
-
-.community .book-card {
+  }
+  
+  .community .book-card {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -818,9 +1650,9 @@ height: 100%;
   background-color: #23264f;
   border-radius: 20px;
   overflow: hidden;
-}
-
-.community .book-card-2 {
+  }
+  
+  .community .book-card-2 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -829,53 +1661,53 @@ height: 100%;
   position: relative;
   flex: 1;
   flex-grow: 1;
-}
-
-.community .book-status {
+  }
+  
+  .community .book-status {
   display: inline-flex;
   align-items: center;
   gap: 24px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .book-image {
+  }
+  
+  .community .book-image {
   position: relative;
   width: 128px;
   height: 150px;
   background-color: #13142a;
   border-radius: 9.2px;
   overflow: hidden;
-}
-
-.community .image {
+  }
+  
+  .community .image {
   position: absolute;
   width: 128px;
   height: 150px;
   top: 0;
   left: 0;
   object-fit: cover;
-}
-
-.community .book-detail {
+  }
+  
+  .community .book-detail {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 18px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .book-title {
+  }
+  
+  .community .book-title {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
   position: relative;
   flex: 0 0 auto;
-}
-
-.community .text-wrapper-9 {
+  }
+  
+  .community .text-wrapper-9 {
   position: relative;
   width: 271px;
   margin-top: -1px;
@@ -885,9 +1717,9 @@ height: 100%;
   font-size: 24px;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.community .book-author{
+  }
+  
+  .community .book-author{
   position: relative;
   width: fit-content;
   font-family: "Poppins", Helvetica;
@@ -896,9 +1728,9 @@ height: 100%;
   font-size: 18px;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.community button {
+  }
+  
+  .community button {
   display: flex !important;
   height: 64px !important;
   padding: 10px 20px !important;
@@ -906,46 +1738,47 @@ height: 100%;
   align-items: center !important;
   gap: 10px !important;
   border-radius: 24px !important;
-  background: var(--Primary, #2A4CF1) !important;
+  background: var(--Primary, #2A4CF1);
   color:#fff
-}
-
-.community button .iconly-bold {
+  }
+  
+  .community button .iconly-bold {
   position: relative;
   width: 24px;
   height: 24px;
-}
-
-.line {
+  }
+  
+  .line {
   height: 0px;
   align-self: stretch;
   stroke-width: 4px;
   stroke: #282C5B;
-}
+  }
 
-.action {
+  
+  .action {
   align-items: flex-start;
   gap: 86px;
   padding: 0px 0px 0px 20px;
   display: inline-flex;
   position: relative;
   flex: 0 0 auto;
-}
-
-.action .bottom-section {
+  }
+  
+  .action .bottom-section {
   display: inline-flex;
   align-items: center;
   gap: 16px;
   position: relative;
-}
-
-.action .icon{
+  }
+  
+  .action .icon{
   position: relative;
   width: 40px;
   height: 40px;
-}
-
-.action .text-wrapper {
+  }
+  
+  .action .text-wrapper {
   position: relative;
   width: fit-content;
   font-family: "Poppins", Helvetica;
@@ -955,22 +1788,22 @@ height: 100%;
   letter-spacing: 0;
   line-height: 38.4px;
   white-space: nowrap;
-}
-
-
-/* ================CSS CATEGORY=============== */
-/* ================CSS CATEGORY=============== */
-/* ================CSS CATEGORY=============== */
-.category .action {
+  }
+  
+  
+  /* ================CSS CATEGORY=============== */
+  /* ================CSS CATEGORY=============== */
+  /* ================CSS CATEGORY=============== */
+  .category .action {
   align-items: flex-start;
   gap: 81px;
   padding: 0px 0px 0px 40px;
   display: inline-flex;
   position: relative;
   flex: 0 0 auto;
-}
-
-.category .frame {
+  }
+  
+  .category .frame {
   display:flex;
   width: 100%;
   align-items: center;
@@ -978,15 +1811,15 @@ height: 100%;
   background-color: #2a4cf1;
   align-items: center;
   justify-content: center;
-}
-
-.category  .frame .overlap-group {
+  }
+  
+  .category  .frame .overlap-group {
   position: relative;
   height: 445px;
   left: 29px;
-}
-
-.category .frame .text-wrapper {
+  }
+  
+  .category .frame .text-wrapper {
   position: absolute;
   top: 48px;
   left: auto;
@@ -999,8 +1832,8 @@ height: 100%;
   top: 50%; /* Tengah secara vertikal */
   left: 50%; /* Tengah secara horizontal */
   transform: translate(-50%, -50%); 
-}
-.category .frame .div {
+  }
+  .category .frame .div {
   position: absolute;
   width: 1215px;
   top: 48px;
@@ -1015,8 +1848,9 @@ height: 100%;
   left: 50%; /* Tengah secara horizontal */
   transform: translate(-50%, -50%); 
   padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
-}
-.category .frame .p {
+  }
+  
+  .category .frame .p {
   position: absolute;
   width: 1215px;
   top: 48px;
@@ -1031,10 +1865,10 @@ height: 100%;
   left: 50%; /* Tengah secara horizontal */
   transform: translate(-50%, -50%); 
   padding: 0 25px; /* Tambahkan padding 20px ke kiri dan kanan */
-}
-
-
-.category .search .label .text-wrapper {
+  }
+  
+  
+  .category .search .label .text-wrapper {
   font-family: "Poppins", Helvetica;
   font-weight: 700;
   color: #ffffff;
@@ -1043,10 +1877,14 @@ height: 100%;
   line-height: 76.8px;
   text-align: center;
   white-space: nowrap;
-}
+  }
   
-
-.category .container .label .text-wrapper {
+  .category .search .input-group {
+  width: 33%; /* Atur lebar sesuai kebutuhan (1/3 dari lebar layar) */
+  margin: 0 auto; /* Agar input-group berada di tengah-tengah layar */
+  }
+  
+  .category .container .label .text-wrapper {
   font-family: "Poppins-Bold", Helvetica;
   font-weight: 700;
   color: #ffffff;
@@ -1055,4 +1893,2549 @@ height: 100%;
   line-height: 76.8px;
   text-align: center;
   white-space: nowrap;
+  }
+  
+  .category .container #all-books{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
+    grid-gap: 1px; /* Jarak antara card */
+  }
+  
+  .category .container #all-books .card{
+    margin: 2px;
+    height: 400px; /* Atur tinggi sesuai kebutuhan */
+    background-color: #23264F;
+  }
+  
+  .category .container #all-books .card .card-img-top{
+    display: flex;
+    align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
+    justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
+    max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
+    max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+    border-radius: 10px; /* Atur radius sesuai kebutuhan */
+    margin-top: 7px;
+  }
+  
+  .category .container #all-books .card .like-button{
+    background-color: #3FBCFC;
+    width: 110px;
+    height: 50px;
+    position: absolute; /* Mengatur posisi absolut untuk love */
+    bottom: 10px; /* Atur jarak dari atas card */
+    right: 15px; /* Atur jarak dari kanan card */
+  }
+
+  .category .container #all-books .card a .detail-button{
+    background-color: #2A4CF1;
+      width: 110px;
+      height: 50px;
+      position: absolute; /* Mengatur posisi absolut untuk love */
+      bottom: 10px; /* Atur jarak dari atas card */
+      left: 15px; /* Atur jarak dari kanan card */
+  }
+
+  .category .container #all-books .card .love{
+    width: 50px;
+    height: 50px;
+    position: absolute; /* Mengatur posisi absolut untuk love */
+    bottom: 10px; /* Atur jarak dari atas card */
+    right: 15px; /* Atur jarak dari kanan card */
+  }
+  
+  .category .container #all-books .card .love:hover{
+    filter: brightness(0.7);
+    cursor: pointer;
+  
+  }
+
+  .category .container .scrollmenu #fantasy-books .card .like-button,
+  .category .container .scrollmenu #sciencefiction-books .card .like-button,
+  .category .container .scrollmenu #nonfiction-books .card .like-button,
+  .category .container .scrollmenu #romance-books .card .like-button,
+  .category .container .scrollmenu #mystery-books .card .like-button{
+    background-color: #3FBCFC;
+    width: 110px;
+    height: 50px;
+    position: absolute; /* Mengatur posisi absolut untuk love */
+    bottom: 10px; /* Atur jarak dari atas card */
+    right: 15px; /* Atur jarak dari kanan card */
+  }
+
+  .category .container .scrollmenu #fantasy-books .card .detail-button,
+  .category .container .scrollmenu #sciencefiction-books .card .detail-button,
+  .category .container .scrollmenu #nonfiction-books .card .detail-button,
+  .category .container .scrollmenu #romance-books .card .detail-button,
+  .category .container .scrollmenu #mystery-books .card .detail-button{
+      background-color: #2A4CF1;
+      width: 110px;
+      height: 50px;
+      position: absolute; /* Mengatur posisi absolut untuk love */
+      bottom: 10px; /* Atur jarak dari atas card */
+      left: 15px; /* Atur jarak dari kanan card */
+  }
+  
+  .category .container  #all-books .card .card-body .judul,
+  .category .container  #all-books .card .card-body .author {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  color: #fff;
+  }
+  
+  .category .container .scrollmenu {
+  background-color: #161832;
+  white-space: nowrap;
+  width: 100%; /* Setengah dari lebar container */
+  overflow-x: scroll; /* Mengaktifkan scroll horizontal */
+  display: flex; /* Menggunakan display flex untuk satu baris horizontal */
+  align-items: center; /* Menengahkan card jika tidak cukup lebar */
+  }
+  
+  .category .container .scrollmenu #fantasy-books,
+  .category .container .scrollmenu #mystery-books,
+  .category .container .scrollmenu #sciencefiction-books,
+  .category .container .scrollmenu #nonfiction-books,
+  .category .container .scrollmenu #romance-books {
+  display: flex; /* Menggunakan display flex untuk satu baris horizontal */
+  white-space: nowrap; /* Menghindari pemisahan baris */
+  }
+  
+  .category .container .scrollmenu #fantasy-books .card,
+  .category .container .scrollmenu #mystery-books .card,
+  .category .container .scrollmenu #sciencefiction-books .card,
+  .category .container .scrollmenu #nonfiction-books .card,
+  .category .container .scrollmenu #romance-books .card{
+  margin: 2px;
+  display: flex;
+  flex-direction: column; /* Mengubah arah flex ke kolom */
+  width: 280px; /* Atur lebar card sesuai kebutuhan */
+  height: 400px ; /* Atur tinggi card sesuai kebutuhan */
+  background-color: #23264F;
+  }
+  
+  .category .container .scrollmenu #fantasy-books .card .card-img-top,
+  .category .container .scrollmenu #sciencefiction-books .card .card-img-top,
+  .category .container .scrollmenu #nonfiction-books .card .card-img-top,
+  .category .container .scrollmenu #romance-books .card .card-img-top,
+  .category .container .scrollmenu #mystery-books .card .card-img-top{
+    display: flex;
+    align-items: center; /* Memastikan gambar berada di tengah secara vertikal */
+    justify-content: center; /* Memastikan gambar berada di tengah secara horizontal */
+    max-width: 93%; /* Membuat gambar sesuai dengan lebar kartu */
+    max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+    border-radius: 10px; /* Atur radius sesuai kebutuhan */
+    margin-top: 7px;
+  }
+  
+  .category .container .scrollmenu #fantasy-books .card .card-body .judul,
+  .category .container .scrollmenu #fantasy-books .card .card-body .author,
+  .category .container .scrollmenu #sciencefiction-books .card .card-body .judul,
+  .category .container .scrollmenu #sciencefiction-books .card .card-body .author,
+  .category .container .scrollmenu #nonfiction-books .card .card-body .judul,
+  .category .container .scrollmenu #nonfiction-books .card .card-body .author,
+  .category .container .scrollmenu #romance-books .card .card-body .judul,
+  .category .container .scrollmenu #romance-books .card .card-body .author,
+  .category .container .scrollmenu #mystery-books .card .card-body .judul,
+  .category .container .scrollmenu #mystery-books .card .card-body .author {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    color: #fff;
+  }
+  
+  .category .container .scrollmenu #fantasy-books .card .love,
+  .category .container .scrollmenu #sciencefiction-books .card .love,
+  .category .container .scrollmenu #nonfiction-books .card .love,
+  .category .container .scrollmenu #romance-books .card .love,
+  .category .container .scrollmenu #mystery-books .card .love{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+  }
+  
+  .category .container .scrollmenu #fantasy-books .card .love:hover,
+  .category .container .scrollmenu #sciencefiction-books .card .love:hover,
+  .category .container .scrollmenu #nonfiction-books .card .love:hover,
+  .category .container .scrollmenu #romance-books .card .love:hover,
+  .category .container .scrollmenu #mystery-books .card .love:hover{
+    filter: brightness(0.7);
+    cursor: pointer;
+  
+  }
+  
+  /* Menentukan tata letak elemen password-toggle */
+  .password-toggle {
+    display: inline-block;
+    position: relative;
+    top: 2px; /* Sesuaikan dengan pergeseran vertikal sesuai keinginan Anda */
+    cursor: pointer; /* Ubah kursor saat digunakan untuk mengklik */
+  }
+  
+  /* Mengatur tampilan input password */
+  .password-input {
+    position: relative;
+  }
+  
+  /* Mengatur tampilan gambar mata */
+  .iconsax-linears {
+    position: absolute;
+    top: 50%;
+    right: -235px; /* Sesuaikan dengan pergeseran horizontal sesuai keinginan Anda */
+    transform: translateY(-290%);
+  }
+  
+  /* CSS Borrow.html */
+  .borrow-book {
+    background-color: #161732;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .borrow-book .div {
+    background-color: #161732;
+    width: 1440px;
+    height: 1280px;
+    position: relative;
+  }
+  
+  .borrow-book .text-wrapper {
+    position: absolute;
+    top: 155px;
+    left: 540px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 56px;
+    letter-spacing: 0;
+    line-height: 70px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame {
+    position: absolute;
+    width: 1211px;
+    height: 888px;
+    top: 274px;
+    left: 112px;
+    background-color: #23264f;
+    border-radius: 40px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .image-wrapper {
+    position: absolute;
+    width: 308px;
+    height: 362px;
+    top: 40px;
+    left: 40px;
+    background-color: #13142a;
+    border-radius: 22.19px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .image {
+    position: absolute;
+    width: 308px;
+    height: 362px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .borrow-book .frame-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    position: absolute;
+    top: 47px;
+    left: 397px;
+  }
+  
+  .borrow-book .frame-3 {
+    display: flex;
+    flex-direction: column;
+    width: 767px;
+    align-items: flex-start;
+    gap: 24px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .borrow-book .text-wrapper-2 {
+    position: relative;
+    width: 766px;
+    margin-top: -1px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: 60px;
+  }
+  
+  .borrow-book .text-wrapper-3 {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    height: 44px;
+    align-items: flex-start;
+    gap: 56px;
+    position: relative;
+  }
+  
+  .borrow-book .div-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    flex: 0 0 auto;
+    margin-bottom: -2px;
+  }
+  
+  .borrow-book .frame-4 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .borrow-book .frame-5 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 29px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: var(--variable-collection-secondary);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .borrow-book .frame-6 {
+    display: inline-flex;
+    flex-direction: column;
+    height: 121px;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 24px;
+    position: relative;
+  }
+  
+  .borrow-book .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame-7 {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    flex: 0 0 auto;
+    margin-bottom: -1px;
+  }
+  
+  .borrow-book .img {
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  
+  .borrow-book .text-wrapper-6 {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame-8 {
+    display: flex;
+    flex-direction: column;
+    width: 1123px;
+    align-items: flex-start;
+    gap: 32px;
+    position: absolute;
+    top: 442px;
+    left: 40px;
+  }
+  
+  .borrow-book .text-wrapper-7 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame-9 {
+    display: flex;
+    flex-direction: column;
+    width: 1147px;
+    align-items: flex-start;
+    gap: 32px;
+    position: relative;
+    flex: 0 0 auto;
+    margin-right: -24px;
+  }
+  
+  .borrow-book .frame-10 {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .borrow-book .checkbox {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .borrow-book .p {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .text-wrapper-8 {
+    position: relative;
+    width: 1021px;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+  
+  .borrow-book .button {
+    display: flex;
+    width: 932px;
+    height: 76px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 752px;
+    left: 140px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    all: unset;
+    box-sizing: border-box;
+  }
+  
+  .borrow-book .bag {
+    position: relative;
+    width: 24px;
+    height: 27px;
+    top: 3px;
+    left: 4px;
+    background-image: url(./img/combined-shape.svg);
+    background-size: 100% 100%;
+  }
+  
+  .borrow-book .text-wrapper-9 {
+    position:relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .frame-11 {
+    position: fixed;
+    width: 1440px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-image: url(./img/rectangle-39291.png);
+    background-size: 100% 100%;
+  }
+  
+  .borrow-book .group-wrapper {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 15px;
+    left: 112px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 87.41px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .group {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    top: 15px;
+    left: 15px;
+    background-image: url(./img/mask-group.png);
+    background-size: 100% 100%;
+  }
+  
+  .borrow-book .mask-group {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 0;
+    left: 0;
+  }
+  
+  .borrow-book .frame-12 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: absolute;
+    top: 25px;
+    left: 303px;
+  }
+  
+  .borrow-book .component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 32px;
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .text-wrapper-10 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .group-2 {
+    position: absolute;
+    width: 232px;
+    height: 32px;
+    top: 34px;
+    left: 1098px;
+  }
+  
+  .borrow-book .iconly-bold-profile {
+    position: absolute;
+    top: 0;
+    left: 198px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .borrow-book .text-wrapper-11 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .borrow-book .checkbox {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 6px;
+    position: relative;
+    background-color: #0d6efd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .borrow-book .checkbox .vector {
+    position: relative;
+    width: 20.01px;
+    height: 15.96px;
+  }
+  
+  .borrow-book .borrow-button {
+    display: flex;
+    width: 932px;
+    height: 76px;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: relative;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    box-sizing: border-box;
+  }
+  
+  .borrow-book .borrow-button .iconly-bold-bag {
+    position: relative;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .borrow-book .borrow-button .bag {
+    position: absolute;
+    width: 24px;
+    height: 27px;
+    top: 3px;
+    left: 4px;
+  }
+  
+  .borrow-book .borrow-button .button-text-wrapper {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+
+   /*Your Book Page*/
+   .your-book {
+    background-color: #161732;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .your-book .div {
+    background-color: #161732;
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+  }
+  
+  .your-book .frame {
+    position: relative;
+    width: 1440px;
+    height: 380px;
+    top: 2317px;
+    left: 0;
+    background-color: #12132a;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .your-book .book {
+    position: absolute;
+    width: 1440px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #111329;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .your-book .group-wrapper {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 15px;
+    left: 112px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 87.41px;
+    overflow: hidden;
+  }
+  
+  .your-book .group {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    top: 15px;
+    left: 15px;
+    background-image: url(./img/mask-group-2.png);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .mask-group {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 0;
+    left: 0;
+  }
+  
+  .your-book .frame-2 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: absolute;
+    top: 25px;
+    left: 302px;
+  }
+  
+  .your-book .component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 32px;
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .your-book .text-no-book{
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+    text-align: center;
+  } 
+  
+  .your-book .text-no-book{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Poppins-Medium", Helvetica;
+      font-weight: 500;
+      width: 100%;
+      padding: 10px 20px;
+      z-index: 2;
+      color: #ffffff;
+  }
+
+  p{
+    display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: "Poppins-SemiBold", Helvetica;
+      font-weight: bold;
+      width: 100%;
+      padding: 10px  10px;
+      z-index: 2;
+      color: #ffffff;
+      font-size: 80px;
+  }
+  .your-book .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .your-book .home-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 32px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #2a4cf133;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  
+  .your-book .home {
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: var(--variable-collection-secondary);
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .your-book .group-2 {
+    position: absolute;
+    width: 232px;
+    height: 32px;
+    top: 34px;
+    left: 1098px;
+  }
+  
+  .your-book .iconly-bold-profile {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    left: 198px;
+  }
+  
+  .your-book .text-wrapper-2 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .your-book .book-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 800px;
+    margin-top:-300px;
+    padding: 0px;
+    top: 0;
+  }
+
+  .your-book .frame-book {
+    position: relative;
+    width: 1216px;
+    height: 408px;
+    top: 781px;
+    margin-top: 0px;
+    left: 0;
+    background-color: #23264f;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 100px;
+    transition: transform 0.5s ease;
+  }
+
+  .your-book .frame-book:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes shake {
+    0% { transform: rotate(0); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    100% { transform: rotate(0); }
+  }
+  
+  .your-book .image-wrapper {
+    position: absolute;
+    width: 178px;
+    height: 210px;
+    top: 20px;
+    left: 30px;
+    background-color: #13142a;
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  .your-book .image {
+    position: absolute;
+    width: 178px;
+    height: 210px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .your-book .text-wrapper-3 {
+    position: absolute;
+    top: 64px;
+    left: 236px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 40px;
+    white-space: nowrap;
+  }
+  
+  .your-book .frame-4 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: absolute;
+    top: 171px;
+    left: 236px;
+  }
+  
+  .your-book .div-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 29px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: var(--variable-collection-secondary);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .your-book .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .button {
+    display: flex;
+    width: 293px;
+    height: 66px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 83px;
+    left: 873px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    all: unset;
+    box-sizing: border-box;
+  }
+  
+  .your-book .iconly-bold-tick {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-image: url(./img/tick-square.svg);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .your-book .text-wrapper-6 {
+    left: 30px;
+    position: absolute;
+    top: 261px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .text-wrapper-7 {
+    left: 291px;
+    position: absolute;
+    top: 261px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .text-wrapper-8 {
+    position: absolute;
+    top: 261px;
+    left: 570px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .text-wrapper-9 {
+    position: absolute;
+    top: 305px;
+    left: 30px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .text-wrapper-10 {
+    position: absolute;
+    top: 305px;
+    left: 291px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .buku-ini-harus {
+    position: absolute;
+    width: 596px;
+    top: 301px;
+    left: 570px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .your-book .text-wrapper-11 {
+    position: absolute;
+    top: 122px;
+    left: 236px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  
+  .your-book .frame-5 {
+    position: absolute;
+    width: 1216px;
+    height: 408px;
+    top: 1253px;
+    left: 112px;
+    background-color: #23264f;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .your-book .iconly-bold-tick-2 {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-image: url(./img/tick-square-2.svg);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .frame-6 {
+    position: absolute;
+    width: 1216px;
+    height: 408px;
+    top: 1725px;
+    left: 112px;
+    background-color: #23264f;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .your-book .iconly-bold-tick-3 {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-image: url(./img/image.svg);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .overlap-group-wrapper {
+    display: flex;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 445px;
+    align-items: center;
+    justify-content: center;
+    background-color: #2a4cf1;
+  }
+  
+  .your-book .overlap-group {
+    position: relative;
+    width: 1385px;
+    height: 445px;
+    left: 28px;
+  }
+  
+  .your-book .text-wrapper-12 {
+    position: absolute;
+    top: 48px;
+    left: 114px;
+    font-family: "Poppins-Black", Helvetica;
+    font-weight: 900;
+    color: #2444e0;
+    font-size: 217px;
+    letter-spacing: 0;
+    line-height: 347.2px;
+    white-space: nowrap;
+  }
+  
+  .your-book .element {
+    position: absolute;
+    width: 1385px;
+    height: 445px;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .your-book .frame-7 {
+    position: absolute;
+    width: 1216px;
+    height: 108px;
+    top: 609px;
+    left: 112px;
+    background-color: #23264f;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  
+  .your-book .overlap {
+    position: absolute;
+    width: 586px;
+    height: 84px;
+    top: 12px;
+    left: 12px;
+    background-color: #3fbcfc;
+    border-radius: 20px;
+  }
+  
+  .your-book .text-wrapper-13 {
+    position: absolute;
+    top: 26px;
+    left: 181px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .your-book .overlap-2 {
+    position: absolute;
+    width: 586px;
+    height: 84px;
+    top: 12px;
+    left: 618px;
+    background-color: #23264f;
+    border-radius: 20px;
+  }
+  
+  .your-book .text-wrapper-14 {
+    position: absolute;
+    top: 24px;
+    left: 160px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+
+  .your-book .return-button {
+    display: flex;
+    width: 293px;
+    height: 66px;
+    align-self: right;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 70px;
+    right: 55px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    box-sizing: border-box;
+  }
+  
+  .your-book .return-button .iconly-bold-tick {
+    position: relative;
+    width: 32px;
+    height: 32px;
+    background-image: url(/static/img/TickSquare.png);
+    background-size: 100% 100%;
+  }
+  
+  .your-book .return-button .text-wrapper {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0.25px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  /* detail buku */
+
+  .detail-book {
+    background-color: #161732;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .detail-book .div {
+    background-color: #161732;
+    width: 1440px;
+    height: 3124px;
+    position: relative;
+    align-content: center;
+  }
+  
+  .detail-book .frame {
+    position: absolute;
+    width: 1440px;
+    height: 380px;
+    top: 2736px;
+    left: 0;
+    background-color: #12132a;
+  }
+  
+  .detail-book .text-wrapper {
+    position: absolute;
+    top: 787px;
+    left: 112px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 0.45px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .detail-book .text-wrapper-2 {
+    position: relative;
+    top: 1592px;
+    left: 112px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 0.45px;
+    line-height: normal;
+    white-space: nowrap;
+    margin-top: 20px;
+  }
+  
+  .detail-book .text-wrapper-3 {
+    position: absolute;
+    top: 1052px;
+    left: 112px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 36px;
+    letter-spacing: 0.45px;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .detail-book .div-2 {
+    position: absolute;
+    width: 1440px;
+    height: 588px;
+    top: 100px;
+    left: 0;
+    background-color: #12142d;
+  }
+  
+  .detail-book .image-wrapper {
+    position: absolute;
+    width: 392px;
+    height: 460px;
+    top: 64px;
+    left: 112px;
+    background-color: #13142a;
+    border-radius: 28.17px;
+    overflow: hidden;
+  }
+  
+  .detail-book .image {
+    position: absolute;
+    width: 392px;
+    height: 460px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .detail-book .frame-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 56px;
+    position: absolute;
+    top: 92px;
+    left: 560px;
+  }
+  
+  .detail-book .frame-3 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .detail-book .text-wrapper-4 {
+    position: relative;
+    width: 766px;
+    margin-top: -1px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: 60px;
+  }
+  
+  .detail-book .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 25px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .frame-4 {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .detail-book .group {
+    position: relative;
+    width: 125px;
+    height: 48px;
+  }
+  
+  .detail-book .overlap-group {
+    position: relative;
+    width: 123px;
+    height: 48px;
+    background-color: #ff961b1a;
+    border-radius: 999px;
+  }
+  
+  .detail-book .text-wrapper-6 {
+    position: absolute;
+    top: 9px;
+    left: 56px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .iconly-bold-star {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    left: 16px;
+  }
+  
+  .detail-book .text-wrapper-7 {
+    position: relative;
+    width: fit-content;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 30px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .frame-5 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .detail-book .frame-6 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 16px;
+    position: relative;
+    flex: 0 0 auto;
+  }
+  
+  .detail-book .div-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 29px;
+    position: relative;
+    flex: 0 0 auto;
+    background-color: #3FBCFC;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  
+  .detail-book .text-wrapper-8 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .detail-book .button {
+    display: flex;
+    width: 423px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: relative;
+    background-color: #2A4CF1;
+    border-radius: 24px;
+    
+  }
+  
+  .detail-book .iconly-bold-bag {
+    position: relative;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .detail-book .bag {
+    position: relative;
+    width: 18px;
+    height: 20px;
+    top: 2px;
+    left: 3px;
+    background-image: url(./img/image.svg);
+    background-size: 100% 100%;
+  }
+  
+  .detail-book .button-CTA {
+    position: relative;
+    width: fit-content;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+  
+  .detail-book .button-2 {
+    display: flex;
+    width: 242px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 1574px;
+    left: 1086px;
+    background-color: #2A4CF1;
+    border-radius: 24px;
+  
+  }
+  
+  .detail-book .bag-2 {
+    position: relative;
+    width: 18px;
+    height: 20px;
+    top: 2px;
+    left: 3px;
+    background-image: url(./img/combined-shape.svg);
+    background-size: 100% 100%;
+  }
+  
+  .detail-book .text-wrapper-9 {
+    position: absolute;
+    top: 854px;
+    left: 413px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+    margin-left: 30px;
+  }
+  
+  .detail-book .text-wrapper-10 {
+    position: absolute;
+    top: 854px;
+    left: 112px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .lyra-is-rushing-to {
+    position: absolute;
+    width: 1216px;
+    top: 1111px;
+    left: 112px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 42px;
+    margin-bottom: 10px;
+  }
+  
+  .detail-book .text-wrapper-11 {
+    position: absolute;
+    top: 917px;
+    left: 112px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 35px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .rectangle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 866px;
+    left: 381px;
+    background-color: #ffffff;
+    border-radius: 999px;
+  }
+  
+  .detail-book .overlap {
+    position: absolute;
+    width: 392px;
+    height: 296px;
+    top: 1678px;
+    left: 112px;
+    background-color: #23264f;
+    border-radius: 30px;
+  }
+  
+  .detail-book .lorem-ipsum-dolor {
+    position: absolute;
+    width: 338px;
+    top: 39px;
+    left: 25px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: transparent;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 36px;
+  }
+  
+  .detail-book .span {
+    color: #ffffff;
+  }
+  
+  .detail-book .text-wrapper-12 {
+    color: #3fbcfc;
+  }
+  
+  .detail-book .text-wrapper-13 {
+    position: absolute;
+    width: 338px;
+    top: 215px;
+    left: 25px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 36px;
+  }
+  
+  .detail-book .frame-7 {
+    position: absolute;
+    width: 392px;
+    height: 296px;
+    top: 1678px;
+    left: 524px;
+    background-color: #23264f;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  
+  .detail-book .p {
+    position: absolute;
+    width: 338px;
+    top: 39px;
+    left: 27px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: transparent;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 36px;
+  }
+  
+  .detail-book .text-wrapper-14 {
+    position: absolute;
+    width: 338px;
+    top: 215px;
+    left: 27px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 36px;
+  }
+  
+  .detail-book .frame-8 {
+    position: absolute;
+    width: 392px;
+    height: 296px;
+    top: 1678px;
+    left: 936px;
+    background-color: #23264f;
+    border-radius: 30px;
+    overflow: hidden;
+  }
+  
+  .detail-book .text-wrapper-15 {
+    position: absolute;
+    top: 2073px;
+    left: 540px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .detail-book .frame-9 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1216px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px 20px;
+    position: absolute;
+    top: 2186px;
+    left: 112px;
+  }
+  
+  .detail-book .frame-10 {
+    position: relative;
+    width: 186px;
+    height: 328px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  
+  .detail-book .img-wrapper {
+    position: absolute;
+    width: 167px;
+    height: 202px;
+    top: 8px;
+    left: 10px;
+    background-color: #13142a;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .detail-book .img {
+    position: absolute;
+    width: 167px;
+    height: 202px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  
+  .detail-book .text-wrapper-16 {
+    position: absolute;
+    width: 167px;
+    top: 222px;
+    left: 10px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .detail-book .text-wrapper-17 {
+    position: absolute;
+    top: 284px;
+    left: 10px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .detail-book .frame-11 {
+    position: absolute;
+    width: 136px;
+    height: 136px;
+    top: 96px;
+    left: 1120px;
+  }
+  
+  .detail-book .frame-12 {
+    position: absolute;
+    width: 136px;
+    height: 136px;
+    top: 96px;
+    left: -40px;
+  }
+  
+  .detail-book .frame-13 {
+    position: fixed;
+    width: 1440px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: #111329;
+  }
+  
+  .detail-book .group-wrapper {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: 15px;
+    left: 112px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 87.41px;
+    overflow: hidden;
+  }
+  
+  .detail-book .mask-group-wrapper {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    top: 15px;
+    left: 15px;
+    background-image: url(./img/mask-group.png);
+    background-size: 100% 100%;
+  }
+  
+  .detail-book .mask-group {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 0;
+    left: 0;
+  }
+  
+  .detail-book .frame-14 {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: absolute;
+    top: 25px;
+    left: 303px;
+  }
+  
+  .detail-book .component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 32px;
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  
+  .detail-book .text-wrapper-18 {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+  
+  .detail-book .group-2 {
+    position: absolute;
+    width: 232px;
+    height: 32px;
+    top: 34px;
+    left: 1098px;
+  }
+  
+  .detail-book .iconly-bold-profile {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    top: 0;
+    left: 198px;
+  }
+  
+  .detail-book .text-wrapper-19 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 25.6px;
+    white-space: nowrap;
+  }
+
+  .card-item {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 20px;
+      justify-content: left;
+  }
+
+  .card {
+      border: none;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+  }
+
+  .box {
+    width: 12px;
+    height: 12px;
+  }
+
+  .box .rectangle {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 999px;
+  }
+
+  .landing {
+    background-color: #161732;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.landing .div {
+    background-color: #161732;
+    width: 1440px;
+    position: relative;
+}
+
+.landing .overlap {
+    position: absolute;
+    width: 717px;
+    height: 800px;
+    top: 28px;
+    left: 666px;
+    background-image: url(./img/FRAME-ILUS-1-1.png);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+.landing .frame {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 9.37px;
+    padding: 18.74px;
+    position: absolute;
+    top: 318px;
+    left: 110px;
+    background-color: #3fbcfc;
+    border-radius: 117.14px;
+    overflow: hidden;
+    box-shadow: 0px 22.26px 22.26px #00000017, 0px 50.37px 30.46px #0000000d, 0px 90.2px 36.31px #00000003,
+        0px 140.57px 39.83px transparent;
+}
+
+.landing .mask-group {
+    position: relative;
+    width: 44.51px;
+    height: 44.51px;
+}
+
+.landing .frame-2 {
+    display: flex;
+    width: 191px;
+    height: 60px;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 32px;
+    position: absolute;
+    top: 655px;
+    left: 443px;
+    background-color: #07091a;
+    border-radius: 100px;
+    box-shadow: 0px 0px 0px #00000012, 0px 34px 75px #00000012, 0px 137px 137px #0000000f, 0px 308px 185px #0000000a,
+        0px 548px 219px #00000003, 0px 856px 240px transparent;
+}
+
+.landing .iconly-bold-star {
+    margin-top: -2px;
+    margin-bottom: -2px;
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.landing .text-wrapper {
+    position: relative;
+    width: 78px;
+    font-family: var(--button-font-family);
+    font-weight: var(--button-font-weight);
+    color: #ffffff;
+    font-size: var(--button-font-size);
+    letter-spacing: var(--button-letter-spacing);
+    line-height: var(--button-line-height);
+    font-style: var(--button-font-style);
+}
+
+.landing .iconly-bold-heart-wrapper {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 9.37px;
+    padding: 18.74px;
+    position: absolute;
+    top: 551px;
+    left: 514px;
+    background-color: var(--variable-collection-secondary);
+    border-radius: 117.14px;
+    overflow: hidden;
+    box-shadow: 0px 22.26px 22.26px #00000017, 0px 50.37px 30.46px #0000000d, 0px 90.2px 36.31px #00000003,
+        0px 140.57px 39.83px transparent;
+}
+
+.landing .iconly-bold-heart {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.landing .explore-your {
+    position: absolute;
+    width: 498px;
+    top: 215px;
+    left: 112px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: transparent;
+    font-size: 64px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing button {
+  display: inline-flex;
+  height: 64px;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 24px;
+  background: var(--Primary, #2A4CF1);
+}
+
+.landing .span {
+    color: #ffffff;
+}
+
+.landing .text-wrapper-2 {
+    color: #3fbcfc;
+}
+
+.landing .tempat-meminjam-buku {
+    position: absolute;
+    width: 495px;
+    top: 496px;
+    left: 112px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff80;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+
+.landing .text-wrapper-3 {
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff80;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+
+.landing .text-wrapper-4 {
+    font-family: "Inter-SemiBold", Helvetica;
+    font-weight: 600;
+}
+
+.landing .button {
+    display: inline-flex;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 609px;
+    left: 112px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    all: unset;
+    box-sizing: border-box;
+}
+
+.landing .div-wrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.landing .discovery {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    top: 2px;
+    left: 2px;
+    background-image: url(./img/discovery.svg);
+    background-size: 100% 100%;
+}
+
+.landing .button-CTA {
+    position: relative;
+    width: fit-content;
+    font-family: var(--button-18-px-bold-font-family);
+    font-weight: var(--button-18-px-bold-font-weight);
+    color: #ffffff;
+    font-size: var(--button-18-px-bold-font-size);
+    letter-spacing: var(--button-18-px-bold-letter-spacing);
+    line-height: var(--button-18-px-bold-line-height);
+    white-space: nowrap;
+    font-style: var(--button-18-px-bold-font-style);
+}
+
+.landing .button-2 {
+    display: flex;
+    width: 289px;
+    height: 64px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 20px;
+    position: absolute;
+    top: 2149px;
+    left: 730px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 24px;
+    all: unset;
+    box-sizing: border-box;
+}
+
+.landing .element-user {
+    position: relative;
+    width: 22px;
+    height: 16px;
+    top: 4px;
+    left: 1px;
+    background-image: url(./img/3-friends.svg);
+    background-size: 100% 100%;
+}
+
+.landing .text-wrapper-5 {
+    position: absolute;
+    top: 871px;
+    left: 507px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .text-wrapper-6 {
+    position: absolute;
+    top: 2390px;
+    left: 584px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .text-wrapper-7 {
+    position: absolute;
+    top: 3016px;
+    left: 596px;
+    font-family: "Poppins-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .explore-book-review {
+    position: absolute;
+    width: 598px;
+    top: 1825px;
+    left: 730px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: transparent;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .rectangle {
+    left: 958px;
+    position: absolute;
+    width: 60px;
+    height: 6px;
+    top: 908px;
+    background-color: var(--variable-collection-secondary);
+    border-radius: 999px;
+}
+
+.landing .rectangle-2 {
+    left: 423px;
+    position: absolute;
+    width: 60px;
+    height: 6px;
+    top: 908px;
+    background-color: var(--variable-collection-secondary);
+    border-radius: 999px;
+}
+
+.landing .card {
+    top: 1000px;
+    left: 112px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .overlap-group {
+    position: absolute;
+    width: 76px;
+    height: 76px;
+    top: 28px;
+    left: 28px;
+    background-color: var(--variable-collection-primary);
+    border-radius: 38px;
+}
+
+.landing .img {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 14px;
+    left: 14px;
+}
+
+.landing .text-wrapper-8 {
+    position: absolute;
+    height: 45px;
+    top: 117px;
+    left: 28px;
+    font-family: "poppins", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 0.97px;
+    line-height: 45px;
+    white-space: nowrap;
+}
+
+.landing .p {
+    position: absolute;
+    width: 336px;
+    top: 176px;
+    left: 28px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 32px;
+}
+
+.landing .card-2 {
+    top: 1335px;
+    left: 112px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .card-3 {
+    top: 1000px;
+    left: 524px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .card-4 {
+    top: 1335px;
+    left: 524px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .card-5 {
+    top: 1000px;
+    left: 936px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .card-6 {
+    top: 1335px;
+    left: 936px;
+    position: absolute;
+    width: 392px;
+    height: 305px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.landing .overlap-2 {
+    position: absolute;
+    width: 1216px;
+    height: 462px;
+    top: 2483px;
+    left: 112px;
+}
+
+.landing .group {
+    position: absolute;
+    width: 1180px;
+    height: 462px;
+    top: 0;
+    left: 18px;
+}
+
+.landing .frame-3 {
+    position: absolute;
+    width: 280px;
+    height: 462px;
+    top: 0;
+    left: 0;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.landing .image-wrapper {
+    position: absolute;
+    width: 256px;
+    height: 308px;
+    top: 16px;
+    left: 12px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.landing .image {
+    position: absolute;
+    width: 256px;
+    height: 308px;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.landing .text-wrapper-9 {
+    position: absolute;
+    width: 257px;
+    top: 339px;
+    left: 16px;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-weight: 600;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .text-wrapper-10 {
+    position: absolute;
+    top: 413px;
+    left: 16px;
+    font-family: "Poppins-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.landing .frame-4 {
+    position: absolute;
+    width: 280px;
+    height: 462px;
+    top: 0;
+    left: 300px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.landing .frame-5 {
+    position: absolute;
+    width: 280px;
+    height: 462px;
+    top: 0;
+    left: 600px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.landing .frame-6 {
+    position: absolute;
+    width: 280px;
+    height: 462px;
+    top: 0;
+    left: 900px;
+    background-color: var(--variable-collection-secondary-bg);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.landing .frame-7 {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: 203px;
+    left: 1160px;
+}
+
+.landing .frame-8 {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: 203px;
+    left: 0;
+}
+
+.landing .overlap-3 {
+    position: absolute;
+    width: 1216px;
+    height: 462px;
+    top: 3109px;
+    left: 112px;
+}
+
+.landing .frame-9 {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: 207px;
+    left: 1160px;
+}
+
+.landing .frame-10 {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: 207px;
+    left: 0;
+}
+
+.landing .text-wrapper-11 {
+    position: absolute;
+    top: 2409px;
+    left: 1214px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    color: var(--variable-collection-secondary);
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.landing .text-wrapper-12 {
+    position: absolute;
+    top: 3043px;
+    left: 1214px;
+    font-family: "Poppins", Helvetica;
+    font-weight: 600;
+    color: var(--variable-collection-secondary);
+    font-size: 24px;
+    letter-spacing: 0.3px;
+    line-height: normal;
+    white-space: nowrap;
+}
+
+.landing .ILLUS {
+    position: absolute;
+    width: 594px;
+    height: 520px;
+    top: 1752px;
+    left: 115px;
+    object-fit: cover;
 }

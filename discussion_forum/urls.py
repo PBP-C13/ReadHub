@@ -8,8 +8,9 @@ urlpatterns = [
     path('', show_forum, name='show_forum'),
     path('get-product/', get_product_json, name='get_product_json'),
     path('create_forum/', create_forum, name='create_forum'),
-    path('like_forum/', like_forum, name='like_forum'),
-    path('unlike_forum/', unlike_forum, name='unlike_forum'),
-    path('remove_forum_ajax/<int:id>', remove_forum_ajax , name='remove_forum_ajax'),
+    path('create_forum_ajax/', create_forum_ajax, name='create_forum_ajax'),
+    path('delete_item/<int:item_id>/', delete_item, name='delete_item'),
     path('api/books/', get_json, name='book-list'), 
+    path('toggle-like/<int:id>/', toggle_like_forum, name='toggle-like'),
+    path('like/<int:post_id>/', like_forum_post, name='like_forum_post'),
 ]

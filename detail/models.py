@@ -1,3 +1,7 @@
 from django.db import models
 
-# Create your models here.
+class Detail(models.Model):
+    similar_books =  models.TextField(null=True, blank=True)
+    
+class Review(models.Model):
+    review = models.ForeignKey(Detail, on_delete=models.CASCADE)

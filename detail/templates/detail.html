@@ -3,44 +3,248 @@
 {% block content %}
 
     <!-- Navbar ------------------>
-    <div class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <img src="../../static/img/Logo Navbar.svg" class="navbar-brand d-none d-lg-block" href="#">
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav" style="margin-left: 23%;">
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
-                    </li>
-                    <li class="nav-item-active">
-                        <a class="nav-link" style="color: #4162FF;"  href="{% url 'category:show_category' %}">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
-                </li>
-                </ul>
-            </div>
-    
-            <div class="ml-auto"> 
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="bi bi-person-circle"></i> Hello, {{ name }},
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
-                        <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+      <button  class="navbar-toggler btn-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <img src="/static/img/logo.svg" class="navbar-brand d-none d-lg-block" href="#">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav" style="margin-left: 23%;">
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;" href="{% url 'main:show_main' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_category' %}" >Category</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #ffffff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+          </li>
+          </ul>
+      </div>
 
-{% endblock content %}
+      <div class="ml-auto"> 
+          <div class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="bi bi-person-circle"></i> Hello, {{ name }},
+              </a>
+              <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
+                  <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+    {% csrf_token %}
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Add Review</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="form" onsubmit="return false;"> 
+                      <div class="mb-3">
+                          <label for="book_review" class="col-form-label">Review:</label>
+                          <textarea class="form-control" id="book_review" name="book_review"></textarea>
+                      </div>
+                  </form>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Review</button>
+              </div>
+          </div>
+      </div>
+  </div>  
+  
+    <div class="detail-book"> 
+      <div class="div">
+        <div class="frame"></div>
+        <div class="text-wrapper">About Book</div>
+        <div class="text-wrapper-2">Review Book</div>
+        <div class="text-wrapper-3">Description</div>
+        <div class="div-2">
+          <div class="image-wrapper"><img class="image" src="{{ book.image_url }}" /></div>
+          <div class="frame-2">
+            <div class="frame-3">
+              <div class="text-wrapper-4">{{book.book_title}}</div>
+              <div class="text-wrapper-5">Author: {{book.book_authors}}</div>
+              <div class="frame-4">
+                <div class="group">
+                  <div class="overlap-group">
+                    <div class="text-wrapper-6">{{book.book_rating}}</div>
+                    <img class="iconly-bold-star" src="/static/img/Star.svg" />
+                  </div>
+                </div>
+                <div class="text-wrapper-7">({{book.book_rating_count}} Rating)</div>
+              </div>
+            </div>
+
+            <div class="frame-5">
+              <div class="frame-6">
+                <div class="div-3">
+                  <div class="div-4">
+                    {% for genre in genres %}
+                      <div class="div-wrapper">
+                        <div class="text-wrapper-5">{{ genre }}</div>
+                      </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <button class="button">
+                <div class="iconly-bold-bag"><div class="bag"></div></div>
+                <div class="button-CTA">
+                  <a style="color: #fff" href="{% url 'borrow_flow:show_borrow_page' id=book.pk %}">Borrow This Book</a>
+              </div>
+              
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <button class="button-2">
+          <div class="iconly-bold-bag"><div class="bag-2"></div></div>
+          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModalLong">Create Review</div>
+        </button>
+
+        <div class="text-wrapper-9">Book Page: {{book.book_pages}}</div>
+        <div class="text-wrapper-10">ISBN: {{book.book_isbn}}</div>
+        <div class="text-wrapper-11">Format : {{book.book_format}}</div>
+        <p class="lyra-is-rushing-to">{{book.book_desc}}</p>
+
+   
+
+        <div class="text-wrapper-15">Similar Books</div>
+        <div class="frame-9">
+            {% for similarbook in similar_books %}
+            <a  href="{% url 'detail:show_detail' similarbook.pk %}">
+            <div class="frame-10">
+
+                <div class="img-wrapper"><img class="img" src="{{ similarbook.image_url }}" /></div>
+                <div class="text-wrapper-16">{{ similarbook.book_title }}</div>
+                <div class="text-wrapper-17">by: {{ similarbook.book_authors }}</div>
+            </div>
+            {% endfor %}
+        </div>
+  <div class="container">
+    <div class="row" id="product-cards">
+     
+    </div>
+</div>
+
+<script>
+   async function addReview() {
+    fetch("{% url 'detail:create_review' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#form'))
+        })
+        refreshItems()
+        document.getElementById("form").reset();
+        return false;     
+}
+
+    async function getDetails() {
+        return fetch("{% url 'detail:get_item_json' %}").then((res) => res.json());
+    }
+
+    async function refreshItems() {
+      const reviewInput = document.getElementById("book_review").value;
+      const det = await getDetails();
+
+    if (reviewInput.trim() !== "") {
+        const csrftoken = getCookie("csrftoken"); 
+        const cardContainer = document.getElementById("product-cards");
+        
+
+        const card = document.createElement("div");
+        card.className = "frame-7";
+        card.style.width = "392px";
+        card.style.height = "296px";
+        card.style.backgroundColor = "#23264f";
+        card.style.borderRadius = "30px";
+        card.style.overflow = "hidden";
+        card.style.position = "relative";
+
+        const cardParagraph = document.createElement("p");
+        cardParagraph.className = "p";
+        cardParagraph.style.width = "338px";
+        cardParagraph.style.top = "39px";
+        cardParagraph.style.left = "27px";
+        cardParagraph.style.fontFamily = "Poppins-Medium, Helvetica";
+        cardParagraph.style.fontWeight = "500";
+        cardParagraph.style.color = "transparent";
+        cardParagraph.style.fontSize = "24px";
+        cardParagraph.style.letterSpacing = "0";
+        cardParagraph.style.lineHeight = "36px";
+
+        const cardSpan = document.createElement("span");
+        cardSpan.className = "span"; 
+        cardSpan.style.color = "#ffffff"; 
+        cardSpan.textContent = reviewInput ;
+
+        const cardTextWrapper = document.createElement("span");
+        cardTextWrapper.className = "text-wrapper-12"; 
+        cardTextWrapper.style.color = "#3fbcfc"; 
+        cardTextWrapper.textContent =  "More";
+
+        const cardByWrapper = document.createElement("span");
+        cardByWrapper.className = "text-wrapper-14"; 
+        cardByWrapper.style.color = "#ffffff"; 
+        cardByWrapper.textContent =  "- " + det.name ;
+
+        card.appendChild(cardParagraph);
+        cardParagraph.appendChild(cardSpan);
+        cardParagraph.appendChild(cardTextWrapper);
+        cardParagraph.appendChild(cardByWrapper);
+
+        cardContainer.appendChild(card);
+
+        document.getElementById("form").reset();
+
+        const data = {
+            book_review: reviewInput,
+            csrfmiddlewaretoken: csrftoken,  
+        };
+
+        fetch("{% url 'detail:create_review' %}", {
+              method: "POST",
+              body: new FormData(document.querySelector('#form'))
+            }).then(refreshItems);
+
+            document.getElementById("form").reset();
+            
+                cardContainer.style.display = "flex";
+        cardContainer.style.justifyContent = "space-between";
+        cardContainer.style.transform = "translateY(-5px)";
+        cardContainer.style.transition = "transform 0.2s";
+        cardContainer.style.gap = "20px"; 
+        return false;
+    }
+      
+  }
+  
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+    document.getElementById("button_add").onclick = addReview;
+    refreshItems();
+</script>
+
+
+
+{% endblock %}
+ 

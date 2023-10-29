@@ -2,20 +2,112 @@
 
 {% block content %}
 
+<style>
 
-<h1>Add New Product</h1>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-<form method="POST">
-    {% csrf_token %}
-    <table>
-        {{ form.as_table }}
-        <tr>
-            <td></td>
-            <td>
-                <input  type="submit" value="Add Product" class="add-product-button"/>
-            </td>
-        </tr>
-    </table>
-</form>
+    .add-product {
+        max-width: 700px;
+        padding: 30px;
+        background-color: #12132A;
+        border-radius: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-align: center;
+    }
+
+    .add-product h1 {
+        font-family: "Poppins", Helvetica;
+        margin-bottom: 5px; 
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-bottom: 20px;
+        font-weight: bold;
+    }
+
+    .add-product form {
+        text-align: left;
+    }
+
+    .add-product form table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    .add-product form td {
+        padding: 10px;
+        font-family: "Poppins", Helvetica;
+        margin-bottom: 5px; 
+        color: #ffffff;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .add-product form input[type="text"],
+    .add-product form input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .add-product form input[type="submit"] {
+        font-family: "Poppins", Helvetica;
+        margin-bottom: 5px; 
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: 80px;
+        cursor: pointer;
+        height: 64px !important;
+        padding: 10px 20px !important;
+        justify-content: flex-end !important;
+        align-items: center !important;
+        gap: 10px !important;
+        border-radius: 24px !important;
+        background: var(--Primary, #2A4CF1) !important;
+        color:#fff
+
+    }
+
+    h5 {
+        font-family: "Poppins", Helvetica;
+        margin-bottom: 5px; 
+        color: #3b5d81;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .add-product form input[type="submit"]:hover {
+        background: var(--Primary, #102fc7) !important;
+        color:#fff
+
+    }
+
+    
+</style>
+
+<div class="add-product">
+    <h1>Make a Forum</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td></td>
+                <td>
+                    <input class="btn btn-primary" type="submit" value="Add Product">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
 
 {% endblock content %}

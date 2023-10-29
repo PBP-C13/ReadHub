@@ -4,31 +4,65 @@
     <title>Register</title>
 {% endblock meta %}
 
-{% block content %}  
-
-<div class = "login">
+{% block content %}
+    <div class="sign-up">
+        <div class="div">
+            <div class="overlap">
+                <img class="vector" src="https://user-images.githubusercontent.com/119391657/270732366-2e835f39-83cc-43de-b22b-df914ade0c93.png" />
+                <p class="start-your-journey">
+                    <span class="text-wrapper">Start your </span>
+                    <span class="span">Journey </span>
+                    <span class="text-wrapper">in ReadHub</span>
+                </p>
+                <div class="group"><img class="mask-group" src="img/image.png" /></div>
+                <div class="frame">
+                    <div class="overlap-group">
+                        <img class="img" src="../../static/img/Vector.svg"/>
+                        <img class="element" src="../../static/img/Char.svg" />
+                    </div>
+                    <p class="p">
+                        <span class="text-wrapper">Start your </span>
+                        <span class="span">Journey </span>
+                        <span class="text-wrapper">in ReadHub</span>
+                    </p>
+                    <div class="mask-group-wrapper"><img class="mask-group" src="../../static/img/logo.svg" /></div>
+                </div>
+            </div>
+            <p class="text-wrapper-2">Sign up for an account</p>
+            <div class="frame-2">
+                <form method="POST" action="{% url 'main:register' %}">
+                    {% csrf_token %}
+                    <div class="frame-3">
+                        <label class="label" for="{{ form.username.id_for_label }}">Username</label>
+                        
+                        {{ form.username }}
+                    </div>
+                    <div class="frame-3">
+                        <label class="label" for="{{ form.password1.id_for_label }}">Password</label>
+                       
+                            {{ form.password1 }}
+                            {% comment %} <span id="togglePassword" class="password-toggle" onclick="togglePasswordVisibility()">
+                            <img class="iconsax-linearss" src="../../static/img/icon/matabuka.svg" id="toggleImage"  /> {% endcomment %}
+                    
+                    </div>
+                    <div class="frame-3">
+                        <label class="label" for="{{ form.password2.id_for_label }}">Confirm Password</label>
+                            {{ form.password2 }}
+                            {% comment %} <img class="iconsax-linearss" src="../../static/img/icon/mata.svg"   /> {% endcomment %}
+                    </div>
+                </div>
+                <div class="frame-wrapper">
+                        <input class="frame-5 text-wrapper3" style= "color: #fff; font-weight: 600;" type="submit" name="submit" value="Sign Up">
+                        <img class="iconsax-linearpanah" src="../../static/img/icon/panah.svg" />
     
-    <h1>Register</h1>  
-
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
-
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
-
-</div>  
-
+                </div>
+            </form>
+            <p class="already-member-sign">
+                <span class="text-wrapper-4">Already member?</span>
+                <span class="text-wrapper">&nbsp;</span>
+                <span class="span"></span>
+                <a class="span" href="{% url 'main:login' %}">Sign in Now</a>
+            </p>
+        </div>
+    </div>    
 {% endblock content %}

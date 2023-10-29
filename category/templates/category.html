@@ -1,32 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <style>
-        .card-img-top{
-            justify-content: center;
-            max-width: 140px; /* Sesuaikan lebar maksimal sesuai kebutuhan */
-            max-height: 120px;
-            border-radius: 10px; /* Atur radius sesuai kebutuhan */
-            margin-top: 5px;
-        }
-        .judul{
-            font-size: 12px;
-        }
-        .author{
-            font-size: 10px;
-        }
-        .card{
-            margin: 2px;
-            height: 220px; /* Atur tinggi sesuai kebutuhan */
-        }
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 2fr)); /* Mengatur jumlah kolom dan lebar minimum */
-            grid-gap: 1px; /* Jarak antara card */
-        }
-
-    </style>
-
     <!-- Navbar ------------------>
     <div class="navbar navbar-expand-lg ">
         <div class="container-fluid">
@@ -46,10 +20,10 @@
                         <a class="nav-link" style="color: #fff;"  href="{% url 'discussion_forum:show_forum' %}" >Community</a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
+                        <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+                    <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
                 </li>
                 </ul>
             </div>
@@ -63,6 +37,36 @@
                         <a class="dropdown-item" href="#" target="_blank" rel="noopener noreferrer" >Profile</a>
                         <a class="dropdown-item" href="{% url 'main:logout' %}">Logout</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 style="color: black;" class="modal-title fs-5" id="exampleModalLabel">Add Book to Favorite</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label style="color: black;" for="is_favorite" class="col-form-label">Anda yakin ingin menambahkan ke favorit?</label>
+                            <label style="color: black;">
+                                <input  type="radio" name="is_favorite" value="yes"> Yes
+                            </label>
+                            <label style="color: black;">
+                                <input  type="radio" name="is_favorite" value="no"> No
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" id="bookIdInput" name="book_id" value="">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
                 </div>
             </div>
         </div>
@@ -93,38 +97,232 @@
                     <img class="iconly-light-search" src="../../static/img/icon/Search.svg" />
                   </button>
                 </div>
+                <select id="bookCategory" name="bookCategory" onchange="filterBooks()">
+                    <option value="all">All Books</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="romance">Romance</option>
+                    <option value="mystery">Mystery</option>
+                    <option value="nonfiction">Nonfiction</option>
+                    <option value="science fiction">Science Fiction</option>
+                </select>
             </div>
-
         </div>
 
         <div class="container">
             <div class="label">
                 <div class="text-wrapper">Fantasy Books</div>
             </div>
-
-            <div class="book-fantasy"></div>
             
+            <div class="scrollmenu">
+                <div class="card-container" id="fantasy-books">
+                    {% for book in fantasyBooks %}
+                    <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">Favorit</button>                                        
+                        {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Romance Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="romance-books">
+                    {% for book in romanceBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">Favorit</button>    
+                        {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Mystery Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="mystery-books">
+                    {% for book in mysteryBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">Favorit</button>    
+                        {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Nonfiction Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="nonfiction-books">
+                    {% for book in nonfictionBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">Favorit</button>    
+                        {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="label">
+                <div class="text-wrapper">Science Fiction Books</div>
+            </div>
+
+            <div class="scrollmenu">
+                <div class="card-container" id="sciencefiction-books">
+                    {% for book in sciencefictionBooks %}
+                      <div class="card" data-genre="{{ book.genres }}">
+                        <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
+                        <div class="card-body">
+                          <h5 class="judul">{{ book.book_title }}</h5>
+                          <p class="author">by {{ book.book_authors |slice:":25"}}</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="{{ book.pk }}">Favorit</button>    
+                        {% endif %}
+                        <a href="detail/{{ book.pk }}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <br/>
+
             <div class="label">
                 <div class="text-wrapper">More Books in ReadHub</div>
             </div>
-            <br/>
-    
-            <div class="card-container">
-                {% for book in books %}
-                  <a class="card" href="detail/{{book.pk}}/">
-                    <img class="card-img-top mx-auto" src="{{ book.image_url }}" alt="book">
-                    <div class="card-body">
-                      <h5 class="judul">{{ book.book_title }}</h5>
-                      <p class="author">by {{ book.book_authors |slice:":25"}}</p>
-                    </div>
-                </a>
-                {% endfor %}
-            </div>
-       
+
+            <div class="card-container" id="all-books"></div>
         </div>
+
+
     </div>
 
+    <!-- Pastikan ini ditempatkan sebelum Anda memuat skrip JavaScript yang menggunakannya -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script>
+        async function getProducts() {
+            let url = "{% url 'category:get_product_json' %}"
+            return fetch(url).then((res) => res.json())
+        }
+
+        // Fungsi yang memasang event listener untuk tombol "LIKE"
+        function setupLikeButtonListeners() {
+            const likeButtons = document.querySelectorAll(".like-button");
+
+            likeButtons.forEach(function (likeButton) {
+                likeButton.addEventListener("click", function () {
+                    const bookId = this.getAttribute("data-book-id");
+                    const confirmationModal = document.getElementById("confirmationModal");
+                    const bookIdInput = confirmationModal.querySelector("#bookIdInput");
+                    bookIdInput.value = bookId;
+                });
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+
+
+            console.log("ihhhsaihdjadsa")
+            setupLikeButtonListeners();
+
+            document.getElementById("button_add").addEventListener("click", function() {
+                const confirmationModal = document.getElementById("confirmationModal");
+                const bookIdInput = confirmationModal.querySelector("#bookIdInput");
+                const bookId = bookIdInput.value; // Ambil nilai dari input dengan id "bookIdInput"
+                add_favorit(bookId);
+            });
+        });
+
+
+        async function refreshProducts() {
+            document.getElementById("all-books").innerHTML = ""
+            const book = await getProducts()
+            let htmlString =``
+
+            book.forEach((item) => {
+                // Membuat elemen kartu untuk produk
+                console.log(item)
+                const cardElement = document.createElement('div')
+
+                // Mengisi elemen kartu dengan data produk
+                htmlString += `\n
+                <div class="card" data-genre="${item.fields.genres}">
+                    <img class="card-img-top mx-auto" src="${item.fields.image_url}" alt="book">
+                    <div class="card-body">
+                      <h5 class="judul">${item.fields.book_title}</h5>
+                      <p class="author">by ${item.fields.book_authors}</p>
+                    </div>
+                    <button type="button" class="btn btn-success like-button" data-bs-toggle="modal" data-bs-target="#confirmationModal" data-book-id="${item.pk}">Favorit</button>
+                    <a href="detail/${item.pk}">
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
+                    </a>    
+                </div>
+                `;
+                
+                // Menambahkan elemen kartu ke dalam elemen kartu utama
+                document.getElementById("all-books").innerHTML = htmlString
+            });
+
+                // Setup ulang event listener untuk tombol "LIKE" setelah elemen-elemen buku selesai dimuat
+                setupLikeButtonListeners();
+
+        }
+
+        refreshProducts()
+
         document.getElementById('search-input').addEventListener('input', function() {
             var input = this.value.toLowerCase();
             var cards = document.querySelectorAll('.card');
@@ -132,12 +330,110 @@
             cards.forEach(function(card) {
                 var cardText = card.textContent.toLowerCase();
                 if (cardText.includes(input)) {
-                    card.style.display = 'block'; // Tampilkan kartu jika cocok
+                    card.style.display = 'inline-block'; // Tampilkan kartu jika cocok
                 } else {
                     card.style.display = 'none'; // Sembunyikan kartu jika tidak cocok
                 }
             });
         });
+
+        function clicklove(element) {
+            // Mengambil nilai ID buku dari atribut data-bookid
+            var bookId = element.getAttribute('data-bookid');
+
+            // Tampilkan modal konfirmasi
+            $('#confirmationModal').modal('show');
+
+            // Tangani klik pada tombol "Ya" dalam modal konfirmasi
+            $('#confirmAddToFavorite').on('click', function () {
+                // Sembunyikan modal konfirmasi
+                $('#confirmationModal').modal('hide');
+
+                    if (element.src.endsWith("Heart1.svg")) {
+                        element.src = "../../static/img/icon/Heart.svg";
+                        
+                        // Melakukan permintaan AJAX untuk menambahkan buku ke favorit
+                        fetch(`api/books/${bookId}/`, {
+                            method: 'POST',
+                            headers: {
+                                'X-CSRFToken': getCookie('csrftoken'),  // Mengambil token CSRF dari cookie
+                            }
+                        })
+                        .then(response => {
+                            if (response.status === 201) {
+                                // Buku berhasil ditambahkan ke favorit, Anda dapat memperbarui tampilan halaman di sini
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
+                    } else {
+                        element.src = "../../static/img/icon/Heart1.svg";
+                    }
+                });
+        }
+
+        // Fungsi untuk mendapatkan token CSRF dari cookie
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function filterBooks() {
+            const bookCategorySelect = document.getElementById("bookCategory");
+            const books = document.querySelectorAll(".card"); // Ambil semua elemen buku
+            const selectedGenre = bookCategorySelect.value;
+            
+            // Sembunyikan semua buku terlebih dahulu
+            books.forEach(book => {
+                book.style.display = "none";
+            });
+
+            // Tampilkan hanya buku yang sesuai dengan genre yang dipilih
+            books.forEach(book => {
+                const bookGenres = book.getAttribute("data-genre").toLowerCase().split("|"); // Membagi genre menjadi array
+                if (bookGenres.includes(selectedGenre) || selectedGenre === "all") {
+                    book.style.display = "block";
+                }
+            });
+        }
+
+        function add_favorit(book_id){
+            console.log(book_id)
+            console.log("test2")
+            const isFavoriteInput = document.querySelector('input[name="is_favorite"]:checked');
+
+            if (isFavoriteInput) {
+                const isFavoriteValue = isFavoriteInput.value;
+                if (isFavoriteValue === "yes") {
+                    // Tambahkan buku ke favorit
+                    fetch(`add_favorit/${book_id}/`,{
+                        method: "POST",
+                        body: new FormData(document.querySelector('#form'))
+                    }).then(refreshProducts)
+
+                    document.getElementById("form").reset()
+                    return false
+                } else if (isFavoriteValue === "no") {
+                    // Batal menambahkan buku ke favorit
+                    console.log("Anda memilih untuk tidak menambahkan ke favorit");
+                    document.getElementById("form").reset()
+                    return false
+                }
+                    
+            }
+        }
+
     </script>
 
 {% endblock content %}

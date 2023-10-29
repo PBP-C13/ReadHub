@@ -39,16 +39,25 @@ def show_json_by_id(request, id):
     data = Book.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-def register(request):
-    form = UserCreationForm()
 
+def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
-    context = {'form':form}
+            user = form.save()
+            # Autentikasi pengguna yang baru dibuat
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password1']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)  # Login pengguna
+                messages.success(request, 'Your account has been successfully created!')
+                return redirect('main:login')
+
+    else:
+        form = UserCreationForm()
+
+    context = {'form': form}
     return render(request, 'register.html', context)
 
 def login_user(request):
