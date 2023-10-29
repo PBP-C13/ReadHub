@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
 from django.urls import reverse
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.core import serializers
 from .models import Forum, Like
 from book.models import Book
@@ -11,6 +11,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ForumForm
 from django.shortcuts import redirect
+
 
 @login_required(login_url='/login')
 def show_forum(request):
@@ -46,6 +47,20 @@ def create_forum(request):
 
     context = {'form': form}
     return render(request, "create_forum.html", context)
+
+@csrf_exempt
+def create_forum_ajax(request):
+    if request.method == 'POST':
+        text = request.POST.get("description")
+        book = Book.objects.get(pk=request.POST.get("book"))
+        author = request.user 
+        new_form = Forum (text = text, book=book, author=author)
+        new_form.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+    
 
 @login_required(login_url='/login')
 def get_product_json(request):
@@ -135,3 +150,4 @@ def like_forum_post(request, post_id):
 def get_json(self):
     data = Book.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+

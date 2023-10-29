@@ -679,8 +679,8 @@ body {
   width: 300px;
   height: 66px;
   padding: 10px 20px;
-  justify-content: center;
-  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
   gap: 10px;
   border-radius: 24px;
   background: var(--Primary, #2A4CF1);
