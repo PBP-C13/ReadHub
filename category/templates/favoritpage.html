@@ -13,21 +13,21 @@
         white-space: nowrap;
     }
 
-.favorit .search .label .text-wrapper {
-  font-family: "Poppins", Helvetica;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 30px;
-  letter-spacing: 0;
-  line-height: 76.8px;
-  text-align: center;
-  white-space: nowrap;
-}
-  
-.favorit .search .input-group {
-  width: 33%; /* Atur lebar sesuai kebutuhan (1/3 dari lebar layar) */
-  margin: 0 auto; /* Agar input-group berada di tengah-tengah layar */
-}
+    .favorit .search .label .text-wrapper {
+    font-family: "Poppins", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 76.8px;
+    text-align: center;
+    white-space: nowrap;
+    }
+    
+    .favorit .search .input-group {
+    width: 33%; /* Atur lebar sesuai kebutuhan (1/3 dari lebar layar) */
+    margin: 0 auto; /* Agar input-group berada di tengah-tengah layar */
+    }
 
     .favorit .container #all-books {
         display: grid;
@@ -36,7 +36,7 @@
     }
     .favorit .container #all-books .card{
         margin: 2px;
-        height: 450px; /* Atur tinggi sesuai kebutuhan */
+        height: 400px; /* Atur tinggi sesuai kebutuhan */
         background-color: #23264F;
     }
     .favorit .container #all-books .card .card-img-top{
@@ -48,18 +48,22 @@
         border-radius: 10px; /* Atur radius sesuai kebutuhan */
         margin-top: 7px;
     }
-    .favorit .container #all-books .card .love{
-        width: 50px;
+    .favorit .container #all-books .card .delete-button{
+        width: 110px;
         height: 50px;
         position: absolute; /* Mengatur posisi absolut untuk love */
         bottom: 10px; /* Atur jarak dari atas card */
         right: 15px; /* Atur jarak dari kanan card */
     }
-    .favorit .container #all-books .card .love:hover{
-        filter: brightness(0.7);
-        cursor: pointer;
 
+    .favorit .container #all-books .card a .detail-button{
+        width: 110px;
+        height: 50px;
+        position: absolute; /* Mengatur posisi absolut untuk love */
+        bottom: 10px; /* Atur jarak dari atas card */
+        left: 15px; /* Atur jarak dari kanan card */
     }
+
     .favorit .container  #all-books .card .card-body .judul,
     .favorit .container  #all-books .card .card-body .author  {
         white-space: nowrap;
@@ -167,9 +171,9 @@
                       <h5 class="judul">${item.book_title}</h5>
                       <p class="author">by ${item.book_author} ${item.genre}</p>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="delete_favorit(${item.book_id})">DELETE</button>
+                    <button type="button" class="btn btn-danger delete-button" onclick="delete_favorit(${item.book_id})">Delete</button>
                     <a href="detail/${item.book_id}">
-                            <button type="button" class="btn btn-info detail-button">Detail Book</button>
+                            <button type="button" class="btn btn-primary detail-button">Detail Book</button>
                     </a>  
                 </div>
                 `;
