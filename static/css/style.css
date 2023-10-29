@@ -2006,6 +2006,7 @@ ul {
   .category .container .scrollmenu #nonfiction-books .card .like-button,
   .category .container .scrollmenu #romance-books .card .like-button,
   .category .container .scrollmenu #mystery-books .card .like-button{
+    background-color: #3FBCFC;
     width: 110px;
     height: 50px;
     position: absolute; /* Mengatur posisi absolut untuk love */
@@ -2018,6 +2019,7 @@ ul {
   .category .container .scrollmenu #nonfiction-books .card .detail-button,
   .category .container .scrollmenu #romance-books .card .detail-button,
   .category .container .scrollmenu #mystery-books .card .detail-button{
+      background-color: #2A4CF1;
       width: 110px;
       height: 50px;
       position: absolute; /* Mengatur posisi absolut untuk love */
