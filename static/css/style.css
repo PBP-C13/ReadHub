@@ -1903,7 +1903,7 @@ ul {
   
   .category .container #all-books .card{
     margin: 2px;
-    height: 450px; /* Atur tinggi sesuai kebutuhan */
+    height: 400px; /* Atur tinggi sesuai kebutuhan */
     background-color: #23264F;
   }
   
@@ -1917,6 +1917,24 @@ ul {
     margin-top: 7px;
   }
   
+  .category .container #all-books .card .like-button{
+    background-color: #3FBCFC;
+    width: 110px;
+    height: 50px;
+    position: absolute; /* Mengatur posisi absolut untuk love */
+    bottom: 10px; /* Atur jarak dari atas card */
+    right: 15px; /* Atur jarak dari kanan card */
+  }
+
+  .category .container #all-books .card a .detail-button{
+    background-color: #2A4CF1;
+      width: 110px;
+      height: 50px;
+      position: absolute; /* Mengatur posisi absolut untuk love */
+      bottom: 10px; /* Atur jarak dari atas card */
+      left: 15px; /* Atur jarak dari kanan card */
+  }
+
   .category .container #all-books .card .love{
     width: 50px;
     height: 50px;
@@ -1929,6 +1947,32 @@ ul {
     filter: brightness(0.7);
     cursor: pointer;
   
+  }
+
+  .category .container .scrollmenu #fantasy-books .card .like-button,
+  .category .container .scrollmenu #sciencefiction-books .card .like-button,
+  .category .container .scrollmenu #nonfiction-books .card .like-button,
+  .category .container .scrollmenu #romance-books .card .like-button,
+  .category .container .scrollmenu #mystery-books .card .like-button{
+    background-color: #3FBCFC;
+    width: 110px;
+    height: 50px;
+    position: absolute; /* Mengatur posisi absolut untuk love */
+    bottom: 10px; /* Atur jarak dari atas card */
+    right: 15px; /* Atur jarak dari kanan card */
+  }
+
+  .category .container .scrollmenu #fantasy-books .card .detail-button,
+  .category .container .scrollmenu #sciencefiction-books .card .detail-button,
+  .category .container .scrollmenu #nonfiction-books .card .detail-button,
+  .category .container .scrollmenu #romance-books .card .detail-button,
+  .category .container .scrollmenu #mystery-books .card .detail-button{
+      background-color: #2A4CF1;
+      width: 110px;
+      height: 50px;
+      position: absolute; /* Mengatur posisi absolut untuk love */
+      bottom: 10px; /* Atur jarak dari atas card */
+      left: 15px; /* Atur jarak dari kanan card */
   }
   
   .category .container  #all-books .card .card-body .judul,
@@ -1966,8 +2010,8 @@ ul {
   margin: 2px;
   display: flex;
   flex-direction: column; /* Mengubah arah flex ke kolom */
-  width: 250px; /* Atur lebar card sesuai kebutuhan */
-  height: 450px ; /* Atur tinggi card sesuai kebutuhan */
+  width: 280px; /* Atur lebar card sesuai kebutuhan */
+  height: 400px ; /* Atur tinggi card sesuai kebutuhan */
   background-color: #23264F;
   }
   
