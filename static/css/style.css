@@ -1903,7 +1903,7 @@ ul {
   
   .category .container #all-books .card{
     margin: 2px;
-    height: 400px; /* Atur tinggi sesuai kebutuhan */
+    height: 450px; /* Atur tinggi sesuai kebutuhan */
     background-color: #23264F;
   }
   
@@ -1915,24 +1915,6 @@ ul {
     max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
     border-radius: 10px; /* Atur radius sesuai kebutuhan */
     margin-top: 7px;
-  }
-
-  .category .container #all-books .card .like-button{
-    background-color: #3FBCFC;
-    width: 110px;
-    height: 50px;
-    position: absolute; /* Mengatur posisi absolut untuk love */
-    bottom: 10px; /* Atur jarak dari atas card */
-    right: 15px; /* Atur jarak dari kanan card */
-  }
-
-  .category .container #all-books .card a .detail-button{
-    background-color: #2A4CF1;
-      width: 110px;
-      height: 50px;
-      position: absolute; /* Mengatur posisi absolut untuk love */
-      bottom: 10px; /* Atur jarak dari atas card */
-      left: 15px; /* Atur jarak dari kanan card */
   }
   
   .category .container #all-books .card .love{
@@ -1984,8 +1966,8 @@ ul {
   margin: 2px;
   display: flex;
   flex-direction: column; /* Mengubah arah flex ke kolom */
-  width: 280px; /* Atur lebar card sesuai kebutuhan */
-  height: 400px ; /* Atur tinggi card sesuai kebutuhan */
+  width: 250px; /* Atur lebar card sesuai kebutuhan */
+  height: 450px ; /* Atur tinggi card sesuai kebutuhan */
   background-color: #23264F;
   }
   
@@ -2001,32 +1983,6 @@ ul {
     max-height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
     border-radius: 10px; /* Atur radius sesuai kebutuhan */
     margin-top: 7px;
-  }
-
-  .category .container .scrollmenu #fantasy-books .card .like-button,
-  .category .container .scrollmenu #sciencefiction-books .card .like-button,
-  .category .container .scrollmenu #nonfiction-books .card .like-button,
-  .category .container .scrollmenu #romance-books .card .like-button,
-  .category .container .scrollmenu #mystery-books .card .like-button{
-    background-color: #3FBCFC;
-    width: 110px;
-    height: 50px;
-    position: absolute; /* Mengatur posisi absolut untuk love */
-    bottom: 10px; /* Atur jarak dari atas card */
-    right: 15px; /* Atur jarak dari kanan card */
-  }
-
-  .category .container .scrollmenu #fantasy-books .card .detail-button,
-  .category .container .scrollmenu #sciencefiction-books .card .detail-button,
-  .category .container .scrollmenu #nonfiction-books .card .detail-button,
-  .category .container .scrollmenu #romance-books .card .detail-button,
-  .category .container .scrollmenu #mystery-books .card .detail-button{
-      background-color: #2A4CF1;
-      width: 110px;
-      height: 50px;
-      position: absolute; /* Mengatur posisi absolut untuk love */
-      bottom: 10px; /* Atur jarak dari atas card */
-      left: 15px; /* Atur jarak dari kanan card */
   }
   
   .category .container .scrollmenu #fantasy-books .card .card-body .judul,
@@ -2580,9 +2536,9 @@ ul {
   
   .your-book .div {
     background-color: #161732;
-    width: 1440px;
+    width: 100%;
     height: 2697px;
-    position: relative;
+    position: absolute;
   }
   
   .your-book .frame {
@@ -2721,21 +2677,36 @@ ul {
     white-space: nowrap;
   }
   
-  .your-book .book-continer{
+  .your-book .book-container{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .your-book .frame-book {
     position: relative;
     width: 1216px;
     height: 408px;
     top: 781px;
-    left: 112px;
+    left: 0;
     background-color: #23264f;
     border-radius: 20px;
     overflow: hidden;
     margin-bottom: 50px;
+    transition: transform 0.5s ease;
+  }
+
+  .your-book .frame-book:hover {
+    transform: scale(1.05);
+  }
+  
+  @keyframes shake {
+    0% { transform: rotate(0); }
+    20% { transform: rotate(-5deg); }
+    40% { transform: rotate(5deg); }
+    60% { transform: rotate(-5deg); }
+    80% { transform: rotate(5deg); }
+    100% { transform: rotate(0); }
   }
   
   .your-book .image-wrapper {
@@ -2967,11 +2938,13 @@ ul {
   }
   
   .your-book .overlap-group-wrapper {
+    display: flex;
     position: absolute;
-    width: 1440px;
+    top: 0;
+    width: 100%;
     height: 445px;
-    top: 100px;
-    left: 0;
+    align-items: center;
+    justify-content: center;
     background-color: #2a4cf1;
   }
   
@@ -3112,6 +3085,7 @@ ul {
     width: 1440px;
     height: 3124px;
     position: relative;
+    align-content: center;
   }
   
   .detail-book .frame {
