@@ -13,15 +13,10 @@ from .forms import ForumForm
 from django.shortcuts import redirect
 
 
-
-@login_required(login_url='/login')
 def show_forum(request):
     book = Book.objects.filter(pk__in=range(1, 101))
     active_genre = request.GET.get('genre', None)
-    if active_genre:
-        forum = Forum.objects.filter(book__genres__icontains=active_genre)
-    else:
-        forum = Forum.objects.all()
+    forum = Forum.objects.all()
 
     context = {
         'name': request.user.username,
@@ -35,18 +30,24 @@ def show_forum(request):
 
 @login_required(login_url='/login')
 def create_forum(request):
-    form =  ForumForm(request.POST or None)
-
-    if form.is_valid() and request.method == "POST":
-        product = form.save(commit=False)
-        product.user = request.user
-        product.save()
-        return HttpResponseRedirect(reverse('discussion_forum:show_forum'))
-    
+    if request.method == "POST":
+        form = ForumForm(request.POST)
+        if form.is_valid():
+            forum = form.save(commit=False)
+            forum.author = request.user  # Set author ke pengguna saat ini
+            forum.save()
+            return HttpResponseRedirect(reverse('discussion_forum:show_forum'))
+        else:
+            # Handle error in form validation
+            # Misalnya, tampilkan pesan kesalahan atau log pesan kesalahan
+            print(form.errors)
+    else:
+        form = ForumForm()
 
     context = {'form': form}
     return render(request, "create_forum.html", context)
 
+@login_required(login_url='/login')
 def get_product_json(request):
     selected_genre = request.GET.get('selected_genre') 
     product_items = []
@@ -59,6 +60,7 @@ def get_product_json(request):
         book = Book.objects.get(id=forum.book_id)  
         # Buat dictionary baru dengan data forum dan buku
         product_item = {
+            'name': forum.author.username ,
             'forum_id': forum.id,
             'likes':forum.like,
             'forum_text': forum.text,
