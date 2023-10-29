@@ -24,7 +24,7 @@
                 <a class="nav-link" style="color: #fff;"  href="#">Your Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color: #ffffff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+              <a class="nav-link" style="color: #ffffff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
           </li>
           </ul>
       </div>
@@ -224,8 +224,7 @@
 
             document.getElementById("form").reset();
             
-                cardContainer.style.display = "flex";
-        cardContainer.style.justifyContent = "space-between";
+        cardContainer.style.display = "flex";
         cardContainer.style.transform = "translateY(-5px)";
         cardContainer.style.transition = "transform 0.2s";
         cardContainer.style.gap = "20px"; 
