@@ -4,7 +4,7 @@
 
 # Nama Aplikasi : ReadHub	
 
-Link Aplikasi : 	[TBA]
+Link Aplikasi : [readhub-c13-tk.pbp.cs.ui.ac.id](readhub-c13-tk.pbp.cs.ui.ac.id)
 
 ## 🙋🏻‍♀️ Anggota Kelompok	🙋🏻‍♂️
 * Aiza Derisyana - 2206082436
@@ -67,6 +67,17 @@ Modul ini memungkinkan pengguna untuk menandai atau menyimpan buku-buku favorit 
 
 <br>
 
+# 💼 Pembagian Modul 💼
+
+|Modul  |Tugas  |
+|---  |---|
+|Landing Page & Autentifikasi | Aryan Primasatya Putra Hidayat |
+|Category & Favorit Buku | Syifa Kaffa Billah |
+|Detail & Review Buku | Aiza Derisyana |
+|Meminjam Buku| Reyhan Zada Virgiwibowo|
+|Forum Community| Arya WIjaya Kusuma|
+
+<br>
 
 # 🌈 Role Pengguna Aplikasi (User, Admin) 🌈
 - Super admin 
