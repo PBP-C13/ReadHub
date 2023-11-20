@@ -852,7 +852,6 @@ body {
   height: 100px;
   top: 56px;
   left: 73px;
-  background-image: url(../img/mask-group-2.png);
   background-size: 100% 100%;
 }
 
@@ -2620,7 +2619,6 @@ ul {
     height: 44px;
     top: 15px;
     left: 15px;
-    background-image: url(../img/mask-group-2.png);
     background-size: 100% 100%;
   }
   
@@ -3140,7 +3138,6 @@ ul {
     position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(/static/img/TickSquare.png);
     background-size: 100% 100%;
   }
   
@@ -3730,7 +3727,6 @@ ul {
     height: 44px;
     top: 15px;
     left: 15px;
-    /* background-image: url(../img/mask-group.png); */
     background-size: 100% 100%;
   }
   
