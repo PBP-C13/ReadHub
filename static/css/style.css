@@ -2685,7 +2685,7 @@ ul {
       color: #ffffff;
   }
 
-  p{
+  .your-book p{
     display: flex;
       flex-direction: column;
       align-items: center;
