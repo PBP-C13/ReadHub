@@ -6,6 +6,9 @@
 
 Link Aplikasi : [readhub-c13-tk.pbp.cs.ui.ac.id](readhub-c13-tk.pbp.cs.ui.ac.id)
 
+## Pipeline Status
+[![Release](https://https://github.com/PBP-C13/ReadHub/actions/workflows/pbp-deploy.yml/badge.svg)](https://github.com/PBP-C13/ReadHub/actions/workflows/pbp-deploy.yml)
+
 ## 🙋🏻‍♀️ Anggota Kelompok	🙋🏻‍♂️
 * Aiza Derisyana - 2206082436
 * Arya Wijaya Kusuma -2206030306
