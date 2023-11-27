@@ -8,8 +8,10 @@ from datetime import datetime, timedelta
 from borrow_flow.forms import *
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout as auth_logout
 
 # Create your views here.
+@login_required(login_url='/login')
 def show_borrow_page(request, id):
     book = Book.objects.get(pk = id)
     context = {
@@ -19,6 +21,7 @@ def show_borrow_page(request, id):
     }
     return render(request, "borrow.html", context)
 
+@login_required(login_url='/login')
 def show_yourbook_page(request):
     # borrowed_book = BorrowedBook.objects.filter(user = request.user)
     borrowed_book = BorrowedBook.objects.all()
@@ -45,7 +48,6 @@ def borrow_book(request, id):
             return redirect('borrow_flow:show_yourbook_page')
     return HttpResponseNotFound()
     
-        
 @csrf_exempt
 def return_book(request, id):
     borrowed_book = BorrowedBook.objects.filter(user=request.user)
@@ -58,7 +60,6 @@ def get_book_by_id_json(request, id):
     book = Book.objects.filter(pk=id)
     return HttpResponse(serializers.serialize('json', book), content_type="application/json")
 
-@login_required
 def get_borrowed_book_json(request):
     borrowed_books = BorrowedBook.objects.filter(user=request.user)
     borrowed_books_data = []
@@ -87,5 +88,22 @@ def get_borrowed_book_json(request):
         }
         borrowed_books_data.append(data)
     return JsonResponse(borrowed_books_data, safe=False)
+
+@csrf_exempt
+def logout(request):
+    username = request.user.username
+
+    try:
+        auth_logout(request)
+        return JsonResponse({
+            "username": username,
+            "status": True,
+            "message": "Logout berhasil!"
+        }, status=200)
+    except:
+        return JsonResponse({
+        "status": False,
+        "message": "Logout gagal."
+        }, status=401)
         
 
