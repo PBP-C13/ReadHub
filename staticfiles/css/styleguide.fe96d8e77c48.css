@@ -1,0 +1,12 @@
+:root {
+    --button-18-px-bold-font-family: "Gilroy-Bold-â˜ž", Helvetica;
+    --button-18-px-bold-font-weight: 400;
+    --button-18-px-bold-font-size: 18px;
+    --button-18-px-bold-letter-spacing: 0.225px;
+    --button-18-px-bold-line-height: normal;
+    --button-18-px-bold-font-style: normal;
+    --variable-collection-secondary: rgba(63, 188, 252, 1);
+    --variable-collection-primary: rgba(42, 76, 241, 1);
+    --variable-collection-secondary-bg: rgba(35, 38, 79, 1);
+    --variable-collection-primary-bg: rgba(22, 24, 50, 1);
+  }

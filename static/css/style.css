@@ -182,7 +182,6 @@ body {
     height: 100px;
     top: 67px;
     left: 73px;
-    background-image: url(./img/mask-group.png);
     background-size: 100% 100%;
   }
   
@@ -698,7 +697,6 @@ body {
   height: 24px;
   top: 4px;
   left: 4px;
-  background-image: url(./img/edit.svg);
   background-size: 100% 100%;
   }
   
@@ -789,7 +787,6 @@ body {
   height: 100px;
   top: 67px;
   left: 73px;
-  background-image: url(./img/mask-group.png);
   background-size: 100% 100%;
 }
 
@@ -855,7 +852,6 @@ body {
   height: 100px;
   top: 56px;
   left: 73px;
-  background-image: url(./img/mask-group-2.png);
   background-size: 100% 100%;
 }
 
@@ -1472,7 +1468,6 @@ ul {
   height: 24px;
   top: 4px;
   left: 4px;
-  background-image: url(./img/edit.svg);
   background-size: 100% 100%;
   }
   
@@ -2390,7 +2385,7 @@ ul {
     height: 27px;
     top: 3px;
     left: 4px;
-    background-image: url(./img/combined-shape.svg);
+    background-image: url(../img/combined-shape.svg);
     background-size: 100% 100%;
   }
   
@@ -2412,7 +2407,6 @@ ul {
     height: 100px;
     top: 0;
     left: 0;
-    background-image: url(./img/rectangle-39291.png);
     background-size: 100% 100%;
   }
   
@@ -2433,7 +2427,6 @@ ul {
     height: 44px;
     top: 15px;
     left: 15px;
-    background-image: url(./img/mask-group.png);
     background-size: 100% 100%;
   }
   
@@ -2626,7 +2619,6 @@ ul {
     height: 44px;
     top: 15px;
     left: 15px;
-    background-image: url(./img/mask-group-2.png);
     background-size: 100% 100%;
   }
   
@@ -2685,7 +2677,7 @@ ul {
       color: #ffffff;
   }
 
-  p{
+  .your-book p{
     display: flex;
       flex-direction: column;
       align-items: center;
@@ -2890,7 +2882,6 @@ ul {
     position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(./img/tick-square.svg);
     background-size: 100% 100%;
   }
   
@@ -3007,7 +2998,6 @@ ul {
     position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(./img/tick-square-2.svg);
     background-size: 100% 100%;
   }
   
@@ -3026,7 +3016,6 @@ ul {
     position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(./img/image.svg);
     background-size: 100% 100%;
   }
   
@@ -3149,7 +3138,6 @@ ul {
     position: relative;
     width: 32px;
     height: 32px;
-    background-image: url(/static/img/TickSquare.png);
     background-size: 100% 100%;
   }
   
@@ -3427,7 +3415,6 @@ ul {
     height: 20px;
     top: 2px;
     left: 3px;
-    background-image: url(./img/image.svg);
     background-size: 100% 100%;
   }
   
@@ -3460,7 +3447,7 @@ ul {
     height: 20px;
     top: 2px;
     left: 3px;
-    background-image: url(./img/combined-shape.svg);
+    background-image: url(../img/combined-shape.svg);
     background-size: 100% 100%;
   }
   
@@ -3740,7 +3727,6 @@ ul {
     height: 44px;
     top: 15px;
     left: 15px;
-    background-image: url(./img/mask-group.png);
     background-size: 100% 100%;
   }
   
@@ -3865,7 +3851,6 @@ ul {
     height: 800px;
     top: 28px;
     left: 666px;
-    background-image: url(./img/FRAME-ILUS-1-1.png);
     background-size: cover;
     background-position: 50% 50%;
 }
@@ -4036,7 +4021,6 @@ ul {
     height: 20px;
     top: 2px;
     left: 2px;
-    background-image: url(./img/discovery.svg);
     background-size: 100% 100%;
 }
 
@@ -4076,7 +4060,6 @@ ul {
     height: 16px;
     top: 4px;
     left: 1px;
-    background-image: url(./img/3-friends.svg);
     background-size: 100% 100%;
 }
 
