@@ -258,7 +258,7 @@
             return fetch(url).then((res) => res.json())
         }
 
-        // Fungsi yang memasang event listener untuk tombol "LIKE"
+        // Fungsi yang memasang event listener untuk tombol "add favorit"
         function setupLikeButtonListeners() {
             const likeButtons = document.querySelectorAll(".like-button");
 
@@ -273,7 +273,6 @@
         }
 
         document.addEventListener("DOMContentLoaded", function() {
-
 
             console.log("ihhhsaihdjadsa")
             setupLikeButtonListeners();
@@ -408,7 +407,7 @@
             });
         }
 
-        function add_favorit(book_id){
+        function add_favorit(book_id){  //ini untuk popup konfirmasi .
             console.log(book_id)
             console.log("test2")
             const isFavoriteInput = document.querySelector('input[name="is_favorite"]:checked');
