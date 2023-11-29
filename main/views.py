@@ -9,6 +9,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from book.models import Book
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
@@ -39,7 +41,7 @@ def show_json_by_id(request, id):
     data = Book.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-
+@csrf_exempt
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
@@ -60,6 +62,7 @@ def register(request):
     context = {'form': form}
     return render(request, 'register.html', context)
 
+@csrf_exempt
 def login_user(request):
     if request.method == 'POST':
         username = request.POST.get('username')
