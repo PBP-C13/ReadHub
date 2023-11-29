@@ -55,6 +55,10 @@ def show_favorit(request):
 
 #     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
 
+def show_json_favorit(request):
+    data = Category.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
 #fungsi untuk mengembalikan data jason:
 def get_product_json(request):
     all_books = Book.objects.all()[:100]
