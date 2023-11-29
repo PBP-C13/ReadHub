@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import logout as auth_logout
 from .forms import CustomUserCreationForm
 
+
 @csrf_exempt
 def login(request):
     username = request.POST['username']
@@ -52,7 +53,6 @@ def logout(request):
     
 
 
-from .forms import CustomUserCreationForm
 
 @csrf_exempt
 def register(request):
