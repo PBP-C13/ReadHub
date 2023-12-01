@@ -43,29 +43,34 @@
   </div>
 </div>
 
+
+</div>
     {% csrf_token %}
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Add Review</h5>
+            <h5 class="modal-title" style="color:rgb(0, 0, 0)" id="exampleModalLongTitle">Add Review</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 <form id="form" onsubmit="return false;"> 
+                  <input type="hidden" id="book_id" name="book_id" value="{{ book.pk }}">
                       <div class="mb-3">
-                          <label for="book_review" class="col-form-label">Review:</label>
+                          <label for="book_review"  style="color:rgb(0, 0, 0)" class="col-form-label">Review:</label>
                           <textarea class="form-control" id="book_review" name="book_review"></textarea>
                       </div>
                   </form>
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Review</button>
+                  <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal" onclick="createReview()">Add Review</button>
               </div>
           </div>
       </div>
   </div>  
+  
+  </div>
   
     <div class="detail-book"> 
       <div class="div">
@@ -115,7 +120,7 @@
         
         <button class="button-2">
           <div class="iconly-bold-bag"><div class="bag-2"></div></div>
-          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModalLong">Create Review</div>
+          <div class="button-CTA" data-bs-toggle="modal" data-bs-target="#exampleModalLong" onclick="openAddReviewModal()">Create Review</div>
         </button>
 
         <div class="text-wrapper-9">Book Page: {{book.book_pages}}</div>
@@ -138,100 +143,67 @@
             {% endfor %}
         </div>
   <div class="container">
-    <div class="row" id="product-cards">
+    <div class="row" style="text-align: left;" id ="product_card"> </div>
      
     </div>
 </div>
 
+
+<body data-book-id="{{ book.pk }}">
+</body>
+
+
 <script>
-   async function addReview() {
-    fetch("{% url 'detail:create_review' %}", {
-          method: "POST",
-          body: new FormData(document.querySelector('#form'))
-        })
-        refreshItems()
-        document.getElementById("form").reset();
-        return false;     
+
+async function getDetails() {
+    let bookId = document.body.getAttribute('data-book-id');  
+    return fetch("/detail/" + bookId + "/get-item-json/").then((res) => res.json());
 }
 
-    async function getDetails() {
-        return fetch("{% url 'detail:get_item_json' %}").then((res) => res.json());
-    }
+
 
     async function refreshItems() {
-      const reviewInput = document.getElementById("book_review").value;
+      const productCard = document.getElementById("product_card");
+      productCard.innerHTML = ""; 
       const det = await getDetails();
+      let htmlString = "";
+      console.log(det);
 
-    if (reviewInput.trim() !== "") {
-        const csrftoken = getCookie("csrftoken"); 
-        const cardContainer = document.getElementById("product-cards");
-        
+      det.forEach((item) => {
+        htmlString += `
+          <div class="frame-7" style="width: 392px; height: 296px; background-color: #23264f; border-radius: 30px; overflow: hidden; position: relative;">
+            <p class="p" style="width: 338px; top: 39px; left: 27px; font-family: Poppins-Medium, Helvetica; font-weight: 500; color: transparent; font-size: 24px; letter-spacing: 0; line-height: 36px;">
+              <span class="span" style="color: #ffffff;">${item.review}</span>
+              <span class="text-wrapper-12" style="color: #3fbcfc;">More</span>
+              <span class="text-wrapper-14" style="color: #ffffff;">- ${item.user}</span>
+            </p>
+        </div>`
+              ;
+        });
 
-        const card = document.createElement("div");
-        card.className = "frame-7";
-        card.style.width = "392px";
-        card.style.height = "296px";
-        card.style.backgroundColor = "#23264f";
-        card.style.borderRadius = "30px";
-        card.style.overflow = "hidden";
-        card.style.position = "relative";
-
-        const cardParagraph = document.createElement("p");
-        cardParagraph.className = "p";
-        cardParagraph.style.width = "338px";
-        cardParagraph.style.top = "39px";
-        cardParagraph.style.left = "27px";
-        cardParagraph.style.fontFamily = "Poppins-Medium, Helvetica";
-        cardParagraph.style.fontWeight = "500";
-        cardParagraph.style.color = "transparent";
-        cardParagraph.style.fontSize = "24px";
-        cardParagraph.style.letterSpacing = "0";
-        cardParagraph.style.lineHeight = "36px";
-
-        const cardSpan = document.createElement("span");
-        cardSpan.className = "span"; 
-        cardSpan.style.color = "#ffffff"; 
-        cardSpan.textContent = reviewInput ;
-
-        const cardTextWrapper = document.createElement("span");
-        cardTextWrapper.className = "text-wrapper-12"; 
-        cardTextWrapper.style.color = "#3fbcfc"; 
-        cardTextWrapper.textContent =  "More";
-
-        const cardByWrapper = document.createElement("span");
-        cardByWrapper.className = "text-wrapper-14"; 
-        cardByWrapper.style.color = "#ffffff"; 
-        cardByWrapper.textContent =  "- " + det.name ;
-
-        card.appendChild(cardParagraph);
-        cardParagraph.appendChild(cardSpan);
-        cardParagraph.appendChild(cardTextWrapper);
-        cardParagraph.appendChild(cardByWrapper);
-
-        cardContainer.appendChild(card);
-
-        document.getElementById("form").reset();
-
-        const data = {
-            book_review: reviewInput,
-            csrfmiddlewaretoken: csrftoken,  
-        };
-
-        fetch("{% url 'detail:create_review' %}", {
-              method: "POST",
-              body: new FormData(document.querySelector('#form'))
-            }).then(refreshItems);
-
-            document.getElementById("form").reset();
-            
-        cardContainer.style.display = "flex";
-        cardContainer.style.transform = "translateY(-5px)";
-        cardContainer.style.transition = "transform 0.2s";
-        cardContainer.style.gap = "20px"; 
-        return false;
-    }
-      
+      document.getElementById("product_card").innerHTML = htmlString;
   }
+  refreshItems();
+
+  document.addEventListener("DOMContentLoaded", function () {
+    refreshForum();
+  });
+
+
+  function openAddReviewModal() {
+      $('#exampleModalLong').modal('show');
+    }
+
+    function createReview() {
+      fetch("{% url 'detail:create_review_ajax' %}", {
+        method: 'POST',
+        body: new FormData(document.querySelector('#form'))
+      }).then(refreshItems);
+
+      document.getElementById("form").reset();
+      return false;
+    }
+
   
   function getCookie(name) {
     const value = `; ${document.cookie}`;
@@ -239,8 +211,8 @@
     if (parts.length === 2) return parts.pop().split(';').shift();
   }
 
-    document.getElementById("button_add").onclick = addReview;
-    refreshItems();
+    document.getElementById("button_add").onclick = createReview;
+    
 </script>
 
 
