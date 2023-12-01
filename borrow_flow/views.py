@@ -11,7 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout as auth_logout
 
 # Create your views here.
-@login_required(login_url='/login')
+@login_required(login_url='/login') 
 def show_borrow_page(request, id):
     book = Book.objects.get(pk = id)
     context = {

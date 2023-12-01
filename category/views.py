@@ -36,7 +36,7 @@ def show_category(request):
 
 @login_required(login_url='/login')
 def show_favorit(request):
-    categories = Category.objects.all()
+    categories = Category.objects.filter(user=request.user)
     # Ambil semua buku dalam basis data
 
     context = {
@@ -46,23 +46,28 @@ def show_favorit(request):
 
     return render(request, "favoritpage.html", context)
 
-def add_books_to_category(request):
-    category = Category.objects.get(name_category='Fiksi')  # Ganti 'Fiksi' dengan nama kategori yang sesuai
-    books_to_add = Book.objects.filter(genre='Fiksi')  
+# def add_books_to_category(request):
+#     category = Category.objects.get(name_category='Fiksi')  # Ganti 'Fiksi' dengan nama kategori yang sesuai
+#     books_to_add = Book.objects.filter(genre='Fiksi')  
 
-    for book in books_to_add:
-        category.books.add(book)
+#     for book in books_to_add:
+#         category.books.add(book)
 
-    return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
+#     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
+
+def show_json_favorit(request):
+    data = Category.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 #fungsi untuk mengembalikan data jason:
 def get_product_json(request):
     all_books = Book.objects.all()[:100]
     return HttpResponse(serializers.serialize('json', all_books))
 
+#untuk dapetin buku2 yang ditambahkan ke favorit
 def get_book_favorit(request):
     product_items = []
-    favorit_books = Category.objects.all()
+    favorit_books = Category.objects.filter(user=request.user)
     for favorit in favorit_books:
         book = Book.objects.get(id=favorit.books.pk)  
         # Buat dictionary baru dengan data forum dan buku
@@ -94,13 +99,12 @@ def add_book_favorit_ajax(request, book_id):
 
     return HttpResponseNotFound()
 
+#untuk delete book favorit
 def delete_favorit(request, book_id):
     user = request.user
 
-    print("User:", user)
-    print("Book ID:", book_id)
     existing_favorit = Category.objects.filter(user=user, books__id=book_id).first()
-    print("Existing Favorit:", existing_favorit)
+
     
     if existing_favorit:
         existing_favorit.delete()  # Menghapus item favorit
