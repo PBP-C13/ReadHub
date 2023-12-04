@@ -25,7 +25,7 @@
                 <a class="nav-link" style="color: #fff;"  href="{% url 'borrow_flow:show_yourbook_page' %}">Your Book</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" style="color: #fff;"  href="{% url 'favorit:show_favorit' %}" >Favorite</a>
+              <a class="nav-link" style="color: #fff;"  href="{% url 'category:show_favorit' %}" >Favorite</a>
           </li>
           </ul>
       </div>
@@ -114,24 +114,24 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-              <form id="addForumForm">
-                  {% csrf_token %}
-                  <div class="mb-4">
+            <form id="addForumForm">
+                {% csrf_token %}
+                <div class="mb-4">
                     <label for="description" class="col-form-label">Forum:</label>
                     <textarea class="form-control" id="description" name="description" rows="4"></textarea>
                 </div>
-                  <div class="mb-3">
-                      <label for="book" class="col-form-label">Select Book:</label>
-                      <select class="form-control" id="book" name="book">
-                          <option value="" selected="selected">Select Book</option>
-                          <!-- Add options for books 1 to 100 using a loop in your template -->
-                          {% for pilihan in pilihan %}
-                              <option value="{{ pilihan.book_id }}"> {{ pilihan.book_title }}</option>
-                          {% endfor %}
-                      </select>
-                  </div>
-              </form>
-          </div>
+                <div class="mb-3">
+                    <label for="book" class="col-form-label">Select Book:</label>
+                    <select class="form-control" id="book" name="book">
+                        <option value="" selected="selected">Select Book</option>
+                        <!-- Add options for books 1 to 100 using a loop in your template -->
+                        {% for pilihan in pilihan %}
+                            <option value="{{ pilihan.id }}"> {{ pilihan.book_title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </form>
+        </div>        
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button type="button" id="button_add" class="btn btn-primary" onclick="createForum()"> Create Forum </button>
@@ -174,7 +174,7 @@
                 <div class="text-wrapper-7"> ${item.name} </div>
               </div>
             
-            <p class="p">
+            <p style = "align-items: none " class="p">
               ${item.forum_text}
             </p>
           </div>
@@ -253,8 +253,6 @@
   });
   }
   
-  function filter() {
-  }
 
   function likePost(ID) {
   $.ajax({
