@@ -154,6 +154,15 @@
 
 
 <script>
+   async function addReview() {
+    fetch("{% url 'detail:create_review' %}", {
+          method: "POST",
+          body: new FormData(document.querySelector('#form'))
+        })
+        refreshItems()
+        document.getElementById("form").reset();
+        return false;     
+}
 
 async function getDetails() {
     let bookId = document.body.getAttribute('data-book-id');  

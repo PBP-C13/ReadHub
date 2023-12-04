@@ -47,6 +47,24 @@ def get_item_json(request, id):
         product_items.append(product_item)
 
     return JsonResponse(product_items, safe=False)
+
+
+@login_required(login_url='/login')
+def create_review(request):
+    if request.method == "POST":
+        rev = ReviewForm(request.POST)
+        if rev.is_valid():
+            r = rev.save(commit=False)
+            r.user = request.user  
+            r.save()
+            return HttpResponseRedirect(reverse('detail:show_detail'))
+        else:
+            print(rev.errors)
+    else:
+        rev = ReviewForm()
+
+    context = {'rev': rev}
+    return render(request, "create_detail.html", context)
     
 @login_required
 @csrf_exempt
