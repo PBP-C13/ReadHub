@@ -59,8 +59,7 @@ def borrow_book_flutter(request):
             borrow_duration = data["borrow_duration"],
             return_date = data["return_date"],
         )
-
-        borrow_book.save()
+        borrowed_book.save()
         
         return JsonResponse({"status":"success"}, status=200)
     else:
