@@ -1,11 +1,11 @@
 from django.forms import ModelForm
 from django import forms
-from .models import Detail
+from .models import Detail, Review
 from book.models import Book
 
 class ReviewForm(forms.ModelForm):
-    book = forms.ModelChoiceField(
-        queryset=Book.objects.filter(pk__gte=0, pk__lte=100),
-        label = "Review Book"
-    )
-    fields = ['text']
+    class Meta:
+        model = Review
+        fields = ['review']
+
+        
