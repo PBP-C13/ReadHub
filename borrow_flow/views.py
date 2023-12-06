@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -48,6 +49,25 @@ def borrow_book(request, id):
             return redirect('borrow_flow:show_yourbook_page')
     return HttpResponseNotFound()
     
+def borrow_book_flutter(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        
+        borrowed_book = BorrowedBook.objects.create(
+            user = request.user,
+            book = data["book"],
+            borrow_duration = data["borrow_duration"],
+            return_date = data["return_date"],
+        )
+
+        borrow_book.save()
+        
+        return JsonResponse({"status":"success"}, status=200)
+    else:
+        return JsonResponse({"status":"error"}, status=401)
+
+
+
 @csrf_exempt
 def return_book(request, id):
     borrowed_book = BorrowedBook.objects.filter(user=request.user)
