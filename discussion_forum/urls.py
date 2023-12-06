@@ -9,6 +9,7 @@ urlpatterns = [
     path('get-product/', get_product_json, name='get_product_json'),
     path('create_forum/', create_forum, name='create_forum'),
     path('create_forum_ajax/', create_forum_ajax, name='create_forum_ajax'),
+    path('create-flutter/', create_product_flutter, name='create_forum_ajax'),
     path('delete_item/<int:item_id>/', delete_item, name='delete_item'),
     path('api/books/', get_json, name='book-list'), 
     path('toggle-like/<int:id>/', toggle_like_forum, name='toggle-like'),

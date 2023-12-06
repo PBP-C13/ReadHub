@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
@@ -11,6 +12,7 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ForumForm
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 
 @login_required(login_url='/login')
@@ -151,3 +153,24 @@ def get_json(self):
     data = Book.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+
+@csrf_exempt
+def create_product_flutter(request):
+    data = json.loads(request.body)
+
+    user = User.objects.get(username=data['user'])
+    if request.method == 'POST':
+        
+
+        new_forum = Forum.objects.create(
+            author = user,
+            text = data["Forum"],
+            book = Book.objects.get(pk=data["book"])
+        )
+
+        new_forum.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
