@@ -63,12 +63,11 @@
 
 <script>
     async function getBorrowedBooks(){
-        return fetch("{% url 'borrow_flow:get_borrowed_book_json/' %}").then(res => res.json())
+        return fetch("{% url 'borrow_flow:get_borrowed_book_json' %}").then(res => res.json())
     }
 
     async function showYourBooks(){
         let borrowedBooks = await getBorrowedBooks()
-
         if(borrowedBooks.length > 0){
             document.getElementById("text-no-book").innerHTML = ``
         }
