@@ -81,6 +81,7 @@ def get_product_json(request):
             'forum_id': forum.id,
             'likes':forum.like,
             'forum_text': forum.text,
+            'book_id': book.pk,
             'book_image':book.image_url,
             'book_title': book.book_title,
             'book_author': book.book_authors,
