@@ -118,7 +118,7 @@ def toggle_like_forum(request, id):
     return response
 
 
-@login_required(login_url='/login')
+@csrf_exempt
 def delete_item(request, item_id):
     try:
         item = Forum.objects.get(id=item_id)
@@ -160,14 +160,12 @@ def create_product_flutter(request):
 
     user = User.objects.get(username=data['user'])
     if request.method == 'POST':
-        
 
         new_forum = Forum.objects.create(
             author = user,
             text = data["Forum"],
             book = Book.objects.get(pk=data["book"])
         )
-
         new_forum.save()
 
         return JsonResponse({"status": "success"}, status=200)
