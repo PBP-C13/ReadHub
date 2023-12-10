@@ -8,6 +8,8 @@ from category.forms import FavoritForm
 from django.urls import reverse
 from django.core import serializers
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+from django.core.serializers import serialize
 import favorit
 
 # Create your views here.
@@ -55,9 +57,21 @@ def show_favorit(request):
 
 #     return HttpResponse("Buku-buku telah ditambahkan ke kategori Fiksi.")
 
-def show_json_favorit(request):
+def show_json_bookfavorit(request):
     data = Category.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+def show_json_favorit(request):
+    favorit_books = Category.objects.filter(user=request.user)
+    
+    # Ambil hanya ID buku dari setiap objek Category
+    book_ids = [favorit.books.id for favorit in favorit_books]
+    
+    # Ambil objek-objek Book yang sesuai
+    books = Book.objects.filter(id__in=book_ids)
+    
+    return HttpResponse(serializers.serialize("json", books), content_type="application/json")
+
 
 
 #fungsi untuk mengembalikan data jason:
