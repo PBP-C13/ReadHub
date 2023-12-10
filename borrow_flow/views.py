@@ -66,14 +66,14 @@ def borrow_book_flutter(request):
 
 @csrf_exempt
 def return_book(request, id):
-    borrowed_book = BorrowedBook.objects.filter(user=request.user, id=id)
+    borrowed_book = BorrowedBook.objects.get(user=request.user, id=id)
     borrowed_book.delete()
     return HttpResponse(b"RETURNED", status=201)
 
 @csrf_exempt
 def return_book_flutter(request, id):
     try:
-        borrowed_book = BorrowedBook.objects.filter(user=request.user, id=id)
+        borrowed_book = BorrowedBook.objects.get(user=request.user, id=id)
         borrowed_book.delete()
         return JsonResponse({'message': 'Book returned successfully'})
     except BorrowedBook.DoesNotExist:
