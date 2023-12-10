@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.core import serializers
 from django.shortcuts import render
@@ -8,9 +9,11 @@ from book.models import Book
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from django.contrib.auth.models import User
+
 from django.contrib.auth.decorators import login_required
 import random
-from detail.models import Review
+from detail.models import Review, ReviewFlutter
 
 def show_detail(request, id):
     selected_book = Book.objects.get(pk=id)
@@ -42,7 +45,8 @@ def get_item_json(request, id):
     for r in reviews:
         product_item = {
             'user': r.user.username if r.user else "Guest",
-            'review': r.review
+            'review': r.review,
+            'book' : r.book.book_title
         }
         product_items.append(product_item)
 
@@ -77,3 +81,33 @@ def create_review_ajax(request):
         newReview.save()
         
     return HttpResponse(b"CREATED", status=201)
+
+@csrf_exempt
+def create_review_flutter(request, id):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+       
+        new_review = ReviewFlutter.objects.create(
+            user=data["user"],
+            review=data["review"],
+            book=data["book"]
+        )
+        new_review.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
+def get_item_json_flutter(request, id):
+    rev_items = []
+    reviews = ReviewFlutter.objects.filter()
+    
+    for r in reviews:
+        product_item = {
+            'user': r.user,
+            'review': r.review,
+            'book' : r.book
+        }
+        rev_items.append(product_item)
+
+    return JsonResponse(rev_items, safe=False)

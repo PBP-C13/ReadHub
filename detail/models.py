@@ -10,3 +10,8 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)  # Link to a Book
     review = models.TextField()
+
+class ReviewFlutter(models.Model):
+    user = models.TextField()
+    book = models.TextField()
+    review = models.TextField()
