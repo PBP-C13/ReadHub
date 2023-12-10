@@ -52,7 +52,6 @@ def borrow_book(request, id):
 def borrow_book_flutter(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        
         borrowed_book = BorrowedBook.objects.create(
             user = request.user,
             book = data["book"],
@@ -65,8 +64,6 @@ def borrow_book_flutter(request):
     else:
         return JsonResponse({"status":"error"}, status=401)
 
-
-
 @csrf_exempt
 def return_book(request, id):
     borrowed_book = BorrowedBook.objects.filter(user=request.user)
@@ -74,6 +71,15 @@ def return_book(request, id):
         if book.book.id == id:
             book.delete()
     return HttpResponse(b"RETURNED", status=201)
+
+@csrf_exempt
+def return_book_flutter(request, id):
+    try:
+        item = BorrowedBook.objects.get(id=id)
+        item.delete()
+        return JsonResponse({'message': 'Book returned successfully'})
+    except BorrowedBook.DoesNotExist:
+        return JsonResponse({'error': 'Book does not exist'})
 
 def get_book_by_id_json(request, id):
     book = Book.objects.filter(pk=id)

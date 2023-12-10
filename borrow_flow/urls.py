@@ -11,6 +11,7 @@ urlpatterns = [
     path('get_book_by_id_json/<int:id>/', get_book_by_id_json, name='get_book_by_id_json'),
     path('show_yourbook_page/', show_yourbook_page, name='show_yourbook_page'),
     path('borrow_book_flutter/', borrow_book_flutter, name='borrow_book_flutter'),
+    path('return_book_flutter/<int:id>/', return_book_flutter, name='return_book_flutter'),
     path('logout/', logout, name='logout'),
 ]
 
