@@ -68,7 +68,7 @@ def borrow_book_flutter(request):
 def return_book(request, id):
     borrowed_book = BorrowedBook.objects.filter(user=request.user)
     for book in borrowed_book:
-        if book.id==id:
+        if book.book.id==id:
             book.delete()
     return HttpResponse(b"RETURNED", status=201)
 
@@ -77,7 +77,7 @@ def return_book_flutter(request, id):
     try:
         borrowed_book = BorrowedBook.objects.filter(user=request.user)
         for book in borrowed_book:
-            if book.id==id:
+            if book.book.id==id:
                 book.delete()
         return JsonResponse({'message': 'Book returned successfully'})
     except BorrowedBook.DoesNotExist:
