@@ -1,6 +1,6 @@
 from django.urls import path
 from category.views import show_category, get_product_json, add_book_favorit_ajax, show_favorit, get_book_favorit, delete_favorit, show_json_favorit, show_json_bookfavorit
-from category.views import add_favorit_flutter
+from category.views import add_favorit_flutter, delete_favorit_flutter
 from detail.views import create_review_flutter, get_item_json, get_item_json_flutter, show_detail
 
 app_name = 'category'
@@ -19,4 +19,5 @@ urlpatterns = [
     path('detail/<int:id>/create_review_flutter', create_review_flutter, name='create_review_flutter'),
     path('detail/<int:id>/get-item-json-flutter/', get_item_json_flutter, name='get_item_json_flutter'),
     path('add-favorit-flutter/<int:id>/', add_favorit_flutter, name='add_favorit_flutter'),
+    path('delete-favorit-flutter/<int:id>/', delete_favorit_flutter, name='delete_favorit_flutter'),
 ]
