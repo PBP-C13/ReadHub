@@ -155,15 +155,26 @@ def add_book_favorit_ajax(request, book_id):
 def add_favorit_flutter(request, id):
     if request.method == 'POST':
         data = json.loads(request.body)
-       
-        book_favorit = Category.objects.create(
-            user = request.user,
-            books = data["book"],
-            is_favorite = data["isFavorit"]
-        )
-        book_favorit.save()
+        
+        book = Book.objects.get(pk = data['book']['pk'])
 
-        return JsonResponse({"status": "success"}, status=200)
+        existing_favorit = Category.objects.filter(user=request.user, books__id= id).first()
+
+        if existing_favorit:
+            return JsonResponse({"status": "error"}, status=401)
+        
+        print(data["isFavorit"])
+
+        if data["isFavorit"]:
+            book_favorit = Category.objects.create(
+                user = request.user,
+                books = book,
+                is_favorite = data["isFavorit"]
+            )
+            book_favorit.save()
+            return JsonResponse({"status": "success"}, status=200)
+        else:
+            return JsonResponse({"status": "no"}, status=401)
     else:
         return JsonResponse({"status": "error"}, status=401)
 
