@@ -1,3 +1,4 @@
+import json
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 from django.shortcuts import render
 from django.forms import ModelForm
@@ -10,7 +11,8 @@ from django.core import serializers
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.core.serializers import serialize
-import favorit
+from category.models import Category
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def show_category(request):
@@ -78,6 +80,7 @@ def show_json_bookfavorit(request):
 def show_json_favorit(request):
     favorit_books = Category.objects.filter(user=request.user.id)
     favorit_book_data = []
+    print(request.user)
     for favorit_book in favorit_books:
         book = {
             'id': favorit_book.books.pk,
@@ -102,6 +105,7 @@ def show_json_favorit(request):
 
         }
         favorit_book_data.append(data)
+    
     return JsonResponse(favorit_book_data, safe=False)
 
 
@@ -145,6 +149,23 @@ def add_book_favorit_ajax(request, book_id):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+
+@csrf_exempt
+def add_favorit_flutter(request, id):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+       
+        book_favorit = Category.objects.create(
+            user = request.user,
+            books = data["book"],
+            is_favorite = data["isFavorit"]
+        )
+        book_favorit.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
 
 #untuk delete book favorit
 def delete_favorit(request, book_id):
