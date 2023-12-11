@@ -191,3 +191,14 @@ def delete_favorit(request, book_id):
     else:
         print("ih")
         return HttpResponse("Book is not in favorit list", status=404)
+
+@csrf_exempt
+def delete_favorit_flutter(request, id):
+    try:
+        favorit_book = Category.objects.filter(user=request.user)
+        for book in favorit_book:
+            if book.books.pk==id:
+                book.delete()
+        return JsonResponse({'message': 'Book returned successfully'})
+    except favorit_book.DoesNotExist:
+        return JsonResponse({'error': 'Book does not exist'})
