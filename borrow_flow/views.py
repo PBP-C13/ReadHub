@@ -48,15 +48,20 @@ def borrow_book(request, id):
             borrowed_book.save()
             return redirect('borrow_flow:show_yourbook_page')
     return HttpResponseNotFound()
-    
+
+@csrf_exempt
 def borrow_book_flutter(request):
     if request.method == 'POST':
         data = json.loads(request.body)
+        book_title = data["book_title"]
+        book = get_object_or_404(Book, book_title=book_title)
+        return_date_str = data["return_date"]
+        return_date = datetime.strptime(return_date_str, "%Y-%m-%d %H:%M:%S.%f")
         borrowed_book = BorrowedBook.objects.create(
             user = request.user,
-            book = data["book"],
-            borrow_duration = data["borrow_duration"],
-            return_date = data["return_date"],
+            book = book,
+            borrow_duration = int(data["borrow_duration"]),
+            return_date = return_date,
         )
         borrowed_book.save()
         
