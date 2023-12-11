@@ -61,16 +61,48 @@ def show_json_bookfavorit(request):
     data = Category.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
+# def show_json_favorit(request):
+#     # Cetak ID pengguna ke terminal
+
+#     print("User ID:", request.user.id)
+#     favorit_books = Category.objects.filter(user=request.user.id)
+    
+#     # Ambil hanya ID buku dari setiap objek Category
+#     book_ids = [favorit.books.pk for favorit in favorit_books]
+    
+#     # Ambil objek-objek Book yang sesuai
+#     books = Book.objects.filter(id__in=book_ids)
+    
+#     return HttpResponse(serializers.serialize("json", books), content_type="application/json")
+
 def show_json_favorit(request):
-    favorit_books = Category.objects.filter(user=request.user)
-    
-    # Ambil hanya ID buku dari setiap objek Category
-    book_ids = [favorit.books.id for favorit in favorit_books]
-    
-    # Ambil objek-objek Book yang sesuai
-    books = Book.objects.filter(id__in=book_ids)
-    
-    return HttpResponse(serializers.serialize("json", books), content_type="application/json")
+    favorit_books = Category.objects.filter(user=request.user.id)
+    favorit_book_data = []
+    for favorit_book in favorit_books:
+        book = {
+            'id': favorit_book.books.pk,
+            'book_authors': favorit_book.books.book_authors,
+            'book_desc': favorit_book.books.book_desc,
+            'book_edition': favorit_book.books.book_edition,
+            'book_format': favorit_book.books.book_format,
+            'book_isbn': favorit_book.books.book_isbn,
+            'book_pages': favorit_book.books.book_pages,
+            'book_rating': favorit_book.books.book_rating,
+            'book_rating_count': favorit_book.books.book_rating_count,
+            'book_review_count': favorit_book.books.book_review_count,
+            'book_title': favorit_book.books.book_title,
+            'genres': favorit_book.books.genres,
+            'image_url': favorit_book.books.image_url,
+        }
+        data = {
+            'user': favorit_book.user.pk,
+            'books': book,
+            'name_category': favorit_book.name_category,
+            'is_favorit': favorit_book.is_favorite,
+
+        }
+        favorit_book_data.append(data)
+    return JsonResponse(favorit_book_data, safe=False)
 
 
 
