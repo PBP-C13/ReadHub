@@ -70,7 +70,6 @@ def create_review(request):
     return render(request, "create_detail.html", context)
     
 @login_required
-@csrf_exempt
 def create_review_ajax(request):
     if request.method == 'POST':
         review_text = request.POST.get("book_review")
@@ -83,6 +82,7 @@ def create_review_ajax(request):
 
 @csrf_exempt
 def create_review_flutter(request, id):
+    data = json.loads(request.body)
     if request.method == 'POST':
         data = json.loads(request.body)
        
@@ -96,6 +96,27 @@ def create_review_flutter(request, id):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
+    
+
+@csrf_exempt
+def create_product_flutter(request):
+    data = json.loads(request.body)
+
+    user = User.objects.get(username=data['user'])
+    if request.method == 'POST':
+
+        new_forum = ReviewFlutter.objects.create(
+            user=data["user"],
+            review=data["review"],
+            book = Book.objects.get(pk=data["book"])
+        )
+        new_forum.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
+
 
 def get_item_json_flutter(request, id):
     rev_items = []
