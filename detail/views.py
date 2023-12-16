@@ -39,7 +39,6 @@ def show_detail(request, id):
 
 def get_item_json(request, id):
     product_items = []
-    # Filter reviews by book id
     reviews = Review.objects.filter(book_id=id)
     
     for r in reviews:
