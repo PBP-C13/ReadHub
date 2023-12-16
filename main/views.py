@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from main.forms import ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
@@ -8,6 +8,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from book.models import Book
+from main.models import PrivacyPolicy
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 
@@ -79,3 +80,13 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect('main:login')
+
+def get_privacy_policy(request):
+    privacy_policy = PrivacyPolicy.objects.first()
+    if privacy_policy:
+        data = {
+            'privacy_policy': privacy_policy.content,
+        }
+        return JsonResponse(data)
+    else:
+        return JsonResponse({'error': 'Privacy Policy not found'})
