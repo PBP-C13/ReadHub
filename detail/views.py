@@ -69,7 +69,7 @@ def create_review(request):
     context = {'rev': rev}
     return render(request, "create_detail.html", context)
     
-@login_required
+@login_required(login_url='/login')
 def create_review_ajax(request):
     if request.method == 'POST':
         review_text = request.POST.get("book_review")
