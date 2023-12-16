@@ -98,7 +98,7 @@ def create_review_flutter(request, id):
     
 
 @csrf_exempt
-def create_product_flutter(request):
+def create_product_flutter(request, id):
     data = json.loads(request.body)
 
     user = User.objects.get(username=data['user'])
@@ -107,7 +107,7 @@ def create_product_flutter(request):
         new_forum = ReviewFlutter.objects.create(
             user=data["user"],
             review=data["review"],
-            book = Book.objects.get(pk=data["book"])
+            book=data["book"]
         )
         new_forum.save()
 
