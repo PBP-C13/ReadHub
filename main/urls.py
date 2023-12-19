@@ -15,4 +15,5 @@ urlpatterns = [
     path('login/', login_user, name='login'),
     path('logout/', logout_user, name='logout'),
     path('get-privacy-policy/', get_privacy_policy, name='get_privacy_policy'),
+    path('privacy_policy/', privacy_policy, name='privacy_policy'),
 ]
