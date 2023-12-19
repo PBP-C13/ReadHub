@@ -90,3 +90,15 @@ def get_privacy_policy(request):
         return JsonResponse(data)
     else:
         return JsonResponse({'error': 'Privacy Policy not found'})
+    
+
+def privacy_policy(request):
+    try:
+        # Ganti dengan path yang sesuai tempat Anda menyimpan file
+        with open('main/text/privacy_policy.txt', 'r') as file:
+            privacy_policy_text = file.read()
+
+        data = {'privacy_policy': privacy_policy_text}
+        return JsonResponse(data)
+    except FileNotFoundError:
+        return JsonResponse({'error': 'File not found'}, status=404)
