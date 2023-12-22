@@ -25,3 +25,5 @@ ReadHub does not knowingly collect any Personal Identifiable Information from ch
 Online Privacy Policy Only
 This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in ReadHub. This policy is not applicable to any information collected offline or via channels other than this website.
 
+Pesan
+Sebelumnya, kami segenap anggota kelompok C-13 ingin berterimakasih banyak kepada Bu Ara yang telah membimbing kami selama 1 semester ini di mata kuliah PBP-C. Berkat bimbingan dan ilmu yang telah Bu Ara berikan, kami mendapatkan banyak ilmu dan pengetahuan mengenai Web Development dan juga Mobile Development. Semoga ilmu yang Bu Ara berikan bisa berguna bagi kami kedepannya dalam meniti karir di bidang teknologi.
